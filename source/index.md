@@ -1,10 +1,9 @@
 ---
-title: API Reference
+title: Divvy Webhook Reference
 
 language_tabs:
+  - json
   - shell
-  - ruby
-  - python
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
@@ -16,69 +15,219 @@ includes:
 search: true
 ---
 
-# Introduction
+# Divvy Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Divvy 2 is a system for registering webhooks to use for external integration with the Webconnex eco-system that allows for people to post form data to an endpoint of their choosing.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+System needs to handle high volume registrations which will require the use of queues
+and a scheduler.
 
-This example API documentation page was created with [Slate](http://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Needs to track the following things:
+- connection errors:  should log failed attempts to post, should retry
+- time of submission:
+- end point of submission:
+- account:
+- payload submitted:
 
 # Authentication
 
-> To authorize, use this code:
+For the initial build we will just allow the API server to connect to the webhook server.
+If we need to pass data we can proxy it through the api server for now.
 
-```ruby
-require 'kittn'
+# Workflow
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+## Registration
+Consists of accountID, URL, secret, method, events, payload type, unique hash
+to possibly be used as a api key.
+
+Inital limit of 5 webhooks for each account.
+
+## Processing
+
+API decides if an event was triggered and if there is a registered webhook for that event
+
+If a match was found the API sends the data to the webhook queue
+
+The webhook working takes the items off the queue that contain the following data:
+- Destination URL
+- Method (optional, default=POST)
+- API Key (optional)
+- Payload (defined as all data, or event message)
+- AccountID
+- Campaign Name
+- Campaign URL
+
+The webhook submits a structured JSON payload to the URL that contains the following:
+
+### Headers
+-X-Webconnex-Event
+-X-Webconnex-Delivery: (some UUID)
+-X-Webconnex-Signature: HMAC hex digest of the payload, using hooks secret as the key (if configured).
+-User-Agent: Webconnex-Divvy
+
+### JSON:
+- WebhookId
+- URLs (test, ping, pull)?
+- last response
+- Data (Possibly have an object for each event, transaction, registration, etc.)
+  - Campaign Name
+  - Campaign URL
+  - Timestamp
+  - Event Payload data
+
+### Log the response from the Webhook URL:
+	- Code: (200, 400, 500, etc.)
+  - Status (optional):
+  - Message (optional):
+ 	- Full headers
+ 	- Full Response body
+ 	- Full payload
+ 	- Full config for the response
+ 	- Webhook ID
+ 	- Webhook Delivery ID (primary key)
+ 	- Signature
+ 	- Event
+
+
+### UI:
+The UI should allow for the following functionality.
+Allow for account admins to set-up up 5 web hooks
+Allow users to view a log of requests made to the webhook
+Allow for a user to resend a particular Webhook response
+
+
+# Architecture
+Use Go as the language
+Utilize Redis for the Queue
+MySQL/MariaDB for data persistence
+Maybe ES for the querying of data
+
+## Event Registration
+What is the most efficient way to figure out if an event as been triggered?
+
+### Option 1
+Use logging to monitor for events. Watching the log files we could set up cues to an event being
+fired and append the data of the event. Divvy could check to see if the event matches a
+registered webhook and perform work on that. This option has the added benefit of each data payload
+would "backed up" in a log file.
+
+### Option2
+Have the API send events and payloads directly to Divvy and Divvy would decide whether or not to
+perform work on it.
+
+# Trigger Events
+
+These are the system events that are available as webhook triggers
+
+## Registration
+
+```json
+{ "registrationID": 1}
 ```
 
-```python
-import kittn
+## Transaction
 
-api = kittn.authorize('meowmeowmeow')
+```json
+{ "registrationID": 1}
+```
+
+## Registrant Modification
+
+```json
+{ "registrationID": 1}
+```
+
+## Transfers
+
+```json
+{ "registrationID": 1}
+```
+
+## Subscription
+
+```json
+{ "registrationID": 1}
+```
+
+## Decline
+
+```json
+{ "registrationID": 1}
+```
+
+## Settlement
+
+```json
+{ "registrationID": 1}
+```
+
+## Ping
+
+Used for testing.
+
+```json
+{ "registrationID": 1}
+```
+
+# EndPoints
+
+## Create
+
+`/create POST`
+
+```json
+{
+
+}
+```
+
+
+## View
+
+`/view/:hook_id GET`
+
+```json
+{
+
+}
+```
+
+
+## History
+
+`/history/:hook_id GET`
+
+```json
+{
+
+}
+```
+
+
+## Resend
+
+`/resend/:hook_id/delivery/:history_id POST`
+
+```json
+{
+
+}
+```
+
+
+## Delivery Status
+
+`/resend/:hook_id/delivery/:history_id GET`
+
+```json
+{
+
+}
 ```
 
 ```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+curl "http://example.com/divvy/resend/:hook_id/delivery/:history_id"
+  -H "Authorization: sessionID"
 ```
 
 > The above command returns JSON structured like this:
@@ -87,57 +236,33 @@ curl "http://example.com/api/kittens"
 [
   {
     "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
+    "name" : "something here"
   },
   {
     "id": 2,
-    "name": "Isis",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+    "name": "something here"
   }
 ]
 ```
 
-This endpoint retrieves all kittens.
-
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`GET http://example.com/api/divvy/`
 
 ### Query Parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+sort | "asc" | Will sort by either time processed ascending or descending
+errors | true | Will show only failed requests
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+Remember — This is a success message.
 </aside>
 
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+curl "http://example.com/api/divvy"
 ```
 
 > The above command returns JSON structured like this:
@@ -145,24 +270,9 @@ curl "http://example.com/api/kittens/2"
 ```json
 {
   "id": 2,
-  "name": "Isis",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "name": "something to go here"
 }
 ```
 
-This endpoint retrieves a specific kitten.
 
-<aside class="warning">If you're not using an administrator API key, note that some kittens will return 403 Forbidden if they are hidden for admins only.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
+<aside class="warning">If you're not using an administrator API key, note that some errors 403 Forbidden if they are hidden for admins only.</aside>
