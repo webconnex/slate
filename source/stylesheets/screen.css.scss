@@ -83,7 +83,10 @@ html, body {
 
   // This is the logo at the top of the ToC
   &>img {
+    width: 210px;
+    padding: 10px;
     display: block;
+    
   }
 
   &>.search {
