@@ -56,8 +56,8 @@ These are the system events that are available as webhook triggers
       },
       "paymentMethod": "card"
     },
-    "id": "1450805189464127571",
-    "orderNumber": "NWBGBY-001-14",
+    "id": "14508051894641200000",
+    "orderNumber": "NWBGBY-xxx-xxx",
     "orderStatus": "completed",
     "registrants": [
       {
@@ -132,7 +132,7 @@ These are the system events that are available as webhook triggers
             "value": "nathanael@wearebunker.com"
           }
         ],
-        "id": "1450805189470202402"
+        "id": "145080518947020000"
       }
     ],
     "registrationTimestamp": "2015-12-22T17:26:29Z",
