@@ -23,7 +23,7 @@ Divvy is the public API for Webconnex 4.0.
 
 This service is currently under active development and some requests/responses are likely to change.
 
-URL: `https://api.webconnex.com/v1`
+URL: `https://api.webconnex.com/v1/public`
 
 # Authentication
 
