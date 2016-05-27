@@ -2,7 +2,6 @@
 
 The Divvy API uses the following error codes:
 
-
 Error Code | Meaning
 ---------- | -------
 400 | Bad Request -- Your request sucks
@@ -13,4 +12,5 @@ Error Code | Meaning
 406 | Not Acceptable -- You requested a format that isn't json
 429 | Too Many Requests -- You're requesting too many kittens! Slow down!
 500 | Internal Server Error -- We had a problem with our server. Try again later.
-503 | Service Unavailable -- We're temporarially offline for maintanance. Please try again later.
+501 | Not Implemented -- Coming Soon.
+503 | Service Unavailable -- We're temporarily offline for maintenance. Please try again later.

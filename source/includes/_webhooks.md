@@ -1,11 +1,12 @@
 # Webhooks
 
-Our webhook system allows you to receive data when certian events happen on your account.
+Our webhook system allows you to receive data when certain events happen on your account.
 
 We currently support the following events:
 
 * Test
 * New Registration
+* Processed Subscription / Deposit
 
 ##Control Panel Interface
 
