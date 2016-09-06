@@ -15,6 +15,10 @@ toc_footers:
 
 includes:
   - api_v2
+  - api_v2_endpoints
+  - api_v2_ping
+  - api_v2_forms
+  - api_v2_orders
   - webhooks
   - webhook_events
   - errors
