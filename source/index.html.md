@@ -19,6 +19,10 @@ includes:
   - api_v2_ping
   - api_v2_forms
   - api_v2_orders
+  - api_v2_registrants
+  - api_v2_subscriptions
+  - api_v2_transactions
+  - api_v2_webhooks
   - webhooks
   - webhook_events
   - errors
@@ -26,13 +30,11 @@ includes:
 search: true
 ---
 
-# Divvy Introduction
+# Introduction
 
-Divvy is the public API for Webconnex 4.0.
+This service is currently under active development and some requests/responses could change.
 
-This service is currently under active development and some requests/responses are likely to change.
-
-URL: `https://api.webconnex.com/v1`
+URL: `https://api.webconnex.com/v2`
 
 # Authentication
 

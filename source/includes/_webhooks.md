@@ -6,6 +6,8 @@ We currently support the following events:
 
 * Test
 * New Registration
+* Subscription/Recurring Notification
+* Form Published
 
 ##Control Panel Interface
 

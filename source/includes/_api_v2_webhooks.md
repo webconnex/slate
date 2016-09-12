@@ -244,13 +244,3 @@ Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*string*<br>required 				| ID of the webhook
 **logId**<br>*string*<br>required 				| ID of the webhook log entry to be resent
-
-#Webhook
-
-
-
-#Webhook Service
-
-##Events
-
-##Examples
