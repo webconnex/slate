@@ -1,31 +1,9 @@
-# Webhooks Events
+## Webhooks Events
 
 These are the system events that are available as webhook triggers
 
-## Registration
+### Registration
 
-> Request Headers
-
-```json
-{
-  "Content-Type": [
-    "application/json"
-  ],
-  "User-Agent": [
-    "Webconnex-Divvy"
-  ],
-  "X-Webconnex-Delivery": [
-    "b473fe314def43ccacc10ec75aae1451"
-  ],
-  "X-Webconnex-Event": [
-    "registration"
-  ],
-  "X-Webconnex-Signature": [
-    "25cae1dd084dc7afa977e075c7e0fa72a966098110aca62a1b61e1cc7xxxxxxxx"
-  ]
-}
-
-```
 
 > Payload
 
@@ -143,7 +121,7 @@ These are the system events that are available as webhook triggers
 
 The registration event is fired whenever a successful registration has occured on a form that you have set up a webhook for. The payload will resemble the fields in the form tied to the webhook event.
 
-### Response Parameters
+#### Response Parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
@@ -154,7 +132,7 @@ registrationTimestamp | timestamp | UTC date and time
 total | float | the total value of the registration
 data | object | the object container the complete payload for the registration
 
-### Data values
+#### Data values
 
 Parameter | Default | Description
 --------- | ------- | -----------
@@ -165,7 +143,7 @@ id | string | unique has for the registration
 metrics | object | contains certain metrics from the registration (incomplete)
 orderNumber | string | unique order number built from accounting reference in the form
 
-## Form Published
+### Form Published
 
 > Payload
 ```json
@@ -183,7 +161,7 @@ orderNumber | string | unique order number built from accounting reference in th
 ```
 
 
-## Subscription
+### Subscription
 
 > Payload
 
@@ -202,7 +180,7 @@ orderNumber | string | unique order number built from accounting reference in th
 ```
 
 
-## Test
+### Test
 
 > Payload
 

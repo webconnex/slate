@@ -1,19 +1,21 @@
-#Structure
+#API
 
-##Overview
+##Structure
+
+###Overview
 
 The Webconnex API is build upon simple REST patterns. We use standard HTTP methods and error codes in our responses.
 
-##Authentication
+###Authentication
 
 Authentication happens through the use of an API key issued from the Integrations pane under account settings.
 
-##Rate Limits
+###Rate Limits
 
 We have limit request to the API at 15000 per account per day. In a 15 minute period we limit the number of accounts by X.
 
-### HTTP Headers
-### Response Parameters
+#### HTTP Headers
+#### Response Parameters
 Header | Description
 ---------------------- | --------------
 X-Rate-Usage-Limit | The number of allowed requests in the current period (daily)
@@ -24,7 +26,7 @@ X-Rate-Limit-Reset | The number of seconds left in the current period (15 min)
 X-Retry-After | If surpassed `X-Rate-Usage-Limit` or `X-Rate-Limit-Limit`, - the unix time when requests can be submitted again (15 min or daily depending on which limit is hit)
 
 
-##Errors
+###Errors
 
 ```json
 {
@@ -36,7 +38,7 @@ X-Retry-After | If surpassed `X-Rate-Usage-Limit` or `X-Rate-Limit-Limit`, - the
 }
 ```
 
-### HTTP Codes (responseCode)
+#### HTTP Codes (responseCode)
 HTTP Code							 | Description
 ------------ |-----------------------------------------
 200 OK	| The request was successful, we updated/created the resource and the responded body contains the representation.
@@ -49,8 +51,8 @@ HTTP Code							 | Description
 429 TOO MANY REQUESTS | Your application is sending too many simultaneous requests.
 500 SERVER ERROR	| We couldn't create or update the resource. Please try again.
 
-##Expanding Objects
+###Expanding Objects
 
-##Pagination
+###Pagination
 
-##Filtering
+###Filtering

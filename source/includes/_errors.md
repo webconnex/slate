@@ -1,4 +1,4 @@
-# Errors
+## Errors
 
 > Response
 
@@ -12,7 +12,7 @@
 }
 ```
 
-## HTTP Codes
+### HTTP Codes
 | HTTP Code							 | Description |
 | ------------ |------------------------------------------|
 | 200 OK	| The request was successful, we updated/created the resource and the responded body contains the representation. |

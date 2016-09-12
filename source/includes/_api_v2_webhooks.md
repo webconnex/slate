@@ -1,8 +1,8 @@
-#Webhook
+##Webhook
 
-## List Webhooks
+### List Webhooks
 
-### HTTP Request
+#### HTTP Request
 `GET /v2/public/webhooks/`
 
 ```json
@@ -55,10 +55,10 @@
 }
 ```
 
-###  Request Params
+####  Request Params
 No filtering implemented on this object.
 
-###  Response Object
+####  Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the webhook
@@ -74,9 +74,9 @@ Attribute			|	Description
 **dateCreated**<br>*timestamp* | Date and time of the creation of the webhook
 **dateUpdated**<br>*timestamp* | Date and time the webhook was last updated
 
-## View Webhook
+### View Webhook
 
-### HTTP Request
+#### HTTP Request
 `GET /v2/public/webhooks/{id}`
 
 ```json
@@ -107,12 +107,12 @@ Attribute			|	Description
 }
 ```
 
-###  Request Params
+####  Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*string*<br>required 				| ID of the requested webhook
 
-###  Response Object
+####  Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the webhook
@@ -128,12 +128,12 @@ Attribute			|	Description
 **dateCreated**<br>*timestamp* | Date and time of the creation of the webhook
 **dateUpdated**<br>*timestamp* | Date and time the webhook was last updated
 
-## Create Webhook
+### Create Webhook
 
-### HTTP Request
+#### HTTP Request
 `POST /v2/public/webhooks`
 
-###  Request Object
+####  Request Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **forms**<br>*array*<br>required					| Array of the form IDs associated with the webhook TODO: all forms
@@ -144,7 +144,7 @@ Attribute			|	Description
 **status**<br>*string*					| Status of the webhook (enabled/disabled)
 **meta**<br>*object*					| Contains webhook name and app key if required by the endpoint
 
-###  Response Object
+####  Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the webhook
@@ -162,12 +162,12 @@ Attribute			|	Description
 
 
 
-## Update Webhook
+### Update Webhook
 
-### HTTP Request
+#### HTTP Request
 `POST /v2/public/webhooks/{id}`
 
-###  Request Object
+####  Request Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the webhook
@@ -180,7 +180,7 @@ Attribute			|	Description
 **status**<br>*string*					| Status of the webhook (enabled/disabled)
 **meta**<br>*object*					| Contains webhook name and app key if required by the endpoint
 
-###  Response Object
+####  Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the webhook
@@ -197,49 +197,49 @@ Attribute			|	Description
 **dateUpdated**<br>*timestamp* | Date and time the webhook was last updated
 
 
-## Delete Webhook
+### Delete Webhook
 
-### HTTP Request
+#### HTTP Request
 `POST /v2/public/webhooks/{id}`
 
-###  Request Object
+####  Request Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| ID of the webhook
 
-## List Logs for Webhook
+### List Logs for Webhook
 
 Get all logs for a given webhook
 
-### HTTP Request
+#### HTTP Request
 `POST /v2/public/webhooks/{id}/logs`
 
-###  Request Object
+####  Request Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| ID of the webhook
 
-## View Log by ID for Webhook
+### View Log by ID for Webhook
 
 View a specific webhook log
 
-### HTTP Request
+#### HTTP Request
 `POST /v2/public/webhooks/{id}/logs/{logId}`
 
-###  Request Object
+####  Request Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| ID of the webhook
 **logId**<br>*integer* 				| ID of the webhook log
 
-## Resend Webhook Request by Request ID
+### Resend Webhook Request by Request ID
 
 Request that a particular webhook attempt be resent.
 
-### HTTP Request
+#### HTTP Request
 `POST /v2/public/webhooks/{id}/resend/{logId}`
 
-###  Request Params
+####  Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*string*<br>required 				| ID of the webhook

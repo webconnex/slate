@@ -1,4 +1,4 @@
-# Endpoints
+## Endpoints
 
 Method			|	Path 									|	Resource 			| Description
 ------------|-----------------------|---------------|------------------------------

@@ -15,6 +15,7 @@ toc_footers:
 
 includes:
   - api_v2
+  - errors
   - api_v2_endpoints
   - api_v2_ping
   - api_v2_forms

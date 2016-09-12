@@ -1,6 +1,6 @@
-#Ping/Healthcheck
+##Ping/Healthcheck
 
-## Check Status
+### Check Status
 
 Simple endpoint to provide a health check endpoint to make sure we are alive and kickin'.
 
@@ -184,7 +184,7 @@ Attribute			|	Description
 **data**<br>*string*					| Random string to use as data payload
 
 
-### HTTP Request
+#### HTTP Request
 `GET /v2/public/ping`
 
 ```json

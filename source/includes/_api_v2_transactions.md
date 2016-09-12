@@ -1,8 +1,8 @@
-#Transaction
+##Transaction
 
-## Search transactions
+### Search transactions
 
-### HTTP Request
+#### HTTP Request
 `GET /v2/public/search/transactions`
 
 ```json
@@ -66,7 +66,7 @@
 
 
 
-###  Request Params
+####  Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **product**<br>*string*<br>required 				| Name of the product you to search for orders on
@@ -81,7 +81,7 @@ Parameter			|	Description
 **dateUpdatedAfter**<br>*timestamp*<br>optional 				| filter orders to only show results updated after date
 
 
-###  Response Object
+####  Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the
@@ -98,9 +98,9 @@ Attribute			|	Description
 **dateCreated**<br>*timestamp* | Date and time of the creation of the order
 **dateUpdated**<br>*timestamp* | Date and time the order was last updated
 
-## View Transaction by ID
+### View Transaction by ID
 
-### HTTP Request
+#### HTTP Request
 `GET /v2/public/search/transactions/{id}`
 
 ```json
@@ -136,12 +136,12 @@ Attribute			|	Description
 }
 ```
 
-###  Request Params
+####  Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*string*<br>required 				| ID of the requested order
 
-###  Response Object
+####  Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the
@@ -157,15 +157,3 @@ Attribute			|	Description
 **total**<br>*float*					| Total cost of the order
 **dateCreated**<br>*timestamp* | Date and time of the creation of the order
 **dateUpdated**<br>*timestamp* | Date and time the order was last updated
-
-
-
-#Webhook
-
-
-
-#Webhook Service
-
-##Events
-
-##Examples
