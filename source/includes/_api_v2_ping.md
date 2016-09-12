@@ -5,7 +5,7 @@
 Simple endpoint to provide a health check endpoint to make sure we are alive and kickin'.
 
 ```shell
-curl -X "GET" "http://api.staging.webconnex.com/v2/public/ping" \
+curl -X "GET" "http://api.webconnex.com/v2/public/ping" \
 	-H "apiKey: a4149b01006842c8951720d64e1ec096"
 ```
 
@@ -20,13 +20,13 @@ import (
 )
 
 func sendRequest() {
-	// Request (GET http://api.staging.webconnex.com/v2/public/ping)
+	// Request (GET http://api.webconnex.com/v2/public/ping)
 
 	// Create client
 	client := &http.Client{}
 
 	// Create request
-	req, err := http.NewRequest("GET", "http://api.staging.webconnex.com/v2/public/ping", nil)
+	req, err := http.NewRequest("GET", "http://api.webconnex.com/v2/public/ping", nil)
 
 	// Headers
 	req.Header.Add("apiKey", "a4149b01006842c8951720d64e1ec096")
@@ -57,7 +57,7 @@ func sendRequest() {
     const httpTransport = require('http');
     const responseEncoding = 'utf8';
     const httpOptions = {
-        hostname: 'api.staging.webconnex.com',
+        hostname: 'api.webconnex.com',
         port: '80',
         path: '/v2/public/ping',
         method: 'GET',
@@ -119,10 +119,10 @@ class MyRequestController {
         let session = NSURLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
 
         /* Create the Request:
-           Request (GET http://api.staging.webconnex.com/v2/public/ping)
+           Request (GET http://api.webconnex.com/v2/public/ping)
          */
 
-        guard var URL = NSURL(string: "http://api.staging.webconnex.com/v2/public/ping") else {return}
+        guard var URL = NSURL(string: "http://api.webconnex.com/v2/public/ping") else {return}
         let request = NSMutableURLRequest(URL: URL)
         request.HTTPMethod = "GET"
 
@@ -158,11 +158,11 @@ import requests
 
 def send_request():
     # Request
-    # GET http://api.staging.webconnex.com/v2/public/ping
+    # GET http://api.webconnex.com/v2/public/ping
 
     try:
         response = requests.get(
-            url="http://api.staging.webconnex.com/v2/public/ping",
+            url="http://api.webconnex.com/v2/public/ping",
             headers={
                 "apiKey": "a4149b01006842c8951720d64e1ec096",
             },

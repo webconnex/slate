@@ -3,7 +3,7 @@
 ## List All Campaigns
 
 ```shell
-curl -X "GET" "http://api.rc.webconnex.com/v1/public/forms" \
+curl -X "GET" "http://api.webconnex.com/v1/public/forms" \
 	-H "apiKey: xxxxxxxxxx"
 ```
 
@@ -48,7 +48,7 @@ updatedDate |  date/time | last updated date and time in UTC
 ## Form Detail
 
 ```shell
-curl -X "GET" "http://api.rc.webconnex.com/v1/public/forms/1" \
+curl -X "GET" "http://api.webconnex.com/v1/public/forms/1" \
 	-H "apiKey: xxxxxxxxxx"
 ```
 
@@ -190,7 +190,7 @@ updatedDate |  date/time | last updated date and time in UTC
 
 
 ```shell
-curl -X "GET" "http://api.rc.webconnex.com/v1/public/webhooks" \
+curl -X "GET" "http://api.webconnex.com/v1/public/webhooks" \
 	-H "apiKey: xxxxxxxxxx"
 ```
 
@@ -241,7 +241,7 @@ updatedDate |  date/time | last updated date and time in UTC
 ## View Webhook Details
 
 ```shell
-curl -X "GET" "http://api.rc.webconnex.com/v1/public/webhooks/:id" \
+curl -X "GET" "http://api.webconnex.com/v1/public/webhooks/:id" \
 	-H "apiKey: xxxxxxxxxx"
 ```
 
