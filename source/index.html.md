@@ -23,6 +23,7 @@ includes:
   - api_v2_registrants
   - api_v2_subscriptions
   - api_v2_transactions
+  - api_v2_coupons
   - api_v2_webhooks
   - webhooks
   - webhook_events
