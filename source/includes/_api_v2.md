@@ -18,19 +18,20 @@ We have limit request to the API at 15000 per account per day. In a 15 minute pe
 #### Response Parameters
 Header | Description
 ---------------------- | --------------
-X-Rate-Usage-Limit | The number of allowed requests in the current period (daily)
-X-Rate-Usage-Remaining | The number of remaining requests in the current period (daily)
-X-Rate-Limit-Limit | The number of allowed requests in the current period (15 min)
-X-Rate-Limit-Remaining | The number of remaining requests in the current period (15 min)
-X-Rate-Limit-Reset | The number of seconds left in the current period (15 min)
-X-Retry-After | If surpassed `X-Rate-Usage-Limit` or `X-Rate-Limit-Limit`, - the unix time when requests can be submitted again (15 min or daily depending on which limit is hit)
+X-Daily-Limit | The number of allowed requests in the current period (daily)
+X-Daily-Remaining | The number of remaining requests in the current period (daily)
+X-Daily-Limit-Reset | The number of seconds left in the current period (daily)
+X-Burst-Limit | The number of allowed requests in the current period (15 min)
+X-Burst-Remaining | The number of remaining requests in the current period (15 min)
+X-Burst-Limit-Reset | The number of seconds left in the current period (15 min)
+X-Retry-After | If surpassed `X-Daily-Limit` or `X-Burst-Limit`, - the unix time when requests can be submitted again (15 min or daily depending on which limit is hit)
 
 
 ###Errors
 
 ```json
 {
-	"responseCode": 500,
+	"responseCode": 400,
 	"error": {
 		"code": 4000,
 		"message": "your request sucks!"
@@ -41,7 +42,8 @@ X-Retry-After | If surpassed `X-Rate-Usage-Limit` or `X-Rate-Limit-Limit`, - the
 #### HTTP Codes (responseCode)
 HTTP Code							 | Description
 ------------ |-----------------------------------------
-200 OK	| The request was successful, we updated/created the resource and the responded body contains the representation.
+200 OK	| The request was successful, we updated the resource and the responded body contains the representation.
+201 CREATED	| The request was successful, we created the resource and the responded body contains the representation.
 204 OK DELETED	| The request was successful; the resource was deleted.
 400 BAD REQUEST | The data given in the POST or PUT failed validation. Inspect the response body for details.
 401 UNAUTHORIZED	| The supplied credentials, if any, are not sufficient to create or update the resource.

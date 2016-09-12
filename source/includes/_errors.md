@@ -6,7 +6,7 @@
 {
 	"responseCode": 500,
 	"error": {
-		"code": 4000,
+		"code": 5000,
 		"message": "your request could not be completed"
 	}
 }

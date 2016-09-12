@@ -1,6 +1,6 @@
 # Webhooks
 
-Our webhook system allows you to receive data when certian events happen on your account.
+Our webhook system allows you to receive data when certain events happen on your account.
 
 We currently support the following events:
 
@@ -11,7 +11,7 @@ We currently support the following events:
 
 ##Control Panel Interface
 
-Aside from using the public API, you can create webhooks in the [control-panel interface](https://beta.manage.webconnex.com) under the account settings.
+Aside from using the public API, you can create webhooks in the [control-panel interface](https://manage.webconnex.com) under the account settings.
 
 In the list of your webhooks you are able to disable them by toggling them on and off.
 
@@ -53,5 +53,5 @@ Parameter | Description
 Content-Type | application/json
 User-Agent | Webconnex-Divvy
 X-Webconnex-Delivery | Hash for the delivery
-X-Webconnes-Event | Array of event types being sent
+X-Webconnex-Event | Array of event types being sent
 X-Webconnex-Signature | HMAC for the webhook. Remains unchanged on resend events
