@@ -4,7 +4,6 @@ These are the system events that are available as webhook triggers
 
 ### Registration
 
-
 > Payload
 
 ```json
@@ -26,7 +25,11 @@ These are the system events that are available as webhook triggers
         "expMonth": 4,
         "expYear": 2018
       },
-      "check": {},
+      "check": {
+        "accountType": "Bank Name",
+        "accountNumber": "XXXX4111",
+        "routingNumber": "123456789"
+      },
       "email": "no-reply@webconnex.com",
       "name": {
         "first": "Robert",
@@ -126,30 +129,40 @@ The registration event is fired whenever a successful registration has occurred 
 
 Parameter | Default | Description
 --------- | ------- | -----------
-eventId | string | ID of the event
+eventId | integer | ID of the registration webhook event.
 eventType | string | registration
-formId | integer | ID of the form
 accountId | integer | ID of the account
-registrationTimestamp | timestamp | UTC date and time
-total | float | The total value of the registration
-data | object | The object container the complete payload for the registration
+formId | integer | ID of the form
+data | object | Object contains the complete payload for the registration
+meta | object | Object contains information about the webhook.
 
 #### Data values
 
 Parameter | Default | Description
 --------- | ------- | -----------
+total | float | The total value of the registration
 billing | object | Object contains the billing information
-registrants | object | Contains all the fields for the registrant(s)
-tickets | object | Contains all the fields for the tickets
-id | string | Unique has for the registration
-customerId | integer | ID of the customer
-metrics | object | Contains certain metrics from the registration (incomplete)
+registrants | object | Object contains all the fields for the registrant(s)
+tickets | object | Object contains all the fields for the ticket(s)
+id | string | Unique hash for the registration
+lookupId | integer | Internal ID of the registration
+customerId | integer | ID of the purchasing customer
+metrics | object | Contains certain metrics from the registration
 orderNumber | string | Unique order number built from accounting reference in the form
 orderStatus | string | Status of the order
+transactionReference  | string  | Transaction reference of the registration
+registrationTimestamp | timestamp | UTC date and time
+
+#### Meta values
+Parameter | Default | Description
+--------- | ------- | -----------
+name | string | The name of the webhook
+appKey | string | Self assigned application key (optional)
 
 ### Form Published
 
 > Payload
+
 ```json
 {
   "eventType": "publish",
@@ -179,28 +192,37 @@ The publish event is fired whenever a successful form has been published on a fo
 
 Parameter | Default | Description
 --------- | ------- | -----------
-eventType | string | registration
-eventId | string | ID of the event
+eventId | integer | ID of the publish webhook event.
+eventType | string | publish
 formId | integer | ID of the form
 accountId | integer | ID of the account
-data | object | The object container the complete payload for the publish event
+data | object | Object contains the complete payload for the publish event
+meta | object | Object contains information about the webhook.
 
 #### Data values
 
 Parameter | Default | Description
 --------- | ------- | -----------
-id | string | ID of the form
-accRef | string | Campaign accounting reference
+id | integer | ID of the form
+lookupId | integer | ID of the form
+accRef | string | Form accounting reference
 currency | string | Currency of the campaign
-datePublished | string | Date of publish event
-eventStart | date | Event start date
-eventEnd | date | Event end date
+datePublished | date | Date form was last published
+eventStart | date | Event start date (optional)
+eventEnd | date | Event end date (optional)
 registrationStart | date | Opening date for registration (optional)
-name | string | Name of the campaign
-product | string | Name of the campaign
-publishedPath | string | Name of the campaign
-status | string | Status of the campaign
-timeZone | string | Timezone of the published campaign
+registrationEnd| date | Ending date for registration (optional)
+name | string | Name of the form
+product | string | Product of the form
+publishedPath | string | Name of the form
+status | string | Status of the form
+timeZone | string | Timezone of the form
+
+#### Meta values
+Parameter | Default | Description
+--------- | ------- | -----------
+name | string | The name of the webhook
+appKey | string | Self assigned application key (optional)
 
 ### Subscription
 
@@ -226,7 +248,11 @@ timeZone | string | Timezone of the published campaign
         "expMonth": 9,
         "expYear": 2022
       },
-      "check": {},
+      "check": {
+        "accountType": "Bank Name",
+        "accountNumber": "XXXX4111",
+        "routingNumber": "123456789"
+      },
       "email": "eric@webconnex.com",
       "name": {
         "first": "Eric",
@@ -267,23 +293,49 @@ The subscription / reoccurring event is fired whenever a successful subscription
 
 Parameter | Default | Description
 --------- | ------- | -----------
+eventId | integer | ID of the subscription webhook event.
 eventType | string | subscription
-eventId | string | ID of the event
 formId | integer | ID of the form
 accountId | integer | ID of the account
-data | object | The object container the complete payload for the subscription event
+data | object | Object contains the complete payload for the subscription event
+meta | object | Object contains information about the webhook.
 
 #### Data values
 
 Parameter | Default | Description
 --------- | ------- | -----------
-id | string | ID of the form
+id | string | Internal ID of the subscription
+lookupId | string | ID of the subscription
 customerId | integer | ID of the customer
 billing | object | Object contains the billing information
-orderNumber | string | Unique order number built from accounting reference in the form
+orderNumber | string | Unique order number built from the form accounting reference
 orderStatus | string | Status of the order
 subscription | object | Object contains the subscription information
+transactionReference  | string  | The transaction reference of processed transaction
+total | float | The total value processed
 
+#### Subscription values
+
+Parameter | Default | Description
+--------- | ------- | -----------
+amount | float | The total value processed
+category | string | Designated fund
+dateCreated | date | Date of creation
+dateUpdated | date | Date last updated (optional)
+dateLast | date | Date of last processed
+dateNext | date | Date of next process attempt
+
+<dates>
+email | string | Email address of the subscription
+id | integer | Internal ID of the subscription
+schedule | string | Cron formatted string detailing the schedule
+scheduleString | string | Human readable schedule
+
+#### Meta values
+Parameter | Default | Description
+--------- | ------- | -----------
+name | string | The name of the webhook
+appKey | string | Self assigned application key (optional)
 
 ### Test
 
@@ -292,14 +344,14 @@ subscription | object | Object contains the subscription information
 ```json
 {
   "eventType": "test",
-  "formId": 0,
+  "formId": 1234,
   "eventId": 1234,
   "accountId": 14,
   "data": {
     "data": "Additional documentation available at http://docs.webconnex.io/divvy/",
     "eventId": 1234,
     "eventType": "test",
-    "formId": 0
+    "formId": 1234
   }
 }
 ```
@@ -311,13 +363,16 @@ Used for testing
 Parameter | Default | Description
 --------- | ------- | -----------
 eventType | string | test
-eventId | string | 1234
-formId | integer | 0
+eventId | integer | 1234
+formId | integer | 1234
 accountId | integer | ID of the account
-data | object | The object container the complete payload for the test event
+data | object | Object contains the complete payload for the test event
 
 #### Data values
 
 Parameter | Default | Description
 --------- | ------- | -----------
 data |  string  | Random string to use as data payload
+eventType | string | test
+eventId | integer | 1234
+formId | integer | 1234
