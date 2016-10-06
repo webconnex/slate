@@ -276,7 +276,8 @@ appKey | string | Self assigned application key (optional)
       "paymentsLeft": -1,
       "paymentsLeftString": "unlimited",
       "schedule": "0 0 0 12 * *",
-      "scheduleString": "12th of every month"
+      "scheduleString": "12th of every month",
+      "status": "active",
     },
     "total": 100,
     "transactionReference": "TESTERCHARGE"
@@ -324,12 +325,11 @@ dateCreated | date | Date of creation
 dateUpdated | date | Date last updated (optional)
 dateLast | date | Date of last processed
 dateNext | date | Date of next process attempt
-
-<dates>
 email | string | Email address of the subscription
 id | integer | Internal ID of the subscription
 schedule | string | Cron formatted string detailing the schedule
 scheduleString | string | Human readable schedule
+status | string | The current status of the subscription
 
 #### Meta values
 Parameter | Default | Description
@@ -363,8 +363,8 @@ Used for testing
 Parameter | Default | Description
 --------- | ------- | -----------
 eventType | string | test
-eventId | integer | 1234
-formId | integer | 1234
+eventId | integer | Random number used as event id
+formId | integer | Random number used as form id
 accountId | integer | ID of the account
 data | object | Object contains the complete payload for the test event
 
@@ -374,5 +374,5 @@ Parameter | Default | Description
 --------- | ------- | -----------
 data |  string  | Random string to use as data payload
 eventType | string | test
-eventId | integer | 1234
-formId | integer | 1234
+eventId | integer | Random number used as event id
+formId | integer | Random number used as form id
