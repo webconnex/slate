@@ -72,6 +72,7 @@ Parameter			|	Description
 **formID**<br>*integer*<br>optional 			         	| filter orders to only show results matching the form id
 **customerId**<br>*integer*<br>optional 				    | filter orders to only show results matching the customer id
 **orderEmail**<br>*string*<br>optional 				      | filter orders to only show results matching the email
+**orderNumber**<br>*string*<br>optional 				    | filter orders to only show results matching the order number
 **lessThanId**<br>*integer*<br>optional 		       	| filter orders to only show results less than provided id
 **startingAfter**<br>*integer*<br>optional 			    | filter orders to only show results with IDs after value
 **endingIdBefore**<br>*integer*<br>optional 			 	| filter orders to only show results with IDs before value
