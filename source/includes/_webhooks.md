@@ -8,6 +8,7 @@ We currently support the following events:
 * New Registration
 * Subscription/Recurring Notification
 * Form Published
+* Inventory Supply
 
 ##Control Panel Interface
 
