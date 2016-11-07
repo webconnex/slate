@@ -111,7 +111,7 @@ These are the system events that are available as webhook triggers
             "key": "email",
             "label": "Email",
             "type": "email",
-            "value": "nathanael@wearebunker.com"
+            "value": "help@webconnex.com"
           }
         ],
         "id": "145080518947020000"
@@ -253,7 +253,7 @@ appKey | string | Self assigned application key (optional)
         "accountNumber": "XXXX4111",
         "routingNumber": "123456789"
       },
-      "email": "eric@webconnex.com",
+      "email": "help@webconnex.com",
       "name": {
         "first": "Eric",
         "last": "Knopf"
@@ -271,7 +271,7 @@ appKey | string | Self assigned application key (optional)
       "dateLast": "2016-09-12T00:00:07Z",
       "dateNext": "2016-10-12T10:00:00Z",
       "dateUpdated": "2016-09-12T00:00:07Z",
-      "email": "eric@webconnex.com",
+      "email": "help@webconnex.com",
       "id": 346,
       "paymentsLeft": -1,
       "paymentsLeftString": "unlimited",
@@ -336,6 +336,76 @@ Parameter | Default | Description
 --------- | ------- | -----------
 name | string | The name of the webhook
 appKey | string | Self assigned application key (optional)
+
+
+### Inventory
+
+> Payload
+
+```json
+{
+  "eventType": "inventory_100",
+  "accountId": 1,
+  "formId": 123,
+  "data": {
+    "dateCreated": "2016-11-04T16:28:00Z",
+    "dateUpdated": "2016-11-04T16:55:39Z",
+    "formLookupId": 25673,
+    "formName": "Example 5k Campaign",
+    "id": 33764,
+    "inventory": {
+      "quantity": 4000,
+      "sold": 4000
+    },
+    "itemName": "Fun 5K",
+    "itemPath": "registrants.registrationOptions.option1",
+    "lookupId": 33764
+  },
+  "meta": {
+    "name": "Inventory Webhook Test"
+  }
+}
+```
+
+The inventory event is fired whenever an inventory item reaches 80%, 90% and 100% sold capacity on a form that you have set up a webhook for.
+
+#### Response Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+eventType | string | inventory_80, inventory_90, inventory_100
+formId | integer | 0
+accountId | integer | ID of the account
+data | object | The object container the complete payload for the inventory event
+meta | object | Object contains information about the webhook.
+
+#### Data values
+
+Parameter | Default | Description
+--------- | ------- | -----------
+dateCreated |  date  | Date the inventory item was created
+dateUpdated |  date  | Date the inventory item was updated
+formLookupId |  int  | ID of the form used for requesting when calling from the public api
+formName |  string  | The name of the form campaign
+id | string | ID of the inventory item
+inventory | object | An object containing the inventory supply data
+itemName | string | The name of the inventory item
+itemPath | string | The path of the inventory item
+lookupId | INT | ID of the inventory item used for requesting when calling from the public api
+
+#### Inventory values
+
+Parameter | Default | Description
+--------- | ------- | -----------
+quantity |  int  | The inventory limit
+sold |  int  | The amount inventory sold
+
+#### Meta values
+Parameter | Default | Description
+--------- | ------- | -----------
+name | string | The name of the webhook
+appKey | string | Self assigned application key (optional)
+
 
 ### Test
 
