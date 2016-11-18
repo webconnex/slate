@@ -12,7 +12,7 @@ Authentication happens through the use of an API key issued from the Integration
 
 ###Rate Limits
 
-We have limit request to the API at 15000 per account per day. In a 15 minute period we limit the number of accounts by X.
+We have limit request to the API at 15000 per account per day. In a 15 minute period we limit the number of accounts by 900.
 
 #### HTTP Headers
 #### Response Parameters
