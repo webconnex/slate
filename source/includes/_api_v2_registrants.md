@@ -70,15 +70,14 @@
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **product**<br>*string*<br>required 		| Name of the product you to search for transactions on
-**email**<br>*string*<br>optional 			| Billing email you want to search on
 **formId**<br>*integer*<br>optional 		| ID of the form you want to filter registrants by
 **status**<br>*string*<br>optional 				| Status string of the order you want to filter on
 **sort**<br>*string*<br>optional 			            	|
 **limit**<br>*string*<br>optional 				          | limits the number of results returned
-**orderID**<br>*integer*<br>optional 		   		| filter registrants to only show results matching a provided order id
-**orderDisplayID**<br>*string*<br>optional 		   		| filter registrants to only show results matching a provided order display id
-**greaterThanID**<br>*integer*<br>optional 		   		| filter registrants to only show results greater than provided id
-**formID**<br>*integer*<br>optional 			         	| filter registrants to only show results matching the form id
+**orderId**<br>*integer*<br>optional 		   		| filter registrants to only show results matching a provided order id
+**orderDisplayId**<br>*string*<br>optional 		   		| filter registrants to only show results matching a provided order display id
+**greaterThanId**<br>*integer*<br>optional 		   		| filter registrants to only show results greater than provided id
+**formId**<br>*integer*<br>optional 			         	| filter registrants to only show results matching the form id
 **customerId**<br>*integer*<br>optional 				    | filter registrants to only show results matching the customer id
 **orderEmail**<br>*string*<br>optional 				      | filter registrants to only show results matching the email
 **orderNumber**<br>*string*<br>optional 				    | filter registrants to only show results matching the order number

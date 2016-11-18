@@ -6,12 +6,8 @@
 `GET /v2/public/search/transactions`
 
 ```json
-{
-  "responseCode": 200,
-  "data": [
     {
       "id": 1,
-      "displayId": "1111111111111111111",
       "customerId": 1,
       "customerEmail": "someone@test.com",
       "billing": {
@@ -28,15 +24,21 @@
       "formId": 1,
       "formName": "test",
       "formAccRef": "TST12",
-      "status": "3",
+      "status": "completed",
       "orderNumber": "TST12-001-4",
+      "orderId": 11652,
+      "orderDisplayId": "1475254517975192216",
       "total": "40.00",
+      "transactionType": "charge",
+      "currency": "USD",
+      "paymentMethod": "card",
+      "paymentType": "VISA",
+      "gatewayReference": "TESTERCHARGE",
       "dateCreated": "2016-01-28T00:11:10Z",
       "dateUpdated": "2016-05-02T22:32:22Z"
     },
 		{
       "id": 2,
-      "displayId": "1111111111111111112",
       "customerId": 1,
       "customerEmail": "someone@test.com",
       "billing": {
@@ -53,9 +55,16 @@
       "formId": 1,
       "formName": "test",
       "formAccRef": "TST12",
-      "status": "3",
+      "status": "completed",
       "orderNumber": "TST12-001-4",
+      "orderId": 10602,
+      "orderDisplayId": "14752545172455192216",
       "total": "40.00",
+      "transactionType": "charge",
+      "currency": "USD",
+      "paymentMethod": "card",
+      "paymentType": "VISA",
+      "gatewayReference": "TESTERCHARGE",
       "dateCreated": "2016-01-28T00:11:10Z",
       "dateUpdated": "2016-05-02T22:32:22Z"
     }
@@ -64,21 +73,19 @@
 }
 ```
 
-
-
 ####  Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **product**<br>*string*<br>required 		| Name of the product you to search for transactions on
-**email**<br>*string*<br>optional 			| Billing email you want to search on
 **formId**<br>*integer*<br>optional 		| ID of the form you want to filter transactions by
 **status**<br>*string*<br>optional 				| Status string of the order you want to filter on
 **sort**<br>*string*<br>optional 			            	|
 **limit**<br>*string*<br>optional 				          | limits the number of results returned
-**orderID**<br>*integer*<br>optional 		   		| filter transactions to only show results matching a provided order id
-**orderDisplayID**<br>*string*<br>optional 		   		| filter transactions to only show results matching a provided order display id
-**greaterThanID**<br>*integer*<br>optional 		   		| filter transactions to only show results greater than provided id
-**formID**<br>*integer*<br>optional 			         	| filter transactions to only show results matching the form id
+**orderId**<br>*integer*<br>optional 		   		| filter transactions to only show results matching a provided order id
+**type**<br>*string*<br>optional 		   		| filter transactions to only show results matching a provided type (charge|refund)
+**orderDisplayId**<br>*string*<br>optional 		   		| filter transactions to only show results matching a provided order display id
+**greaterThanId**<br>*integer*<br>optional 		   		| filter transactions to only show results greater than provided id
+**formId**<br>*integer*<br>optional 			         	| filter transactions to only show results matching the form id
 **customerId**<br>*integer*<br>optional 				    | filter transactions to only show results matching the customer id
 **orderEmail**<br>*string*<br>optional 				      | filter transactions to only show results matching the email
 **orderNumber**<br>*string*<br>optional 				    | filter transactions to only show results matching the order number
@@ -136,7 +143,7 @@ Attribute			|	Description
       "formId": 1,
       "formName": "test",
       "formAccRef": "TST12",
-      "status": "3",
+      "status": "completed",
       "orderNumber": "TST12-001-4",
       "total": "40.00",
       "dateCreated": "2016-01-28T00:11:10Z",
