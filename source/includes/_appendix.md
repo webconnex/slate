@@ -9,9 +9,9 @@ Below is additional information.
 Status | Description
 --------- | -----------
 active | is active and will continue to process future payments
-inactive | is inactive and will no longer process future payments
+inactive | is inactive and will not process future payments
 canceled | is canceled and will no longer process future payments
-completed | is completed  and will no longer process future payments
+completed | is completed and will no longer process future payments
 
 ### Orders / Registrations / Registrants / Tickets
 
@@ -24,8 +24,8 @@ abandoned | is abandoned and never successfully submitted
 completed | is completed
 <!-- transferred | is transferred -->
 canceled | is canceled
-pending offline payment | is pending offline payment
-pending final payment | is pending final payment
+pending offline payment | is pending awaiting an offline payment
+pending final payment | is pending awaiting an final payment
 waitlisted  | is waitlisted
 
 ### Transactions
@@ -65,8 +65,6 @@ Status | Description
 open | is open
 closed | is closed
 expired | is expired
-<!---
 scheduled | is scheduled
---->
 archived | is archived
 deleted | is deleted

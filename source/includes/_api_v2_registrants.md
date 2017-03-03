@@ -5,6 +5,8 @@
 #### HTTP Request
 `GET /v2/public/search/registrants`
 
+> Example Response:
+
 ```json
 {
   "responseCode": 200,
@@ -31,6 +33,7 @@
       "status": "3",
       "orderNumber": "TST12-001-4",
       "total": "40.00",
+      "currency": "USD",
       "dateCreated": "2016-01-28T00:11:10Z",
       "dateUpdated": "2016-05-02T22:32:22Z"
     },
@@ -56,6 +59,7 @@
       "status": "3",
       "orderNumber": "TST12-001-4",
       "total": "40.00",
+      "currency": "USD",
       "dateCreated": "2016-01-28T00:11:10Z",
       "dateUpdated": "2016-05-02T22:32:22Z"
     }
@@ -83,12 +87,10 @@ Parameter			|	Description
 **orderNumber**<br>*string*<br>optional 				    | filter registrants to only show results matching the order number
 **lessThanId**<br>*integer*<br>optional 		       	| filter registrants to only show results less than provided id
 **startingAfter**<br>*integer*<br>optional 			    | filter registrants to only show results with IDs after value
-**endingIdBefore**<br>*integer*<br>optional 			 	| filter registrants to only show results with IDs before value
 **dateCreatedBefore**<br>*timestamp*<br>optional 		| filter registrants to only show results created before date
 **dateCreatedAfter**<br>*timestamp*<br>optional 		| filter registrants to only show results created before date
 **dateUpdatedBefore**<br>*timestamp*<br>optional 		| filter registrants to only show results updated before date
 **dateUpdatedAfter**<br>*timestamp*<br>optional 		| filter registrants to only show results updated after date
-
 
 ####  Response Object
 Attribute			|	Description
@@ -97,20 +99,22 @@ Attribute			|	Description
 **displayId**<br>*string*					| ID string used as customer facing ID
 **customerId**<br>*integer*					| ID of the associated customer
 **customerEmail**<br>*string*					| Email of the associated customer
-**billing**<br>*object*					| Billing name and address associated with order
-**formId**<br>*integer*					| ID of the form that created order
+**billing**<br>*object*					| Billing object containing name and address details associated with order
+**formId**<br>*integer*					| ID of the form that associated with the order
 **formName**<br>*string*					| Name of the form that created order
 **formAccRef**<br>*string*					| Accounting reference string of the form that created order
 **status**<br>*string*					| Status of the registrant
 **orderNumber**<br>*string*					| Order number
 **total**<br>*float*					| Total cost of the registrant
 **dateCreated**<br>*timestamp* | Date and time of the creation of the registrant
-**dateUpdated**<br>*timestamp* | Date and time the registrant was last updated
+**dateUpdated**<br>*timestamp* | Date and time the registrant was last updated (optional)
 
 ### View Registrant by ID
 
 #### HTTP Request
 `GET /v2/public/search/registrants/{id}`
+
+> Example Response:
 
 ```json
 {
@@ -138,6 +142,7 @@ Attribute			|	Description
       "status": "3",
       "orderNumber": "TST12-001-4",
       "total": "40.00",
+      "currency": "USD",
       "dateCreated": "2016-01-28T00:11:10Z",
       "dateUpdated": "2016-05-02T22:32:22Z"
     }
@@ -157,12 +162,12 @@ Attribute			|	Description
 **displayId**<br>*string*					| ID string used as customer facing ID
 **customerId**<br>*integer*					| ID of the associated customer
 **customerEmail**<br>*string*					| Email of the associated customer
-**billing**<br>*object*					| Billing name and address associated with order
-**formId**<br>*integer*					| ID of the form that created order
+**billing**<br>*object*					| Billing object containing name and address details associated with order
+**formId**<br>*integer*					| ID of the form that associated with the order
 **formName**<br>*string*					| Name of the form that created order
 **formAccRef**<br>*string*					| Accounting reference string of the form that created order
 **status**<br>*string*					| Status of the registrant
 **orderNumber**<br>*string*					| Order number
 **total**<br>*float*					| Total cost of the order
 **dateCreated**<br>*timestamp* | Date and time of the creation of the registrant
-**dateUpdated**<br>*timestamp* | Date and time the registrant was last updated
+**dateUpdated**<br>*timestamp* | Date and time the registrant was last updated (optional)

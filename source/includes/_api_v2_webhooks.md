@@ -5,6 +5,8 @@
 #### HTTP Request
 `GET /v2/public/webhooks/`
 
+> Example Response:
+
 ```json
 {
   "responseCode": 200,
@@ -79,6 +81,8 @@ Attribute			|	Description
 #### HTTP Request
 `GET /v2/public/webhooks/{id}`
 
+> Example Response:
+
 ```json
 {
   "responseCode": 200,
@@ -107,7 +111,7 @@ Attribute			|	Description
 }
 ```
 
-####  Request Params
+#### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*string*<br>required 				| ID of the requested webhook
@@ -159,8 +163,6 @@ Attribute			|	Description
 **meta**<br>*object*					| Contains webhook name and app key if required by the endpoint
 **dateCreated**<br>*timestamp* | Date and time of the creation of the webhook
 **dateUpdated**<br>*timestamp* | Date and time the webhook was last updated
-
-
 
 ### Update Webhook
 

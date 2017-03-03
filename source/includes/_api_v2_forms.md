@@ -5,6 +5,8 @@
 #### HTTP Request
 `GET /v2/public/forms`
 
+> Example Response:
+
 ```json
 {
   "responseCode": 200,
@@ -21,7 +23,7 @@
       "id": 1203002,
       "name": "Form Number 2",
       "product": "ticketspice.com",
-      "status": "open",
+      "status": "closed",
       "dateCreated": "2016-04-07T01:09:40Z",
       "dateUpdated": "2016-04-07T01:09:43Z"
     }
@@ -29,27 +31,26 @@
 }
 ```
 
-
-
 ####  Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
-**product**<br>*string*<br>Optional 				| Name of the product you want to list forms for
-
+**product**<br>*string*<br>Optional 		| Name of the product you want to list forms for
 
 ####  Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*integer* 				| Unique ID of the
+**id**<br>*integer* 			   	| Unique ID of the
 **name**<br>*string*					| Name of the form
-**status**<br>*string*					| Status of the form
+**status**<br>*string*				| Status of the form
 **dateCreated**<br>*timestamp* | Date and time of the creation of the form
-
+**dateUpdated**<br>*timestamp* | Date and time the form was last updated (optional)
 
 ###Get Form By ID
 
 #### HTTP Request
 `GET /v2/public/forms/{id}`
+
+> Example Response:
 
 ```json
 {
@@ -138,6 +139,7 @@ Attribute			|	Description
       "footer": {}
     },
     "status": "open",
+    "currency": "USD",
     "timeZone": "America/Los_Angeles",
     "dateCreated": "0001-01-01T00:00:00Z"
   },
@@ -145,12 +147,10 @@ Attribute			|	Description
 }
 ```
 
-
 ####  Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*Integer*<br>Required 				| ID of the form that is being requested
-
 
 ####  Response Object
 Attribute												|	Description
@@ -159,17 +159,18 @@ Attribute												|	Description
 **name**<br>*string*						| Name of the form
 **status**<br>*string*					| Status of the form
 **accRef**<br>*string*					| Accounting Reference
-**fields**<br>*object*					| A collection of fields that make up the form
-**time zone**<br>*string*					| Timezone code for the form
+**fields**<br>*object*		      | A collection of fields that make up the form
+**timeZone**<br>*string*			 | Timezone code for the form
 **dateCreated**<br>*timestamp* | Date and time of the creation of the form
+**dateUpdated**<br>*timestamp* | Date and time the form was last updated (optional)
 
 #### Fields Object
 Attribute												|	Description
 --------------------------------|----------------------------------------------------
 **type**<br>*string* 						| The root of the fields is always set to type form
-**attributes**<br>*object*						| Key/Value attributes related to the field set
-**triggers**<br>*object*					| A collection of actions/conditions to provide logic to the form
-**header**<br>*object*<br>required					| Fields in set in the header. Always present on the form (Display only fields).
+**attributes**<br>*object*			| Key/Value attributes related to the field set
+**triggers**<br>*object*				| A collection of actions/conditions to provide logic to the form
+**header**<br>*object*<br>required			| Fields in set in the header. Always present on the form (Display only fields).
 **registrants**<br>*object*<br>required					| Main data collection fields. Repeated for each registrant when using "multireg" forms. (registrants.attributes.multireg === true)
 **billing**<br>*object*<br>required					| Billing fields for the form. Not used if the billing is disabled on the form.
-**footer**<br>*object*<br>required | Date and time of the creation of the form
+**footer**<br>*object*<br>required | Fields in set in the footer. Always present on the form (Display only fields).
