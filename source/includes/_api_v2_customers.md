@@ -1,11 +1,11 @@
-##Order
+##Customer
 
-
-
-### Search Orders
+### Search Customers
 
 #### HTTP Request
 `GET /v2/public/search/customers`
+
+> Example Response:
 
 ```json
 {
@@ -56,42 +56,38 @@
 }
 ```
 
-
-
 ####  Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
-**product**<br>*string*<br>required 			| Name of the product you to search for orders on
+**product**<br>*string*<br>required 			| Name of the product you to search for customers on
 **email**<br>*string*<br>optional 				| Billing email you want to search on
 **sort**<br>*string*<br>optional 			            	|
 **limit**<br>*string*<br>optional 				          | limits the number of results returned
-**greaterThanId**<br>*integer*<br>optional 		   		| filter orders to only show results greater than provided id
-**customerId**<br>*integer*<br>optional 				    | filter orders to only show results matching the customer id
-**orderEmail**<br>*string*<br>optional 				      | filter orders to only show results matching the email
-**orderNumber**<br>*string*<br>optional 				    | filter orders to only show results matching the order number
-**lessThanId**<br>*integer*<br>optional 		       	| filter orders to only show results less than provided id
-**startingAfter**<br>*integer*<br>optional 			    | filter orders to only show results with IDs after value
-**endingIdBefore**<br>*integer*<br>optional 			 	| filter orders to only show results with IDs before value
-**dateCreatedBefore**<br>*timestamp*<br>optional 		| filter orders to only show results created before date
-**dateCreatedAfter**<br>*timestamp*<br>optional 		| filter orders to only show results created before date
-**dateUpdatedBefore**<br>*timestamp*<br>optional 		| filter orders to only show results updated before date
-**dateUpdatedAfter**<br>*timestamp*<br>optional 		| filter orders to only show results updated after date
+**greaterThanId**<br>*integer*<br>optional 		   		| filter customers to only show results greater than provided id
+**lessThanId**<br>*integer*<br>optional 		       	| filter customers to only show results less than provided id
+**startingAfter**<br>*integer*<br>optional 			    | filter customers to only show results with IDs after value
+**dateCreatedBefore**<br>*timestamp*<br>optional 		| filter customers to only show results created before date
+**dateCreatedAfter**<br>*timestamp*<br>optional 		| filter customers to only show results created before date
+**dateUpdatedBefore**<br>*timestamp*<br>optional 		| filter customers to only show results updated before date
+**dateUpdatedAfter**<br>*timestamp*<br>optional 		| filter customers to only show results updated after date
 
 
 ####  Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*integer* 				| Unique ID of the order
+**id**<br>*integer* 				| Unique ID of the customer
 **email**<br>*string*					| Email of the associated customer
-**billing**<br>*object*					| Billing name and address associated with order
+**billing**<br>*object*					| Billing object containing name and address details associated with customer
 **amount**<br>*float*					| Total of customer transactions
-**dateCreated**<br>*timestamp* | Date and time of the creation of the order
-**dateUpdated**<br>*timestamp* | Date and time the order was last updated
+**dateCreated**<br>*timestamp* | Date and time of the creation of the customer
+**dateUpdated**<br>*timestamp* | Date and time the customer was last updated (optional)
 
-### View Order by ID
+### View Customers by ID
 
 #### HTTP Request
 `GET /v2/public/search/customers/{id}`
+
+> Example Response:
 
 ```json
 {
@@ -124,14 +120,14 @@ Attribute			|	Description
 ####  Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*string*<br>required 				| ID of the requested order
+**id**<br>*string*<br>required 				| ID of the requested customer
 
 ####  Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*integer* 				| Unique ID of the order
+**id**<br>*integer* 				| Unique ID of the customer
 **email**<br>*string*					| Email of the associated customer
-**billing**<br>*object*					| Billing name and address associated with order
+**billing**<br>*object*					| Billing object containing name and address details associated with customer
 **amount**<br>*float*					| Total of customer transactions
-**dateCreated**<br>*timestamp* | Date and time of the creation of the order
-**dateUpdated**<br>*timestamp* | Date and time the order was last updated
+**dateCreated**<br>*timestamp* | Date and time of the creation of the customer
+**dateUpdated**<br>*timestamp* | Date and time the customer was last updated (optional)

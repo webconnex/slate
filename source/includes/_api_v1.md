@@ -7,7 +7,7 @@ curl -X "GET" "http://api.webconnex.com/v1/public/forms" \
 	-H "apiKey: xxxxxxxxxx"
 ```
 
-> The above command returns JSON structured like this:
+> Example Response:
 
 ```json
 [
@@ -52,7 +52,7 @@ curl -X "GET" "http://api.webconnex.com/v1/public/forms/1" \
 	-H "apiKey: xxxxxxxxxx"
 ```
 
-> The above command returns JSON structured like this:
+> Example Response:
 
 ```json
 {
@@ -194,7 +194,7 @@ curl -X "GET" "http://api.webconnex.com/v1/public/webhooks" \
 	-H "apiKey: xxxxxxxxxx"
 ```
 
-> The above command returns JSON structured like this:
+> Example Response:
 
 `GET /webhooks`
 
@@ -245,7 +245,7 @@ curl -X "GET" "http://api.webconnex.com/v1/public/webhooks/:id" \
 	-H "apiKey: xxxxxxxxxx"
 ```
 
-> The above command returns JSON structured like this:
+> Example Response:
 
 ```json
 [
@@ -305,7 +305,7 @@ curl "http://example.com/divvy/resend/:hook_id/delivery/:history_id"
   -H "Authorization: sessionID"
 ```
 
-> The above command returns JSON structured like this:
+> Example Response:
 
 ```json
 [
@@ -355,7 +355,7 @@ errors | true | Will show only failed requests
 curl "http://example.com/api/divvy"
 ```
 
-> The above command returns JSON structured like this:
+> Example Response:
 
 ```json
 {

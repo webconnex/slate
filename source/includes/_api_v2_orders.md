@@ -1,11 +1,11 @@
 ##Order
 
-
-
 ### Search Orders
 
 #### HTTP Request
 `GET /v2/public/search/orders`
+
+> Example Response:
 
 ```json
 {
@@ -50,14 +50,13 @@
     "status": "3",
     "orderNumber": "MMBRCTNS-001-1",
     "total": "2.65",
+    "currency": "USD",
     "dateCreated": "2016-03-09T15:59:57Z",
     "dateUpdated": "2016-05-02T22:32:22Z"
   },
   "totalResults": 1
 }
 ```
-
-
 
 ####  Request Params
 Parameter			|	Description
@@ -74,12 +73,10 @@ Parameter			|	Description
 **orderNumber**<br>*string*<br>optional 				    | filter orders to only show results matching the order number
 **lessThanId**<br>*integer*<br>optional 		       	| filter orders to only show results less than provided id
 **startingAfter**<br>*integer*<br>optional 			    | filter orders to only show results with IDs after value
-**endingIdBefore**<br>*integer*<br>optional 			 	| filter orders to only show results with IDs before value
 **dateCreatedBefore**<br>*timestamp*<br>optional 		| filter orders to only show results created before date
 **dateCreatedAfter**<br>*timestamp*<br>optional 		| filter orders to only show results created before date
 **dateUpdatedBefore**<br>*timestamp*<br>optional 		| filter orders to only show results updated before date
 **dateUpdatedAfter**<br>*timestamp*<br>optional 		| filter orders to only show results updated after date
-
 
 ####  Response Object
 Attribute			|	Description
@@ -88,20 +85,22 @@ Attribute			|	Description
 **displayId**<br>*string*					| ID string used as customer facing ID
 **customerId**<br>*integer*					| ID of the associated customer
 **customerEmail**<br>*string*					| Email of the associated customer
-**billing**<br>*object*					| Billing name and address associated with order
-**formId**<br>*integer*					| ID of the form that created order
+**billing**<br>*object*					| Billing object containing name and address details associated with order
+**formId**<br>*integer*					| ID of the form that associated with the order
 **formName**<br>*string*					| Name of the form that created order
 **formAccRef**<br>*string*					| Accounting reference string of the form that created order
 **status**<br>*string*					| Status of the order
 **orderNumber**<br>*string*					| Order number
 **total**<br>*float*					| Total cost of the order
 **dateCreated**<br>*timestamp* | Date and time of the creation of the order
-**dateUpdated**<br>*timestamp* | Date and time the order was last updated
+**dateUpdated**<br>*timestamp* | Date and time the order was last updated (optional)
 
 ### View Order by ID
 
 #### HTTP Request
 `GET /v2/public/search/orders/{id}`
+
+> Example Response:
 
 ```json
 {
@@ -128,6 +127,7 @@ Attribute			|	Description
     "status": "3",
     "orderNumber": "MMBRCTNS-001-1",
     "total": "2.65",
+    "currency": "USD",
     "dateCreated": "2016-03-09T15:59:57Z",
     "dateUpdated": "2016-05-02T22:32:22Z"
   },
@@ -147,12 +147,12 @@ Attribute			|	Description
 **displayId**<br>*string*					| ID string used as customer facing ID
 **customerId**<br>*integer*					| ID of the associated customer
 **customerEmail**<br>*string*					| Email of the associated customer
-**billing**<br>*object*					| Billing name and address associated with order
-**formId**<br>*integer*					| ID of the form that created order
+**billing**<br>*object*					| Billing object containing name and address details associated with order
+**formId**<br>*integer*					| ID of the form that associated with the order
 **formName**<br>*string*					| Name of the form that created order
 **formAccRef**<br>*string*					| Accounting reference string of the form that created order
 **status**<br>*string*					| Status of the order
 **orderNumber**<br>*string*					| Order number
 **total**<br>*float*					| Total cost of the order
 **dateCreated**<br>*timestamp* | Date and time of the creation of the order
-**dateUpdated**<br>*timestamp* | Date and time the order was last updated
+**dateUpdated**<br>*timestamp* | Date and time the order was last updated (optional)

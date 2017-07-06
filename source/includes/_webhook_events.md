@@ -4,7 +4,7 @@ These are the system events that are available as webhook triggers
 
 ### Registration
 
-> Payload
+> Example Payload:
 
 ```json
 {
@@ -125,8 +125,7 @@ These are the system events that are available as webhook triggers
 
 The registration event is fired whenever a successful registration has occurred on a form that you have set up a webhook for. The payload will resemble the fields in the form tied to the webhook event.
 
-#### Response Parameters
-
+#### Payload
 Parameter | Default | Description
 --------- | ------- | -----------
 eventId | integer | ID of the registration webhook event.
@@ -136,8 +135,7 @@ formId | integer | ID of the form
 data | object | Object contains the complete payload for the registration
 meta | object | Object contains information about the webhook.
 
-#### Data values
-
+#### Data Object
 Parameter | Default | Description
 --------- | ------- | -----------
 total | float | The total value of the registration
@@ -153,15 +151,15 @@ orderStatus | string | Status of the order
 transactionReference  | string  | Transaction reference of the registration
 registrationTimestamp | timestamp | UTC date and time
 
-#### Meta values
+#### Meta Object
 Parameter | Default | Description
 --------- | ------- | -----------
 name | string | The name of the webhook
 appKey | string | Self assigned application key (optional)
 
-### Form Published
+### Form Publish
 
-> Payload
+> Example Payload:
 
 ```json
 {
@@ -188,8 +186,7 @@ appKey | string | Self assigned application key (optional)
 
 The publish event is fired whenever a successful form has been published on a form that you have set up a webhook for.
 
-#### Response Parameters
-
+#### Payload
 Parameter | Default | Description
 --------- | ------- | -----------
 eventId | integer | ID of the publish webhook event.
@@ -199,8 +196,7 @@ accountId | integer | ID of the account
 data | object | Object contains the complete payload for the publish event
 meta | object | Object contains information about the webhook.
 
-#### Data values
-
+#### Data Object
 Parameter | Default | Description
 --------- | ------- | -----------
 id | integer | ID of the form
@@ -218,7 +214,7 @@ publishedPath | string | Name of the form
 status | string | Status of the form
 timeZone | string | Timezone of the form
 
-#### Meta values
+#### Meta Object
 Parameter | Default | Description
 --------- | ------- | -----------
 name | string | The name of the webhook
@@ -226,7 +222,7 @@ appKey | string | Self assigned application key (optional)
 
 ### Subscription
 
-> Payload
+> Example Payload:
 
 ```json
 {
@@ -239,9 +235,9 @@ appKey | string | Self assigned application key (optional)
       "address": {
         "city": "Sacramento",
         "country": "US",
-        "postalCode": "95819",
+        "postalCode": "95814",
         "state": "CA",
-        "street1": "1440 44th street"
+        "street1": "455 Capital Mall"
       },
       "card": {
         "cardNumber": "VISA-1111",
@@ -255,8 +251,8 @@ appKey | string | Self assigned application key (optional)
       },
       "email": "help@webconnex.com",
       "name": {
-        "first": "Eric",
-        "last": "Knopf"
+        "first": "John",
+        "last": "Doe"
       },
       "paymentMethod": "card"
     },
@@ -283,15 +279,14 @@ appKey | string | Self assigned application key (optional)
     "transactionReference": "TESTERCHARGE"
   },
   "meta": {
-    "name": "Alex test fast"
+    "name": "Subscription Webhooks"
   }
 }
 ```
 
 The subscription / reoccurring event is fired whenever a successful subscription or deposit has been completed on a form that you have set up a webhook for.
 
-#### Response Parameters
-
+#### Payload
 Parameter | Default | Description
 --------- | ------- | -----------
 eventId | integer | ID of the subscription webhook event.
@@ -301,8 +296,7 @@ accountId | integer | ID of the account
 data | object | Object contains the complete payload for the subscription event
 meta | object | Object contains information about the webhook.
 
-#### Data values
-
+#### Data Object
 Parameter | Default | Description
 --------- | ------- | -----------
 id | string | Internal ID of the subscription
@@ -315,8 +309,7 @@ subscription | object | Object contains the subscription information
 transactionReference  | string  | The transaction reference of processed transaction
 total | float | The total value processed
 
-#### Subscription values
-
+#### Subscription Object
 Parameter | Default | Description
 --------- | ------- | -----------
 amount | float | The total value processed
@@ -331,22 +324,21 @@ schedule | string | Cron formatted string detailing the schedule
 scheduleString | string | Human readable schedule
 status | string | The current status of the subscription
 
-#### Meta values
+#### Meta Object
 Parameter | Default | Description
 --------- | ------- | -----------
 name | string | The name of the webhook
 appKey | string | Self assigned application key (optional)
 
-
 ### Inventory
 
-> Payload
+> Example Payload:
 
 ```json
 {
   "eventType": "inventory_100",
   "accountId": 1,
-  "formId": 123,
+  "formId": 25673,
   "data": {
     "dateCreated": "2016-11-04T16:28:00Z",
     "dateUpdated": "2016-11-04T16:55:39Z",
@@ -369,47 +361,130 @@ appKey | string | Self assigned application key (optional)
 
 The inventory event is fired whenever an inventory item reaches 80%, 90% and 100% sold capacity on a form that you have set up a webhook for.
 
-#### Response Parameters
-
+#### Payload
 Parameter | Default | Description
 --------- | ------- | -----------
 eventType | string | inventory_80, inventory_90, inventory_100
-formId | integer | 0
+formId | integer | ID of the form
 accountId | integer | ID of the account
-data | object | The object container the complete payload for the inventory event
-meta | object | Object contains information about the webhook.
+data | object | The object contains the complete payload for the inventory event
+meta | object | Object contains information about the webhook
 
-#### Data values
-
+#### Data Object
 Parameter | Default | Description
 --------- | ------- | -----------
 dateCreated |  date  | Date the inventory item was created
-dateUpdated |  date  | Date the inventory item was updated
+dateUpdated |  date  | Date the inventory item was updated  (optional)
 formLookupId |  int  | ID of the form used for requesting when calling from the public api
 formName |  string  | The name of the form campaign
 id | string | ID of the inventory item
 inventory | object | An object containing the inventory supply data
 itemName | string | The name of the inventory item
 itemPath | string | The path of the inventory item
-lookupId | INT | ID of the inventory item used for requesting when calling from the public api
+lookupId | int | ID of the inventory item used for requesting when calling from the public api
 
-#### Inventory values
-
+#### Inventory Object
 Parameter | Default | Description
 --------- | ------- | -----------
 quantity |  int  | The inventory limit
 sold |  int  | The amount inventory sold
 
-#### Meta values
+#### Meta Object
 Parameter | Default | Description
 --------- | ------- | -----------
 name | string | The name of the webhook
 appKey | string | Self assigned application key (optional)
 
 
+### Coupons
+
+> Example Payload:
+
+```json
+{
+  "eventType": "coupon",
+  "accountId": 1,
+  "data": {
+    "available": -1,
+    "codes": [
+      {
+        "code": "half_off",
+        "couponId": 343,
+        "id": 3345,
+        "redeemed": 3
+      }
+    ],
+    "couponId": 343,
+    "currency": "USD",
+    "dateCreated": "2016-12-29T06:14:28Z",
+    "dateUpdated": "2017-03-03T20:38:48Z",
+    "discounts": [
+      {
+        "paths": [
+          "registrants.registrationOptions.option1"
+        ],
+        "perTicket": false,
+        "value": "50",
+        "valueType": "percent"
+      }
+    ],
+    "formId": 29815,
+    "name": "Social Media Campaign",
+    "redeemed": 3,
+    "voucher": false
+  },
+  "meta": {
+    "name": "Push Notifications"
+  }
+}
+```
+
+The coupon event is fired whenever coupon is created, updated or redeemed. Only global and forms that you have enabled will be delivered by the webhook.
+
+#### Payload
+
+Parameter | Default | Description
+--------- | ------- | -----------
+eventType | string | coupon
+formId | integer | ID of the form
+accountId | integer | ID of the account
+data | object | The object contains the complete payload for the coupon event
+meta | object | Object contains information about the webhook
+
+#### Data Object
+Parameter | Default | Description
+--------- | ------- | -----------
+couponId |  int  | ID of the coupon
+available |  int  | Number of available redemptions  ([-1] means unlimited)
+redeemed |  int  | Number of redemptions
+codes | object | The object container of all the coupon code objects
+currency |  string  | The currency of coupon
+codes | object | The object container of all the coupon code objects
+name | string | The name of the coupon
+formId | string | ID of the associated form (optional [null] if coupon is global)
+voucher | bool | Specifies if a voucher or not
+dateCreated |  date  | Date the inventory item was created
+dateUpdated |  date  | Date the inventory item was updated  (optional)
+
+#### Codes Object
+Parameter | Default | Description
+--------- | ------- | -----------
+id |  int  | ID of the code
+couponId |  int  | ID of the parent coupon
+code |  string  | Code used for coupon redemption
+redeemed |  int  | Number of redemptions
+
+#### Discounts Object
+Parameter | Default | Description
+--------- | ------- | -----------
+paths | [] string | An array of paths the coupon can be applied to
+perTicket | bool | Specifies weather discount should apply to each ticket (ticketspice.com Only)
+valueType | string | Specifies the discount type (Percent or Fixed)
+value | string | Value amount to apply
+
 ### Test
 
-> Payload
+> Example Payload:
 
 ```json
 {
@@ -428,8 +503,7 @@ appKey | string | Self assigned application key (optional)
 
 Used for testing
 
-#### Response Parameters
-
+#### Payload
 Parameter | Default | Description
 --------- | ------- | -----------
 eventType | string | test
@@ -438,8 +512,7 @@ formId | integer | Random number used as form id
 accountId | integer | ID of the account
 data | object | Object contains the complete payload for the test event
 
-#### Data values
-
+#### Data Object
 Parameter | Default | Description
 --------- | ------- | -----------
 data |  string  | Random string to use as data payload

@@ -6,7 +6,7 @@ Simple endpoint to provide a health check endpoint to make sure we are alive and
 
 ```shell
 curl -X "GET" "http://api.webconnex.com/v2/public/ping" \
-	-H "apiKey: a4149b01006842c8951720d64e1ec096"
+	-H "apiKey: XXXXXXXXXXXXXXXXXXX"
 ```
 
 ```go
@@ -20,7 +20,6 @@ import (
 )
 
 func sendRequest() {
-	// Request (GET http://api.webconnex.com/v2/public/ping)
 
 	// Create client
 	client := &http.Client{}
@@ -29,7 +28,7 @@ func sendRequest() {
 	req, err := http.NewRequest("GET", "http://api.webconnex.com/v2/public/ping", nil)
 
 	// Headers
-	req.Header.Add("apiKey", "a4149b01006842c8951720d64e1ec096")
+	req.Header.Add("apiKey", "XXXXXXXXXXXXXXXXXXX")
 
 	// Fetch Request
 	resp, err := client.Do(req)
@@ -46,7 +45,6 @@ func sendRequest() {
 	fmt.Println("response Headers : ", resp.Header)
 	fmt.Println("response Body : ", string(respBody))
 }
-
 ```
 
 ```javascript
@@ -61,7 +59,7 @@ func sendRequest() {
         port: '80',
         path: '/v2/public/ping',
         method: 'GET',
-        headers: {"apiKey":"a4149b01006842c8951720d64e1ec096"}
+        headers: {"apiKey":"XXXXXXXXXXXXXXXXXXX"}
     };
     httpOptions.headers['User-Agent'] = 'node ' + process.version;
 
@@ -100,7 +98,6 @@ func sendRequest() {
     console.log('HEADERS:', JSON.stringify(headers));
     console.log('BODY:', body);
 });
-
 ```
 
 ```swift
@@ -128,7 +125,7 @@ class MyRequestController {
 
         // Headers
 
-        request.addValue("a4149b01006842c8951720d64e1ec096", forHTTPHeaderField: "apiKey")
+        request.addValue("XXXXXXXXXXXXXXXXXXX", forHTTPHeaderField: "apiKey")
 
         /* Start a new Task */
         let task = session.dataTaskWithRequest(request, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
@@ -146,7 +143,6 @@ class MyRequestController {
         session.finishTasksAndInvalidate()
     }
 }
-
 ```
 
 ```python
@@ -164,7 +160,7 @@ def send_request():
         response = requests.get(
             url="http://api.webconnex.com/v2/public/ping",
             headers={
-                "apiKey": "a4149b01006842c8951720d64e1ec096",
+                "apiKey": "XXXXXXXXXXXXXXXXXXX",
             },
         )
         print('Response HTTP Status Code: {status_code}'.format(
@@ -186,6 +182,8 @@ Attribute			|	Description
 
 #### HTTP Request
 `GET /v2/public/ping`
+
+> Example Response:
 
 ```json
 {

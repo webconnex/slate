@@ -1,6 +1,6 @@
 ## Errors
 
-> Response
+> Example Response:
 
 ```json
 {

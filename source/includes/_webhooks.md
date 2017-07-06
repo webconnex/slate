@@ -5,10 +5,11 @@ Our webhook system allows you to receive data when certain events happen on your
 We currently support the following events:
 
 * Test
-* New Registration
+* New Registrations/Orders
 * Subscription/Recurring Notification
 * Form Published
 * Inventory Supply
+* Coupons
 
 ##Control Panel Interface
 
@@ -27,6 +28,8 @@ Clicking on the details of a request will reveal more information that might be 
 ![Webhook Details](/images/webhook-details.png)
 
 ##Headers
+
+> Supplied Header:
 
 ```json
 {
@@ -54,5 +57,5 @@ Parameter | Description
 Content-Type | application/json
 User-Agent | Webconnex-Divvy
 X-Webconnex-Delivery | Hash for the delivery
-X-Webconnex-Event | Array of event types being sent
+X-Webconnex-Event | Event types being sent
 X-Webconnex-Signature | HMAC for the webhook. Remains unchanged on resend events

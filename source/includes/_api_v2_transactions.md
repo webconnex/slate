@@ -5,6 +5,8 @@
 #### HTTP Request
 `GET /v2/public/search/transactions`
 
+> Example Response:
+
 ```json
     {
       "id": 1,
@@ -29,6 +31,7 @@
       "orderId": 11652,
       "orderDisplayId": "1475254517975192216",
       "total": "40.00",
+      "currency": "USD",
       "transactionType": "charge",
       "currency": "USD",
       "paymentMethod": "card",
@@ -60,6 +63,7 @@
       "orderId": 10602,
       "orderDisplayId": "14752545172455192216",
       "total": "40.00",
+      "currency": "USD",
       "transactionType": "charge",
       "currency": "USD",
       "paymentMethod": "card",
@@ -92,7 +96,6 @@ Parameter			|	Description
 **txReference**<br>*string*<br>optional 				    | filter transactions to only show results matching the transaction reference
 **lessThanId**<br>*integer*<br>optional 		       	| filter transactions to only show results less than provided id
 **startingAfter**<br>*integer*<br>optional 			    | filter transactions to only show results with IDs after value
-**endingIdBefore**<br>*integer*<br>optional 			 	| filter transactions to only show results with IDs before value
 **dateCreatedBefore**<br>*timestamp*<br>optional 		| filter transactions to only show results created before date
 **dateCreatedAfter**<br>*timestamp*<br>optional 		| filter transactions to only show results created before date
 **dateUpdatedBefore**<br>*timestamp*<br>optional 		| filter transactions to only show results updated before date
@@ -105,20 +108,22 @@ Attribute			|	Description
 **displayId**<br>*string*					| ID string used as customer facing ID
 **customerId**<br>*integer*					| ID of the associated customer
 **customerEmail**<br>*string*					| Email of the associated customer
-**billing**<br>*object*					| Billing name and address associated with order
-**formId**<br>*integer*					| ID of the form that created order
+**billing**<br>*object*					| Billing object containing name and address details associated with order
+**formId**<br>*integer*					| ID of the form that associated with the order
 **formName**<br>*string*					| Name of the form that created order
 **formAccRef**<br>*string*					| Accounting reference string of the form that created order
 **status**<br>*string*					| Status of the order
 **orderNumber**<br>*string*					| Order number
 **total**<br>*float*					| Total cost of the order
 **dateCreated**<br>*timestamp* | Date and time of the creation of the order
-**dateUpdated**<br>*timestamp* | Date and time the order was last updated
+**dateUpdated**<br>*timestamp* | Date and time the order was last updated (optional)
 
 ### View Transaction by ID
 
 #### HTTP Request
 `GET /v2/public/search/transactions/{id}`
+
+> Example Response:
 
 ```json
 {
@@ -146,6 +151,7 @@ Attribute			|	Description
       "status": "completed",
       "orderNumber": "TST12-001-4",
       "total": "40.00",
+      "currency": "USD",
       "dateCreated": "2016-01-28T00:11:10Z",
       "dateUpdated": "2016-05-02T22:32:22Z"
     }
@@ -165,12 +171,12 @@ Attribute			|	Description
 **displayId**<br>*string*					| ID string used as customer facing ID
 **customerId**<br>*integer*					| ID of the associated customer
 **customerEmail**<br>*string*					| Email of the associated customer
-**billing**<br>*object*					| Billing name and address associated with transaction
-**formId**<br>*integer*					| ID of the form that created order
+**billing**<br>*object*					| Billing object containing name and address details associated with transaction
+**formId**<br>*integer*					| ID of the form that associated with the order
 **formName**<br>*string*					| Name of the form that created order
 **formAccRef**<br>*string*					| Accounting reference string of the form that created order
 **status**<br>*string*					| Status of the transaction
 **orderNumber**<br>*string*					| Order number
 **total**<br>*float*					| Total cost of the transaction
 **dateCreated**<br>*timestamp* | Date and time of the creation of the transaction
-**dateUpdated**<br>*timestamp* | Date and time the transaction was last updated
+**dateUpdated**<br>*timestamp* | Date and time the transaction was last updated (optional)
