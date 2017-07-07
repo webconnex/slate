@@ -16,12 +16,15 @@ includes:
   - api_v2
   - api_v2_endpoints
   - api_v2_ping
-  - api_v2_forms
   - api_v2_orders
   - api_v2_registrants
+  - api_v2_tickets
   - api_v2_subscriptions
   - api_v2_transactions
+  - api_v2_customers
+  - api_v2_forms
   - api_v2_coupons
+  - api_v2_inventory
   - api_v2_webhooks
   - webhooks
   - webhook_events

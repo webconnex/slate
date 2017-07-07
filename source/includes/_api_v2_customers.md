@@ -1,7 +1,169 @@
-##Customer
+## Customer
 
 ### Search Customers
+```curl
+## Search
+curl "https://api.webconnex.com/v2/public/search/customers?product=redpodium.com&pretty=true" \
+     -H "apiKey: 8153515efb84469590701f586f76e350"
+```
 
+```go
+package main
+
+import (
+	"fmt"
+	"io/ioutil"
+	"net/http"
+)
+
+func sendSearch() {
+	// Search (GET https://api.webconnex.com/v2/public/search/customers?product=redpodium.com)
+
+	// Create client
+	client := &http.Client{}
+
+	// Create request
+	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/search/customers?product=redpodium.com", nil)
+
+	// Headers
+	req.Header.Add("apiKey", "8153515efb84469590701f586f76e350")
+
+	parseFormErr := req.ParseForm()
+	if parseFormErr != nil {
+	  fmt.Println(parseFormErr)    
+	}
+
+	// Fetch Request
+	resp, err := client.Do(req)
+
+	if err != nil {
+		fmt.Println("Failure : ", err)
+	}
+
+	// Read Response Body
+	respBody, _ := ioutil.ReadAll(resp.Body)
+
+	// Display Results
+	fmt.Println("response Status : ", resp.Status)
+	fmt.Println("response Headers : ", resp.Header)
+	fmt.Println("response Body : ", string(respBody))
+}
+```
+
+```python
+# Install the Python Requests library:
+# `pip install requests`
+
+import requests
+
+
+def send_request():
+    # Search
+    # GET https://api.webconnex.com/v2/public/search/customers
+
+    try:
+        response = requests.get(
+            url="https://api.webconnex.com/v2/public/search/customers",
+            params={
+                "product": "redpodium.com",
+                "pretty": "true",
+            },
+            headers={
+                "apiKey": "8153515efb84469590701f586f76e350",
+            },
+        )
+        print('Response HTTP Status Code: {status_code}'.format(
+            status_code=response.status_code))
+        print('Response HTTP Response Body: {content}'.format(
+            content=response.content))
+    except requests.exceptions.RequestException:
+        print('HTTP Request failed')
+```
+
+```javascript
+// request Search
+(function(callback) {
+    'use strict';
+
+    const httpTransport = require('https');
+    const responseEncoding = 'utf8';
+    const httpOptions = {
+        hostname: 'api.webconnex.com',
+        port: '443',
+        path: '/v2/public/search/customers?product=redpodium.com',
+        method: 'GET',
+        headers: {"apiKey":"8153515efb84469590701f586f76e350"}
+    };
+    httpOptions.headers['User-Agent'] = 'node ' + process.version;
+
+    // Paw Store Cookies option is not supported
+
+    const request = httpTransport.request(httpOptions, (res) => {
+        let responseBufs = [];
+        let responseStr = '';
+
+        res.on('data', (chunk) => {
+            if (Buffer.isBuffer(chunk)) {
+                responseBufs.push(chunk);
+            }
+            else {
+                responseStr = responseStr + chunk;            
+            }
+        }).on('end', () => {
+            responseStr = responseBufs.length > 0 ?
+                Buffer.concat(responseBufs).toString(responseEncoding) : responseStr;
+
+            callback(null, res.statusCode, res.headers, responseStr);
+        });
+
+    })
+    .setTimeout(0)
+    .on('error', (error) => {
+        callback(error);
+    });
+    request.write("")
+    request.end();
+
+
+})((error, statusCode, headers, body) => {
+    console.log('ERROR:', error);
+    console.log('STATUS:', statusCode);
+    console.log('HEADERS:', JSON.stringify(headers));
+    console.log('BODY:', body);
+});
+```
+
+```swift
+func sendSearchRequest() {
+    /**
+     Search
+     get https://api.webconnex.com/v2/public/search/customers
+     */
+
+    // Add Headers
+    let headers = [
+        "apiKey":"8153515efb84469590701f586f76e350",
+    ]
+
+    // Add URL parameters
+    let urlParams = [
+        "product":"redpodium.com",
+        "pretty":"true",
+    ]
+
+    // Fetch Request
+    Alamofire.request("https://api.webconnex.com/v2/public/search/customers", method: .get, parameters: urlParams, headers: headers)
+        .validate(statusCode: 200..<300)
+        .responseJSON { response in
+            if (response.result.error == nil) {
+                debugPrint("HTTP Response Body: \(response.data)")
+            }
+            else {
+                debugPrint("HTTP Request failed: \(response.result.error)")
+            }
+        }
+}
+```
 > The above command returns JSON structured like this:
 ```json
 {
@@ -81,7 +243,169 @@ Attribute			|	Description
 **dateUpdated**<br>*timestamp* | Date and time the customer was last updated (optional)
 
 ### View Customers by ID
+```curl
+## View
+curl "https://api.webconnex.com/v2/public/search/customers/1155061?product=redpodium.com&pretty=true" \
+     -H "apiKey: 8153515efb84469590701f586f76e350"
+```
 
+```go
+package main
+
+import (
+	"fmt"
+	"io/ioutil"
+	"net/http"
+)
+
+func sendView() {
+	// View (GET https://api.webconnex.com/v2/public/search/customers/1155061?product=redpodium.com)
+
+	// Create client
+	client := &http.Client{}
+
+	// Create request
+	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/search/customers/1155061?product=redpodium.com", nil)
+
+	// Headers
+	req.Header.Add("apiKey", "8153515efb84469590701f586f76e350")
+
+	parseFormErr := req.ParseForm()
+	if parseFormErr != nil {
+	  fmt.Println(parseFormErr)    
+	}
+
+	// Fetch Request
+	resp, err := client.Do(req)
+
+	if err != nil {
+		fmt.Println("Failure : ", err)
+	}
+
+	// Read Response Body
+	respBody, _ := ioutil.ReadAll(resp.Body)
+
+	// Display Results
+	fmt.Println("response Status : ", resp.Status)
+	fmt.Println("response Headers : ", resp.Header)
+	fmt.Println("response Body : ", string(respBody))
+}
+```
+
+```python
+# Install the Python Requests library:
+# `pip install requests`
+
+import requests
+
+
+def send_request():
+    # View
+    # GET https://api.webconnex.com/v2/public/search/customers/1155061
+
+    try:
+        response = requests.get(
+            url="https://api.webconnex.com/v2/public/search/customers/1155061",
+            params={
+                "pretty": "true",
+                "product": "redpodium.com",
+            },
+            headers={
+                "apiKey": "8153515efb84469590701f586f76e350",
+            },
+        )
+        print('Response HTTP Status Code: {status_code}'.format(
+            status_code=response.status_code))
+        print('Response HTTP Response Body: {content}'.format(
+            content=response.content))
+    except requests.exceptions.RequestException:
+        print('HTTP Request failed')
+```
+
+```javascript
+// request View
+(function(callback) {
+    'use strict';
+
+    const httpTransport = require('https');
+    const responseEncoding = 'utf8';
+    const httpOptions = {
+        hostname: 'api.webconnex.com',
+        port: '443',
+        path: '/v2/public/search/customers/1155061?product=redpodium.com',
+        method: 'GET',
+        headers: {"apiKey":"8153515efb84469590701f586f76e350"}
+    };
+    httpOptions.headers['User-Agent'] = 'node ' + process.version;
+
+    // Paw Store Cookies option is not supported
+
+    const request = httpTransport.request(httpOptions, (res) => {
+        let responseBufs = [];
+        let responseStr = '';
+
+        res.on('data', (chunk) => {
+            if (Buffer.isBuffer(chunk)) {
+                responseBufs.push(chunk);
+            }
+            else {
+                responseStr = responseStr + chunk;            
+            }
+        }).on('end', () => {
+            responseStr = responseBufs.length > 0 ?
+                Buffer.concat(responseBufs).toString(responseEncoding) : responseStr;
+
+            callback(null, res.statusCode, res.headers, responseStr);
+        });
+
+    })
+    .setTimeout(0)
+    .on('error', (error) => {
+        callback(error);
+    });
+    request.write("")
+    request.end();
+
+
+})((error, statusCode, headers, body) => {
+    console.log('ERROR:', error);
+    console.log('STATUS:', statusCode);
+    console.log('HEADERS:', JSON.stringify(headers));
+    console.log('BODY:', body);
+});
+```
+
+```swift
+func sendViewRequest() {
+    /**
+     View
+     get https://api.webconnex.com/v2/public/search/customers/1155061
+     */
+
+    // Add Headers
+    let headers = [
+        "apiKey":"8153515efb84469590701f586f76e350",
+    ]
+
+    // Add URL parameters
+    let urlParams = [
+        "pretty":"true",
+        "product":"redpodium.com",
+    ]
+
+    // Fetch Request
+    Alamofire.request("https://api.webconnex.com/v2/public/search/customers/1155061", method: .get, parameters: urlParams, headers: headers)
+        .validate(statusCode: 200..<300)
+        .responseJSON { response in
+            if (response.result.error == nil) {
+                debugPrint("HTTP Response Body: \(response.data)")
+            }
+            else {
+                debugPrint("HTTP Request failed: \(response.result.error)")
+            }
+        }
+}
+```
 > The above command returns JSON structured like this:
 ```json
 {
