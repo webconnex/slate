@@ -2,11 +2,7 @@
 
 ### Search Customers
 
-#### HTTP Request
-`GET /v2/public/search/customers`
-
-> Example Response:
-
+> The above command returns JSON structured like this:
 ```json
 {
   "responseCode": 200,
@@ -56,7 +52,10 @@
 }
 ```
 
-####  Request Params
+#### HTTP Request
+`GET /v2/public/search/customers`
+
+#### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **product**<br>*string*<br>required 			| Name of the product you to search for customers on
@@ -71,8 +70,7 @@ Parameter			|	Description
 **dateUpdatedBefore**<br>*timestamp*<br>optional 		| filter customers to only show results updated before date
 **dateUpdatedAfter**<br>*timestamp*<br>optional 		| filter customers to only show results updated after date
 
-
-####  Response Object
+#### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the customer
@@ -84,11 +82,7 @@ Attribute			|	Description
 
 ### View Customers by ID
 
-#### HTTP Request
-`GET /v2/public/search/customers/{id}`
-
-> Example Response:
-
+> The above command returns JSON structured like this:
 ```json
 {
   "responseCode": 200,
@@ -117,12 +111,15 @@ Attribute			|	Description
 }
 ```
 
-####  Request Params
+#### HTTP Request
+`GET /v2/public/search/customers/{id}`
+
+#### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*string*<br>required 				| ID of the requested customer
 
-####  Response Object
+#### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the customer

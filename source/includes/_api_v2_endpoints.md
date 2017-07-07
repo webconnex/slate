@@ -1,6 +1,6 @@
 ## Endpoints
 
-Method			|	Path 											|	Resource 			| Description
+Method			|	Path 											|	Resource 			| Description / Notes
 ------------|---------------------------|---------------|------------------------------
 GET 				|/ping											| Ping					| Simple endpoint to check API health
 GET					|/forms											|	Form					|
@@ -11,8 +11,8 @@ GET					|/webhooks/{id}							| Webhook				|
 PUT					|/webhooks/{id}							| Webhook				|
 DELETE			|/webhooks/{id}							|	Webhook				|
 GET					|/webhooks/{id}	/logs				| Webhook Log		|
-GET					|/webhooks/{webhookID}/logs/{id}						| Webhook Log		|
-POST				|/webhooks/{webhookID}/resend/{logID}/			| Webhook Log		|
+GET					|/webhooks/{webhookID}/logs/{id}						| Webhook Log	| Retrieve a list of sent webhooks in log format		|
+POST				|/webhooks/{webhookID}/resend/{logID}/			| Webhook Log	| Resend a webhook event	|
 GET					|/search/orders/{id}				|	Order					|
 GET					|/search/orders							|	Order					| Required params: product
 GET					|/search/transactions/{id}	| Transaction		|
@@ -26,7 +26,3 @@ GET					|/search/subscriptions			| Subscription	|	Required params: product
 GET					|/coupons/global						| Coupon				|	Required params: product
 GET					|/coupons/form/{formID}			|	Coupon				|
 GET					|/coupons/{couponID}				|	Coupon				|
-
-[//]: # (PUT 				|/forms/{id}						|	Form					|)
-[//]: # (DELETE			|/forms/{id} 						|	Form 					|)
-[//]: # (POST 			|/forms									|	Form					|)

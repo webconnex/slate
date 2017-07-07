@@ -1,11 +1,8 @@
-##Transaction
+## Transaction
 
 ### Search transactions
 
-#### HTTP Request
-`GET /v2/public/search/transactions`
-
-> Example Response:
+> The above command returns JSON structured like this:
 
 ```json
     {
@@ -76,8 +73,10 @@
   "totalResults": 2
 }
 ```
+#### HTTP Request
+`GET /v2/public/search/transactions`
 
-####  Request Params
+#### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **product**<br>*string*<br>required 		| Name of the product you to search for transactions on
@@ -101,7 +100,7 @@ Parameter			|	Description
 **dateUpdatedBefore**<br>*timestamp*<br>optional 		| filter transactions to only show results updated before date
 **dateUpdatedAfter**<br>*timestamp*<br>optional 		| filter transactions to only show results updated after date
 
-####  Response Object
+#### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the transaction
@@ -120,10 +119,7 @@ Attribute			|	Description
 
 ### View Transaction by ID
 
-#### HTTP Request
-`GET /v2/public/search/transactions/{id}`
-
-> Example Response:
+> The above command returns JSON structured like this:
 
 ```json
 {
@@ -158,13 +154,15 @@ Attribute			|	Description
   ]
 }
 ```
+#### HTTP Request
+`GET /v2/public/search/transactions/{id}`
 
-####  Request Params
+#### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*string*<br>required 				| ID of the requested order
 
-####  Response Object
+#### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the transaction

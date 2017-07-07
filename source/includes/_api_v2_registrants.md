@@ -2,10 +2,7 @@
 
 ### Search Registrants
 
-#### HTTP Request
-`GET /v2/public/search/registrants`
-
-> Example Response:
+> The above command returns JSON structured like this:
 
 ```json
 {
@@ -67,10 +64,10 @@
   "totalResults": 2
 }
 ```
+#### HTTP Request
+`GET /v2/public/search/registrants`
 
-
-
-####  Request Params
+#### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **product**<br>*string*<br>required 		| Name of the product you to search for transactions on
@@ -92,7 +89,7 @@ Parameter			|	Description
 **dateUpdatedBefore**<br>*timestamp*<br>optional 		| filter registrants to only show results updated before date
 **dateUpdatedAfter**<br>*timestamp*<br>optional 		| filter registrants to only show results updated after date
 
-####  Response Object
+#### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the registrant
@@ -111,10 +108,7 @@ Attribute			|	Description
 
 ### View Registrant by ID
 
-#### HTTP Request
-`GET /v2/public/search/registrants/{id}`
-
-> Example Response:
+> The above command returns JSON structured like this:
 
 ```json
 {
@@ -150,12 +144,15 @@ Attribute			|	Description
 }
 ```
 
-####  Request Params
+#### HTTP Request
+`GET /v2/public/search/registrants/{id}`
+
+#### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*string*<br>required 				| ID of the requested order
 
-####  Response Object
+#### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the registrant

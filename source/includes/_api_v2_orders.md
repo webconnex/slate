@@ -2,10 +2,7 @@
 
 ### Search Orders
 
-#### HTTP Request
-`GET /v2/public/search/orders`
-
-> Example Response:
+> The above command returns JSON structured like this:
 
 ```json
 {
@@ -58,7 +55,10 @@
 }
 ```
 
-####  Request Params
+#### HTTP Request
+`GET /v2/public/search/orders`
+
+#### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **product**<br>*string*<br>required 			| Name of the product you to search for orders on
@@ -78,7 +78,7 @@ Parameter			|	Description
 **dateUpdatedBefore**<br>*timestamp*<br>optional 		| filter orders to only show results updated before date
 **dateUpdatedAfter**<br>*timestamp*<br>optional 		| filter orders to only show results updated after date
 
-####  Response Object
+#### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the order
@@ -97,10 +97,7 @@ Attribute			|	Description
 
 ### View Order by ID
 
-#### HTTP Request
-`GET /v2/public/search/orders/{id}`
-
-> Example Response:
+> The above command returns JSON structured like this:
 
 ```json
 {
@@ -135,12 +132,15 @@ Attribute			|	Description
 }
 ```
 
-####  Request Params
+#### HTTP Request
+`GET /v2/public/search/orders/{id}`
+
+#### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*string*<br>required 				| ID of the requested order
 
-####  Response Object
+#### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the order

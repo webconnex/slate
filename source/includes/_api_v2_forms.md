@@ -1,11 +1,8 @@
-##Form
+## Form
 
-###List all Forms
+### List all Forms
 
-#### HTTP Request
-`GET /v2/public/forms`
-
-> Example Response:
+> The above command returns JSON structured like this:
 
 ```json
 {
@@ -31,12 +28,15 @@
 }
 ```
 
-####  Request Params
+#### HTTP Request
+`GET /v2/public/forms`
+
+#### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **product**<br>*string*<br>Optional 		| Name of the product you want to list forms for
 
-####  Response Object
+#### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 			   	| Unique ID of the
@@ -45,12 +45,9 @@ Attribute			|	Description
 **dateCreated**<br>*timestamp* | Date and time of the creation of the form
 **dateUpdated**<br>*timestamp* | Date and time the form was last updated (optional)
 
-###Get Form By ID
+### Get Form By ID
 
-#### HTTP Request
-`GET /v2/public/forms/{id}`
-
-> Example Response:
+> The above command returns JSON structured like this:
 
 ```json
 {
@@ -141,18 +138,21 @@ Attribute			|	Description
     "status": "open",
     "currency": "USD",
     "timeZone": "America/Los_Angeles",
-    "dateCreated": "0001-01-01T00:00:00Z"
+    "dateCreated": "2016-01-28T00:11:10Z",
   },
   "totalResults": 1
 }
 ```
 
-####  Request Params
+#### HTTP Request
+`GET /v2/public/forms/{id}`
+
+#### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*Integer*<br>Required 				| ID of the form that is being requested
 
-####  Response Object
+#### Response Object
 Attribute												|	Description
 --------------------------------|----------------------------------------------------
 **id**<br>*Integer* 						| Unique ID of the

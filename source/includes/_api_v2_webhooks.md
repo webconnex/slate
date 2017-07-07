@@ -1,11 +1,8 @@
-##Webhook
+## Webhook
 
 ### List Webhooks
 
-#### HTTP Request
-`GET /v2/public/webhooks/`
-
-> Example Response:
+> The above command returns JSON structured like this:
 
 ```json
 {
@@ -14,12 +11,13 @@
 		{
       "id": 28,
       "accountId": 1,
-      "forms": [
-        404
-      ],
+      "forms": [{
+        "formId": -1,
+      }],
       "token": "b4148448406443eda7bc5c44d11c9cd3",
       "events": [
-        "registration"
+        "registration",
+        "subscription"
       ],
       "method": "POST",
       "url": "https://webhook-endpoint.your-url.com",
@@ -34,13 +32,15 @@
     {
       "id": 29,
       "accountId": 1,
-      "forms": [
-        376,
-        404
-      ],
+      "forms": [{
+        "formId": 376,
+      },{
+        "formId": 19234,
+      }],
       "token": "64fca5a66a8945b3958905b320f72adb",
       "events": [
-        "registration"
+        "registration",
+        "coupon"
       ],
       "method": "POST",
       "url": "https://webhook-endpoint.your-url.com",
@@ -56,16 +56,18 @@
   "totalResults": 2
 }
 ```
+#### HTTP Request
+`GET /v2/public/webhooks/`
 
-####  Request Params
+#### Request Params
 No filtering implemented on this object.
 
-####  Response Object
+#### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the webhook
 **accountId**<br>*integer*					| ID of the associated account
-**forms**<br>*array*<br>required					| Array of the form IDs associated with the webhook. (send [-1] to subscribe to all forms)
+**forms**<br>*array*<br>required					| Array of objects containing the form IDs associated with the webhook. (send [{"formID":-1}] to subscribe to all forms)
 **token**<br>*string*					| Unique token for the webhook
 **events**<br>*array*					| List of events assigned to the webhook
 **method**<br>*integer*					| HTTP method used for the webhook delivery request
@@ -78,10 +80,7 @@ Attribute			|	Description
 
 ### View Webhook
 
-#### HTTP Request
-`GET /v2/public/webhooks/{id}`
-
-> Example Response:
+> The above command returns JSON structured like this:
 
 ```json
 {
@@ -90,9 +89,9 @@ Attribute			|	Description
 		{
       "id": 28,
       "accountId": 1,
-      "forms": [
-        404
-      ],
+      "forms": [{
+        "formId": 19234,
+      }],
       "token": "b4148448406443eda7bc5c44d11c9cd3",
       "events": [
         "registration"
@@ -110,18 +109,20 @@ Attribute			|	Description
   "totalResults": 1
 }
 ```
+#### HTTP Request
+`GET /v2/public/webhooks/{id}`
 
 #### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*string*<br>required 				| ID of the requested webhook
 
-####  Response Object
+#### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the webhook
 **accountId**<br>*integer*					| ID of the associated account
-**forms**<br>*array*<br>required					| Array of the form IDs associated with the webhook. (send [-1] to subscribe to all forms)
+**forms**<br>*array*<br>required					| Array of objects containing the form IDs associated with the webhook. (send [{"formID":-1}] to subscribe to all forms)
 **token**<br>*string*					| Unique token for the webhook
 **events**<br>*array*					| List of events assigned to the webhook
 **method**<br>*integer*					| HTTP method used for the webhook delivery request
@@ -134,13 +135,18 @@ Attribute			|	Description
 
 ### Create Webhook
 
+> The above command returns JSON structured like this:
+
+```json
+{}
+```
 #### HTTP Request
 `POST /v2/public/webhooks`
 
-####  Request Object
+#### Request Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**forms**<br>*array*<br>required					| Array of the form IDs associated with the webhook. (send [-1] to subscribe to all forms)
+**forms**<br>*array*<br>required					| Array of objects containing the form IDs associated with the webhook. (send [{"formID":-1}] to subscribe to all forms)
 **events**<br>*array*<br>required					| List of events assigned to the webhook
 **method**<br>*integer*					| HTTP method used for the webhook delivery request
 **url**<br>*string*					| Endpoint URL used for the webhook delivery request
@@ -148,12 +154,12 @@ Attribute			|	Description
 **status**<br>*string*					| Status of the webhook (enabled/disabled)
 **meta**<br>*object*					| Contains webhook name and app key if required by the endpoint
 
-####  Response Object
+#### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the webhook
 **accountId**<br>*integer*					| ID of the associated account
-**forms**<br>*array*<br>required					| Array of the form IDs associated with the webhook. (send [-1] to subscribe to all forms)
+**forms**<br>*array*<br>required					| Array of objects containing the form IDs associated with the webhook. (send [{"formID":-1}] to subscribe to all forms)
 **token**<br>*string*					| Unique token for the webhook
 **events**<br>*array*					| List of events assigned to the webhook
 **method**<br>*integer*					| HTTP method used for the webhook delivery request
@@ -166,15 +172,21 @@ Attribute			|	Description
 
 ### Update Webhook
 
+> The above command returns JSON structured like this:
+
+```json
+{}
+```
+
 #### HTTP Request
 `POST /v2/public/webhooks/{id}`
 
-####  Request Object
+#### Request Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the webhook
 **accountId**<br>*integer*					| ID of the associated account
-**forms**<br>*array*<br>required					| Array of the form IDs associated with the webhook. (send [-1] to subscribe to all forms)
+**forms**<br>*array*<br>required					| Array of objects containing the form IDs associated with the webhook. (send [{"formID":-1}] to subscribe to all forms)
 **events**<br>*array*<br>required					| List of events assigned to the webhook
 **method**<br>*integer*					| HTTP method used for the webhook delivery request
 **url**<br>*string*					| Endpoint URL used for the webhook delivery request
@@ -182,12 +194,12 @@ Attribute			|	Description
 **status**<br>*string*					| Status of the webhook (enabled/disabled)
 **meta**<br>*object*					| Contains webhook name and app key if required by the endpoint
 
-####  Response Object
+#### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the webhook
 **accountId**<br>*integer*					| ID of the associated account
-**forms**<br>*array*<br>required					| Array of the form IDs associated with the webhook. (send [-1] to subscribe to all forms)
+**forms**<br>*array*<br>required					| Array of objects containing the form IDs associated with the webhook. (send [{"formID":-1}] to subscribe to all forms)
 **token**<br>*string*					| Unique token for the webhook
 **events**<br>*array*					| List of events assigned to the webhook
 **method**<br>*integer*					| HTTP method used for the webhook delivery request
@@ -198,13 +210,17 @@ Attribute			|	Description
 **dateCreated**<br>*timestamp* | Date and time of the creation of the webhook
 **dateUpdated**<br>*timestamp* | Date and time the webhook was last updated
 
-
 ### Delete Webhook
 
+> The above command returns JSON structured like this:
+
+```json
+{}
+```
 #### HTTP Request
 `POST /v2/public/webhooks/{id}`
 
-####  Request Object
+#### Request Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| ID of the webhook
@@ -216,19 +232,25 @@ Get all logs for a given webhook
 #### HTTP Request
 `POST /v2/public/webhooks/{id}/logs`
 
-####  Request Object
+#### Request Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| ID of the webhook
 
 ### View Log by ID for Webhook
 
+> The above command returns JSON structured like this:
+
+```json
+{}
+```
+
 View a specific webhook log
 
 #### HTTP Request
 `POST /v2/public/webhooks/{id}/logs/{logId}`
 
-####  Request Object
+#### Request Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| ID of the webhook
@@ -241,7 +263,7 @@ Request that a particular webhook attempt be resent.
 #### HTTP Request
 `POST /v2/public/webhooks/{id}/resend/{logId}`
 
-####  Request Params
+#### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*string*<br>required 				| ID of the webhook

@@ -1,16 +1,10 @@
 ##Ping/Healthcheck
-
-### Check Status
-
-Simple endpoint to provide a health check endpoint to make sure we are alive and kickin'.
-
 ```shell
 curl -X "GET" "http://api.webconnex.com/v2/public/ping" \
 	-H "apiKey: XXXXXXXXXXXXXXXXXXX"
 ```
 
 ```go
-
 package main
 
 import (
@@ -151,7 +145,6 @@ class MyRequestController {
 
 import requests
 
-
 def send_request():
     # Request
     # GET http://api.webconnex.com/v2/public/ping
@@ -169,21 +162,8 @@ def send_request():
             content=response.content))
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
-
-
-
 ```
-
-Attribute			|	Description
---------------|----------------------------------------------------------------------
-**responseCode**<br>*Integer* 				| Response code of the request
-**data**<br>*string*					| Random string to use as data payload
-
-
-#### HTTP Request
-`GET /v2/public/ping`
-
-> Example Response:
+> The above command returns JSON structured like this:
 
 ```json
 {
@@ -191,3 +171,12 @@ Attribute			|	Description
   "data": "Some nights I always win, I always win..."
 }
 ```
+Simple endpoint to provide a health check endpoint to make sure we are alive and kickin'.
+
+#### HTTP Request
+`GET /v2/public/ping`
+
+Attribute			|	Description
+--------------|----------------------------------------------------------------------
+**responseCode**<br>*Integer* 				| Response code of the request
+**data**<br>*string*					| Random string to use as data payload

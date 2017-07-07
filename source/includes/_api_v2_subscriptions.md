@@ -1,11 +1,8 @@
-##Subscription
+## Subscription
 
 ### Search Subscriptions
 
-#### HTTP Request
-`GET /v2/public/search/subscriptions`
-
-> Example Response:
+> The above command returns JSON structured like this:
 
 ```json
 {
@@ -65,10 +62,10 @@
   "totalResults": 2
 }
 ```
+#### HTTP Request
+`GET /v2/public/search/subscriptions`
 
-
-
-####  Request Params
+#### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **product**<br>*string*<br>required 		| Name of the product you to search for subscriptions on
@@ -92,7 +89,7 @@ Parameter			|	Description
 **dateNextAfter**<br>*timestamp*<br>optional 		| filter subscriptions to only show results scheduled to run after date
 **dateLastAfter**<br>*timestamp*<br>optional 		| filter subscriptions to only show results processed after date
 
-####  Response Object
+#### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the subscription
@@ -111,10 +108,7 @@ Attribute			|	Description
 
 ### View Subscription by ID
 
-#### HTTP Request
-`GET /v2/public/search/subscriptions/{id}`
-
-> Example Response:
+> The above command returns JSON structured like this:
 
 ```json
 {
@@ -149,12 +143,15 @@ Attribute			|	Description
 }
 ```
 
-####  Request Params
+#### HTTP Request
+`GET /v2/public/search/subscriptions/{id}`
+
+#### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*string*<br>required 				| ID of the requested order
 
-####  Response Object
+#### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the subscription

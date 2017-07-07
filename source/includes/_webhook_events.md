@@ -1,6 +1,6 @@
 ## Webhooks Events
 
-These are the system events that are available as webhook triggers
+These are the system events that are available as webhook triggers.
 
 ### Registration
 
