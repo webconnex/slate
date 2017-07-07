@@ -3,8 +3,8 @@
 ### Global coupons
 
 ```shell
-curl "https://api.webconnex.com/v2/public/coupons/global?product=redpodium.com&pretty=true" \
-     -H "apiKey: XXXXXXXXXXXXXX"
+curl "https://api.webconnex.com/v2/public/coupons/global?pretty=true" \
+     -H "apiKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 ```
 
 ```go
@@ -17,16 +17,15 @@ import (
 )
 
 func sendListGlobal() {
-	// List Global (GET https://api.webconnex.com/v2/public/coupons/global?product=redpodium.com)
 
 	// Create client
 	client := &http.Client{}
 
 	// Create request
-	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/coupons/global?product=redpodium.com", nil)
+	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/coupons/global", nil)
 
 	// Headers
-	req.Header.Add("apiKey", "XXXXXXXXXXX")
+	req.Header.Add("apiKey", "XXXXXXXXXXXXXXXXXXXXXXXXX")
 
 	parseFormErr := req.ParseForm()
 	if parseFormErr != nil {
@@ -51,7 +50,6 @@ func sendListGlobal() {
 ```
 
 ```javascript
-// request List Global
 (function(callback) {
     'use strict';
 
@@ -60,13 +58,11 @@ func sendListGlobal() {
     const httpOptions = {
         hostname: 'api.webconnex.com',
         port: '80',
-        path: '/v2/public/coupons/global?product=redpodium.com',
+        path: '/v2/public/coupons/global',
         method: 'GET',
-        headers: {"apiKey":"XXXXXXXXXXXXX"}
+        headers: {"apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXX"}
     };
     httpOptions.headers['User-Agent'] = 'node ' + process.version;
-
-    // Paw Store Cookies option is not supported
 
     const request = httpTransport.request(httpOptions, (res) => {
         let responseBufs = [];
@@ -110,17 +106,11 @@ func sendListGlobal() {
 import requests
 
 def send_request():
-    # List Global
-    # GET http://api.webconnex.com/v2/public/coupons/global
-
     try:
         response = requests.get(
             url="https://api.webconnex.com/v2/public/coupons/global",
-            params={
-                "product": "redpodium.com",
-            },
             headers={
-                "apiKey": "XXXXXXXXXXXXX",
+                "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
             },
         )
         print('Response HTTP Status Code: {status_code}'.format(
@@ -140,7 +130,7 @@ func sendListGlobalRequest() {
 
     // Add Headers
     let headers = [
-        "apiKey":"XXXXXXXXXXXXX",
+        "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXX",
     ]
 
     // Add URL parameters
@@ -162,7 +152,7 @@ func sendListGlobalRequest() {
 }
 ```
 
-> The above command returns JSON structured like this:
+> API returns JSON structured like this:
 
 ```json
 {
@@ -232,7 +222,6 @@ Attribute			|	Description
 ### View Coupon by form
 
 ```shell
-## List By Form
 curl "https://api.webconnex.com/v2/public/coupons/forms/28609?pretty=true" \
      -H "apiKey: XXXXXXXXXXXXXX"
 ```
@@ -247,7 +236,6 @@ import (
 )
 
 func sendListByForm() {
-	// List By Form (GET https://api.webconnex.com/v2/public/coupons/forms/28609)
 
 	// Create client
 	client := &http.Client{}
@@ -296,8 +284,6 @@ func sendListByForm() {
     };
     httpOptions.headers['User-Agent'] = 'node ' + process.version;
 
-    // Paw Store Cookies option is not supported
-
     const request = httpTransport.request(httpOptions, (res) => {
         let responseBufs = [];
         let responseStr = '';
@@ -312,7 +298,6 @@ func sendListByForm() {
         }).on('end', () => {
             responseStr = responseBufs.length > 0 ?
                 Buffer.concat(responseBufs).toString(responseEncoding) : responseStr;
-
             callback(null, res.statusCode, res.headers, responseStr);
         });
 
@@ -339,11 +324,7 @@ func sendListByForm() {
 
 import requests
 
-
 def send_request():
-    # List By Form
-    # GET https://api.webconnex.com/v2/public/coupons/forms/28609
-
     try:
         response = requests.get(
             url="https://api.webconnex.com/v2/public/coupons/forms/28609",
@@ -393,7 +374,7 @@ func sendListByFormRequest() {
 }
 ```
 
-> The above command returns JSON structured like this:
+> API returns JSON structured like this:
 
 ```json
 {
@@ -528,7 +509,7 @@ func sendViewSingle() {
     };
     httpOptions.headers['User-Agent'] = 'node ' + process.version;
 
-    // Paw Store Cookies option is not supported
+
 
     const request = httpTransport.request(httpOptions, (res) => {
         let responseBufs = [];
@@ -625,7 +606,7 @@ func sendViewSingleRequest() {
 }
 ```
 
-> The above command returns JSON structured like this:
+> API returns JSON structured like this:
 
 ```json
 {

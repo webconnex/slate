@@ -1,8 +1,156 @@
 ## Form
 
 ### List all Forms
+```shell
+curl -X "POST" "https://api.webconnex.com/v1/public/forms" \
+     -H "apiKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+ ```
+```go
+package main
 
-> The above command returns JSON structured like this:
+import (
+	"fmt"
+	"io/ioutil"
+	"net/http"
+)
+
+func sendList() {
+
+	// Create client
+	client := &http.Client{}
+
+	// Create request
+	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/forms?product=redpodium.com", nil)
+
+	// Headers
+	req.Header.Add("apiKey", "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+
+	parseFormErr := req.ParseForm()
+	if parseFormErr != nil {
+	  fmt.Println(parseFormErr)    
+	}
+
+	// Fetch Request
+	resp, err := client.Do(req)
+
+	if err != nil {
+		fmt.Println("Failure : ", err)
+	}
+
+	// Read Response Body
+	respBody, _ := ioutil.ReadAll(resp.Body)
+
+	// Display Results
+	fmt.Println("response Status : ", resp.Status)
+	fmt.Println("response Headers : ", resp.Header)
+	fmt.Println("response Body : ", string(respBody))
+}
+ ```
+
+```python
+# Install the Python Requests library:
+# `pip install requests`
+
+import requests
+
+def send_request():
+    try:
+        response = requests.get(
+            url="https://api.webconnex.com/v2/public/forms",
+            params={
+                "product": "redpodium.com",
+                "pretty": "true",
+            },
+            headers={
+                "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+            },
+        )
+        print('Response HTTP Status Code: {status_code}'.format(
+            status_code=response.status_code))
+        print('Response HTTP Response Body: {content}'.format(
+            content=response.content))
+    except requests.exceptions.RequestException:
+        print('HTTP Request failed')
+```
+
+ ```javascript
+ (function(callback) {
+     'use strict';
+
+     const httpTransport = require('https');
+     const responseEncoding = 'utf8';
+     const httpOptions = {
+         hostname: 'api.webconnex.com',
+         port: '443',
+         path: '/v2/public/forms?product=redpodium.com&pretty=true',
+         method: 'GET',
+         headers: {"apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}
+     };
+     httpOptions.headers['User-Agent'] = 'node ' + process.version;
+
+     const request = httpTransport.request(httpOptions, (res) => {
+         let responseBufs = [];
+         let responseStr = '';
+
+         res.on('data', (chunk) => {
+             if (Buffer.isBuffer(chunk)) {
+                 responseBufs.push(chunk);
+             }
+             else {
+                 responseStr = responseStr + chunk;            
+             }
+         }).on('end', () => {
+             responseStr = responseBufs.length > 0 ?
+                 Buffer.concat(responseBufs).toString(responseEncoding) : responseStr;
+
+             callback(null, res.statusCode, res.headers, responseStr);
+         });
+
+     })
+     .setTimeout(0)
+     .on('error', (error) => {
+         callback(error);
+     });
+     request.write("")
+     request.end();
+
+ })((error, statusCode, headers, body) => {
+     console.log('ERROR:', error);
+     console.log('STATUS:', statusCode);
+     console.log('HEADERS:', JSON.stringify(headers));
+     console.log('BODY:', body);
+ });
+ ```
+
+ ```swift
+ func sendListRequest() {
+
+     // Add Headers
+     let headers = [
+         "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+     ]
+
+     // Add URL parameters
+     let urlParams = [
+         "product":"redpodium.com",
+         "pretty":"true",
+     ]
+
+     // Fetch Request
+     Alamofire.request("https://api.webconnex.com/v2/public/forms", method: .get, parameters: urlParams, headers: headers)
+         .validate(statusCode: 200..<300)
+         .responseJSON { response in
+             if (response.result.error == nil) {
+                 debugPrint("HTTP Response Body: \(response.data)")
+             }
+             else {
+                 debugPrint("HTTP Request failed: \(response.result.error)")
+             }
+         }
+ }
+ ```
+
+> API returns JSON structured like this:
 
 ```json
 {
@@ -35,6 +183,7 @@
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **product**<br>*string*<br>Optional 		| Name of the product you want to list forms for
+**[]expand**<br>*string*<br>Optional 		| pass inventory to see form inventory
 
 #### Response Object
 Attribute			|	Description
@@ -46,8 +195,165 @@ Attribute			|	Description
 **dateUpdated**<br>*timestamp* | Date and time the form was last updated (optional)
 
 ### Get Form By ID
+```shell
+curl -X "PUT" "https://api.webconnex.com/v2/public/forms/15689" \
+     -H "apiKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+```
 
-> The above command returns JSON structured like this:
+```go
+package main
+
+import (
+	"fmt"
+	"io/ioutil"
+	"net/http"
+)
+
+func sendView() {
+
+	// Create client
+	client := &http.Client{}
+
+	// Create request
+	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/forms/?%5B%5Dexpand=inventory", nil)
+
+	// Headers
+	req.Header.Add("apiKey", "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+
+	parseFormErr := req.ParseForm()
+	if parseFormErr != nil {
+	  fmt.Println(parseFormErr)    
+	}
+
+	// Fetch Request
+	resp, err := client.Do(req)
+
+	if err != nil {
+		fmt.Println("Failure : ", err)
+	}
+
+	// Read Response Body
+	respBody, _ := ioutil.ReadAll(resp.Body)
+
+	// Display Results
+	fmt.Println("response Status : ", resp.Status)
+	fmt.Println("response Headers : ", resp.Header)
+	fmt.Println("response Body : ", string(respBody))
+}
+```
+
+```python
+# Install the Python Requests library:
+# `pip install requests`
+
+import requests
+
+
+def send_request():
+    try:
+        response = requests.get(
+            url="https://api.webconnex.com/v2/public/forms/",
+            params={
+                "[]expand": "inventory",
+            },
+            headers={
+                "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+            },
+        )
+        print('Response HTTP Status Code: {status_code}'.format(
+            status_code=response.status_code))
+        print('Response HTTP Response Body: {content}'.format(
+            content=response.content))
+    except requests.exceptions.RequestException:
+        print('HTTP Request failed')
+```
+
+```javascript
+// request View
+(function(callback) {
+    'use strict';
+
+    const httpTransport = require('https');
+    const responseEncoding = 'utf8';
+    const httpOptions = {
+        hostname: 'api.webconnex.com',
+        port: '443',
+        path: '/v2/public/forms/47520?%5B%5Dexpand=inventory',
+        method: 'GET',
+        headers: {"apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}
+    };
+    httpOptions.headers['User-Agent'] = 'node ' + process.version;
+
+
+
+    const request = httpTransport.request(httpOptions, (res) => {
+        let responseBufs = [];
+        let responseStr = '';
+
+        res.on('data', (chunk) => {
+            if (Buffer.isBuffer(chunk)) {
+                responseBufs.push(chunk);
+            }
+            else {
+                responseStr = responseStr + chunk;            
+            }
+        }).on('end', () => {
+            responseStr = responseBufs.length > 0 ?
+                Buffer.concat(responseBufs).toString(responseEncoding) : responseStr;
+
+            callback(null, res.statusCode, res.headers, responseStr);
+        });
+
+    })
+    .setTimeout(0)
+    .on('error', (error) => {
+        callback(error);
+    });
+    request.write("")
+    request.end();
+
+
+})((error, statusCode, headers, body) => {
+    console.log('ERROR:', error);
+    console.log('STATUS:', statusCode);
+    console.log('HEADERS:', JSON.stringify(headers));
+    console.log('BODY:', body);
+});
+```
+
+```swift
+func sendViewRequest() {
+    /**
+     View
+     get https://api.webconnex.com/v2/public/forms/
+     */
+
+    // Add Headers
+    let headers = [
+        "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    ]
+
+    // Add URL parameters
+    let urlParams = [
+        "pretty":"true",
+        "[]expand":"inventory",
+    ]
+
+    // Fetch Request
+    Alamofire.request("https://api.webconnex.com/v2/public/forms/", method: .get, parameters: urlParams, headers: headers)
+        .validate(statusCode: 200..<300)
+        .responseJSON { response in
+            if (response.result.error == nil) {
+                debugPrint("HTTP Response Body: \(response.data)")
+            }
+            else {
+                debugPrint("HTTP Request failed: \(response.result.error)")
+            }
+        }
+}
+```
+
+> API returns JSON structured like this:
 
 ```json
 {

@@ -1,8 +1,151 @@
-## Transaction
+## Transactions
 
 ### Search transactions
+```shell
+curl "https://api.webconnex.com/v2/public/search/transactions?product=regfox.com&pretty=true" \
+     -H "apiKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+```
+```go
+package main
 
-> The above command returns JSON structured like this:
+import (
+	"fmt"
+	"io/ioutil"
+	"net/http"
+)
+
+func sendSearch() {
+
+	// Create client
+	client := &http.Client{}
+
+	// Create request
+	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/search/transactions?product=regfox.com", nil)
+
+	// Headers
+	req.Header.Add("apiKey", "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+
+	parseFormErr := req.ParseForm()
+	if parseFormErr != nil {
+	  fmt.Println(parseFormErr)    
+	}
+
+	// Fetch Request
+	resp, err := client.Do(req)
+
+	if err != nil {
+		fmt.Println("Failure : ", err)
+	}
+
+	// Read Response Body
+	respBody, _ := ioutil.ReadAll(resp.Body)
+
+	// Display Results
+	fmt.Println("response Status : ", resp.Status)
+	fmt.Println("response Headers : ", resp.Header)
+	fmt.Println("response Body : ", string(respBody))
+}
+```
+```python
+# Install the Python Requests library:
+# `pip install requests`
+
+import requests
+
+def send_request():
+    try:
+        response = requests.get(
+            url="https://api.webconnex.com/v2/public/search/transactions",
+            params={
+                "product": "regfox.com",
+            },
+            headers={
+                "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+            },
+        )
+        print('Response HTTP Status Code: {status_code}'.format(
+            status_code=response.status_code))
+        print('Response HTTP Response Body: {content}'.format(
+            content=response.content))
+    except requests.exceptions.RequestException:
+        print('HTTP Request failed')
+```
+```javascript
+(function(callback) {
+    'use strict';
+
+    const httpTransport = require('https');
+    const responseEncoding = 'utf8';
+    const httpOptions = {
+        hostname: 'api.webconnex.com',
+        port: '443',
+        path: '/v2/public/search/transactions?product=regfox.com',
+        method: 'GET',
+        headers: {"apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}
+    };
+    httpOptions.headers['User-Agent'] = 'node ' + process.version;
+
+    const request = httpTransport.request(httpOptions, (res) => {
+        let responseBufs = [];
+        let responseStr = '';
+
+        res.on('data', (chunk) => {
+            if (Buffer.isBuffer(chunk)) {
+                responseBufs.push(chunk);
+            }
+            else {
+                responseStr = responseStr + chunk;            
+            }
+        }).on('end', () => {
+            responseStr = responseBufs.length > 0 ?
+                Buffer.concat(responseBufs).toString(responseEncoding) : responseStr;
+
+            callback(null, res.statusCode, res.headers, responseStr);
+        });
+
+    })
+    .setTimeout(0)
+    .on('error', (error) => {
+        callback(error);
+    });
+    request.write("")
+    request.end();
+
+})((error, statusCode, headers, body) => {
+    console.log('ERROR:', error);
+    console.log('STATUS:', statusCode);
+    console.log('HEADERS:', JSON.stringify(headers));
+    console.log('BODY:', body);
+});
+```
+```swift
+func sendSearchRequest() {
+
+    // Add Headers
+    let headers = [
+        "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    ]
+
+    // Add URL parameters
+    let urlParams = [
+        "product":"regfox.com",
+    ]
+
+    // Fetch Request
+    Alamofire.request("https://api.webconnex.com/v2/public/search/transactions", method: .get, parameters: urlParams, headers: headers)
+        .validate(statusCode: 200..<300)
+        .responseJSON { response in
+            if (response.result.error == nil) {
+                debugPrint("HTTP Response Body: \(response.data)")
+            }
+            else {
+                debugPrint("HTTP Request failed: \(response.result.error)")
+            }
+        }
+}
+```
+
+> API returns JSON structured like this:
 
 ```json
     {
@@ -81,7 +224,7 @@ Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **product**<br>*string*<br>required 		| Name of the product you to search for transactions on
 **formId**<br>*integer*<br>optional 		| ID of the form you want to filter transactions by
-**status**<br>*string*<br>optional 				| Status string of the order you want to filter on
+**status**<br>*string*<br>optional 				| Status string of the transaction you want to filter on
 **sort**<br>*string*<br>optional 			            	|
 **limit**<br>*string*<br>optional 				          | limits the number of results returned
 **orderId**<br>*integer*<br>optional 		   		| filter transactions to only show results matching a provided order id
@@ -108,18 +251,162 @@ Attribute			|	Description
 **customerId**<br>*integer*					| ID of the associated customer
 **customerEmail**<br>*string*					| Email of the associated customer
 **billing**<br>*object*					| Billing object containing name and address details associated with order
-**formId**<br>*integer*					| ID of the form that associated with the order
-**formName**<br>*string*					| Name of the form that created order
+**formId**<br>*integer*					| ID of the form that associated with the transaction
+**formName**<br>*string*					| Name of the form that created transaction
 **formAccRef**<br>*string*					| Accounting reference string of the form that created order
-**status**<br>*string*					| Status of the order
+**status**<br>*string*					| Status of the transaction
 **orderNumber**<br>*string*					| Order number
-**total**<br>*float*					| Total cost of the order
-**dateCreated**<br>*timestamp* | Date and time of the creation of the order
-**dateUpdated**<br>*timestamp* | Date and time the order was last updated (optional)
+**total**<br>*float*					| Transaction total
+**dateCreated**<br>*timestamp* | Date and time of the creation of the transaction
+**dateUpdated**<br>*timestamp* | Date and time the transaction was last updated (optional)
 
 ### View Transaction by ID
+```shell
+curl "https://api.webconnex.com/v2/public/search/transactions/14291?pretty=true&product=regfox.com" \
+     -H "apiKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+```
+```go
+package main
 
-> The above command returns JSON structured like this:
+import (
+	"fmt"
+	"io/ioutil"
+	"net/http"
+)
+
+func sendView() {
+
+	// Create client
+	client := &http.Client{}
+
+	// Create request
+	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/search/transactions/14291?product=regfox.com", nil)
+
+	// Headers
+	req.Header.Add("apiKey", "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+
+	parseFormErr := req.ParseForm()
+	if parseFormErr != nil {
+	  fmt.Println(parseFormErr)    
+	}
+
+	// Fetch Request
+	resp, err := client.Do(req)
+
+	if err != nil {
+		fmt.Println("Failure : ", err)
+	}
+
+	// Read Response Body
+	respBody, _ := ioutil.ReadAll(resp.Body)
+
+	// Display Results
+	fmt.Println("response Status : ", resp.Status)
+	fmt.Println("response Headers : ", resp.Header)
+	fmt.Println("response Body : ", string(respBody))
+}
+```
+```python
+# Install the Python Requests library:
+# `pip install requests`
+
+import requests
+
+def send_request():
+    try:
+        response = requests.get(
+            url="https://api.webconnex.com/v2/public/search/transactions/14291",
+            params={
+                "product": "regfox.com",
+            },
+            headers={
+                "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+            },
+        )
+        print('Response HTTP Status Code: {status_code}'.format(
+            status_code=response.status_code))
+        print('Response HTTP Response Body: {content}'.format(
+            content=response.content))
+    except requests.exceptions.RequestException:
+        print('HTTP Request failed')
+```
+```javascript
+(function(callback) {
+    'use strict';
+
+    const httpTransport = require('https');
+    const responseEncoding = 'utf8';
+    const httpOptions = {
+        hostname: 'api.webconnex.com',
+        port: '443',
+        path: '/v2/public/search/transactions/14291?product=regfox.com',
+        method: 'GET',
+        headers: {"apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}
+    };
+    httpOptions.headers['User-Agent'] = 'node ' + process.version;
+
+    const request = httpTransport.request(httpOptions, (res) => {
+        let responseBufs = [];
+        let responseStr = '';
+
+        res.on('data', (chunk) => {
+            if (Buffer.isBuffer(chunk)) {
+                responseBufs.push(chunk);
+            }
+            else {
+                responseStr = responseStr + chunk;            
+            }
+        }).on('end', () => {
+            responseStr = responseBufs.length > 0 ?
+                Buffer.concat(responseBufs).toString(responseEncoding) : responseStr;
+
+            callback(null, res.statusCode, res.headers, responseStr);
+        });
+
+    })
+    .setTimeout(0)
+    .on('error', (error) => {
+        callback(error);
+    });
+    request.write("")
+    request.end();
+
+
+})((error, statusCode, headers, body) => {
+    console.log('ERROR:', error);
+    console.log('STATUS:', statusCode);
+    console.log('HEADERS:', JSON.stringify(headers));
+    console.log('BODY:', body);
+});
+```
+```swift
+func sendViewRequest() {
+
+    // Add Headers
+    let headers = [
+        "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    ]
+
+    // Add URL parameters
+    let urlParams = [
+        "product":"regfox.com",
+    ]
+
+    // Fetch Request
+    Alamofire.request("https://api.webconnex.com/v2/public/search/transactions/14291", method: .get, parameters: urlParams, headers: headers)
+        .validate(statusCode: 200..<300)
+        .responseJSON { response in
+            if (response.result.error == nil) {
+                debugPrint("HTTP Response Body: \(response.data)")
+            }
+            else {
+                debugPrint("HTTP Request failed: \(response.result.error)")
+            }
+        }
+}
+```
+
+> API returns JSON structured like this:
 
 ```json
 {
@@ -160,7 +447,7 @@ Attribute			|	Description
 #### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*string*<br>required 				| ID of the requested order
+**id**<br>*string*<br>required 				| ID of the requested transaction
 
 #### Response Object
 Attribute			|	Description
@@ -170,9 +457,9 @@ Attribute			|	Description
 **customerId**<br>*integer*					| ID of the associated customer
 **customerEmail**<br>*string*					| Email of the associated customer
 **billing**<br>*object*					| Billing object containing name and address details associated with transaction
-**formId**<br>*integer*					| ID of the form that associated with the order
-**formName**<br>*string*					| Name of the form that created order
-**formAccRef**<br>*string*					| Accounting reference string of the form that created order
+**formId**<br>*integer*					| ID of the form that associated with the transaction
+**formName**<br>*string*					| Name of the form that created transaction
+**formAccRef**<br>*string*					| Accounting reference string of the form that created transaction
 **status**<br>*string*					| Status of the transaction
 **orderNumber**<br>*string*					| Order number
 **total**<br>*float*					| Total cost of the transaction

@@ -1,9 +1,8 @@
-##Ping/Healthcheck
+## Ping/Healthcheck
 ```shell
 curl -X "GET" "http://api.webconnex.com/v2/public/ping" \
 	-H "apiKey: XXXXXXXXXXXXXXXXXXX"
 ```
-
 ```go
 package main
 
@@ -57,9 +56,7 @@ func sendRequest() {
     };
     httpOptions.headers['User-Agent'] = 'node ' + process.version;
 
-    // Paw Store Cookies option is not supported
-
-    const request = httpTransport.request(httpOptions, (res) => {
+        const request = httpTransport.request(httpOptions, (res) => {
         let responseBufs = [];
         let responseStr = '';
 
@@ -163,7 +160,7 @@ def send_request():
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
 ```
-> The above command returns JSON structured like this:
+> API returns JSON structured like this:
 
 ```json
 {
@@ -177,6 +174,6 @@ Simple endpoint to provide a health check endpoint to make sure we are alive and
 `GET /v2/public/ping`
 
 Attribute			|	Description
---------------|----------------------------------------------------------------------
+--------------|--------------------------------------------
 **responseCode**<br>*Integer* 				| Response code of the request
 **data**<br>*string*					| Random string to use as data payload

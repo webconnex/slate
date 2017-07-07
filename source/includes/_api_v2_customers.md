@@ -1,10 +1,9 @@
-## Customer
+## Customers
 
 ### Search Customers
-```curl
-## Search
+```shell
 curl "https://api.webconnex.com/v2/public/search/customers?product=redpodium.com&pretty=true" \
-     -H "apiKey: 8153515efb84469590701f586f76e350"
+     -H "apiKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 ```
 
 ```go
@@ -17,7 +16,6 @@ import (
 )
 
 func sendSearch() {
-	// Search (GET https://api.webconnex.com/v2/public/search/customers?product=redpodium.com)
 
 	// Create client
 	client := &http.Client{}
@@ -26,7 +24,7 @@ func sendSearch() {
 	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/search/customers?product=redpodium.com", nil)
 
 	// Headers
-	req.Header.Add("apiKey", "8153515efb84469590701f586f76e350")
+	req.Header.Add("apiKey", "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
 
 	parseFormErr := req.ParseForm()
 	if parseFormErr != nil {
@@ -56,11 +54,7 @@ func sendSearch() {
 
 import requests
 
-
 def send_request():
-    # Search
-    # GET https://api.webconnex.com/v2/public/search/customers
-
     try:
         response = requests.get(
             url="https://api.webconnex.com/v2/public/search/customers",
@@ -69,7 +63,7 @@ def send_request():
                 "pretty": "true",
             },
             headers={
-                "apiKey": "8153515efb84469590701f586f76e350",
+                "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
             },
         )
         print('Response HTTP Status Code: {status_code}'.format(
@@ -81,7 +75,6 @@ def send_request():
 ```
 
 ```javascript
-// request Search
 (function(callback) {
     'use strict';
 
@@ -92,11 +85,9 @@ def send_request():
         port: '443',
         path: '/v2/public/search/customers?product=redpodium.com',
         method: 'GET',
-        headers: {"apiKey":"8153515efb84469590701f586f76e350"}
+        headers: {"apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}
     };
     httpOptions.headers['User-Agent'] = 'node ' + process.version;
-
-    // Paw Store Cookies option is not supported
 
     const request = httpTransport.request(httpOptions, (res) => {
         let responseBufs = [];
@@ -135,14 +126,10 @@ def send_request():
 
 ```swift
 func sendSearchRequest() {
-    /**
-     Search
-     get https://api.webconnex.com/v2/public/search/customers
-     */
 
     // Add Headers
     let headers = [
-        "apiKey":"8153515efb84469590701f586f76e350",
+        "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     ]
 
     // Add URL parameters
@@ -164,7 +151,8 @@ func sendSearchRequest() {
         }
 }
 ```
-> The above command returns JSON structured like this:
+> API returns JSON structured like this:
+
 ```json
 {
   "responseCode": 200,
@@ -243,10 +231,9 @@ Attribute			|	Description
 **dateUpdated**<br>*timestamp* | Date and time the customer was last updated (optional)
 
 ### View Customers by ID
-```curl
-## View
+```shell
 curl "https://api.webconnex.com/v2/public/search/customers/1155061?product=redpodium.com&pretty=true" \
-     -H "apiKey: 8153515efb84469590701f586f76e350"
+     -H "apiKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 ```
 
 ```go
@@ -259,7 +246,6 @@ import (
 )
 
 func sendView() {
-	// View (GET https://api.webconnex.com/v2/public/search/customers/1155061?product=redpodium.com)
 
 	// Create client
 	client := &http.Client{}
@@ -268,7 +254,7 @@ func sendView() {
 	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/search/customers/1155061?product=redpodium.com", nil)
 
 	// Headers
-	req.Header.Add("apiKey", "8153515efb84469590701f586f76e350")
+	req.Header.Add("apiKey", "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
 
 	parseFormErr := req.ParseForm()
 	if parseFormErr != nil {
@@ -298,11 +284,7 @@ func sendView() {
 
 import requests
 
-
 def send_request():
-    # View
-    # GET https://api.webconnex.com/v2/public/search/customers/1155061
-
     try:
         response = requests.get(
             url="https://api.webconnex.com/v2/public/search/customers/1155061",
@@ -311,7 +293,7 @@ def send_request():
                 "product": "redpodium.com",
             },
             headers={
-                "apiKey": "8153515efb84469590701f586f76e350",
+                "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
             },
         )
         print('Response HTTP Status Code: {status_code}'.format(
@@ -334,11 +316,9 @@ def send_request():
         port: '443',
         path: '/v2/public/search/customers/1155061?product=redpodium.com',
         method: 'GET',
-        headers: {"apiKey":"8153515efb84469590701f586f76e350"}
+        headers: {"apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}
     };
     httpOptions.headers['User-Agent'] = 'node ' + process.version;
-
-    // Paw Store Cookies option is not supported
 
     const request = httpTransport.request(httpOptions, (res) => {
         let responseBufs = [];
@@ -366,7 +346,6 @@ def send_request():
     request.write("")
     request.end();
 
-
 })((error, statusCode, headers, body) => {
     console.log('ERROR:', error);
     console.log('STATUS:', statusCode);
@@ -377,14 +356,10 @@ def send_request():
 
 ```swift
 func sendViewRequest() {
-    /**
-     View
-     get https://api.webconnex.com/v2/public/search/customers/1155061
-     */
 
     // Add Headers
     let headers = [
-        "apiKey":"8153515efb84469590701f586f76e350",
+        "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     ]
 
     // Add URL parameters
@@ -406,7 +381,8 @@ func sendViewRequest() {
         }
 }
 ```
-> The above command returns JSON structured like this:
+> API returns JSON structured like this:
+
 ```json
 {
   "responseCode": 200,
