@@ -141,7 +141,7 @@ func sendListRequest() {
       "id": 28,
       "accountId": 1,
       "forms": [{
-        "formId": -1,
+        "formId": -1
       }],
       "token": "b4148448406443eda7bc5c44d11c9cd3",
       "events": [
@@ -162,9 +162,9 @@ func sendListRequest() {
       "id": 29,
       "accountId": 1,
       "forms": [{
-        "formId": 376,
+        "formId": 376
       },{
-        "formId": 19234,
+        "formId": 19234
       }],
       "token": "64fca5a66a8945b3958905b320f72adb",
       "events": [
@@ -348,7 +348,7 @@ func sendListRequest() {
       "id": 28,
       "accountId": 1,
       "forms": [{
-        "formId": 19234,
+        "formId": 19234
       }],
       "token": "b4148448406443eda7bc5c44d11c9cd3",
       "events": [

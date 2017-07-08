@@ -148,6 +148,9 @@ func sendSearchRequest() {
 > API returns JSON structured like this:
 
 ```json
+{
+  "responseCode": 200,
+  "data": [
     {
       "id": 1,
       "customerId": 1,

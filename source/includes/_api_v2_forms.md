@@ -188,7 +188,7 @@ Parameter			|	Description
 #### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*integer* 			   	| Unique ID of the
+**id**<br>*integer* 			   	| Unique ID of the form
 **name**<br>*string*					| Name of the form
 **status**<br>*string*				| Status of the form
 **dateCreated**<br>*timestamp* | Date and time of the creation of the form
@@ -444,7 +444,7 @@ func sendViewRequest() {
     "status": "open",
     "currency": "USD",
     "timeZone": "America/Los_Angeles",
-    "dateCreated": "2016-01-28T00:11:10Z",
+    "dateCreated": "2016-01-28T00:11:10Z"
   },
   "totalResults": 1
 }
