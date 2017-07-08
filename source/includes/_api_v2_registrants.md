@@ -14,7 +14,7 @@ import (
 	"net/http"
 )
 
-func sendSearch() {
+func search() {
 
 	// Create client
 	client := &http.Client{}
@@ -120,7 +120,7 @@ def send_request():
 });
 ```
 ```swift
-func sendSearchRequest() {
+func searchRequest() {
 
     // Add Headers
     let headers = [
@@ -209,12 +209,12 @@ func sendSearchRequest() {
 }
 ```
 #### HTTP Request
-`GET /v2/public/search/registrants`
+`GET /v2/public/search/registrants?product=`
 
 #### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
-**product**<br>*string*<br>required 		| Name of the product you to search for transactions on
+**product**<br>*string*<br>required 		| Name of the product you to search for registrants against
 **formId**<br>*integer*<br>optional 		| ID of the form you want to filter registrants by
 **status**<br>*string*<br>optional 				| Status string of the order you want to filter on
 **sort**<br>*string*<br>optional 			            	|
@@ -237,8 +237,8 @@ Parameter			|	Description
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the registrant
-**displayId**<br>*string*					| ID string used as customer facing ID
-**customerId**<br>*integer*					| ID of the associated customer
+**displayId**<br>*string*					| Unique ID string used as civilian facing ID
+**customerId**<br>*integer*					| Unique ID of the associated customer
 **customerEmail**<br>*string*					| Email of the associated customer
 **billing**<br>*object*					| Billing object containing name and address details associated with order
 **formId**<br>*integer*					| ID of the form that associated with the order
@@ -252,7 +252,7 @@ Attribute			|	Description
 
 ### View Registrant by ID
 ```shell
-curl "https://api.webconnex.com/v2/public/search/registrants/2233110?pretty=true" \
+curl "https://api.webconnex.com/v2/public/search/registrants/2233110?pretty=true&product=redpodium.com" \
      -H "apiKey: <YOUR API KEY>"
 ```
 ```go
@@ -264,13 +264,13 @@ import (
 	"net/http"
 )
 
-func sendView() {
+func view() {
 
 	// Create client
 	client := &http.Client{}
 
 	// Create request
-	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/search/registrants/2233110", nil)
+	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/search/registrants/2233110?product=redpodium.com", nil)
 
 	// Headers
 	req.Header.Add("apiKey", "<YOUR API KEY>")
@@ -302,6 +302,9 @@ def send_request():
     try:
         response = requests.get(
             url="https://api.webconnex.com/v2/public/search/registrants/2233110",
+            params={
+                "product": "redpodium.com",
+            },
             headers={
                 "apiKey": "<YOUR API KEY>",
             },
@@ -322,7 +325,7 @@ def send_request():
     const httpOptions = {
         hostname: 'api.webconnex.com',
         port: '443',
-        path: '/v2/public/search/registrants/2233110',
+        path: '/v2/public/search/registrants/2233110?product=redpodium.com',
         method: 'GET',
         headers: {"apiKey":"<YOUR API KEY>"}
     };
@@ -361,7 +364,7 @@ def send_request():
 });
 ```
 ```swift
-func sendViewRequest() {
+func viewRequest() {
 
     // Add Headers
     let headers = [
@@ -369,7 +372,7 @@ func sendViewRequest() {
     ]
 
     // Fetch Request
-    Alamofire.request("https://api.webconnex.com/v2/public/search/registrants/2233110", method: .get, headers: headers)
+    Alamofire.request("https://api.webconnex.com/v2/public/search/registrants/2233110?product=redpodium.com", method: .get, headers: headers)
         .validate(statusCode: 200..<300)
         .responseJSON { response in
             if (response.result.error == nil) {
@@ -419,19 +422,21 @@ func sendViewRequest() {
 ```
 
 #### HTTP Request
-`GET /v2/public/search/registrants/{id}`
+`GET /v2/public/search/registrants/{id}?product=`
 
 #### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*string*<br>required 				| ID of the requested order
+**product**<br>*string*<br>required 				| Product to search against
+**[]expand**<br>*string*<br>optional 				| Return requested children (subscriptions)
 
 #### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the registrant
-**displayId**<br>*string*					| ID string used as customer facing ID
-**customerId**<br>*integer*					| ID of the associated customer
+**displayId**<br>*string*					| Unique ID string used as civilian facing ID
+**customerId**<br>*integer*					| Unique ID of the associated customer
 **customerEmail**<br>*string*					| Email of the associated customer
 **billing**<br>*object*					| Billing object containing name and address details associated with order
 **formId**<br>*integer*					| ID of the form that associated with the order

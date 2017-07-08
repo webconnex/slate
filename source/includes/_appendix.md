@@ -1,60 +1,82 @@
-## Appendix
+# Appendix
 
-Below is additional information and resources.
+Below is additional information and resources
 
-### Subscriptions
+## Orders
 
-Available Statuses | Description
---------- | -----------
-active | is active and will continue to process future payments
-inactive | is inactive and will not process future payments
-canceled | is canceled and will no longer process future payments
-completed | is completed and will no longer process future payments
+|Available Statuses
+|------------------
+|pending
+|abandoned
+|completed
+|canceled
+|pending offline payment
+|pending final payment
+|waitlisted
 
-### Orders / Registrations / Registrants / Tickets
+## Registrants
 
-|Available Statuses|
-|---|
-|pending|
-|abandoned|
-|completed|
-|transferred|
-|canceled|
-|pending offline payment|
-|pending final payment|
-|waitlisted|
+|Available Statuses
+|------------------
+|pending
+|abandoned
+|completed
+|transferred
+|pending transfer
+|canceled
+|pending offline payment
+|pending final payment
+|waitlisted
 
+## Tickets
 
-### Transactions
+|Available Statuses
+|------------------
+|pending
+|abandoned
+|completed
+|canceled
+|pending offline payment
+|pending final payment
 
-|Available Statuses|
-|---|
-|processing|
-|pending offline|
-|declined|
-|canceled|
-|authorized|
-|completed|
-|voided|
-|canceled|
-|gateway error|
-|error|
-<!-- |pending user| -->
+## Transactions
 
-### Memberships
+|Available Statuses
+|------------------
+|processing
+|pending offline
+|declined
+|canceled
+|authorized
+|completed
+|voided
+|canceled
+|gateway error
+|error
 
-|Available Statuses|
-|---|
-|active|
-|inactive|
-|expired|
+## Subscriptions
 
-### Forms
+Available Statuses	| Description
+--------------------|-----------------------------------------------------------
+active							| is active and will continue to process future payments
+inactive						| is inactive and will not process future payments
+canceled						| is canceled and will no longer process future payments
+completed						| is completed and will no longer process future payments
 
-|Available Statuses|
-|---|
-|open|
-|closed|
-|scheduled|
-|archived|
-|deleted|
+## Memberships
+
+|Available Statuses
+|------------------
+|active
+|inactive
+|expired
+
+## Forms
+
+|Available Statuses
+|------------------
+|open
+|closed
+|scheduled
+|archived
+|deleted

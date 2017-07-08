@@ -15,7 +15,7 @@ import (
 	"net/http"
 )
 
-func sendSearch() {
+func search() {
 
 	// Create client
 	client := &http.Client{}
@@ -125,7 +125,7 @@ def send_request():
 ```
 
 ```swift
-func sendSearchRequest() {
+func searchRequest() {
 
     // Add Headers
     let headers = [
@@ -203,22 +203,22 @@ func sendSearchRequest() {
 ```
 
 #### HTTP Request
-`GET /v2/public/search/customers`
+`GET /v2/public/search/customers?product=`
 
 #### Request Params
-Parameter			|	Description
---------------|----------------------------------------------------------------------
-**product**<br>*string*<br>required 			| Name of the product you to search for customers on
-**email**<br>*string*<br>optional 				| Billing email you want to search on
-**sort**<br>*string*<br>optional 			            	|
-**limit**<br>*string*<br>optional 				          | limits the number of results returned
-**greaterThanId**<br>*integer*<br>optional 		   		| filter customers to only show results greater than provided id
-**lessThanId**<br>*integer*<br>optional 		       	| filter customers to only show results less than provided id
-**startingAfter**<br>*integer*<br>optional 			    | filter customers to only show results with IDs after value
-**dateCreatedBefore**<br>*timestamp*<br>optional 		| filter customers to only show results created before date
-**dateCreatedAfter**<br>*timestamp*<br>optional 		| filter customers to only show results created before date
-**dateUpdatedBefore**<br>*timestamp*<br>optional 		| filter customers to only show results updated before date
-**dateUpdatedAfter**<br>*timestamp*<br>optional 		| filter customers to only show results updated after date
+Parameter		             	                        |	Description
+--------------------------------------------------|-----------------------------
+**product**<br>*string*<br>required               | Name of the product you to search for customers on
+**email**<br>*string*<br>optional                 | Billing email you want to search on
+**sort**<br>*string*<br>optional                  |
+**limit**<br>*string*<br>optional                 | limits the number of results returned
+**greaterThanId**<br>*integer*<br>optional        | filter customers to only show results greater than provided id
+**lessThanId**<br>*integer*<br>optional           | filter customers to only show results less than provided id
+**startingAfter**<br>*integer*<br>optional        | filter customers to only show results with IDs after value
+**dateCreatedBefore**<br>*timestamp*<br>optional  | filter customers to only show results created before date
+**dateCreatedAfter**<br>*timestamp*<br>optional   | filter customers to only show results created before date
+**dateUpdatedBefore**<br>*timestamp*<br>optional  | filter customers to only show results updated before date
+**dateUpdatedAfter**<br>*timestamp*<br>optional   | filter customers to only show results updated after date
 
 #### Response Object
 Attribute			|	Description
@@ -245,7 +245,7 @@ import (
 	"net/http"
 )
 
-func sendView() {
+func view() {
 
 	// Create client
 	client := &http.Client{}
@@ -355,7 +355,7 @@ def send_request():
 ```
 
 ```swift
-func sendViewRequest() {
+func viewRequest() {
 
     // Add Headers
     let headers = [
@@ -412,19 +412,20 @@ func sendViewRequest() {
 ```
 
 #### HTTP Request
-`GET /v2/public/search/customers/{id}`
+`GET /v2/public/search/customers/{id}?product=`
 
 #### Request Params
-Parameter			|	Description
---------------|----------------------------------------------------------------------
-**id**<br>*string*<br>required 				| ID of the requested customer
+Parameter			                      |	Description
+------------------------------------|-------------------------------------------
+**id**<br>*string*<br>required      | ID of the requested customer
+**product**<br>*string*<br>required | Product to search against
 
 #### Response Object
-Attribute			|	Description
---------------|----------------------------------------------------------------------
-**id**<br>*integer* 				| Unique ID of the customer
-**email**<br>*string*					| Email of the associated customer
-**billing**<br>*object*					| Billing object containing name and address details associated with customer
-**amount**<br>*float*					| Total of customer transactions
-**dateCreated**<br>*timestamp* | Date and time of the creation of the customer
-**dateUpdated**<br>*timestamp* | Date and time the customer was last updated (optional)
+Parameter		   	                |	Description
+--------------------------------|-----------------------------------------------
+**id**<br>*integer*             | Unique ID of the customer
+**email**<br>*string*           | Email of the associated customer
+**billing**<br>*object*         | Billing object containing name and address details associated with customer
+**amount**<br>*float*           | Total of customer transactions
+**dateCreated**<br>*timestamp*  | Date and time of the creation of the customer
+**dateUpdated**<br>*timestamp*  | Date and time the customer was last updated (optional)

@@ -14,7 +14,7 @@ import (
 	"net/http"
 )
 
-func sendSearch() {
+func search() {
 
 	// Create client
 	client := &http.Client{}
@@ -120,7 +120,7 @@ def send_request():
 });
 ```
 ```swift
-func sendSearchRequest() {
+func searchRequest() {
 
     // Add Headers
     let headers = [
@@ -207,7 +207,7 @@ func sendSearchRequest() {
 }
 ```
 #### HTTP Request
-`GET /v2/public/search/subscriptions`
+`GET /v2/public/search/subscriptions?product=`
 
 #### Request Params
 Parameter			|	Description
@@ -237,8 +237,8 @@ Parameter			|	Description
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the subscription
-**displayId**<br>*string*					| ID string used as customer facing ID
-**customerId**<br>*integer*					| ID of the associated customer
+**displayId**<br>*string*					| Unique ID string used as civilian facing ID
+**customerId**<br>*integer*					| Unique ID of the associated customer
 **customerEmail**<br>*string*					| Email of the associated customer
 **billing**<br>*object*					| Billing object containing name and address details associated with subscription
 **formId**<br>*integer*					| ID of the form that associated with the order
@@ -264,7 +264,7 @@ import (
 	"net/http"
 )
 
-func sendView() {
+func view() {
 
 	// Create client
 	client := &http.Client{}
@@ -369,7 +369,7 @@ def send_request():
 });
 ```
 ```swift
-func sendViewRequest() {
+func viewRequest() {
 
     // Add Headers
     let headers = [
@@ -431,18 +431,19 @@ func sendViewRequest() {
 ```
 
 #### HTTP Request
-`GET /v2/public/search/subscriptions/{id}`
+`GET /v2/public/search/subscriptions/{id}?product=`
 
 #### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*string*<br>required 				| ID of the requested order
+**product**<br>*string*<br>required 				| Product to search against
 
 #### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the subscription
-**customerId**<br>*integer*					| ID of the associated customer
+**customerId**<br>*integer*					| Unique ID of the associated customer
 **customerEmail**<br>*string*					| Email of the associated customer
 **billing**<br>*object*					| Billing object containing name and address details associated with subscription
 **formId**<br>*integer*					| ID of the form that associated with the order

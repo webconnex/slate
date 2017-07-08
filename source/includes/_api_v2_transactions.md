@@ -14,7 +14,7 @@ import (
 	"net/http"
 )
 
-func sendSearch() {
+func search() {
 
 	// Create client
 	client := &http.Client{}
@@ -119,7 +119,7 @@ def send_request():
 });
 ```
 ```swift
-func sendSearchRequest() {
+func searchRequest() {
 
     // Add Headers
     let headers = [
@@ -220,12 +220,12 @@ func sendSearchRequest() {
 }
 ```
 #### HTTP Request
-`GET /v2/public/search/transactions`
+`GET /v2/public/search/transactions?product=`
 
 #### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
-**product**<br>*string*<br>required 		| Name of the product you to search for transactions on
+**product**<br>*string*<br>required 		| Name of the product you to search for transactions against
 **formId**<br>*integer*<br>optional 		| ID of the form you want to filter transactions by
 **status**<br>*string*<br>optional 				| Status string of the transaction you want to filter on
 **sort**<br>*string*<br>optional 			            	|
@@ -250,8 +250,8 @@ Parameter			|	Description
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the transaction
-**displayId**<br>*string*					| ID string used as customer facing ID
-**customerId**<br>*integer*					| ID of the associated customer
+**displayId**<br>*string*					| Unique ID string used as civilian facing ID
+**customerId**<br>*integer*					| Unique ID of the associated customer
 **customerEmail**<br>*string*					| Email of the associated customer
 **billing**<br>*object*					| Billing object containing name and address details associated with order
 **formId**<br>*integer*					| ID of the form that associated with the transaction
@@ -277,7 +277,7 @@ import (
 	"net/http"
 )
 
-func sendView() {
+func view() {
 
 	// Create client
 	client := &http.Client{}
@@ -383,7 +383,7 @@ def send_request():
 });
 ```
 ```swift
-func sendViewRequest() {
+func viewRequest() {
 
     // Add Headers
     let headers = [
@@ -445,19 +445,24 @@ func sendViewRequest() {
 }
 ```
 #### HTTP Request
-`GET /v2/public/search/transactions/{id}`
+`GET /v2/public/search/transactions/{id}?product=`
 
 #### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*string*<br>required 				| ID of the requested transaction
 
+#### URI Params
+Parameter			|	Description
+--------------|----------------------------------------------------------------------
+**product**<br>*string*<br>required 				| Product to search against
+
 #### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the transaction
-**displayId**<br>*string*					| ID string used as customer facing ID
-**customerId**<br>*integer*					| ID of the associated customer
+**displayId**<br>*string*					| Unique ID string used as civilian facing ID
+**customerId**<br>*integer*					| Unique ID of the associated customer
 **customerEmail**<br>*string*					| Email of the associated customer
 **billing**<br>*object*					| Billing object containing name and address details associated with transaction
 **formId**<br>*integer*					| ID of the form that associated with the transaction

@@ -12,9 +12,8 @@ import (
 	"net/http"
 )
 
-func sendRequest() {
+func request() {
 
-	// Create client
 	client := &http.Client{}
 
 	// Create request
@@ -41,7 +40,6 @@ func sendRequest() {
 ```
 
 ```javascript
-// request Request
 (function(callback) {
     'use strict';
 
@@ -82,7 +80,6 @@ func sendRequest() {
     request.write("")
     request.end();
 
-
 })((error, statusCode, headers, body) => {
     console.log('ERROR:', error);
     console.log('STATUS:', statusCode);
@@ -92,47 +89,23 @@ func sendRequest() {
 ```
 
 ```swift
-class MyRequestController {
-    func sendRequest() {
-        /* Configure session, choose between:
-           * defaultSessionConfiguration
-           * ephemeralSessionConfiguration
-           * backgroundSessionConfigurationWithIdentifier:
-         And set session-wide properties, such as: HTTPAdditionalHeaders,
-         HTTPCookieAcceptPolicy, requestCachePolicy or timeoutIntervalForRequest.
-         */
-        let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
+func Request() {
+    /**
+     Ping
+     get https://api.webconnex.com/v2/public/ping
+     */
 
-        /* Create session, and optionally set a NSURLSessionDelegate. */
-        let session = NSURLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
-
-        /* Create the Request:
-           Request (GET http://api.webconnex.com/v2/public/ping)
-         */
-
-        guard var URL = NSURL(string: "http://api.webconnex.com/v2/public/ping") else {return}
-        let request = NSMutableURLRequest(URL: URL)
-        request.HTTPMethod = "GET"
-
-        // Headers
-
-        request.addValue("<YOUR API KEY>", forHTTPHeaderField: "apiKey")
-
-        /* Start a new Task */
-        let task = session.dataTaskWithRequest(request, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
-            if (error == nil) {
-                // Success
-                let statusCode = (response as! NSHTTPURLResponse).statusCode
-                print("URL Session Task Succeeded: HTTP \(statusCode)")
+    // Fetch Request
+    Alamofire.request("https://api.webconnex.com/v2/public/ping", method: .get)
+        .validate(statusCode: 200..<300)
+        .responseJSON { response in
+            if (response.result.error == nil) {
+                debugPrint("HTTP Response Body: \(response.data)")
             }
             else {
-                // Failure
-                print("URL Session Task Failed: %@", error!.localizedDescription);
+                debugPrint("HTTP Request failed: \(response.result.error)")
             }
-        })
-        task.resume()
-        session.finishTasksAndInvalidate()
-    }
+        }
 }
 ```
 
@@ -143,9 +116,6 @@ class MyRequestController {
 import requests
 
 def send_request():
-    # Request
-    # GET http://api.webconnex.com/v2/public/ping
-
     try:
         response = requests.get(
             url="http://api.webconnex.com/v2/public/ping",
@@ -173,7 +143,7 @@ Simple endpoint to provide a health check endpoint to make sure we are alive and
 #### HTTP Request
 `GET /v2/public/ping`
 
-Attribute			|	Description
---------------|--------------------------------------------
-**responseCode**<br>*Integer* 				| Response code of the request
+Attribute											|	Description
+------------------------------|----------------------------
+**responseCode**<br>*Integer*	| Response code of the request
 **data**<br>*string*					| Random string to use as data payload

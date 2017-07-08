@@ -6,7 +6,6 @@
 curl "https://api.webconnex.com/v2/public/coupons/global?pretty=true" \
      -H "apiKey: <YOUR API KEY>"
 ```
-
 ```go
 package main
 
@@ -16,7 +15,7 @@ import (
 	"net/http"
 )
 
-func sendListGlobal() {
+func requescoupon() {
 
 	// Create client
 	client := &http.Client{}
@@ -122,7 +121,7 @@ def send_request():
 ```
 
 ```swift
-func sendListGlobalRequest() {
+func couponRequest() {
     /**
      List Global
      get http://api.webconnex.com/v2/public/coupons/global
@@ -202,22 +201,22 @@ func sendListGlobalRequest() {
 `GET /v2/public/coupons/global`
 
 #### Request Params
-Parameter			|	Description
---------------|----------------------------------------------------------------------
-**Product**<br>*string*<br>required 				| Name of the product you to search for coupons on
+Parameter			                      |	Description
+------------------------------------|----------------------------------
+**Product**<br>*string*<br>required | Name of the product you to search for coupons on
 
 #### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*integer* 				| Unique ID of the coupon
-**name**<br>*string*					| The name of the coupon
-**redeemed**<br>*integer*					| Number of coupons redeemed
-**available**<br>*integer*  | Number of coupons available ([-1] means unlimited)
-**currency**<br>*string*  | Currency of the coupon
-**discounts**<br>*array*					| Discount associated with coupon
-**codes**<br>*array*					| Codes associated with coupon
-**dateCreated**<br>*timestamp* | Date and time of the creation of the order
-**dateUpdated**<br>*timestamp* | Date and time the order was last updated (optional)
+**id**<br>*integer* 				    | Unique ID of the coupon
+**name**<br>*string*					  | The name of the coupon
+**redeemed**<br>*integer*				| Number of coupons redeemed
+**available**<br>*integer*      | Number of coupons available ([-1] means unlimited)
+**currency**<br>*string*        | Currency of the coupon
+**discounts**<br>*array*        | Discount associated with coupon
+**codes**<br>*array*            | Codes associated with coupon
+**dateCreated**<br>*timestamp*  | Date and time of the creation of the order
+**dateUpdated**<br>*timestamp*  | Date and time the order was last updated (optional)
 
 ### View Coupon by form
 
@@ -425,22 +424,22 @@ func sendListByFormRequest() {
 `GET /v2/public/coupons/forms/{formId}`
 
 #### Request Params
-Parameter			|	Description
---------------|----------------------------------------------------------------------
-**id**<br>*integer*<br>required 				| Form ID to list coupons associated with
+Parameter			                  |	Description
+--------------------------------|-----------------------------------------------
+**id**<br>*integer*<br>required | Form ID to list coupons associated with
 
 #### Response Object
-Attribute			|	Description
---------------|----------------------------------------------------------------------
-**id**<br>*integer* 				| Unique ID of the coupon
-**name**<br>*string*					| The name of the coupon
-**redeemed**<br>*integer*					| Number of coupons redeemed
-**available**<br>*integer*  | Number of coupons available ([-1] means unlimited)
-**currency**<br>*string*  | Currency of the coupon
-**discounts**<br>*array*					| Discount associated with coupon
-**codes**<br>*array*					| Codes associated with coupon
-**dateCreated**<br>*timestamp* | Date and time of the creation of the order
-**dateUpdated**<br>*timestamp* | Date and time the order was last updated (optional)
+Attribute			                  |	Description
+--------------------------------|-----------------------------------------------
+**id**<br>*integer* 				    | Unique ID of the coupon
+**name**<br>*string*					  | The name of the coupon
+**redeemed**<br>*integer*				| Number of coupons redeemed
+**available**<br>*integer*      | Number of coupons available ([-1] means unlimited)
+**currency**<br>*string*        | Currency of the coupon
+**discounts**<br>*array*				| Discount associated with coupon
+**codes**<br>*array*				    | Codes associated with coupon
+**dateCreated**<br>*timestamp*  | Date and time of the creation of the order
+**dateUpdated**<br>*timestamp*  | Date and time the order was last updated (optional)
 
 ### View Coupon by ID
 
@@ -459,7 +458,7 @@ import (
 	"net/http"
 )
 
-func sendViewSingle() {
+func viewSingle() {
 	// View Single (GET https://api.webconnex.com/v2/public/coupons/1250)
 
 	// Create client
@@ -576,7 +575,7 @@ def send_request():
 ```
 
 ```swift
-func sendViewSingleRequest() {
+func viewSingleRequest() {
     /**
      View Single
      get https://api.webconnex.com/v2/public/coupons/1250
@@ -646,19 +645,19 @@ func sendViewSingleRequest() {
 `GET /v2/public/coupons/{id}`
 
 #### Request Params
-Parameter			|	Description
---------------|----------------------------------------------------------------------
-**id**<br>*integer*<br>required 				| ID of the requested coupon
+Parameter			                  |	Description
+--------------------------------|-----------------------------------------------
+**id**<br>*integer*<br>required | ID of the requested coupon
 
 #### Response Object
-Attribute			|	Description
---------------|----------------------------------------------------------------------
-**id**<br>*integer* 				| Unique ID of the coupon
-**name**<br>*string*					| The name of the coupon
-**redeemed**<br>*integer*					| Number of coupons redeemed
-**available**<br>*integer*  | Number of coupons available (-1 means unlimited)
-**currency**<br>*string*  | Currency of the coupon
-**discounts**<br>*array*					| Discount associated with coupon
-**codes**<br>*array*					| Codes associated with coupon
-**dateCreated**<br>*timestamp* | Date and time of the creation of the order
-**dateUpdated**<br>*timestamp* | Date and time the order was last updated (optional)
+Attribute			                  |	Description
+--------------------------------|-----------------------------------------------
+**id**<br>*integer* 				    | Unique ID of the coupon
+**name**<br>*string*					  | The name of the coupon
+**redeemed**<br>*integer*				| Number of coupons redeemed
+**available**<br>*integer*      | Number of coupons available (-1 means unlimited)
+**currency**<br>*string*        | Currency of the coupon
+**discounts**<br>*array*				| Discount associated with coupon
+**codes**<br>*array*					  | Codes associated with coupon
+**dateCreated**<br>*timestamp*  | Date and time of the creation of the order
+**dateUpdated**<br>*timestamp*  | Date and time the order was last updated (optional)

@@ -180,19 +180,19 @@ def send_request():
 `GET /v2/public/forms`
 
 #### Request Params
-Parameter			|	Description
---------------|----------------------------------------------------------------------
-**product**<br>*string*<br>Optional 		| Name of the product you want to list forms for
-**[]expand**<br>*string*<br>Optional 		| pass inventory to see form inventory
+Parameter			                        |	Description
+--------------------------------------|-----------------------------------------
+**product**<br>*string*<br>Optional   | Name of the product you want to list forms for
+**[]expand**<br>*string*<br>Optional  | pass `inventory` to see form inventory
 
 #### Response Object
-Attribute			|	Description
---------------|----------------------------------------------------------------------
-**id**<br>*integer* 			   	| Unique ID of the form
-**name**<br>*string*					| Name of the form
-**status**<br>*string*				| Status of the form
-**dateCreated**<br>*timestamp* | Date and time of the creation of the form
-**dateUpdated**<br>*timestamp* | Date and time the form was last updated (optional)
+Attribute			                  |	Description
+--------------------------------|-----------------------------------------------
+**id**<br>*integer* 			   	  | Unique ID of the form
+**name**<br>*string*					  | Name of the form
+**status**<br>*string*				  | Status of the form
+**dateCreated**<br>*timestamp*  | Date and time of the creation of the form
+**dateUpdated**<br>*timestamp*  | Date and time the form was last updated (optional)
 
 ### Get Form By ID
 ```shell
@@ -209,7 +209,7 @@ import (
 	"net/http"
 )
 
-func sendView() {
+func view() {
 
 	// Create client
 	client := &http.Client{}
@@ -322,7 +322,7 @@ def send_request():
 ```
 
 ```swift
-func sendViewRequest() {
+func viewRequest() {
     /**
      View
      get https://api.webconnex.com/v2/public/forms/
@@ -466,17 +466,17 @@ Attribute												|	Description
 **status**<br>*string*					| Status of the form
 **accRef**<br>*string*					| Accounting Reference
 **fields**<br>*object*		      | A collection of fields that make up the form
-**timeZone**<br>*string*			 | Timezone code for the form
-**dateCreated**<br>*timestamp* | Date and time of the creation of the form
-**dateUpdated**<br>*timestamp* | Date and time the form was last updated (optional)
+**timeZone**<br>*string*			  | Timezone code for the form
+**dateCreated**<br>*timestamp*  | Date and time of the creation of the form
+**dateUpdated**<br>*timestamp*  | Date and time the form was last updated (optional)
 
 #### Fields Object
-Attribute												|	Description
---------------------------------|----------------------------------------------------
-**type**<br>*string* 						| The root of the fields is always set to type form
-**attributes**<br>*object*			| Key/Value attributes related to the field set
-**triggers**<br>*object*				| A collection of actions/conditions to provide logic to the form
+Attribute											        	|	Description
+----------------------------------------|--------------------------------------------
+**type**<br>*string* 					          | The root of the fields is always set to type form
+**attributes**<br>*object*			        | Key/Value attributes related to the field set
+**triggers**<br>*object*				        | A collection of actions/conditions to provide logic to the form
 **header**<br>*object*<br>required			| Fields in set in the header. Always present on the form (Display only fields).
-**registrants**<br>*object*<br>required					| Main data collection fields. Repeated for each registrant when using "multireg" forms. (registrants.attributes.multireg === true)
-**billing**<br>*object*<br>required					| Billing fields for the form. Not used if the billing is disabled on the form.
-**footer**<br>*object*<br>required | Fields in set in the footer. Always present on the form (Display only fields).
+**registrants**<br>*object*<br>required | Main data collection fields. Repeated for each registrant when using "multireg" forms. (registrants.attributes.multireg === true)
+**billing**<br>*object*<br>required			| Billing fields for the form. Not used if the billing is disabled on the form.
+**footer**<br>*object*<br>required      | Fields in set in the footer. Always present on the form (Display only fields).
