@@ -4,7 +4,7 @@
 
 ```shell
 curl "https://api.webconnex.com/v2/public/coupons/global?pretty=true" \
-     -H "apiKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+     -H "apiKey: <YOUR API KEY>"
 ```
 
 ```go
@@ -25,7 +25,7 @@ func sendListGlobal() {
 	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/coupons/global", nil)
 
 	// Headers
-	req.Header.Add("apiKey", "XXXXXXXXXXXXXXXXXXXXXXXXX")
+	req.Header.Add("apiKey", "<YOUR API KEY>")
 
 	parseFormErr := req.ParseForm()
 	if parseFormErr != nil {
@@ -60,7 +60,7 @@ func sendListGlobal() {
         port: '80',
         path: '/v2/public/coupons/global',
         method: 'GET',
-        headers: {"apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXX"}
+        headers: {"apiKey":"<YOUR API KEY>"}
     };
     httpOptions.headers['User-Agent'] = 'node ' + process.version;
 
@@ -110,7 +110,7 @@ def send_request():
         response = requests.get(
             url="https://api.webconnex.com/v2/public/coupons/global",
             headers={
-                "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "apiKey": "<YOUR API KEY>",
             },
         )
         print('Response HTTP Status Code: {status_code}'.format(
@@ -130,7 +130,7 @@ func sendListGlobalRequest() {
 
     // Add Headers
     let headers = [
-        "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "apiKey":"<YOUR API KEY>",
     ]
 
     // Add URL parameters
@@ -223,7 +223,7 @@ Attribute			|	Description
 
 ```shell
 curl "https://api.webconnex.com/v2/public/coupons/forms/28609?pretty=true" \
-     -H "apiKey: XXXXXXXXXXXXXX"
+     -H "apiKey: <YOUR API KEY>"
 ```
 
 ```go
@@ -244,7 +244,7 @@ func sendListByForm() {
 	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/coupons/forms/28609", nil)
 
 	// Headers
-	req.Header.Add("apiKey", "XXXXXXXXXXXXXXXXXXXXXX")
+	req.Header.Add("apiKey", "<YOUR API KEY>")
 
 	parseFormErr := req.ParseForm()
 	if parseFormErr != nil {
@@ -280,7 +280,7 @@ func sendListByForm() {
         port: '443',
         path: '/v2/public/coupons/forms/28609',
         method: 'GET',
-        headers: {"apiKey":"XXXXXXXXXXXXXXXXXXXXXX"}
+        headers: {"apiKey":"<YOUR API KEY>"}
     };
     httpOptions.headers['User-Agent'] = 'node ' + process.version;
 
@@ -332,7 +332,7 @@ def send_request():
                 "pretty": "true",
             },
             headers={
-                "apiKey": "XXXXXXXXXXXXXXXXXXXXXX",
+                "apiKey": "<YOUR API KEY>",
             },
         )
         print('Response HTTP Status Code: {status_code}'.format(
@@ -352,7 +352,7 @@ func sendListByFormRequest() {
 
     // Add Headers
     let headers = [
-        "apiKey":"XXXXXXXXXXXXXXXXXXXXXX",
+        "apiKey":"<YOUR API KEY>",
     ]
 
     // Add URL parameters
@@ -447,7 +447,7 @@ Attribute			|	Description
 ```shell
 ## View Single
 curl "https://api.webconnex.com/v2/public/coupons/1250?pretty=true" \
-     -H "apiKey: XXXXXXXXXXXXXXXXXXXXXX"
+     -H "apiKey: <YOUR API KEY>"
 ```
 
 ```go
@@ -469,7 +469,7 @@ func sendViewSingle() {
 	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/coupons/1250", nil)
 
 	// Headers
-	req.Header.Add("apiKey", "XXXXXXXXXXXXXXXXXXXXXX")
+	req.Header.Add("apiKey", "<YOUR API KEY>")
 
 	parseFormErr := req.ParseForm()
 	if parseFormErr != nil {
@@ -505,7 +505,7 @@ func sendViewSingle() {
         port: '443',
         path: '/v2/public/coupons/1250',
         method: 'GET',
-        headers: {"apiKey":"XXXXXXXXXXXXXXXXXXXXXX"}
+        headers: {"apiKey":"<YOUR API KEY>"}
     };
     httpOptions.headers['User-Agent'] = 'node ' + process.version;
 
@@ -564,7 +564,7 @@ def send_request():
                 "pretty": "true",
             },
             headers={
-                "apiKey": "XXXXXXXXXXXXXXXXXXXXXX",
+                "apiKey": "<YOUR API KEY>",
             },
         )
         print('Response HTTP Status Code: {status_code}'.format(
@@ -584,7 +584,7 @@ func sendViewSingleRequest() {
 
     // Add Headers
     let headers = [
-        "apiKey":"XXXXXXXXXXXXXXXXXXXXXX",
+        "apiKey":"<YOUR API KEY>",
     ]
 
     // Add URL parameters

@@ -1,7 +1,7 @@
 ## Ping/Healthcheck
 ```shell
 curl -X "GET" "http://api.webconnex.com/v2/public/ping" \
-	-H "apiKey: XXXXXXXXXXXXXXXXXXX"
+	-H "apiKey: <YOUR API KEY>"
 ```
 ```go
 package main
@@ -21,7 +21,7 @@ func sendRequest() {
 	req, err := http.NewRequest("GET", "http://api.webconnex.com/v2/public/ping", nil)
 
 	// Headers
-	req.Header.Add("apiKey", "XXXXXXXXXXXXXXXXXXX")
+	req.Header.Add("apiKey", "<YOUR API KEY>")
 
 	// Fetch Request
 	resp, err := client.Do(req)
@@ -52,7 +52,7 @@ func sendRequest() {
         port: '80',
         path: '/v2/public/ping',
         method: 'GET',
-        headers: {"apiKey":"XXXXXXXXXXXXXXXXXXX"}
+        headers: {"apiKey":"<YOUR API KEY>"}
     };
     httpOptions.headers['User-Agent'] = 'node ' + process.version;
 
@@ -116,7 +116,7 @@ class MyRequestController {
 
         // Headers
 
-        request.addValue("XXXXXXXXXXXXXXXXXXX", forHTTPHeaderField: "apiKey")
+        request.addValue("<YOUR API KEY>", forHTTPHeaderField: "apiKey")
 
         /* Start a new Task */
         let task = session.dataTaskWithRequest(request, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
@@ -150,7 +150,7 @@ def send_request():
         response = requests.get(
             url="http://api.webconnex.com/v2/public/ping",
             headers={
-                "apiKey": "XXXXXXXXXXXXXXXXXXX",
+                "apiKey": "<YOUR API KEY>",
             },
         )
         print('Response HTTP Status Code: {status_code}'.format(

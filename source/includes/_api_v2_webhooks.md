@@ -3,7 +3,7 @@
 ### List Webhooks
 ```shell
 curl "https://api.webconnex.com/v2/public/webhooks?pretty=true" \
-     -H "apiKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+     -H "apiKey: <YOUR API KEY>"
 ```
 ```go
 package main
@@ -23,7 +23,7 @@ func sendList() {
 	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/webhooks", nil)
 
 	// Headers
-	req.Header.Add("apiKey", "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+	req.Header.Add("apiKey", "<YOUR API KEY>")
 
 	// Fetch Request
 	resp, err := client.Do(req)
@@ -52,7 +52,7 @@ def send_request():
         response = requests.get(
             url="https://api.webconnex.com/v2/public/webhooks",
             headers={
-                "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "apiKey": "<YOUR API KEY>",
             },
         )
         print('Response HTTP Status Code: {status_code}'.format(
@@ -73,7 +73,7 @@ def send_request():
         port: '443',
         path: '/v2/public/webhooks',
         method: 'GET',
-        headers: {"apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}
+        headers: {"apiKey":"<YOUR API KEY>"}
     };
     httpOptions.headers['User-Agent'] = 'node ' + process.version;
 
@@ -114,7 +114,7 @@ func sendListRequest() {
 
     // Add Headers
     let headers = [
-        "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "apiKey":"<YOUR API KEY>",
     ]
 
     // Fetch Request
@@ -210,7 +210,7 @@ Attribute			|	Description
 ### View Webhook
 ```shell
 curl "https://api.webconnex.com/v2/public/webhooks/1623423?pretty=true" \
-     -H "apiKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+     -H "apiKey: <YOUR API KEY>"
 ```
 ```go
 package main
@@ -230,7 +230,7 @@ func sendList() {
 	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/webhooks/1623423", nil)
 
 	// Headers
-	req.Header.Add("apiKey", "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+	req.Header.Add("apiKey", "<YOUR API KEY>")
 
 	// Fetch Request
 	resp, err := client.Do(req)
@@ -259,7 +259,7 @@ def send_request():
         response = requests.get(
             url="https://api.webconnex.com/v2/public/webhooks/1623423",
             headers={
-                "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "apiKey": "<YOUR API KEY>",
             },
         )
         print('Response HTTP Status Code: {status_code}'.format(
@@ -280,7 +280,7 @@ def send_request():
         port: '443',
         path: '/v2/public/webhooks/1623423',
         method: 'GET',
-        headers: {"apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}
+        headers: {"apiKey":"<YOUR API KEY>"}
     };
     httpOptions.headers['User-Agent'] = 'node ' + process.version;
 
@@ -322,7 +322,7 @@ func sendListRequest() {
 
     // Add Headers
     let headers = [
-        "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "apiKey":"<YOUR API KEY>",
     ]
 
     // Fetch Request
@@ -507,7 +507,7 @@ Attribute			|	Description
 ### Delete Webhook
 ```shell
 curl -X "DELETE" "https://api.webconnex.com/v2/public/webhooks/4" \
-     -H "apiKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+     -H "apiKey: <YOUR API KEY>"
 ```
 ```go
 package main
@@ -527,7 +527,7 @@ func sendDelete() {
 	req, err := http.NewRequest("DELETE", "https://api.webconnex.com/v2/public/webhooks/4", nil)
 
 	// Headers
-	req.Header.Add("apiKey", "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+	req.Header.Add("apiKey", "<YOUR API KEY>")
 
 	// Fetch Request
 	resp, err := client.Do(req)
@@ -556,7 +556,7 @@ def send_request():
         response = requests.delete(
             url="https://api.webconnex.com/v2/public/webhooks/4",
             headers={
-                "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "apiKey": "<YOUR API KEY>",
             },
         )
         print('Response HTTP Status Code: {status_code}'.format(
@@ -577,7 +577,7 @@ def send_request():
         port: '443',
         path: '/v2/public/webhooks/4',
         method: 'DELETE',
-        headers: {"apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}
+        headers: {"apiKey":"<YOUR API KEY>"}
     };
     httpOptions.headers['User-Agent'] = 'node ' + process.version;
 
@@ -617,7 +617,7 @@ func sendDeleteRequest() {
 
     // Add Headers
     let headers = [
-        "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "apiKey":"<YOUR API KEY>",
     ]
 
     // Fetch Request
@@ -653,7 +653,7 @@ Attribute			|	Description
 ### List Logs for Webhook
 ```shell
 curl "https://api.webconnex.com/v2/public/webhooks/1623423/logs?pretty=true" \
-     -H "apiKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+     -H "apiKey: <YOUR API KEY>"
 ```
 ```go
 package main
@@ -673,7 +673,7 @@ func sendList() {
 	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/webhooks/1623423/logs", nil)
 
 	// Headers
-	req.Header.Add("apiKey", "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+	req.Header.Add("apiKey", "<YOUR API KEY>")
 
 	// Fetch Request
 	resp, err := client.Do(req)
@@ -702,7 +702,7 @@ def send_request():
         response = requests.get(
             url="https://api.webconnex.com/v2/public/webhooks/1623423/logs",
             headers={
-                "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "apiKey": "<YOUR API KEY>",
             },
         )
         print('Response HTTP Status Code: {status_code}'.format(
@@ -723,7 +723,7 @@ def send_request():
         port: '443',
         path: '/v2/public/webhooks/1623423/logs',
         method: 'GET',
-        headers: {"apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}
+        headers: {"apiKey":"<YOUR API KEY>"}
     };
     httpOptions.headers['User-Agent'] = 'node ' + process.version;
 
@@ -765,7 +765,7 @@ func sendListRequest() {
 
     // Add Headers
     let headers = [
-        "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "apiKey":"<YOUR API KEY>",
     ]
 
     // Fetch Request
@@ -863,7 +863,7 @@ Attribute			|	Description
 ### View Log by ID for Webhook
 ```shell
 curl "https://api.webconnex.com/v2/public/webhooks/1623423/logs?pretty=true" \
-     -H "apiKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+     -H "apiKey: <YOUR API KEY>"
 ```
 ```go
 package main
@@ -883,7 +883,7 @@ func sendList() {
 	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/webhooks/46/logs/9849", nil)
 
 	// Headers
-	req.Header.Add("apiKey", "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+	req.Header.Add("apiKey", "<YOUR API KEY>")
 
 	// Fetch Request
 	resp, err := client.Do(req)
@@ -912,7 +912,7 @@ def send_request():
         response = requests.get(
             url="https://api.webconnex.com/v2/public/webhooks/46/logs/9849",
             headers={
-                "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "apiKey": "<YOUR API KEY>",
             },
         )
         print('Response HTTP Status Code: {status_code}'.format(
@@ -933,7 +933,7 @@ def send_request():
         port: '443',
         path: '/v2/public/webhooks/46/logs/9849',
         method: 'GET',
-        headers: {"apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}
+        headers: {"apiKey":"<YOUR API KEY>"}
     };
     httpOptions.headers['User-Agent'] = 'node ' + process.version;
 
@@ -975,7 +975,7 @@ func sendListRequest() {
 
     // Add Headers
     let headers = [
-        "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "apiKey":"<YOUR API KEY>",
     ]
 
     // Fetch Request
@@ -1066,7 +1066,7 @@ Attribute			|	Description
 ### Resend Webhook Request by Log ID
 ```shell
 curl -X "POST" "https://api.webconnex.com/v2/public/webhooks/39/resend/3899" \
-     -H "apiKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+     -H "apiKey: <YOUR API KEY>"
 ```
 ```go
 package main
@@ -1086,7 +1086,7 @@ func sendResendWebhook() {
 	req, err := http.NewRequest("POST", "https://api.webconnex.com/v2/public/webhooks/39/resend/3899", nil)
 
 	// Headers
-	req.Header.Add("apiKey", "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+	req.Header.Add("apiKey", "<YOUR API KEY>")
 
 	// Fetch Request
 	resp, err := client.Do(req)
@@ -1115,7 +1115,7 @@ def send_request():
         response = requests.post(
             url="https://api.webconnex.com/v2/public/webhooks/39/resend/3899",
             headers={
-                "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "apiKey": "<YOUR API KEY>",
             },
         )
         print('Response HTTP Status Code: {status_code}'.format(
@@ -1136,7 +1136,7 @@ def send_request():
         port: '443',
         path: '/v2/public/webhooks/39/resend/3899',
         method: 'POST',
-        headers: {"apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}
+        headers: {"apiKey":"<YOUR API KEY>"}
     };
     httpOptions.headers['User-Agent'] = 'node ' + process.version;
 
@@ -1178,7 +1178,7 @@ func sendResendWebhookRequest() {
 
     // Add Headers
     let headers = [
-        "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "apiKey":"<YOUR API KEY>",
     ]
 
     // Fetch Request

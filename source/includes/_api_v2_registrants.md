@@ -3,7 +3,7 @@
 ### Search Registrants
 ```shell
 curl "https://api.webconnex.com/v2/public/search/registrants?product=redpodium.com2&pretty=true" \
-     -H "apiKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+     -H "apiKey: <YOUR API KEY>"
 ```
 ```go
 package main
@@ -23,7 +23,7 @@ func sendSearch() {
 	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/search/registrants?product=redpodium.com2", nil)
 
 	// Headers
-	req.Header.Add("apiKey", "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+	req.Header.Add("apiKey", "<YOUR API KEY>")
 
 	parseFormErr := req.ParseForm()
 	if parseFormErr != nil {
@@ -61,7 +61,7 @@ def send_request():
                 "product": "redpodium.com2",
             },
             headers={
-                "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "apiKey": "<YOUR API KEY>",
             },
         )
         print('Response HTTP Status Code: {status_code}'.format(
@@ -82,7 +82,7 @@ def send_request():
         port: '443',
         path: '/v2/public/search/registrants?product=redpodium.com2',
         method: 'GET',
-        headers: {"apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}
+        headers: {"apiKey":"<YOUR API KEY>"}
     };
     httpOptions.headers['User-Agent'] = 'node ' + process.version;
 
@@ -124,7 +124,7 @@ func sendSearchRequest() {
 
     // Add Headers
     let headers = [
-        "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "apiKey":"<YOUR API KEY>",
     ]
 
     // Add URL parameters
@@ -253,7 +253,7 @@ Attribute			|	Description
 ### View Registrant by ID
 ```shell
 curl "https://api.webconnex.com/v2/public/search/registrants/2233110?pretty=true" \
-     -H "apiKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+     -H "apiKey: <YOUR API KEY>"
 ```
 ```go
 package main
@@ -273,7 +273,7 @@ func sendView() {
 	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/search/registrants/2233110", nil)
 
 	// Headers
-	req.Header.Add("apiKey", "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+	req.Header.Add("apiKey", "<YOUR API KEY>")
 
 	// Fetch Request
 	resp, err := client.Do(req)
@@ -303,7 +303,7 @@ def send_request():
         response = requests.get(
             url="https://api.webconnex.com/v2/public/search/registrants/2233110",
             headers={
-                "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "apiKey": "<YOUR API KEY>",
             },
         )
         print('Response HTTP Status Code: {status_code}'.format(
@@ -324,7 +324,7 @@ def send_request():
         port: '443',
         path: '/v2/public/search/registrants/2233110',
         method: 'GET',
-        headers: {"apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}
+        headers: {"apiKey":"<YOUR API KEY>"}
     };
     httpOptions.headers['User-Agent'] = 'node ' + process.version;
 
@@ -365,7 +365,7 @@ func sendViewRequest() {
 
     // Add Headers
     let headers = [
-        "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "apiKey":"<YOUR API KEY>",
     ]
 
     // Fetch Request

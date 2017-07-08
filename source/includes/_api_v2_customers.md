@@ -3,7 +3,7 @@
 ### Search Customers
 ```shell
 curl "https://api.webconnex.com/v2/public/search/customers?product=redpodium.com&pretty=true" \
-     -H "apiKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+     -H "apiKey: <YOUR API KEY>"
 ```
 
 ```go
@@ -24,7 +24,7 @@ func sendSearch() {
 	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/search/customers?product=redpodium.com", nil)
 
 	// Headers
-	req.Header.Add("apiKey", "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+	req.Header.Add("apiKey", "<YOUR API KEY>")
 
 	parseFormErr := req.ParseForm()
 	if parseFormErr != nil {
@@ -63,7 +63,7 @@ def send_request():
                 "pretty": "true",
             },
             headers={
-                "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "apiKey": "<YOUR API KEY>",
             },
         )
         print('Response HTTP Status Code: {status_code}'.format(
@@ -85,7 +85,7 @@ def send_request():
         port: '443',
         path: '/v2/public/search/customers?product=redpodium.com',
         method: 'GET',
-        headers: {"apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}
+        headers: {"apiKey":"<YOUR API KEY>"}
     };
     httpOptions.headers['User-Agent'] = 'node ' + process.version;
 
@@ -129,7 +129,7 @@ func sendSearchRequest() {
 
     // Add Headers
     let headers = [
-        "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "apiKey":"<YOUR API KEY>",
     ]
 
     // Add URL parameters
@@ -198,7 +198,7 @@ func sendSearchRequest() {
       "dateUpdated": "2016-10-06T04:25:10Z"
     }
   ],
-  "totalResults": 2,
+  "totalResults": 2
 }
 ```
 
@@ -233,7 +233,7 @@ Attribute			|	Description
 ### View Customers by ID
 ```shell
 curl "https://api.webconnex.com/v2/public/search/customers/1155061?product=redpodium.com&pretty=true" \
-     -H "apiKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+     -H "apiKey: <YOUR API KEY>"
 ```
 
 ```go
@@ -254,7 +254,7 @@ func sendView() {
 	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/search/customers/1155061?product=redpodium.com", nil)
 
 	// Headers
-	req.Header.Add("apiKey", "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+	req.Header.Add("apiKey", "<YOUR API KEY>")
 
 	parseFormErr := req.ParseForm()
 	if parseFormErr != nil {
@@ -293,7 +293,7 @@ def send_request():
                 "product": "redpodium.com",
             },
             headers={
-                "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "apiKey": "<YOUR API KEY>",
             },
         )
         print('Response HTTP Status Code: {status_code}'.format(
@@ -316,7 +316,7 @@ def send_request():
         port: '443',
         path: '/v2/public/search/customers/1155061?product=redpodium.com',
         method: 'GET',
-        headers: {"apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}
+        headers: {"apiKey":"<YOUR API KEY>"}
     };
     httpOptions.headers['User-Agent'] = 'node ' + process.version;
 
@@ -359,7 +359,7 @@ func sendViewRequest() {
 
     // Add Headers
     let headers = [
-        "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "apiKey":"<YOUR API KEY>",
     ]
 
     // Add URL parameters
