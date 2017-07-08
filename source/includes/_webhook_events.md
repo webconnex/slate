@@ -1,6 +1,6 @@
 ## Webhooks Events
 
-These are the system events that are available as webhook triggers
+These are the system events that are available as webhook triggers.
 
 ### Registration
 
@@ -27,7 +27,7 @@ These are the system events that are available as webhook triggers
       },
       "check": {
         "accountType": "Bank Name",
-        "accountNumber": "XXXX4111",
+        "accountNumber": "<YOUR API KEY>4111",
         "routingNumber": "123456789"
       },
       "email": "no-reply@webconnex.com",
@@ -39,7 +39,7 @@ These are the system events that are available as webhook triggers
     },
     "id": "14508051894641200000",
     "customerId": 8210,
-    "orderNumber": "NWBGBY-xxx-xxx",
+    "orderNumber": "NWBGBY-<YOUR API KEY>",
     "orderStatus": "completed",
     "registrants": [
       {
@@ -246,7 +246,7 @@ appKey | string | Self assigned application key (optional)
       },
       "check": {
         "accountType": "Bank Name",
-        "accountNumber": "XXXX4111",
+        "accountNumber": "<YOUR API KEY>4111",
         "routingNumber": "123456789"
       },
       "email": "help@webconnex.com",

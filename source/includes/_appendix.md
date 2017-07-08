@@ -1,70 +1,82 @@
-## Appendix
+# Appendix
 
-Below is additional information.
+Below is additional information and resources
 
-### Subscriptions
+## Orders
 
-#### Statuses
+|Available Statuses
+|------------------
+|pending
+|abandoned
+|completed
+|canceled
+|pending offline payment
+|pending final payment
+|waitlisted
 
-Status | Description
---------- | -----------
-active | is active and will continue to process future payments
-inactive | is inactive and will not process future payments
-canceled | is canceled and will no longer process future payments
-completed | is completed and will no longer process future payments
+## Registrants
 
-### Orders / Registrations / Registrants / Tickets
+|Available Statuses
+|------------------
+|pending
+|abandoned
+|completed
+|transferred
+|pending transfer
+|canceled
+|pending offline payment
+|pending final payment
+|waitlisted
 
-#### Statuses
+## Tickets
 
-Status | Description
---------- | -----------
-pending | is pending attempted to register, but is declined for some reason
-abandoned | is abandoned and never successfully submitted
-completed | is completed
-<!-- transferred | is transferred -->
-canceled | is canceled
-pending offline payment | is pending awaiting an offline payment
-pending final payment | is pending awaiting an final payment
-waitlisted  | is waitlisted
+|Available Statuses
+|------------------
+|pending
+|abandoned
+|completed
+|canceled
+|pending offline payment
+|pending final payment
 
-### Transactions
+## Transactions
 
-#### Statuses
+|Available Statuses
+|------------------
+|processing
+|pending offline
+|declined
+|canceled
+|authorized
+|completed
+|voided
+|canceled
+|gateway error
+|error
 
-Status | Description
---------- | -----------
-processing | is processing
-pending user | is pending user
-pending offline | is pending offline
-declined | is declined
-canceled | is canceled
-authorized | is authorized
-completed | is completed
-voided  | is voided
-canceled  | is canceled
-gateway error  | is gateway error
-error  | is error
+## Subscriptions
 
-### Memberships
+Available Statuses	| Description
+--------------------|-----------------------------------------------------------
+active							| is active and will continue to process future payments
+inactive						| is inactive and will not process future payments
+canceled						| is canceled and will no longer process future payments
+completed						| is completed and will no longer process future payments
 
-#### Statuses
+## Memberships
 
-Status | Description
---------- | -----------
-active | is active
-inactive | is inactive
-expired | is expired
+|Available Statuses
+|------------------
+|active
+|inactive
+|expired
 
-### Forms
+## Forms
 
-#### Statuses
-
-Status | Description
---------- | -----------
-open | is open
-closed | is closed
-expired | is expired
-scheduled | is scheduled
-archived | is archived
-deleted | is deleted
+|Available Statuses
+|------------------
+|open
+|closed
+|scheduled
+|archived
+|deleted

@@ -4,14 +4,14 @@ Our webhook system allows you to receive data when certain events happen on your
 
 We currently support the following events:
 
-* Test
 * New Registrations/Orders
 * Subscription/Recurring Notification
 * Form Published
 * Inventory Supply
 * Coupons
+* Test
 
-##Control Panel Interface
+## Control Panel Interface
 
 Aside from using the public API, you can create webhooks in the [control-panel interface](https://manage.webconnex.com) under the account settings.
 
@@ -27,7 +27,7 @@ Clicking on the details of a request will reveal more information that might be 
 
 ![Webhook Details](/images/webhook-details.png)
 
-##Headers
+## Headers
 
 > Supplied Header:
 
@@ -51,11 +51,10 @@ Clicking on the details of a request will reveal more information that might be 
 }
 ```
 
-### Header Parameters
-Parameter | Description
---------- | ------- | -----------
-Content-Type | application/json
-User-Agent | Webconnex-Divvy
-X-Webconnex-Delivery | Hash for the delivery
-X-Webconnex-Event | Event types being sent
+Parameter             | Description
+----------------------| --------------------------------------------------------
+Content-Type          | application/json
+User-Agent            | Webconnex-Divvy
+X-Webconnex-Delivery  | Hash for the delivery
+X-Webconnex-Event     | Event types being sent
 X-Webconnex-Signature | HMAC for the webhook. Remains unchanged on resend events

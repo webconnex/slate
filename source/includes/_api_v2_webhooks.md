@@ -1,11 +1,137 @@
-##Webhook
+## Webhooks
 
 ### List Webhooks
+```shell
+curl "https://api.webconnex.com/v2/public/webhooks?pretty=true" \
+     -H "apiKey: <YOUR API KEY>"
+```
+```go
+package main
 
-#### HTTP Request
-`GET /v2/public/webhooks/`
+import (
+	"fmt"
+	"io/ioutil"
+	"net/http"
+)
 
-> Example Response:
+func sendList() {
+
+	// Create client
+	client := &http.Client{}
+
+	// Create request
+	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/webhooks", nil)
+
+	// Headers
+	req.Header.Add("apiKey", "<YOUR API KEY>")
+
+	// Fetch Request
+	resp, err := client.Do(req)
+
+	if err != nil {
+		fmt.Println("Failure : ", err)
+	}
+
+	// Read Response Body
+	respBody, _ := ioutil.ReadAll(resp.Body)
+
+	// Display Results
+	fmt.Println("response Status : ", resp.Status)
+	fmt.Println("response Headers : ", resp.Header)
+	fmt.Println("response Body : ", string(respBody))
+}
+```
+```python
+# Install the Python Requests library:
+# `pip install requests`
+
+import requests
+
+def send_request():
+    try:
+        response = requests.get(
+            url="https://api.webconnex.com/v2/public/webhooks",
+            headers={
+                "apiKey": "<YOUR API KEY>",
+            },
+        )
+        print('Response HTTP Status Code: {status_code}'.format(
+            status_code=response.status_code))
+        print('Response HTTP Response Body: {content}'.format(
+            content=response.content))
+    except requests.exceptions.RequestException:
+        print('HTTP Request failed')
+```
+```javascript
+(function(callback) {
+    'use strict';
+
+    const httpTransport = require('https');
+    const responseEncoding = 'utf8';
+    const httpOptions = {
+        hostname: 'api.webconnex.com',
+        port: '443',
+        path: '/v2/public/webhooks',
+        method: 'GET',
+        headers: {"apiKey":"<YOUR API KEY>"}
+    };
+    httpOptions.headers['User-Agent'] = 'node ' + process.version;
+
+    const request = httpTransport.request(httpOptions, (res) => {
+        let responseBufs = [];
+        let responseStr = '';
+
+        res.on('data', (chunk) => {
+            if (Buffer.isBuffer(chunk)) {
+                responseBufs.push(chunk);
+            }
+            else {
+                responseStr = responseStr + chunk;            
+            }
+        }).on('end', () => {
+            responseStr = responseBufs.length > 0 ?
+                Buffer.concat(responseBufs).toString(responseEncoding) : responseStr;
+            callback(null, res.statusCode, res.headers, responseStr);
+        });
+
+    })
+    .setTimeout(0)
+    .on('error', (error) => {
+        callback(error);
+    });
+    request.write("")
+    request.end();
+
+})((error, statusCode, headers, body) => {
+    console.log('ERROR:', error);
+    console.log('STATUS:', statusCode);
+    console.log('HEADERS:', JSON.stringify(headers));
+    console.log('BODY:', body);
+});
+```
+```swift
+func sendListRequest() {
+
+    // Add Headers
+    let headers = [
+        "apiKey":"<YOUR API KEY>",
+    ]
+
+    // Fetch Request
+    Alamofire.request("https://api.webconnex.com/v2/public/webhooks", method: .get, headers: headers)
+        .validate(statusCode: 200..<300)
+        .responseJSON { response in
+            if (response.result.error == nil) {
+                debugPrint("HTTP Response Body: \(response.data)")
+            }
+            else {
+                debugPrint("HTTP Request failed: \(response.result.error)")
+            }
+        }
+}
+```
+
+> API returns JSON structured like this:
 
 ```json
 {
@@ -14,12 +140,13 @@
 		{
       "id": 28,
       "accountId": 1,
-      "forms": [
-        404
-      ],
+      "forms": [{
+        "formId": -1
+      }],
       "token": "b4148448406443eda7bc5c44d11c9cd3",
       "events": [
-        "registration"
+        "registration",
+        "subscription"
       ],
       "method": "POST",
       "url": "https://webhook-endpoint.your-url.com",
@@ -34,13 +161,15 @@
     {
       "id": 29,
       "accountId": 1,
-      "forms": [
-        376,
-        404
-      ],
+      "forms": [{
+        "formId": 376
+      },{
+        "formId": 19234
+      }],
       "token": "64fca5a66a8945b3958905b320f72adb",
       "events": [
-        "registration"
+        "registration",
+        "coupon"
       ],
       "method": "POST",
       "url": "https://webhook-endpoint.your-url.com",
@@ -56,16 +185,18 @@
   "totalResults": 2
 }
 ```
+#### HTTP Request
+`GET /v2/public/webhooks/`
 
-####  Request Params
+#### Request Params
 No filtering implemented on this object.
 
-####  Response Object
+#### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the webhook
 **accountId**<br>*integer*					| ID of the associated account
-**forms**<br>*array*<br>required					| Array of the form IDs associated with the webhook. (send [-1] to subscribe to all forms)
+**forms**<br>*array*<br>required					| Array of objects containing the form IDs associated with the webhook. (send [{"formID":-1}] to subscribe to all forms)
 **token**<br>*string*					| Unique token for the webhook
 **events**<br>*array*					| List of events assigned to the webhook
 **method**<br>*integer*					| HTTP method used for the webhook delivery request
@@ -77,11 +208,137 @@ Attribute			|	Description
 **dateUpdated**<br>*timestamp* | Date and time the webhook was last updated
 
 ### View Webhook
+```shell
+curl "https://api.webconnex.com/v2/public/webhooks/1623423?pretty=true" \
+     -H "apiKey: <YOUR API KEY>"
+```
+```go
+package main
 
-#### HTTP Request
-`GET /v2/public/webhooks/{id}`
+import (
+	"fmt"
+	"io/ioutil"
+	"net/http"
+)
 
-> Example Response:
+func sendList() {
+
+	// Create client
+	client := &http.Client{}
+
+	// Create request
+	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/webhooks/1623423", nil)
+
+	// Headers
+	req.Header.Add("apiKey", "<YOUR API KEY>")
+
+	// Fetch Request
+	resp, err := client.Do(req)
+
+	if err != nil {
+		fmt.Println("Failure : ", err)
+	}
+
+	// Read Response Body
+	respBody, _ := ioutil.ReadAll(resp.Body)
+
+	// Display Results
+	fmt.Println("response Status : ", resp.Status)
+	fmt.Println("response Headers : ", resp.Header)
+	fmt.Println("response Body : ", string(respBody))
+}
+```
+```python
+# Install the Python Requests library:
+# `pip install requests`
+
+import requests
+
+def send_request():
+    try:
+        response = requests.get(
+            url="https://api.webconnex.com/v2/public/webhooks/1623423",
+            headers={
+                "apiKey": "<YOUR API KEY>",
+            },
+        )
+        print('Response HTTP Status Code: {status_code}'.format(
+            status_code=response.status_code))
+        print('Response HTTP Response Body: {content}'.format(
+            content=response.content))
+    except requests.exceptions.RequestException:
+        print('HTTP Request failed')
+```
+```javascript
+(function(callback) {
+    'use strict';
+
+    const httpTransport = require('https');
+    const responseEncoding = 'utf8';
+    const httpOptions = {
+        hostname: 'api.webconnex.com',
+        port: '443',
+        path: '/v2/public/webhooks/1623423',
+        method: 'GET',
+        headers: {"apiKey":"<YOUR API KEY>"}
+    };
+    httpOptions.headers['User-Agent'] = 'node ' + process.version;
+
+    const request = httpTransport.request(httpOptions, (res) => {
+        let responseBufs = [];
+        let responseStr = '';
+
+        res.on('data', (chunk) => {
+            if (Buffer.isBuffer(chunk)) {
+                responseBufs.push(chunk);
+            }
+            else {
+                responseStr = responseStr + chunk;            
+            }
+        }).on('end', () => {
+            responseStr = responseBufs.length > 0 ?
+                Buffer.concat(responseBufs).toString(responseEncoding) : responseStr;
+
+            callback(null, res.statusCode, res.headers, responseStr);
+        });
+
+    })
+    .setTimeout(0)
+    .on('error', (error) => {
+        callback(error);
+    });
+    request.write("")
+    request.end();
+
+})((error, statusCode, headers, body) => {
+    console.log('ERROR:', error);
+    console.log('STATUS:', statusCode);
+    console.log('HEADERS:', JSON.stringify(headers));
+    console.log('BODY:', body);
+});
+```
+```swift
+func sendListRequest() {
+
+    // Add Headers
+    let headers = [
+        "apiKey":"<YOUR API KEY>",
+    ]
+
+    // Fetch Request
+    Alamofire.request("https://api.webconnex.com/v2/public/webhooks/1623423", method: .get, headers: headers)
+        .validate(statusCode: 200..<300)
+        .responseJSON { response in
+            if (response.result.error == nil) {
+                debugPrint("HTTP Response Body: \(response.data)")
+            }
+            else {
+                debugPrint("HTTP Request failed: \(response.result.error)")
+            }
+        }
+}
+```
+> API returns JSON structured like this:
 
 ```json
 {
@@ -90,9 +347,9 @@ Attribute			|	Description
 		{
       "id": 28,
       "accountId": 1,
-      "forms": [
-        404
-      ],
+      "forms": [{
+        "formId": 19234
+      }],
       "token": "b4148448406443eda7bc5c44d11c9cd3",
       "events": [
         "registration"
@@ -110,18 +367,20 @@ Attribute			|	Description
   "totalResults": 1
 }
 ```
+#### HTTP Request
+`GET /v2/public/webhooks/{id}`
 
 #### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*string*<br>required 				| ID of the requested webhook
 
-####  Response Object
+#### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the webhook
 **accountId**<br>*integer*					| ID of the associated account
-**forms**<br>*array*<br>required					| Array of the form IDs associated with the webhook. (send [-1] to subscribe to all forms)
+**forms**<br>*array*<br>required					| Array of objects containing the form IDs associated with the webhook. (send [{"formID":-1}] to subscribe to all forms)
 **token**<br>*string*					| Unique token for the webhook
 **events**<br>*array*					| List of events assigned to the webhook
 **method**<br>*integer*					| HTTP method used for the webhook delivery request
@@ -133,14 +392,37 @@ Attribute			|	Description
 **dateUpdated**<br>*timestamp* | Date and time the webhook was last updated
 
 ### Create Webhook
+```shell
 
+```
+```go
+
+```
+```python
+
+```
+```javascript
+
+```
+```swift
+
+```
+
+> API returns JSON structured like this:
+
+```json
+{
+	"responseCode": 200,
+	"totalResults": 1
+}
+```
 #### HTTP Request
 `POST /v2/public/webhooks`
 
-####  Request Object
+#### Request Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**forms**<br>*array*<br>required					| Array of the form IDs associated with the webhook. (send [-1] to subscribe to all forms)
+**forms**<br>*array*<br>required					| Array of objects containing the form IDs associated with the webhook. (send [{"formID":-1}] to subscribe to all forms)
 **events**<br>*array*<br>required					| List of events assigned to the webhook
 **method**<br>*integer*					| HTTP method used for the webhook delivery request
 **url**<br>*string*					| Endpoint URL used for the webhook delivery request
@@ -148,12 +430,12 @@ Attribute			|	Description
 **status**<br>*string*					| Status of the webhook (enabled/disabled)
 **meta**<br>*object*					| Contains webhook name and app key if required by the endpoint
 
-####  Response Object
+#### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the webhook
 **accountId**<br>*integer*					| ID of the associated account
-**forms**<br>*array*<br>required					| Array of the form IDs associated with the webhook. (send [-1] to subscribe to all forms)
+**forms**<br>*array*<br>required					| Array of objects containing the form IDs associated with the webhook. (send [{"formID":-1}] to subscribe to all forms)
 **token**<br>*string*					| Unique token for the webhook
 **events**<br>*array*					| List of events assigned to the webhook
 **method**<br>*integer*					| HTTP method used for the webhook delivery request
@@ -165,16 +447,40 @@ Attribute			|	Description
 **dateUpdated**<br>*timestamp* | Date and time the webhook was last updated
 
 ### Update Webhook
+```shell
+
+```
+```go
+
+```
+```python
+
+```
+```javascript
+
+```
+```swift
+
+```
+
+> API returns JSON structured like this:
+
+```json
+{
+	"responseCode": 200,
+	"totalResults": 1
+}
+```
 
 #### HTTP Request
 `POST /v2/public/webhooks/{id}`
 
-####  Request Object
+#### Request Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the webhook
 **accountId**<br>*integer*					| ID of the associated account
-**forms**<br>*array*<br>required					| Array of the form IDs associated with the webhook. (send [-1] to subscribe to all forms)
+**forms**<br>*array*<br>required					| Array of objects containing the form IDs associated with the webhook. (send [{"formID":-1}] to subscribe to all forms)
 **events**<br>*array*<br>required					| List of events assigned to the webhook
 **method**<br>*integer*					| HTTP method used for the webhook delivery request
 **url**<br>*string*					| Endpoint URL used for the webhook delivery request
@@ -182,12 +488,12 @@ Attribute			|	Description
 **status**<br>*string*					| Status of the webhook (enabled/disabled)
 **meta**<br>*object*					| Contains webhook name and app key if required by the endpoint
 
-####  Response Object
+#### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique ID of the webhook
 **accountId**<br>*integer*					| ID of the associated account
-**forms**<br>*array*<br>required					| Array of the form IDs associated with the webhook. (send [-1] to subscribe to all forms)
+**forms**<br>*array*<br>required					| Array of objects containing the form IDs associated with the webhook. (send [{"formID":-1}] to subscribe to all forms)
 **token**<br>*string*					| Unique token for the webhook
 **events**<br>*array*					| List of events assigned to the webhook
 **method**<br>*integer*					| HTTP method used for the webhook delivery request
@@ -198,50 +504,785 @@ Attribute			|	Description
 **dateCreated**<br>*timestamp* | Date and time of the creation of the webhook
 **dateUpdated**<br>*timestamp* | Date and time the webhook was last updated
 
-
 ### Delete Webhook
+```shell
+curl -X "DELETE" "https://api.webconnex.com/v2/public/webhooks/4" \
+     -H "apiKey: <YOUR API KEY>"
+```
+```go
+package main
 
+import (
+	"fmt"
+	"io/ioutil"
+	"net/http"
+)
+
+func sendDelete() {
+
+	// Create client
+	client := &http.Client{}
+
+	// Create request
+	req, err := http.NewRequest("DELETE", "https://api.webconnex.com/v2/public/webhooks/4", nil)
+
+	// Headers
+	req.Header.Add("apiKey", "<YOUR API KEY>")
+
+	// Fetch Request
+	resp, err := client.Do(req)
+
+	if err != nil {
+		fmt.Println("Failure : ", err)
+	}
+
+	// Read Response Body
+	respBody, _ := ioutil.ReadAll(resp.Body)
+
+	// Display Results
+	fmt.Println("response Status : ", resp.Status)
+	fmt.Println("response Headers : ", resp.Header)
+	fmt.Println("response Body : ", string(respBody))
+}
+```
+```python
+# Install the Python Requests library:
+# `pip install requests`
+
+import requests
+
+def send_request():
+    try:
+        response = requests.delete(
+            url="https://api.webconnex.com/v2/public/webhooks/4",
+            headers={
+                "apiKey": "<YOUR API KEY>",
+            },
+        )
+        print('Response HTTP Status Code: {status_code}'.format(
+            status_code=response.status_code))
+        print('Response HTTP Response Body: {content}'.format(
+            content=response.content))
+    except requests.exceptions.RequestException:
+        print('HTTP Request failed')
+```
+```javascript
+(function(callback) {
+    'use strict';
+
+    const httpTransport = require('https');
+    const responseEncoding = 'utf8';
+    const httpOptions = {
+        hostname: 'api.webconnex.com',
+        port: '443',
+        path: '/v2/public/webhooks/4',
+        method: 'DELETE',
+        headers: {"apiKey":"<YOUR API KEY>"}
+    };
+    httpOptions.headers['User-Agent'] = 'node ' + process.version;
+
+    const request = httpTransport.request(httpOptions, (res) => {
+        let responseBufs = [];
+        let responseStr = '';
+
+        res.on('data', (chunk) => {
+            if (Buffer.isBuffer(chunk)) {
+                responseBufs.push(chunk);
+            }
+            else {
+                responseStr = responseStr + chunk;            
+            }
+        }).on('end', () => {
+            responseStr = responseBufs.length > 0 ?
+                Buffer.concat(responseBufs).toString(responseEncoding) : responseStr;
+            callback(null, res.statusCode, res.headers, responseStr);
+        });
+    })
+    .setTimeout(0)
+    .on('error', (error) => {
+        callback(error);
+    });
+    request.write("")
+    request.end();
+
+})((error, statusCode, headers, body) => {
+    console.log('ERROR:', error);
+    console.log('STATUS:', statusCode);
+    console.log('HEADERS:', JSON.stringify(headers));
+    console.log('BODY:', body);
+});
+```
+```swift
+func sendDeleteRequest() {
+
+    // Add Headers
+    let headers = [
+        "apiKey":"<YOUR API KEY>",
+    ]
+
+    // Fetch Request
+    Alamofire.request("https://api.webconnex.com/v2/public/webhooks/4", method: .delete, headers: headers)
+        .validate(statusCode: 200..<300)
+        .responseJSON { response in
+            if (response.result.error == nil) {
+                debugPrint("HTTP Response Body: \(response.data)")
+            }
+            else {
+                debugPrint("HTTP Request failed: \(response.result.error)")
+            }
+        }
+}
+```
+
+> API returns JSON structured like this:
+
+```json
+{
+	"responseCode": 200,
+	"totalResults": 1
+}
+```
 #### HTTP Request
 `POST /v2/public/webhooks/{id}`
 
-####  Request Object
+#### Request Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| ID of the webhook
 
 ### List Logs for Webhook
+```shell
+curl "https://api.webconnex.com/v2/public/webhooks/1623423/logs?pretty=true" \
+     -H "apiKey: <YOUR API KEY>"
+```
+```go
+package main
+
+import (
+	"fmt"
+	"io/ioutil"
+	"net/http"
+)
+
+func sendList() {
+
+	// Create client
+	client := &http.Client{}
+
+	// Create request
+	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/webhooks/1623423/logs", nil)
+
+	// Headers
+	req.Header.Add("apiKey", "<YOUR API KEY>")
+
+	// Fetch Request
+	resp, err := client.Do(req)
+
+	if err != nil {
+		fmt.Println("Failure : ", err)
+	}
+
+	// Read Response Body
+	respBody, _ := ioutil.ReadAll(resp.Body)
+
+	// Display Results
+	fmt.Println("response Status : ", resp.Status)
+	fmt.Println("response Headers : ", resp.Header)
+	fmt.Println("response Body : ", string(respBody))
+}
+```
+```python
+# Install the Python Requests library:
+# `pip install requests`
+
+import requests
+
+def send_request():
+    try:
+        response = requests.get(
+            url="https://api.webconnex.com/v2/public/webhooks/1623423/logs",
+            headers={
+                "apiKey": "<YOUR API KEY>",
+            },
+        )
+        print('Response HTTP Status Code: {status_code}'.format(
+            status_code=response.status_code))
+        print('Response HTTP Response Body: {content}'.format(
+            content=response.content))
+    except requests.exceptions.RequestException:
+        print('HTTP Request failed')
+```
+```javascript
+(function(callback) {
+    'use strict';
+
+    const httpTransport = require('https');
+    const responseEncoding = 'utf8';
+    const httpOptions = {
+        hostname: 'api.webconnex.com',
+        port: '443',
+        path: '/v2/public/webhooks/1623423/logs',
+        method: 'GET',
+        headers: {"apiKey":"<YOUR API KEY>"}
+    };
+    httpOptions.headers['User-Agent'] = 'node ' + process.version;
+
+    const request = httpTransport.request(httpOptions, (res) => {
+        let responseBufs = [];
+        let responseStr = '';
+
+        res.on('data', (chunk) => {
+            if (Buffer.isBuffer(chunk)) {
+                responseBufs.push(chunk);
+            }
+            else {
+                responseStr = responseStr + chunk;            
+            }
+        }).on('end', () => {
+            responseStr = responseBufs.length > 0 ?
+                Buffer.concat(responseBufs).toString(responseEncoding) : responseStr;
+
+            callback(null, res.statusCode, res.headers, responseStr);
+        });
+
+    })
+    .setTimeout(0)
+    .on('error', (error) => {
+        callback(error);
+    });
+    request.write("")
+    request.end();
+
+})((error, statusCode, headers, body) => {
+    console.log('ERROR:', error);
+    console.log('STATUS:', statusCode);
+    console.log('HEADERS:', JSON.stringify(headers));
+    console.log('BODY:', body);
+});
+```
+```swift
+func sendListRequest() {
+
+    // Add Headers
+    let headers = [
+        "apiKey":"<YOUR API KEY>",
+    ]
+
+    // Fetch Request
+    Alamofire.request("https://api.webconnex.com/v2/public/webhooks/1623423/logs", method: .get, headers: headers)
+        .validate(statusCode: 200..<300)
+        .responseJSON { response in
+            if (response.result.error == nil) {
+                debugPrint("HTTP Response Body: \(response.data)")
+            }
+            else {
+                debugPrint("HTTP Request failed: \(response.result.error)")
+            }
+        }
+}
+```
+
+> API returns JSON structured like this:
+
+```json
+{
+  "responseCode": 200,
+  "data": [
+    {
+      "id": 12128,
+      "displayId": "7a2eb39d6dd04681ba5112da6446d0c7",
+      "formId": 1,
+      "webhookId": 46,
+      "eventType": "publish",
+      "eventId": 1234,
+      "status": "error",
+      "attempt": 1,
+      "dateSent": "2016-09-15T23:30:04Z"
+    },
+    {
+      "id": 12127,
+      "displayId": "a9b9e3409e724ae39e939ef42b073fa4",
+      "formId": 1,
+      "webhookId": 46,
+      "eventType": "subscription",
+      "eventId": 1234,
+      "status": "error",
+      "attempt": 1,
+      "dateSent": "2016-09-15T23:30:02Z"
+    },
+    {
+      "id": 12125,
+      "displayId": "4dceacfe166c4ea2abed0402f23a1e7c",
+      "formId": 1,
+      "webhookId": 46,
+      "eventType": "registration",
+      "eventId": 1234,
+      "status": "error",
+      "attempt": 1,
+      "dateSent": "2016-09-15T23:29:59Z"
+    },
+    {
+      "id": 12124,
+      "displayId": "3c4f25cee893486182c211deefa33cbd",
+      "formId": 1,
+      "webhookId": 46,
+      "eventType": "ping",
+      "eventId": 1234,
+      "status": "error",
+      "attempt": 1,
+      "dateSent": "2016-09-15T23:29:56Z"
+    },
+    {
+      "id": 9849,
+      "displayId": "5fe153f9533d4731893ef571676e5f90",
+      "formId": 14280,
+      "webhookId": 46,
+      "eventType": "publish",
+      "eventId": 8736,
+      "status": "success",
+      "attempt": 1,
+      "dateSent": "2016-08-31T17:03:47Z"
+    }
+  ],
+  "totalResults": 333,
+  "startingAfter": 4,
+  "hasMore": true
+}
+```
 
 Get all logs for a given webhook
 
 #### HTTP Request
 `POST /v2/public/webhooks/{id}/logs`
 
-####  Request Object
+#### Request Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*integer* 				| ID of the webhook
+**id**<br>*integer* 				| ID of the parent webhook
 
 ### View Log by ID for Webhook
+```shell
+curl "https://api.webconnex.com/v2/public/webhooks/1623423/logs?pretty=true" \
+     -H "apiKey: <YOUR API KEY>"
+```
+```go
+package main
+
+import (
+	"fmt"
+	"io/ioutil"
+	"net/http"
+)
+
+func sendList() {
+
+	// Create client
+	client := &http.Client{}
+
+	// Create request
+	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/webhooks/46/logs/9849", nil)
+
+	// Headers
+	req.Header.Add("apiKey", "<YOUR API KEY>")
+
+	// Fetch Request
+	resp, err := client.Do(req)
+
+	if err != nil {
+		fmt.Println("Failure : ", err)
+	}
+
+	// Read Response Body
+	respBody, _ := ioutil.ReadAll(resp.Body)
+
+	// Display Results
+	fmt.Println("response Status : ", resp.Status)
+	fmt.Println("response Headers : ", resp.Header)
+	fmt.Println("response Body : ", string(respBody))
+}
+```
+```python
+# Install the Python Requests library:
+# `pip install requests`
+
+import requests
+
+def send_request():
+    try:
+        response = requests.get(
+            url="https://api.webconnex.com/v2/public/webhooks/46/logs/9849",
+            headers={
+                "apiKey": "<YOUR API KEY>",
+            },
+        )
+        print('Response HTTP Status Code: {status_code}'.format(
+            status_code=response.status_code))
+        print('Response HTTP Response Body: {content}'.format(
+            content=response.content))
+    except requests.exceptions.RequestException:
+        print('HTTP Request failed')
+```
+```javascript
+(function(callback) {
+    'use strict';
+
+    const httpTransport = require('https');
+    const responseEncoding = 'utf8';
+    const httpOptions = {
+        hostname: 'api.webconnex.com',
+        port: '443',
+        path: '/v2/public/webhooks/46/logs/9849',
+        method: 'GET',
+        headers: {"apiKey":"<YOUR API KEY>"}
+    };
+    httpOptions.headers['User-Agent'] = 'node ' + process.version;
+
+    const request = httpTransport.request(httpOptions, (res) => {
+        let responseBufs = [];
+        let responseStr = '';
+
+        res.on('data', (chunk) => {
+            if (Buffer.isBuffer(chunk)) {
+                responseBufs.push(chunk);
+            }
+            else {
+                responseStr = responseStr + chunk;            
+            }
+        }).on('end', () => {
+            responseStr = responseBufs.length > 0 ?
+                Buffer.concat(responseBufs).toString(responseEncoding) : responseStr;
+
+            callback(null, res.statusCode, res.headers, responseStr);
+        });
+
+    })
+    .setTimeout(0)
+    .on('error', (error) => {
+        callback(error);
+    });
+    request.write("")
+    request.end();
+
+})((error, statusCode, headers, body) => {
+    console.log('ERROR:', error);
+    console.log('STATUS:', statusCode);
+    console.log('HEADERS:', JSON.stringify(headers));
+    console.log('BODY:', body);
+});
+```
+```swift
+func sendListRequest() {
+
+    // Add Headers
+    let headers = [
+        "apiKey":"<YOUR API KEY>",
+    ]
+
+    // Fetch Request
+    Alamofire.request("https://api.webconnex.com/v2/public/webhooks/46/logs/9849/", method: .get, headers: headers)
+        .validate(statusCode: 200..<300)
+        .responseJSON { response in
+            if (response.result.error == nil) {
+                debugPrint("HTTP Response Body: \(response.data)")
+            }
+            else {
+                debugPrint("HTTP Request failed: \(response.result.error)")
+            }
+        }
+}
+```
+> API returns JSON structured like this:
+
+```json
+{
+	"responseCode": 200,
+	"data": {
+		"id": 9849,
+		"displayId": "5fe153f9533d4731893ef571676e5f90",
+		"webhookId": 46,
+		"status": "success",
+		"attempt": 1,
+		"request": {
+			"method": "POST",
+			"url": "https://hooks.localhost.com/hooks/catch/1578515/4nr6xi/",
+			"header": {
+				"Content-Type": ["application/json"],
+				"User-Agent": ["Webconnex-Divvy"],
+				"X-Webconnex-Delivery": ["d44bf23f171f44958434b09eed2eaab4"],
+				"X-Webconnex-Event": ["publish"],
+				"X-Webconnex-Signature": ["42cf9e2bdf38df608e09f805a8a1254e372ad3139bd4c7a76982fa0286613062"]
+			},
+			"body": {
+				"eventType": "publish",
+				"accountId": 14,
+				"formId": 14280,
+				"data": {
+					"accRef": "MMBRSHPTST",
+					"currency": "USD",
+					"datePublished": "2016-08-31T17:03:08Z",
+					"eventStart": "2016-05-31T07:00:00Z",
+					"id": 14280,
+					"name": "Membership Example",
+					"product": "regfox.com",
+					"publishedPath": "awesomeco.regfox.com/membership-test-ek",
+					"status": "open",
+					"timeZone": "America/Regina"
+				},
+				"meta": {
+					"name": "Webhook divvy example"
+				}
+			}
+		},
+		"response": {
+			"code": 200,
+			"header": {
+				"Access-Control-Allow-Origin": ["*"],
+				"Connection": ["keep-alive"],
+				"Content-Length": ["152"],
+				"Content-Type": ["application/json"],
+				"Date": ["Wed, 31 Aug 2016 17:03:47 GMT"],
+				"Response-Id": ["eW7TQDb9trUnoRgA"],
+				"Server": ["nginx"],
+			},
+			"body": "{\"status\": \"success\", \"attempt\": \"57c70df3-d5e5-436f-aa27-e9c958aaf250\", \"id\": \"db89d766-5be4-4ba2-b312-5d7b5a23de7e\", \"request_id\": \"eW7TQDb9trUnoRgA\"}"
+		},
+		"dateSent": "2016-08-31T17:03:47Z"
+	},
+	"totalResults": 1
+}
+```
 
 View a specific webhook log
 
 #### HTTP Request
-`POST /v2/public/webhooks/{id}/logs/{logId}`
+`POST /v2/public/webhooks/{webhookID}/logs/{webhookLogID}`
 
-####  Request Object
+#### Request Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*integer* 				| ID of the webhook
-**logId**<br>*integer* 				| ID of the webhook log
+**webhookID**<br>*integer* 				| ID of the parent webhook
+**webhookLogID**<br>*integer* 				| ID of the webhook log to resend
 
-### Resend Webhook Request by Request ID
+### Resend Webhook Request by Log ID
+```shell
+curl -X "POST" "https://api.webconnex.com/v2/public/webhooks/39/resend/3899" \
+     -H "apiKey: <YOUR API KEY>"
+```
+```go
+package main
+
+import (
+	"fmt"
+	"io/ioutil"
+	"net/http"
+)
+
+func sendResendWebhook() {
+
+	// Create client
+	client := &http.Client{}
+
+	// Create request
+	req, err := http.NewRequest("POST", "https://api.webconnex.com/v2/public/webhooks/39/resend/3899", nil)
+
+	// Headers
+	req.Header.Add("apiKey", "<YOUR API KEY>")
+
+	// Fetch Request
+	resp, err := client.Do(req)
+
+	if err != nil {
+		fmt.Println("Failure : ", err)
+	}
+
+	// Read Response Body
+	respBody, _ := ioutil.ReadAll(resp.Body)
+
+	// Display Results
+	fmt.Println("response Status : ", resp.Status)
+	fmt.Println("response Headers : ", resp.Header)
+	fmt.Println("response Body : ", string(respBody))
+}
+```
+```python
+# Install the Python Requests library:
+# `pip install requests`
+
+import requests
+
+def send_request():
+    try:
+        response = requests.post(
+            url="https://api.webconnex.com/v2/public/webhooks/39/resend/3899",
+            headers={
+                "apiKey": "<YOUR API KEY>",
+            },
+        )
+        print('Response HTTP Status Code: {status_code}'.format(
+            status_code=response.status_code))
+        print('Response HTTP Response Body: {content}'.format(
+            content=response.content))
+    except requests.exceptions.RequestException:
+        print('HTTP Request failed')
+```
+```javascript
+(function(callback) {
+    'use strict';
+
+    const httpTransport = require('https');
+    const responseEncoding = 'utf8';
+    const httpOptions = {
+        hostname: 'api.webconnex.com',
+        port: '443',
+        path: '/v2/public/webhooks/39/resend/3899',
+        method: 'POST',
+        headers: {"apiKey":"<YOUR API KEY>"}
+    };
+    httpOptions.headers['User-Agent'] = 'node ' + process.version;
+
+    const request = httpTransport.request(httpOptions, (res) => {
+        let responseBufs = [];
+        let responseStr = '';
+
+        res.on('data', (chunk) => {
+            if (Buffer.isBuffer(chunk)) {
+                responseBufs.push(chunk);
+            }
+            else {
+                responseStr = responseStr + chunk;            
+            }
+        }).on('end', () => {
+            responseStr = responseBufs.length > 0 ?
+                Buffer.concat(responseBufs).toString(responseEncoding) : responseStr;
+
+            callback(null, res.statusCode, res.headers, responseStr);
+        });
+
+    })
+    .setTimeout(0)
+    .on('error', (error) => {
+        callback(error);
+    });
+    request.write("")
+    request.end();
+
+})((error, statusCode, headers, body) => {
+    console.log('ERROR:', error);
+    console.log('STATUS:', statusCode);
+    console.log('HEADERS:', JSON.stringify(headers));
+    console.log('BODY:', body);
+});
+```
+```swift
+func sendResendWebhookRequest() {
+
+    // Add Headers
+    let headers = [
+        "apiKey":"<YOUR API KEY>",
+    ]
+
+    // Fetch Request
+    Alamofire.request("https://api.webconnex.com/v2/public/webhooks/39/resend/3899", method: .post, headers: headers)
+        .validate(statusCode: 200..<300)
+        .responseJSON { response in
+            if (response.result.error == nil) {
+                debugPrint("HTTP Response Body: \(response.data)")
+            }
+            else {
+                debugPrint("HTTP Request failed: \(response.result.error)")
+            }
+        }
+}
+```
+
+> API returns JSON structured like this:
+
+```json
+{
+	"responseCode": 200,
+	"data": {
+		"accountId": 1,
+		"formId": 403,
+		"logEntryId": null,
+		"webhookId": 112,
+		"webhookToken": "6aeeff5d8ad94c71b3b716fcfe0aa9ad",
+		"eventType": "subscription",
+		"eventId": 15128,
+		"url": "https://70429444.ngrok.io/donate",
+		"typeId": 6,
+		"method": "POST",
+		"hash": "8de2ee5d255149c6af2ed5ffbf24dd7f",
+		"body": {
+			"eventType": "subscription",
+			"accountId": 1,
+			"formId": 403,
+			"eventId": 15128,
+			"data": {
+				"billing": {
+					"address": {
+						"city": "Beaverton",
+						"country": "US",
+						"postalCode": "97008",
+						"state": "OR",
+						"street1": "14250 SW Redhaven Dr."
+					},
+					"card": {
+						"cardNumber": "VISA-1111",
+						"expMonth": 3,
+						"expYear": 2021
+					},
+					"check": {},
+					"email": "nathanael@wearebunker.com",
+					"name": {
+						"first": "Nathanael",
+						"last": "Merrill"
+					},
+					"paymentMethod": "card"
+				},
+				"currency": "USD",
+				"customerId": 1179,
+				"deductibleTotal": 20.6,
+				"id": "1489698307898227987",
+				"lookupId": 12949,
+				"orderNumber": "SDD2-001000T",
+				"orderStatus": "completed",
+				"subscription": {
+					"amount": 20.6,
+					"category": "General",
+					"dateCreated": "2017-03-16T21:05:08Z",
+					"dateLast": "2017-07-06T00:00:39Z",
+					"dateNext": "2017-07-13T10:00:00Z",
+					"dateUpdated": "2017-07-06T00:00:38Z",
+					"email": "test@webconnex.com",
+					"id": 472,
+					"paymentsLeft": -1,
+					"paymentsLeftString": "unlimited",
+					"schedule": "0 0 0 * * 4",
+					"scheduleString": "Thursdays",
+					"status": "active"
+				},
+				"total": 20.6,
+				"transactionReference": "TESTERCHARGE"
+			},
+			"meta": {
+				"appKey": "webconnex",
+				"appToken": "webconnex",
+				"appUrl": "https://localhost/api",
+				"name": "Church Builder"
+			}
+		},
+		"Attempt": 2
+	},
+	"totalResults": 1
+}
+```
 
 Request that a particular webhook attempt be resent.
 
 #### HTTP Request
 `POST /v2/public/webhooks/{id}/resend/{logId}`
 
-####  Request Params
+#### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*string*<br>required 				| ID of the webhook
