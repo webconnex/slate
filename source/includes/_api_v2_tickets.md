@@ -305,7 +305,7 @@ def send_request():
                 "product": "ticketspice.com",
             },
             headers={
-                "apiKey": "8153515efb84469590701f586f76e350",
+                "apiKey": "<YOUR API KEY>",
             },
         )
         print('Response HTTP Status Code: {status_code}'.format(
@@ -326,7 +326,7 @@ def send_request():
         port: '443',
         path: '/v2/public/search/tickets/810343?product=ticketspice.com',
         method: 'GET',
-        headers: {"apiKey":"8153515efb84469590701f586f76e350"}
+        headers: {"apiKey":"<YOUR API KEY>"}
     };
     httpOptions.headers['User-Agent'] = 'node ' + process.version;
 
@@ -366,7 +366,7 @@ func viewRequest() {
 
     // Add Headers
     let headers = [
-        "apiKey":"8153515efb84469590701f586f76e350",
+        "apiKey":"<YOUR API KEY>",
     ]
 
     // Add URL parameters
