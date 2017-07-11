@@ -444,43 +444,43 @@ The coupon event is fired whenever coupon is created, updated or redeemed. Only 
 #### Payload
 
 Parameter | Default | Description
---------- | ------- | -----------
-eventType | string | coupon
-formId | Integer | Id of the form
+----------|---------|-----------------------------------------------------------
+eventType | string  | coupon
+formId    | Integer | Id of the form
 accountId | Integer | Id of the account
-data | object | The object contains the complete payload for the coupon event
-meta | object | Object contains information about the webhook
+data      | object  | The object contains the complete payload for the coupon event
+meta      | object  | Object contains information about the webhook
 
 #### Data Object
-Parameter | Default | Description
---------- | ------- | -----------
-couponId |  int  | Id of the coupon
-available |  int  | Number of available redemptions  ([-1] means unlimited)
-redeemed |  int  | Number of redemptions
-codes | object | The object container of all the coupon code objects
-currency |  string  | The currency of coupon
-codes | object | The object container of all the coupon code objects
-name | string | The name of the coupon
-formId | string | Id of the associated form ((optional) [null] if coupon is global)
-voucher | bool | Specifies if coupon is a voucher or not
+Parameter   | Default | Description
+------------|---------|--------------------------------------------------------
+couponId    |  int    | Id of the coupon
+available   |  int    | Number of available redemptions  ([-1] means unlimited)
+redeemed    |  int    | Number of redemptions
+codes       | object  | The object container of all the coupon code objects
+currency    | string  | The currency of coupon
+codes       | object  | The object container of all the coupon code objects
+name        | string  | The name of the coupon
+formId      | string  | Id of the associated form ((optional) [null] if coupon is global)
+voucher     | bool   | Specifies if coupon is a voucher or not
 dateCreated |  date  | Date the inventory item was created
-dateUpdated |  date  | Date the inventory item was updated  ((optional))
+dateUpdated |  date  | Date the inventory item was updated  (optional)
 
 #### Codes Object
 Parameter | Default | Description
---------- | ------- | -----------
-id |  int  | Id of the code
-couponId |  int  | Id of the parent coupon
-code |  string  | Code used for coupon redemption
-redeemed |  int  | Number of redemptions
+----------|---------|--------------------------------
+id        |  int    | Id of the code
+couponId  |  int    | Id of the parent coupon
+code      |  string | Code used for coupon redemption
+redeemed  |  int    | Number of redemptions
 
 #### Discounts Object
-Parameter | Default | Description
---------- | ------- | -----------
-paths | [] string | An array of paths the coupon can be applied to
-perTicket | bool | Specifies weather discount should apply to each ticket (ticketspice.com Only)
-valueType | string | Specifies the discount type (Percent or Fixed)
-value | string | Value amount to apply
+Parameter | Default   | Description
+----------|-----------|---------------------------------------------------------
+paths     | [] string | An array of paths the coupon can be applied to
+perTicket | bool      | Specifies weather discount should apply to each ticket (ticketspice.com Only)
+valueType | string    | Specifies the discount type (Percent or Fixed)
+value     | string    | Value amount to apply
 
 ### Test
 
@@ -506,16 +506,16 @@ Used for testing
 #### Payload
 Parameter | Default | Description
 --------- | ------- | -----------
-eventType | string | test
-eventId | Integer | Random number used as event id
-formId | Integer | Random number used as form id
+eventType | string  | test
+eventId   | Integer | Random number used as event id
+formId    | Integer | Random number used as form id
 accountId | Integer | Id of the account
-data | object | Object contains the complete payload for the test event
+data      | object  | Object contains the complete payload for the test event
 
 #### Data Object
 Parameter | Default | Description
 --------- | ------- | -----------
-data |  string  | Random string to use as data payload
-eventType | string | test
-eventId | Integer | Random number used as event id
-formId | Integer | Random number used as form id
+data      |  string | Random string to use as data payload
+eventType | string  | test
+eventId   | Integer | Random number used as event id
+formId    | Integer | Random number used as form id
