@@ -462,7 +462,7 @@ currency |  string  | The currency of coupon
 codes | object | The object container of all the coupon code objects
 name | string | The name of the coupon
 formId | string | Id of the associated form ((optional) [null] if coupon is global)
-voucher | bool | Specifies if a voucher or not
+voucher | bool | Specifies if coupon is a voucher or not
 dateCreated |  date  | Date the inventory item was created
 dateUpdated |  date  | Date the inventory item was updated  ((optional))
 
