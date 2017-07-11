@@ -194,14 +194,14 @@ No filtering implemented on this object.
 #### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*integer* 				| Unique ID of the webhook
-**accountId**<br>*integer*					| ID of the associated account
-**forms**<br>*array*<br>required					| Array of objects containing the form IDs associated with the webhook. (send [{"formID":-1}] to subscribe to all forms)
+**id**<br>*integer* 				| Unique id of the webhook
+**accountId**<br>*integer*					| Id of the associated account
+**forms**<br>*array*<br>required					| Array of objects containing the form id's associated with the webhook. (send [{"formid":-1}] to subscribe to all forms)
 **token**<br>*string*					| Unique token for the webhook
 **events**<br>*array*					| List of events assigned to the webhook
 **method**<br>*integer*					| HTTP method used for the webhook delivery request
 **url**<br>*string*					| Endpoint URL used for the webhook delivery request
-**typeId**<br>*string*					| Webhook Type ID
+**typeId**<br>*string*					| Webhook Type id
 **status**<br>*string*					| Status of the webhook (enabled/disabled)
 **meta**<br>*object*					| Contains webhook name and app key if required by the endpoint
 **dateCreated**<br>*timestamp* | Date and time of the creation of the webhook
@@ -373,19 +373,19 @@ func sendListRequest() {
 #### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*string*<br>required 				| ID of the requested webhook
+**id**<br>*string*<br>required 				| Id of the requested webhook
 
 #### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*integer* 				| Unique ID of the webhook
-**accountId**<br>*integer*					| ID of the associated account
-**forms**<br>*array*<br>required					| Array of objects containing the form IDs associated with the webhook. (send [{"formID":-1}] to subscribe to all forms)
+**id**<br>*integer* 				| Unique id of the webhook
+**accountId**<br>*integer*					| Id of the associated account
+**forms**<br>*array*<br>required					| Array of objects containing the form id's associated with the webhook. (send [{"formid":-1}] to subscribe to all forms)
 **token**<br>*string*					| Unique token for the webhook
 **events**<br>*array*					| List of events assigned to the webhook
 **method**<br>*integer*					| HTTP method used for the webhook delivery request
 **url**<br>*string*					| Endpoint URL used for the webhook delivery request
-**typeId**<br>*string*					| Webhook Type ID
+**typeId**<br>*string*					| Webhook Type id
 **status**<br>*string*					| Status of the webhook (enabled/disabled)
 **meta**<br>*object*					| Contains webhook name and app key if required by the endpoint
 **dateCreated**<br>*timestamp* | Date and time of the creation of the webhook
@@ -422,25 +422,25 @@ Attribute			|	Description
 #### Request Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**forms**<br>*array*<br>required					| Array of objects containing the form IDs associated with the webhook. (send [{"formID":-1}] to subscribe to all forms)
+**forms**<br>*array*<br>required					| Array of objects containing the form id's associated with the webhook. (send [{"formid":-1}] to subscribe to all forms)
 **events**<br>*array*<br>required					| List of events assigned to the webhook
 **method**<br>*integer*					| HTTP method used for the webhook delivery request
 **url**<br>*string*					| Endpoint URL used for the webhook delivery request
-**typeId**<br>*string*					| Webhook Type ID (1 for user created)
+**typeId**<br>*string*					| Webhook Type id (1 for user created)
 **status**<br>*string*					| Status of the webhook (enabled/disabled)
 **meta**<br>*object*					| Contains webhook name and app key if required by the endpoint
 
 #### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*integer* 				| Unique ID of the webhook
-**accountId**<br>*integer*					| ID of the associated account
-**forms**<br>*array*<br>required					| Array of objects containing the form IDs associated with the webhook. (send [{"formID":-1}] to subscribe to all forms)
+**id**<br>*integer* 				| Unique id of the webhook
+**accountId**<br>*integer*					| Id of the associated account
+**forms**<br>*array*<br>required					| Array of objects containing the form id's associated with the webhook. (send [{"formid":-1}] to subscribe to all forms)
 **token**<br>*string*					| Unique token for the webhook
 **events**<br>*array*					| List of events assigned to the webhook
 **method**<br>*integer*					| HTTP method used for the webhook delivery request
 **url**<br>*string*					| Endpoint URL used for the webhook delivery request
-**typeId**<br>*string*					| Webhook Type ID
+**typeId**<br>*string*					| Webhook Type id
 **status**<br>*string*					| Status of the webhook (enabled/disabled)
 **meta**<br>*object*					| Contains webhook name and app key if required by the endpoint
 **dateCreated**<br>*timestamp* | Date and time of the creation of the webhook
@@ -478,27 +478,27 @@ Attribute			|	Description
 #### Request Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*integer* 				| Unique ID of the webhook
-**accountId**<br>*integer*					| ID of the associated account
-**forms**<br>*array*<br>required					| Array of objects containing the form IDs associated with the webhook. (send [{"formID":-1}] to subscribe to all forms)
+**id**<br>*integer* 				| Unique id of the webhook
+**accountId**<br>*integer*					| Id of the associated account
+**forms**<br>*array*<br>required					| Array of objects containing the form id's associated with the webhook. (send [{"formid":-1}] to subscribe to all forms)
 **events**<br>*array*<br>required					| List of events assigned to the webhook
 **method**<br>*integer*					| HTTP method used for the webhook delivery request
 **url**<br>*string*					| Endpoint URL used for the webhook delivery request
-**typeId**<br>*string*					| Webhook Type ID (1 for user created)
+**typeId**<br>*string*					| Webhook Type id (1 for user created)
 **status**<br>*string*					| Status of the webhook (enabled/disabled)
 **meta**<br>*object*					| Contains webhook name and app key if required by the endpoint
 
 #### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*integer* 				| Unique ID of the webhook
-**accountId**<br>*integer*					| ID of the associated account
-**forms**<br>*array*<br>required					| Array of objects containing the form IDs associated with the webhook. (send [{"formID":-1}] to subscribe to all forms)
+**id**<br>*integer* 				| Unique id of the webhook
+**accountId**<br>*integer*					| Id of the associated account
+**forms**<br>*array*<br>required					| Array of objects containing the form id's associated with the webhook. (send [{"formid":-1}] to subscribe to all forms)
 **token**<br>*string*					| Unique token for the webhook
 **events**<br>*array*					| List of events assigned to the webhook
 **method**<br>*integer*					| HTTP method used for the webhook delivery request
 **url**<br>*string*					| Endpoint URL used for the webhook delivery request
-**typeId**<br>*string*					| Webhook Type ID
+**typeId**<br>*string*					| Webhook Type id
 **status**<br>*string*					| Status of the webhook (enabled/disabled)
 **meta**<br>*object*					| Contains webhook name and app key if required by the endpoint
 **dateCreated**<br>*timestamp* | Date and time of the creation of the webhook
@@ -648,7 +648,7 @@ func sendDeleteRequest() {
 #### Request Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*integer* 				| ID of the webhook
+**id**<br>*integer* 				| Id of the webhook
 
 ### List Logs for Webhook
 ```shell
@@ -858,9 +858,9 @@ Get all logs for a given webhook
 #### Request Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*integer* 				| ID of the parent webhook
+**id**<br>*integer* 				| Id of the parent webhook
 
-### View Log by ID for Webhook
+### View Log by Id for Webhook
 ```shell
 curl "https://api.webconnex.com/v2/public/webhooks/1623423/logs?pretty=true" \
      -H "apiKey: <YOUR API KEY>"
@@ -1055,15 +1055,15 @@ func sendListRequest() {
 View a specific webhook log
 
 #### HTTP Request
-`POST /v2/public/webhooks/{webhookID}/logs/{webhookLogID}`
+`POST /v2/public/webhooks/{webhookid}/logs/{webhookLogid}`
 
 #### Request Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**webhookID**<br>*integer* 				| ID of the parent webhook
-**webhookLogID**<br>*integer* 				| ID of the webhook log to resend
+**webhookid**<br>*integer* 				| Id of the parent webhook
+**webhookLogid**<br>*integer* 				| Id of the webhook log to resend
 
-### Resend Webhook Request by Log ID
+### Resend Webhook Request by Log id
 ```shell
 curl -X "POST" "https://api.webconnex.com/v2/public/webhooks/39/resend/3899" \
      -H "apiKey: <YOUR API KEY>"
@@ -1285,5 +1285,5 @@ Request that a particular webhook attempt be resent.
 #### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*string*<br>required 				| ID of the webhook
-**logId**<br>*string*<br>required 				| ID of the webhook log entry to be resent
+**id**<br>*string*<br>required 				| Id of the webhook
+**logId**<br>*string*<br>required 				| Id of the webhook log entry to be resent

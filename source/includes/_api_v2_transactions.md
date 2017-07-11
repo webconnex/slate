@@ -226,44 +226,44 @@ func searchRequest() {
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **product**<br>*string*<br>required 		| Name of the product you to search for transactions against
-**formId**<br>*integer*<br>optional 		| ID of the form you want to filter transactions by
-**status**<br>*string*<br>optional 				| Status string of the transaction you want to filter on
-**sort**<br>*string*<br>optional 			            	|
-**limit**<br>*string*<br>optional 				          | limits the number of results returned
-**orderId**<br>*integer*<br>optional 		   		| filter transactions to only show results matching a provided order id
-**type**<br>*string*<br>optional 		   		| filter transactions to only show results matching a provided type (charge|refund)
-**orderDisplayId**<br>*string*<br>optional 		   		| filter transactions to only show results matching a provided order display id
-**greaterThanId**<br>*integer*<br>optional 		   		| filter transactions to only show results greater than provided id
-**formId**<br>*integer*<br>optional 			         	| filter transactions to only show results matching the form id
-**customerId**<br>*integer*<br>optional 				    | filter transactions to only show results matching the customer id
-**orderEmail**<br>*string*<br>optional 				      | filter transactions to only show results matching the email
-**orderNumber**<br>*string*<br>optional 				    | filter transactions to only show results matching the order number
-**txReference**<br>*string*<br>optional 				    | filter transactions to only show results matching the transaction reference
-**lessThanId**<br>*integer*<br>optional 		       	| filter transactions to only show results less than provided id
-**startingAfter**<br>*integer*<br>optional 			    | filter transactions to only show results with IDs after value
-**dateCreatedBefore**<br>*timestamp*<br>optional 		| filter transactions to only show results created before date
-**dateCreatedAfter**<br>*timestamp*<br>optional 		| filter transactions to only show results created before date
-**dateUpdatedBefore**<br>*timestamp*<br>optional 		| filter transactions to only show results updated before date
-**dateUpdatedAfter**<br>*timestamp*<br>optional 		| filter transactions to only show results updated after date
+**formId**<br>*integer*<br>(optional) 		| Id of the form you want to filter transactions by
+**status**<br>*string*<br>(optional) 				| Status string of the transaction you want to filter on
+**sort**<br>*string*<br>(optional) 			            	|
+**limit**<br>*string*<br>(optional) 				          | limits the number of results returned
+**orderId**<br>*integer*<br>(optional) 		   		| filter transactions to only show results matching a provided order id
+**type**<br>*string*<br>(optional) 		   		| filter transactions to only show results matching a provided type (charge|refund)
+**orderDisplayId**<br>*string*<br>(optional) 		   		| filter transactions to only show results matching a provided order display id
+**greaterThanId**<br>*integer*<br>(optional) 		   		| filter transactions to only show results greater than provided id
+**formId**<br>*integer*<br>(optional) 			         	| filter transactions to only show results matching the form id
+**customerId**<br>*integer*<br>(optional) 				    | filter transactions to only show results matching the customer id
+**orderEmail**<br>*string*<br>(optional) 				      | filter transactions to only show results matching the email
+**orderNumber**<br>*string*<br>(optional) 				    | filter transactions to only show results matching the order number
+**txReference**<br>*string*<br>(optional) 				    | filter transactions to only show results matching the transaction reference
+**lessThanId**<br>*integer*<br>(optional) 		       	| filter transactions to only show results less than provided id
+**startingAfter**<br>*integer*<br>(optional) 			    | filter transactions to only show results with id's after value
+**dateCreatedBefore**<br>*timestamp*<br>(optional) 		| filter transactions to only show results created before date
+**dateCreatedAfter**<br>*timestamp*<br>(optional) 		| filter transactions to only show results created before date
+**dateUpdatedBefore**<br>*timestamp*<br>(optional) 		| filter transactions to only show results updated before date
+**dateUpdatedAfter**<br>*timestamp*<br>(optional) 		| filter transactions to only show results updated after date
 
 #### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*integer* 				| Unique ID of the transaction
-**displayId**<br>*string*					| Unique ID string used as civilian facing ID
-**customerId**<br>*integer*					| Unique ID of the associated customer
+**id**<br>*integer* 				| Unique id of the transaction
+**displayId**<br>*string*					| Unique hash used as civilian facing id
+**customerId**<br>*integer*					| Unique id of the associated customer
 **customerEmail**<br>*string*					| Email of the associated customer
 **billing**<br>*object*					| Billing object containing name and address details associated with order
-**formId**<br>*integer*					| ID of the form that associated with the transaction
+**formId**<br>*integer*					| Id of the form that associated with the transaction
 **formName**<br>*string*					| Name of the form that created transaction
 **formAccRef**<br>*string*					| Accounting reference string of the form that created order
 **status**<br>*string*					| Status of the transaction
 **orderNumber**<br>*string*					| Order number
 **total**<br>*float*					| Transaction total
 **dateCreated**<br>*timestamp* | Date and time of the creation of the transaction
-**dateUpdated**<br>*timestamp* | Date and time the transaction was last updated (optional)
+**dateUpdated**<br>*timestamp* | Date and time the transaction was last updated ((optional))
 
-### View Transaction by ID
+### View Transaction by Id
 ```shell
 curl "https://api.webconnex.com/v2/public/search/transactions/14291?pretty=true&product=regfox.com" \
      -H "apiKey: <YOUR API KEY>"
@@ -450,7 +450,7 @@ func viewRequest() {
 #### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*string*<br>required 				| ID of the requested transaction
+**id**<br>*string*<br>required 				| Id of the requested transaction
 
 #### URI Params
 Parameter			|	Description
@@ -460,16 +460,16 @@ Parameter			|	Description
 #### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*integer* 				| Unique ID of the transaction
-**displayId**<br>*string*					| Unique ID string used as civilian facing ID
-**customerId**<br>*integer*					| Unique ID of the associated customer
+**id**<br>*integer* 				| Unique id of the transaction
+**displayId**<br>*string*					| Unique hash used as civilian facing id
+**customerId**<br>*integer*					| Unique id of the associated customer
 **customerEmail**<br>*string*					| Email of the associated customer
 **billing**<br>*object*					| Billing object containing name and address details associated with transaction
-**formId**<br>*integer*					| ID of the form that associated with the transaction
+**formId**<br>*integer*					| Id of the form that associated with the transaction
 **formName**<br>*string*					| Name of the form that created transaction
 **formAccRef**<br>*string*					| Accounting reference string of the form that created transaction
 **status**<br>*string*					| Status of the transaction
 **orderNumber**<br>*string*					| Order number
 **total**<br>*float*					| Total cost of the transaction
 **dateCreated**<br>*timestamp* | Date and time of the creation of the transaction
-**dateUpdated**<br>*timestamp* | Date and time the transaction was last updated (optional)
+**dateUpdated**<br>*timestamp* | Date and time the transaction was last updated ((optional))

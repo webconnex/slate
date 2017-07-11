@@ -22,7 +22,6 @@ includes:
   - api_v2_subscriptions
   - api_v2_transactions
   - api_v2_customers
-  - api_v2_checkin
   - api_v2_forms
   - api_v2_coupons
   - api_v2_inventory

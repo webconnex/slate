@@ -2,7 +2,7 @@
 
 ### List all Forms
 ```shell
-curl -X "POST" "https://api.webconnex.com/v1/public/forms" \
+curl -X "POST" "https://api.webconnex.com/v1/public/forms?pretty=true" \
      -H "apiKey: <YOUR API KEY>"
  ```
 ```go
@@ -188,15 +188,15 @@ Parameter			                        |	Description
 #### Response Object
 Attribute			                  |	Description
 --------------------------------|-----------------------------------------------
-**id**<br>*integer* 			   	  | Unique ID of the form
+**id**<br>*integer* 			   	  | Unique id of the form
 **name**<br>*string*					  | Name of the form
 **status**<br>*string*				  | Status of the form
 **dateCreated**<br>*timestamp*  | Date and time of the creation of the form
-**dateUpdated**<br>*timestamp*  | Date and time the form was last updated (optional)
+**dateUpdated**<br>*timestamp*  | Date and time the form was last updated ((optional))
 
-### Get Form By ID
+### Get Form by Id
 ```shell
-curl -X "PUT" "https://api.webconnex.com/v2/public/forms/15689" \
+curl -X "PUT" "https://api.webconnex.com/v2/public/forms/15689?pretty=true" \
      -H "apiKey: <YOUR API KEY>"
 ```
 
@@ -454,21 +454,21 @@ func viewRequest() {
 `GET /v2/public/forms/{id}`
 
 #### Request Params
-Parameter			|	Description
---------------|----------------------------------------------------------------------
-**id**<br>*Integer*<br>Required 				| ID of the form that is being requested
+Parameter			                    |	Description
+----------------------------------|---------------------------------------------------
+**id**<br>*Integer*<br>Required   | Id of the form that is being requested
 
 #### Response Object
 Attribute												|	Description
 --------------------------------|----------------------------------------------------
-**id**<br>*Integer* 						| Unique ID of the
+**id**<br>*Integer* 						| Unique id of the
 **name**<br>*string*						| Name of the form
 **status**<br>*string*					| Status of the form
 **accRef**<br>*string*					| Accounting Reference
 **fields**<br>*object*		      | A collection of fields that make up the form
 **timeZone**<br>*string*			  | Timezone code for the form
 **dateCreated**<br>*timestamp*  | Date and time of the creation of the form
-**dateUpdated**<br>*timestamp*  | Date and time the form was last updated (optional)
+**dateUpdated**<br>*timestamp*  | Date and time the form was last updated ((optional))
 
 #### Fields Object
 Attribute											        	|	Description

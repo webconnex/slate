@@ -128,10 +128,10 @@ The registration event is fired whenever a successful registration has occurred 
 #### Payload
 Parameter | Default | Description
 --------- | ------- | -----------
-eventId | integer | ID of the registration webhook event.
+eventId | Integer | Id of the registration webhook event.
 eventType | string | registration
-accountId | integer | ID of the account
-formId | integer | ID of the form
+accountId | Integer | Id of the account
+formId | Integer | Id of the form
 data | object | Object contains the complete payload for the registration
 meta | object | Object contains information about the webhook.
 
@@ -143,8 +143,8 @@ billing | object | Object contains the billing information
 registrants | object | Object contains all the fields for the registrant(s)
 tickets | object | Object contains all the fields for the ticket(s)
 id | string | Unique hash for the registration
-lookupId | integer | Internal ID of the registration
-customerId | integer | ID of the purchasing customer
+lookupId | Integer | Internal id of the registration
+customerId | Integer | Id of the purchasing customer
 metrics | object | Contains certain metrics from the registration
 orderNumber | string | Unique order number built from accounting reference in the form
 orderStatus | string | Status of the order
@@ -155,7 +155,7 @@ registrationTimestamp | timestamp | UTC date and time
 Parameter | Default | Description
 --------- | ------- | -----------
 name | string | The name of the webhook
-appKey | string | Self assigned application key (optional)
+appKey | string | Self assigned application key ((optional))
 
 ### Form Publish
 
@@ -189,25 +189,25 @@ The publish event is fired whenever a successful form has been published on a fo
 #### Payload
 Parameter | Default | Description
 --------- | ------- | -----------
-eventId | integer | ID of the publish webhook event.
+eventId | Integer | Id of the publish webhook event.
 eventType | string | publish
-formId | integer | ID of the form
-accountId | integer | ID of the account
+formId | Integer | Id of the form
+accountId | Integer | Id of the account
 data | object | Object contains the complete payload for the publish event
 meta | object | Object contains information about the webhook.
 
 #### Data Object
 Parameter | Default | Description
 --------- | ------- | -----------
-id | integer | ID of the form
-lookupId | integer | ID of the form
+id | Integer | Id of the form
+lookupId | Integer | Id of the form
 accRef | string | Form accounting reference
 currency | string | Currency of the campaign
 datePublished | date | Date form was last published
-eventStart | date | Event start date (optional)
-eventEnd | date | Event end date (optional)
-registrationStart | date | Opening date for registration (optional)
-registrationEnd| date | Ending date for registration (optional)
+eventStart | date | Event start date ((optional))
+eventEnd | date | Event end date ((optional))
+registrationStart | date | Opening date for registration ((optional))
+registrationEnd| date | Ending date for registration ((optional))
 name | string | Name of the form
 product | string | Product of the form
 publishedPath | string | Name of the form
@@ -218,7 +218,7 @@ timeZone | string | Timezone of the form
 Parameter | Default | Description
 --------- | ------- | -----------
 name | string | The name of the webhook
-appKey | string | Self assigned application key (optional)
+appKey | string | Self assigned application key ((optional))
 
 ### Subscription
 
@@ -289,19 +289,19 @@ The subscription / reoccurring event is fired whenever a successful subscription
 #### Payload
 Parameter | Default | Description
 --------- | ------- | -----------
-eventId | integer | ID of the subscription webhook event.
+eventId | Integer | Id of the subscription webhook event.
 eventType | string | subscription
-formId | integer | ID of the form
-accountId | integer | ID of the account
+formId | Integer | Id of the form
+accountId | Integer | Id of the account
 data | object | Object contains the complete payload for the subscription event
 meta | object | Object contains information about the webhook.
 
 #### Data Object
 Parameter | Default | Description
 --------- | ------- | -----------
-id | string | Internal ID of the subscription
-lookupId | string | ID of the subscription
-customerId | integer | ID of the customer
+id | string | Internal id of the subscription
+lookupId | string | Id of the subscription
+customerId | Integer | Id of the customer
 billing | object | Object contains the billing information
 orderNumber | string | Unique order number built from the form accounting reference
 orderStatus | string | Status of the order
@@ -315,11 +315,11 @@ Parameter | Default | Description
 amount | float | The total value processed
 category | string | Designated fund
 dateCreated | date | Date of creation
-dateUpdated | date | Date last updated (optional)
+dateUpdated | date | Date last updated ((optional))
 dateLast | date | Date of last processed
 dateNext | date | Date of next process attempt
 email | string | Email address of the subscription
-id | integer | Internal ID of the subscription
+id | Integer | Internal id of the subscription
 schedule | string | Cron formatted string detailing the schedule
 scheduleString | string | Human readable schedule
 status | string | The current status of the subscription
@@ -328,7 +328,7 @@ status | string | The current status of the subscription
 Parameter | Default | Description
 --------- | ------- | -----------
 name | string | The name of the webhook
-appKey | string | Self assigned application key (optional)
+appKey | string | Self assigned application key ((optional))
 
 ### Inventory
 
@@ -364,9 +364,9 @@ The inventory event is fired whenever an inventory item reaches 80%, 90% and 100
 #### Payload
 Parameter | Default | Description
 --------- | ------- | -----------
-eventType | string | inventory_80, inventory_90, inventory_100
-formId | integer | ID of the form
-accountId | integer | ID of the account
+eventType | string | Inventory_80, inventory_90, inventory_100
+formId | Integer | Id of the form
+accountId | Integer | Id of the account
 data | object | The object contains the complete payload for the inventory event
 meta | object | Object contains information about the webhook
 
@@ -374,14 +374,14 @@ meta | object | Object contains information about the webhook
 Parameter | Default | Description
 --------- | ------- | -----------
 dateCreated |  date  | Date the inventory item was created
-dateUpdated |  date  | Date the inventory item was updated  (optional)
-formLookupId |  int  | ID of the form used for requesting when calling from the public api
+dateUpdated |  date  | Date the inventory item was updated  ((optional))
+formLookupId |  int  | Id of the form used for requesting when calling from the public api
 formName |  string  | The name of the form campaign
-id | string | ID of the inventory item
+id | string | Id of the inventory item
 inventory | object | An object containing the inventory supply data
 itemName | string | The name of the inventory item
 itemPath | string | The path of the inventory item
-lookupId | int | ID of the inventory item used for requesting when calling from the public api
+lookupId | Int | Id of the inventory item used for requesting when calling from the public api
 
 #### Inventory Object
 Parameter | Default | Description
@@ -393,7 +393,7 @@ sold |  int  | The amount inventory sold
 Parameter | Default | Description
 --------- | ------- | -----------
 name | string | The name of the webhook
-appKey | string | Self assigned application key (optional)
+appKey | string | Self assigned application key ((optional))
 
 
 ### Coupons
@@ -446,31 +446,31 @@ The coupon event is fired whenever coupon is created, updated or redeemed. Only 
 Parameter | Default | Description
 --------- | ------- | -----------
 eventType | string | coupon
-formId | integer | ID of the form
-accountId | integer | ID of the account
+formId | Integer | Id of the form
+accountId | Integer | Id of the account
 data | object | The object contains the complete payload for the coupon event
 meta | object | Object contains information about the webhook
 
 #### Data Object
 Parameter | Default | Description
 --------- | ------- | -----------
-couponId |  int  | ID of the coupon
+couponId |  int  | Id of the coupon
 available |  int  | Number of available redemptions  ([-1] means unlimited)
 redeemed |  int  | Number of redemptions
 codes | object | The object container of all the coupon code objects
 currency |  string  | The currency of coupon
 codes | object | The object container of all the coupon code objects
 name | string | The name of the coupon
-formId | string | ID of the associated form (optional [null] if coupon is global)
+formId | string | Id of the associated form ((optional) [null] if coupon is global)
 voucher | bool | Specifies if a voucher or not
 dateCreated |  date  | Date the inventory item was created
-dateUpdated |  date  | Date the inventory item was updated  (optional)
+dateUpdated |  date  | Date the inventory item was updated  ((optional))
 
 #### Codes Object
 Parameter | Default | Description
 --------- | ------- | -----------
-id |  int  | ID of the code
-couponId |  int  | ID of the parent coupon
+id |  int  | Id of the code
+couponId |  int  | Id of the parent coupon
 code |  string  | Code used for coupon redemption
 redeemed |  int  | Number of redemptions
 
@@ -507,9 +507,9 @@ Used for testing
 Parameter | Default | Description
 --------- | ------- | -----------
 eventType | string | test
-eventId | integer | Random number used as event id
-formId | integer | Random number used as form id
-accountId | integer | ID of the account
+eventId | Integer | Random number used as event id
+formId | Integer | Random number used as form id
+accountId | Integer | Id of the account
 data | object | Object contains the complete payload for the test event
 
 #### Data Object
@@ -517,5 +517,5 @@ Parameter | Default | Description
 --------- | ------- | -----------
 data |  string  | Random string to use as data payload
 eventType | string | test
-eventId | integer | Random number used as event id
-formId | integer | Random number used as form id
+eventId | Integer | Random number used as event id
+formId | Integer | Random number used as form id
