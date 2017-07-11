@@ -192,7 +192,7 @@ Attribute			                  |	Description
 **name**<br>*string*					  | Name of the form
 **status**<br>*string*				  | Status of the form
 **dateCreated**<br>*timestamp*  | Date and time of the creation of the form
-**dateUpdated**<br>*timestamp*  | Date and time the form was last updated ((optional))
+**dateUpdated**<br>*timestamp*  | Date and time the form was last updated (optional)
 
 ### Get Form by Id
 ```shell
@@ -468,7 +468,7 @@ Attribute												|	Description
 **fields**<br>*object*		      | A collection of fields that make up the form
 **timeZone**<br>*string*			  | Timezone code for the form
 **dateCreated**<br>*timestamp*  | Date and time of the creation of the form
-**dateUpdated**<br>*timestamp*  | Date and time the form was last updated ((optional))
+**dateUpdated**<br>*timestamp*  | Date and time the form was last updated (optional)
 
 #### Fields Object
 Attribute											        	|	Description

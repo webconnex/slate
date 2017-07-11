@@ -228,7 +228,7 @@ Attribute			                 |	Description
 **billing**<br>*object*				 | Billing object containing name and address details associated with customer
 **amount**<br>*float*					 | Total of customer transactions
 **dateCreated**<br>*timestamp* | Date and time of the creation of the customer
-**dateUpdated**<br>*timestamp* | Date and time the customer was last updated ((optional))
+**dateUpdated**<br>*timestamp* | Date and time the customer was last updated (optional)
 
 ### View Customers by Id
 ```shell
@@ -428,4 +428,4 @@ Parameter		   	                |	Description
 **billing**<br>*object*         | Billing object containing name and address details associated with customer
 **amount**<br>*float*           | Total of customer transactions
 **dateCreated**<br>*timestamp*  | Date and time of the creation of the customer
-**dateUpdated**<br>*timestamp*  | Date and time the customer was last updated ((optional))
+**dateUpdated**<br>*timestamp*  | Date and time the customer was last updated (optional)

@@ -155,7 +155,7 @@ registrationTimestamp | timestamp | UTC date and time
 Parameter | Default | Description
 --------- | ------- | -----------
 name | string | The name of the webhook
-appKey | string | Self assigned application key ((optional))
+appKey | string | Self assigned application key (optional)
 
 ### Form Publish
 
@@ -204,10 +204,10 @@ lookupId | Integer | Id of the form
 accRef | string | Form accounting reference
 currency | string | Currency of the campaign
 datePublished | date | Date form was last published
-eventStart | date | Event start date ((optional))
-eventEnd | date | Event end date ((optional))
-registrationStart | date | Opening date for registration ((optional))
-registrationEnd| date | Ending date for registration ((optional))
+eventStart | date | Event start date (optional)
+eventEnd | date | Event end date (optional)
+registrationStart | date | Opening date for registration (optional)
+registrationEnd| date | Ending date for registration (optional)
 name | string | Name of the form
 product | string | Product of the form
 publishedPath | string | Name of the form
@@ -218,7 +218,7 @@ timeZone | string | Timezone of the form
 Parameter | Default | Description
 --------- | ------- | -----------
 name | string | The name of the webhook
-appKey | string | Self assigned application key ((optional))
+appKey | string | Self assigned application key (optional)
 
 ### Subscription
 
@@ -315,7 +315,7 @@ Parameter | Default | Description
 amount | float | The total value processed
 category | string | Designated fund
 dateCreated | date | Date of creation
-dateUpdated | date | Date last updated ((optional))
+dateUpdated | date | Date last updated (optional)
 dateLast | date | Date of last processed
 dateNext | date | Date of next process attempt
 email | string | Email address of the subscription
@@ -328,7 +328,7 @@ status | string | The current status of the subscription
 Parameter | Default | Description
 --------- | ------- | -----------
 name | string | The name of the webhook
-appKey | string | Self assigned application key ((optional))
+appKey | string | Self assigned application key (optional)
 
 ### Inventory
 
@@ -374,7 +374,7 @@ meta | object | Object contains information about the webhook
 Parameter | Default | Description
 --------- | ------- | -----------
 dateCreated |  date  | Date the inventory item was created
-dateUpdated |  date  | Date the inventory item was updated  ((optional))
+dateUpdated |  date  | Date the inventory item was updated  (optional)
 formLookupId |  int  | Id of the form used for requesting when calling from the public api
 formName |  string  | The name of the form campaign
 id | string | Id of the inventory item
@@ -393,7 +393,7 @@ sold |  int  | The amount inventory sold
 Parameter | Default | Description
 --------- | ------- | -----------
 name | string | The name of the webhook
-appKey | string | Self assigned application key ((optional))
+appKey | string | Self assigned application key (optional)
 
 
 ### Coupons
@@ -461,7 +461,7 @@ codes       | object  | The object container of all the coupon code objects
 currency    | string  | The currency of coupon
 codes       | object  | The object container of all the coupon code objects
 name        | string  | The name of the coupon
-formId      | string  | Id of the associated form ((optional) [null] if coupon is global)
+formId      | string  | Id of the associated form (optional) [null] if coupon is global)
 voucher     | bool   | Specifies if coupon is a voucher or not
 dateCreated |  date  | Date the inventory item was created
 dateUpdated |  date  | Date the inventory item was updated  (optional)

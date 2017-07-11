@@ -238,7 +238,7 @@ Attribute			                  |	Description
 **orderNumber**<br>*string*     | Order number
 **total**<br>*float*				    | Total cost of the order
 **dateCreated**<br>*timestamp*  | Date and time of the creation of the order
-**dateUpdated**<br>*timestamp*  | Date and time the order was last updated ((optional))
+**dateUpdated**<br>*timestamp*  | Date and time the order was last updated (optional)
 
 ### View Order by Id
 ```shell
@@ -447,4 +447,4 @@ Attribute			                  |	Description
 **orderNumber**<br>*string*     | Order number
 **total**<br>*float*            | Total cost of the order
 **dateCreated**<br>*timestamp*  | Date and time of the creation of the order
-**dateUpdated**<br>*timestamp*  | Date and time the order was last updated ((optional))
+**dateUpdated**<br>*timestamp*  | Date and time the order was last updated (optional)

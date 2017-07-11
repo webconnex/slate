@@ -216,7 +216,7 @@ Attribute			|	Description
 **discounts**<br>*array*        | Discount associated with coupon
 **codes**<br>*array*            | Codes associated with coupon
 **dateCreated**<br>*timestamp*  | Date and time of the creation of the order
-**dateUpdated**<br>*timestamp*  | Date and time the order was last updated ((optional))
+**dateUpdated**<br>*timestamp*  | Date and time the order was last updated (optional)
 
 ### View Coupon by form
 
@@ -439,7 +439,7 @@ Attribute			                  |	Description
 **discounts**<br>*array*				| Discount associated with coupon
 **codes**<br>*array*				    | Codes associated with coupon
 **dateCreated**<br>*timestamp*  | Date and time of the creation of the order
-**dateUpdated**<br>*timestamp*  | Date and time the order was last updated ((optional))
+**dateUpdated**<br>*timestamp*  | Date and time the order was last updated (optional)
 
 ### View Coupon by Id
 
@@ -660,4 +660,4 @@ Attribute			                  |	Description
 **discounts**<br>*array*				| Discount associated with coupon
 **codes**<br>*array*					  | Codes associated with coupon
 **dateCreated**<br>*timestamp*  | Date and time of the creation of the order
-**dateUpdated**<br>*timestamp*  | Date and time the order was last updated ((optional))
+**dateUpdated**<br>*timestamp*  | Date and time the order was last updated (optional)
