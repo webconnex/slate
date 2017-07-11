@@ -1,6 +1,6 @@
 ## Ping/Healthcheck
 ```shell
-curl -X "GET" "http://api.webconnex.com/v2/public/ping" \
+curl -X "GET" "http://api.webconnex.com/v2/public/ping?pretty=true" \
 	-H "apiKey: <YOUR API KEY>"
 ```
 ```go

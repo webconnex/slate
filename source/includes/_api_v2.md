@@ -72,7 +72,7 @@ Attribute			                  |	Description
 **responseCode**<br>*integer*   | The http response code of the request
 **data**<br>*object* or *array*	| The requested data in an array or object format
 **totalResults**<br>*integer*	  | The total number of results found (not returned)
-**startingAfter**<br>*integer*  | The ID to begin when retrieving the next page of results
+**startingAfter**<br>*integer*  | The id to begin when retrieving the next page of results
 **hasMore**<br>*bool*		        | A boolean specifying if more results exist and should be requested via paging
 
 #### Error Response Object
@@ -99,18 +99,18 @@ Attribute			                  |	Description
 
 Below are the http response codes used by the API
 
-| HTTP Code		| Description |
-| ------------ |------------------------------------------|
-| 200<br>OK	| The request was successful, we updated/created the resource and the responded body contains the representation |
-| 204<br>OK DELETED	| The request was successful; the resource was deleted |
-| 400<br>BAD REQUEST | The data provided or requested failed validation. Inspect the request and / or response body for details |
-| 401<br>UNAUTHORIZED	| The supplied credentials, if any, are not sufficient to create or update the resource	|
-| 402<br>REQUEST FAILED	| The parameters were valid but the request failed |
-| 404<br>NOT FOUND | Not found (or unauthorized)	|
-| 405<br>METHOD NOT ALLOWED	| You can't POST or PUT to the resource	|
-| 429<br>TOO MANY REQUESTS | Your application is sending too many simultaneous requests |
-| 500<br>SERVER ERROR	| We couldn't create or update the resource. Please try again	|
-| 502<br>SERVER ERROR	| We couldn't create or update the resource. Please try again	|
+| HTTP Code		                  | Description 
+| ------------------------------|-----------------------------------------------
+| **200**<br>OK                 | The request was successful, we updated/created the resource and the responded body contains the representation
+| **204**<br>OK DELETED	        | The request was successful; the resource was deleted
+| **400**<br>BAD REQUEST        | The data provided or requested failed validation. Inspect the request and / or response body for details
+| **401**<br>UNAUTHORIZED	      | The supplied credentials, if any, are not sufficient to create or update the resource
+| **402**<br>REQUEST FAILED	    | The parameters were valid but the request failed |
+| **404**<br>NOT FOUND          | Not found (or unauthorized)	|
+| **405**<br>METHOD NOT ALLOWED	| You can't POST or PUT to the resource
+| **429**<br>TOO MANY REQUESTS  | Your application is sending too many simultaneous requests
+| **500**<br>SERVER ERROR	| We couldn't create or update the resource. Please try again
+| **502**<br>SERVER ERROR	| We couldn't create or update the resource. Please try again
 
 ### Paging
 ```markdown
@@ -122,7 +122,7 @@ Parameter		     	              |	Description
 --------------------------------|-----------------------------------------------
 **sort**<br>*string* 		      	| sets the returned order (`asc` or `desc`)
 **limit**<br>*string* 				  | limits the number of results returned
-**startingAfter**<br>*integer*  | filter to only show results with IDs after the supplied value
+**startingAfter**<br>*integer*  | filter to only show results with id's after the supplied value
 
 ### Expand
 ```markdown

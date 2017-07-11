@@ -208,7 +208,7 @@ Parameter			                      |	Description
 #### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*integer* 				    | Unique ID of the coupon
+**id**<br>*integer* 				    | Unique id of the coupon
 **name**<br>*string*					  | The name of the coupon
 **redeemed**<br>*integer*				| Number of coupons redeemed
 **available**<br>*integer*      | Number of coupons available ([-1] means unlimited)
@@ -216,7 +216,7 @@ Attribute			|	Description
 **discounts**<br>*array*        | Discount associated with coupon
 **codes**<br>*array*            | Codes associated with coupon
 **dateCreated**<br>*timestamp*  | Date and time of the creation of the order
-**dateUpdated**<br>*timestamp*  | Date and time the order was last updated (optional)
+**dateUpdated**<br>*timestamp*  | Date and time the order was last updated ((optional))
 
 ### View Coupon by form
 
@@ -426,12 +426,12 @@ func sendListByFormRequest() {
 #### Request Params
 Parameter			                  |	Description
 --------------------------------|-----------------------------------------------
-**id**<br>*integer*<br>required | Form ID to list coupons associated with
+**id**<br>*integer*<br>required | Form id to list coupons associated with
 
 #### Response Object
 Attribute			                  |	Description
 --------------------------------|-----------------------------------------------
-**id**<br>*integer* 				    | Unique ID of the coupon
+**id**<br>*integer* 				    | Unique id of the coupon
 **name**<br>*string*					  | The name of the coupon
 **redeemed**<br>*integer*				| Number of coupons redeemed
 **available**<br>*integer*      | Number of coupons available ([-1] means unlimited)
@@ -439,9 +439,9 @@ Attribute			                  |	Description
 **discounts**<br>*array*				| Discount associated with coupon
 **codes**<br>*array*				    | Codes associated with coupon
 **dateCreated**<br>*timestamp*  | Date and time of the creation of the order
-**dateUpdated**<br>*timestamp*  | Date and time the order was last updated (optional)
+**dateUpdated**<br>*timestamp*  | Date and time the order was last updated ((optional))
 
-### View Coupon by ID
+### View Coupon by Id
 
 ```shell
 ## View Single
@@ -647,12 +647,12 @@ func viewSingleRequest() {
 #### Request Params
 Parameter			                  |	Description
 --------------------------------|-----------------------------------------------
-**id**<br>*integer*<br>required | ID of the requested coupon
+**id**<br>*integer*<br>required | Id of the requested coupon
 
 #### Response Object
 Attribute			                  |	Description
 --------------------------------|-----------------------------------------------
-**id**<br>*integer* 				    | Unique ID of the coupon
+**id**<br>*integer* 				    | Unique id of the coupon
 **name**<br>*string*					  | The name of the coupon
 **redeemed**<br>*integer*				| Number of coupons redeemed
 **available**<br>*integer*      | Number of coupons available (-1 means unlimited)
@@ -660,4 +660,4 @@ Attribute			                  |	Description
 **discounts**<br>*array*				| Discount associated with coupon
 **codes**<br>*array*					  | Codes associated with coupon
 **dateCreated**<br>*timestamp*  | Date and time of the creation of the order
-**dateUpdated**<br>*timestamp*  | Date and time the order was last updated (optional)
+**dateUpdated**<br>*timestamp*  | Date and time the order was last updated ((optional))

@@ -58,10 +58,10 @@ Below is additional information and resources
 
 Available Statuses	| Description
 --------------------|-----------------------------------------------------------
-active							| is active and will continue to process future payments
-inactive						| is inactive and will not process future payments
-canceled						| is canceled and will no longer process future payments
-completed						| is completed and will no longer process future payments
+active							| Is active and will continue to process future payments
+inactive						| Is inactive and will not process future payments
+canceled						| Is canceled and will no longer process future payments
+completed						| Is completed and will no longer process future payments
 
 ## Memberships
 
