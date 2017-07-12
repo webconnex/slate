@@ -201,8 +201,8 @@ Attribute			                    |	Description
 **events**<br>*array*					    | List of events assigned to the webhook
 **method**<br>*string*					  | HTTP method used for the webhook delivery request
 **url**<br>*string*					      | Endpoint URL used for the webhook delivery request
-**typeId**<br>*string*					  | Webhook Type id (see appendix for types)
-**status**<br>*string*					  | Status of the webhook (see appendix for statuses)
+**typeId**<br>*integer*					  | Webhook Type id (See appendix for types)
+**status**<br>*string*					  | Status of the webhook (See appendix for statuses)
 **meta**<br>*object*					    | Contains additional webhook information
 **dateCreated**<br>*timestamp*    | Timestamp of the creation of the webhook
 **dateUpdated**<br>*timestamp*    | Timestamp the webhook was last updated
@@ -384,7 +384,7 @@ Attribute			|	Description
 **events**<br>*array*				| List of events assigned to the webhook
 **method**<br>*string*			| HTTP method used for the webhook delivery request
 **url**<br>*string*					| Endpoint URL used for the webhook delivery request
-**typeId**<br>*string*			| Webhook Type id (See appendix for types)
+**typeId**<br>*integer*			| Webhook Type id (See appendix for types)
 **status**<br>*string*      | Status of the webhook (See appendix for statuses)
 **meta**<br>*object*				| Contains additional webhook details
 **dateCreated**<br>*timestamp* | Timestamp of the creation of the webhook
@@ -425,8 +425,8 @@ Attribute			|	Description
 **events**<br>*array*<br>required					| List of events assigned to the webhook
 **method**<br>*string*					| HTTP method used for the webhook delivery request
 **url**<br>*string*					| Endpoint URL used for the webhook delivery request
-**typeId**<br>*string*					| Webhook Type id (1 for user created)
-**status**<br>*string*					| Status of the webhook (enabled/disabled)
+**typeId**<br>*integer*					| Webhook Type id (See appendix for types)
+**status**<br>*string*					| Status of the webhook (See appendix for statuses)
 **meta**<br>*object*					| Contains webhook name and app key if required by the endpoint
 
 #### Response Object
@@ -438,9 +438,9 @@ Attribute			|	Description
 **token**<br>*string*					| Unique token for the webhook
 **events**<br>*array*					| List of events assigned to the webhook
 **method**<br>*string*					| HTTP method used for the webhook delivery request
-**url**<br>*string*					| Endpoint URL used for the webhook delivery request
-**typeId**<br>*string*					| Webhook Type id
-**status**<br>*string*					| Status of the webhook (enabled/disabled)
+**url**<br>*string*					  | Endpoint URL used for the webhook delivery request
+**typeId**<br>*integer*					| Webhook Type id (See appendix for types)
+**status**<br>*string*					| Status of the webhook (See appendix for statuses)
 **meta**<br>*object*					| Contains webhook name and app key if required by the endpoint
 **dateCreated**<br>*timestamp* | Timestamp of the creation of the webhook
 **dateUpdated**<br>*timestamp* | Timestamp the webhook was last updated
@@ -483,8 +483,8 @@ Attribute			|	Description
 **events**<br>*array*<br>required					| List of events assigned to the webhook
 **method**<br>*string*					| HTTP method used for the webhook delivery request
 **url**<br>*string*					| Endpoint URL used for the webhook delivery request
-**typeId**<br>*string*					| Webhook Type id (1 for user created)
-**status**<br>*string*					| Status of the webhook (enabled/disabled)
+**typeId**<br>*integer*					| Webhook Type id (See appendix for types)
+**status**<br>*string*					| Status of the webhook (See appendix for statuses)
 **meta**<br>*object*					| Contains webhook name and app key if required by the endpoint
 
 #### Response Object
@@ -497,8 +497,8 @@ Attribute			|	Description
 **events**<br>*array*					| List of events assigned to the webhook
 **method**<br>*string*					| HTTP method used for the webhook delivery request
 **url**<br>*string*					| Endpoint URL used for the webhook delivery request
-**typeId**<br>*string*					| Webhook Type id
-**status**<br>*string*					| Status of the webhook (enabled/disabled)
+**typeId**<br>*integer*					| Webhook Type id (See appendix for types)
+**status**<br>*string*					| Status of the webhook (See appendix for statuses)
 **meta**<br>*object*					| Contains webhook name and app key if required by the endpoint
 **dateCreated**<br>*timestamp* | Timestamp of the creation of the webhook
 **dateUpdated**<br>*timestamp* | Timestamp the webhook was last updated
