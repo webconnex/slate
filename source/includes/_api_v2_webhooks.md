@@ -186,26 +186,26 @@ func sendListRequest() {
 }
 ```
 #### HTTP Request
-`GET /v2/public/webhooks/`
+`GET /v2/public/webhooks`
 
 #### Request Params
-No filtering implemented on this object.
+No filtering implemented on this HTTP resource.
 
 #### Response Object
-Attribute			|	Description
---------------|----------------------------------------------------------------------
-**id**<br>*integer* 				| Unique id of the webhook
-**accountId**<br>*integer*					| Id of the associated account
-**forms**<br>*array*<br>required					| Array of objects containing the form id's associated with the webhook. (send [{"formid":-1}] to subscribe to all forms)
-**token**<br>*string*					| Unique token for the webhook
-**events**<br>*array*					| List of events assigned to the webhook
-**method**<br>*integer*					| HTTP method used for the webhook delivery request
-**url**<br>*string*					| Endpoint URL used for the webhook delivery request
-**typeId**<br>*string*					| Webhook Type id
-**status**<br>*string*					| Status of the webhook (enabled/disabled)
-**meta**<br>*object*					| Contains webhook name and app key if required by the endpoint
-**dateCreated**<br>*timestamp* | Date and time of the creation of the webhook
-**dateUpdated**<br>*timestamp* | Date and time the webhook was last updated
+Attribute			                    |	Description
+----------------------------------|---------------------------------------------
+**id**<br>*integer* 				      | Unique id of the webhook
+**accountId**<br>*integer*				| Id of the associated account
+**forms**<br>*array*              | Array of objects containing the form id's associated with the webhook. (Send [{"formid":-1}] to subscribe to all forms)
+**token**<br>*string*					    | Unique token for the webhook
+**events**<br>*array*					    | List of events assigned to the webhook
+**method**<br>*integer*					  | HTTP method used for the webhook delivery request
+**url**<br>*string*					      | Endpoint URL used for the webhook delivery request
+**typeId**<br>*string*					  | Webhook Type id (see appendix for types)
+**status**<br>*string*					  | Status of the webhook (see appendix for statuses)
+**meta**<br>*object*					    | Contains additional webhook information
+**dateCreated**<br>*timestamp*    | Timestamp of the creation of the webhook
+**dateUpdated**<br>*timestamp*    | Timestamp the webhook was last updated
 
 ### View Webhook
 ```shell
@@ -301,7 +301,6 @@ def send_request():
 
             callback(null, res.statusCode, res.headers, responseStr);
         });
-
     })
     .setTimeout(0)
     .on('error', (error) => {
@@ -371,25 +370,25 @@ func sendListRequest() {
 `GET /v2/public/webhooks/{id}`
 
 #### Request Params
-Parameter			|	Description
---------------|----------------------------------------------------------------------
-**id**<br>*string*<br>required 				| Id of the requested webhook
+Parameter			                    |	Description
+----------------------------------|---------------------------------------------------
+**id**<br>*string*<br>required    | Id of the requested webhook
 
 #### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique id of the webhook
-**accountId**<br>*integer*					| Id of the associated account
-**forms**<br>*array*<br>required					| Array of objects containing the form id's associated with the webhook. (send [{"formid":-1}] to subscribe to all forms)
-**token**<br>*string*					| Unique token for the webhook
-**events**<br>*array*					| List of events assigned to the webhook
-**method**<br>*integer*					| HTTP method used for the webhook delivery request
+**accountId**<br>*integer*  | Id of the associated account
+**forms**<br>*array*				| Array of objects containing the form id's associated with the webhook. (send [{"formid":-1}] to subscribe to all forms)
+**token**<br>*string*				| Unique token for the webhook
+**events**<br>*array*				| List of events assigned to the webhook
+**method**<br>*integer*			| HTTP method used for the webhook delivery request
 **url**<br>*string*					| Endpoint URL used for the webhook delivery request
-**typeId**<br>*string*					| Webhook Type id
-**status**<br>*string*					| Status of the webhook (enabled/disabled)
-**meta**<br>*object*					| Contains webhook name and app key if required by the endpoint
-**dateCreated**<br>*timestamp* | Date and time of the creation of the webhook
-**dateUpdated**<br>*timestamp* | Date and time the webhook was last updated
+**typeId**<br>*string*			| Webhook Type id (See appendix for types)
+**status**<br>*string*      | Status of the webhook (See appendix for statuses)
+**meta**<br>*object*				| Contains additional webhook details
+**dateCreated**<br>*timestamp* | Timestamp of the creation of the webhook
+**dateUpdated**<br>*timestamp* | Timestamp the webhook was last updated
 
 ### Create Webhook
 ```shell
@@ -443,8 +442,8 @@ Attribute			|	Description
 **typeId**<br>*string*					| Webhook Type id
 **status**<br>*string*					| Status of the webhook (enabled/disabled)
 **meta**<br>*object*					| Contains webhook name and app key if required by the endpoint
-**dateCreated**<br>*timestamp* | Date and time of the creation of the webhook
-**dateUpdated**<br>*timestamp* | Date and time the webhook was last updated
+**dateCreated**<br>*timestamp* | Timestamp of the creation of the webhook
+**dateUpdated**<br>*timestamp* | Timestamp the webhook was last updated
 
 ### Update Webhook
 ```shell
@@ -501,8 +500,8 @@ Attribute			|	Description
 **typeId**<br>*string*					| Webhook Type id
 **status**<br>*string*					| Status of the webhook (enabled/disabled)
 **meta**<br>*object*					| Contains webhook name and app key if required by the endpoint
-**dateCreated**<br>*timestamp* | Date and time of the creation of the webhook
-**dateUpdated**<br>*timestamp* | Date and time the webhook was last updated
+**dateCreated**<br>*timestamp* | Timestamp of the creation of the webhook
+**dateUpdated**<br>*timestamp* | Timestamp the webhook was last updated
 
 ### Delete Webhook
 ```shell

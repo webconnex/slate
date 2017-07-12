@@ -215,8 +215,8 @@ Attribute			|	Description
 **currency**<br>*string*        | Currency of the coupon
 **discounts**<br>*array*        | Discount associated with coupon
 **codes**<br>*array*            | Codes associated with coupon
-**dateCreated**<br>*timestamp*  | Date and time of the creation of the order
-**dateUpdated**<br>*timestamp*  | Date and time the order was last updated (optional)
+**dateCreated**<br>*timestamp*  | Timestamp of the creation of the order
+**dateUpdated**<br>*timestamp*  | Timestamp the order was last updated (optional)
 
 ### View Coupon by form
 
@@ -438,8 +438,8 @@ Attribute			                  |	Description
 **currency**<br>*string*        | Currency of the coupon
 **discounts**<br>*array*				| Discount associated with coupon
 **codes**<br>*array*				    | Codes associated with coupon
-**dateCreated**<br>*timestamp*  | Date and time of the creation of the order
-**dateUpdated**<br>*timestamp*  | Date and time the order was last updated (optional)
+**dateCreated**<br>*timestamp*  | Timestamp of the creation of the order
+**dateUpdated**<br>*timestamp*  | Timestamp the order was last updated (optional)
 
 ### View Coupon by Id
 
@@ -659,5 +659,5 @@ Attribute			                  |	Description
 **currency**<br>*string*        | Currency of the coupon
 **discounts**<br>*array*				| Discount associated with coupon
 **codes**<br>*array*					  | Codes associated with coupon
-**dateCreated**<br>*timestamp*  | Date and time of the creation of the order
-**dateUpdated**<br>*timestamp*  | Date and time the order was last updated (optional)
+**dateCreated**<br>*timestamp*  | Timestamp of the creation of the order
+**dateUpdated**<br>*timestamp*  | Timestamp the order was last updated (optional)

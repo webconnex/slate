@@ -260,8 +260,8 @@ Attribute			|	Description
 **status**<br>*string*					| Status of the transaction
 **orderNumber**<br>*string*					| Order number
 **total**<br>*float*					| Transaction total
-**dateCreated**<br>*timestamp* | Date and time of the creation of the transaction
-**dateUpdated**<br>*timestamp* | Date and time the transaction was last updated (optional)
+**dateCreated**<br>*timestamp* | Timestamp of the creation of the transaction
+**dateUpdated**<br>*timestamp* | Timestamp the transaction was last updated (optional)
 
 ### View Transaction by Id
 ```shell
@@ -471,5 +471,5 @@ Attribute			|	Description
 **status**<br>*string*					| Status of the transaction
 **orderNumber**<br>*string*					| Order number
 **total**<br>*float*					| Total cost of the transaction
-**dateCreated**<br>*timestamp* | Date and time of the creation of the transaction
-**dateUpdated**<br>*timestamp* | Date and time the transaction was last updated (optional)
+**dateCreated**<br>*timestamp* | Timestamp of the creation of the transaction
+**dateUpdated**<br>*timestamp* | Timestamp the transaction was last updated (optional)

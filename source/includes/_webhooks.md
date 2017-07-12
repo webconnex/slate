@@ -4,12 +4,12 @@ Our webhook system allows you to receive data when certain events happen on your
 
 We currently support the following events:
 
-* New Registrations/Orders
-* Subscription/Recurring Notification
-* Form Published
-* Inventory Supply
-* Coupons
-* Test
+- New Registrations/Orders
+- Subscription/Recurring Notification
+- Form Published
+- Inventory Supply
+- Coupons
+- Test
 
 ## Control Panel Interface
 
@@ -52,7 +52,7 @@ Clicking on the details of a request will reveal more information that might be 
 ```
 
 Parameter             | Description
-----------------------| --------------------------------------------------------
+--------------------- | --------------------------------------------------------
 Content-Type          | application/json
 User-Agent            | Webconnex-Divvy
 X-Webconnex-Delivery  | Hash for the delivery

@@ -247,8 +247,8 @@ Attribute			|	Description
 **status**<br>*string*					| Status of the order
 **orderNumber**<br>*string*					| Order number
 **total**<br>*float*					| Total cost of the order
-**dateCreated**<br>*timestamp* | Date and time of the creation of the subscription
-**dateUpdated**<br>*timestamp* | Date and time the subscription was last updated (optional)
+**dateCreated**<br>*timestamp* | Timestamp of the creation of the subscription
+**dateUpdated**<br>*timestamp* | Timestamp the subscription was last updated (optional)
 
 ### View Subscription by Id
 ```shell
@@ -452,5 +452,5 @@ Attribute			|	Description
 **status**<br>*string*					| Status of the order
 **orderNumber**<br>*string*					| Order number
 **total**<br>*float*					| Total cost of the order
-**dateCreated**<br>*timestamp* | Date and time of the creation of the subscription
-**dateUpdated**<br>*timestamp* | Date and time the subscription was last updated (optional)
+**dateCreated**<br>*timestamp* | Timestamp of the creation of the subscription
+**dateUpdated**<br>*timestamp* | Timestamp the subscription was last updated (optional)

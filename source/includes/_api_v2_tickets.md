@@ -247,8 +247,8 @@ Attribute			|	Description
 **status**<br>*string*					| Status of the registrant
 **orderNumber**<br>*string*					| Order number
 **total**<br>*float*					| Total cost of the registrant
-**dateCreated**<br>*timestamp* | Date and time of the creation of the registrant
-**dateUpdated**<br>*timestamp* | Date and time the registrant was last updated (optional)
+**dateCreated**<br>*timestamp* | Timestamp of the creation of the registrant
+**dateUpdated**<br>*timestamp* | Timestamp the registrant was last updated (optional)
 
 ### View Registrant by Id
 ```shell
@@ -451,5 +451,5 @@ Attribute			|	Description
 **status**<br>*string*					| Status of the registrant
 **orderNumber**<br>*string*					| Order number
 **total**<br>*float*					| Total cost of the order
-**dateCreated**<br>*timestamp* | Date and time of the creation of the registrant
-**dateUpdated**<br>*timestamp* | Date and time the registrant was last updated (optional)
+**dateCreated**<br>*timestamp* | Timestamp of the creation of the registrant
+**dateUpdated**<br>*timestamp* | Timestamp the registrant was last updated (optional)
