@@ -88,9 +88,7 @@ completed          | Is completed and will no longer process future payments
 | enabled
 | disabled
 
-## Webhook Types
-
-Id   | Type
+Id   | Available Type
 ---- | ------------------------------------------------
 1    | Standard webhook
 2-10 | Internal webhook types that should not be edited
