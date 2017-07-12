@@ -1,22 +1,24 @@
-# API
+# API Reference
 
 ## Structure
 
 ### Overview
 
-The Webconnex API is build upon simple REST patterns. We use standard HTTP methods and error codes in our responses.
+The Webconnex API is build upon simple REST patterns. We use standard HTTP methods, resource-oriented URLs and HTTP error codes in our responses.
 
 URL: `https://api.webconnex.com/v2/public/`
 
 ### Authentication
 
-Authentication happens through the use of an API key issued from the Integrations pane under account settings.
+Authentication happens through the use of an API key issued from the Integrations pane under account settings. A valid API Key must be included in the request header for each request.
 
 ### Rate Limits
 
 We have a default daily limit of *15,000* requests per day with a burst limit of up to *900* requests per *15 minutes* block of time.
 
 ### Responses
+
+JSON is returned by all API responses, including errors.
 
 #### HTTP Headers
 
@@ -72,8 +74,8 @@ Attribute			                  |	Description
 **responseCode**<br>*integer*   | Http response code of the request
 **data**<br>*object* or *array*	| Requested data in an array or object format
 **totalResults**<br>*integer*	  | Total number of results found (Note not the returned count)
-**startingAfter**<br>*integer*  | Next Id to send when retrieving the next page of results
-**hasMore**<br>*bool*		        | Boolean specifying if more results exist and should be requested via paging
+**startingAfter**<br>*integer*  | an object ID that defines your place in the list
+**hasMore**<br>*bool*		        | Whether or not there are more objects available after this set. If `false`, this is the end of the list
 
 #### Error Response Object
 
@@ -88,6 +90,7 @@ Attribute			                  |	Description
 	}
 }
 ```
+
 Attribute			                  |	Description
 --------------------------------|-----------------------------------------------
 **responseCode**<br>*integer*   | Http response code of the request
@@ -97,9 +100,11 @@ Attribute			                  |	Description
 
 #### HTTP Codes (HTTP Response Code)
 
-Below are a summary of the http response codes used by the webconnex API.
+webconnex uses standard HTTP response codes to indicate the success or failure of an API request. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate a request error and codes in the 5xx range indicate an internal error.
 
-| HTTP Code		                  | Description
+Below are a summary of the HTTP response codes used by the webconnex API.
+
+| Code	/ Message	                  | Description
 | ------------------------------|-----------------------------------------------
 | **200**<br>OK                 | The request was successful, we updated/created the resource and the responded body contains the representation
 | **204**<br>OK DELETED	        | The request was successful; the resource was deleted
@@ -116,13 +121,14 @@ Below are a summary of the http response codes used by the webconnex API.
 ```markdown
 https://api.webconnex.com/parent?limit=100&startingAfter=45&sort=desc
 ```
-Paging is requested though URI parameters for any resource the returns a collection of objects.
+
+Webconnex utilizes cursor-based pagination via the `startingAfter` and `limit` URI parameters. Paging can be used for any resource the returns a collection of objects.
 
 Parameter		     	              |	Description
 --------------------------------|-----------------------------------------------
-**sort**<br>*string* 		      	| Sets the returned order (`asc` or `desc`)
-**limit**<br>*string* 				  | Limits the number of results returned
-**startingAfter**<br>*integer*  | Show results with id's after the supplied value
+**sort**<br>*string* 		      	| Sets the returned order `asc` or `desc`
+**limit**<br>*string*<br>(optional, default is 50) 				  | A limit on the number of objects to be returned, between 1 and 150
+**startingAfter**<br>*integer*  | startingAfter is an object ID that defines your place in the list
 
 ### Expand
 ```markdown
@@ -130,9 +136,9 @@ Example Usage
 https://api.webconnex.com/parent/id/child?[]expand=registrants,tickets,subscription,inventory
 ```
 
-Multiple endpoints allow for a `[]expand=?` URI parameter to be passed to return additional information.
+Multiple endpoints allow for a `[]expand=?` URI parameter to be passed to return additional information about a resources children. You can expand multiple objects at once by identifying multiple items in the expand array.
 
-Endpoints which support `[]expand`:
+Endpoints which support `[]expand` include:
 
 - [View Form](#get-form-by-id)
 
