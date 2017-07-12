@@ -134,7 +134,7 @@ eventType | string  | registration
 accountId | Integer | Id of the account
 formId    | Integer | Id of the form
 data      | object  | Object contains the complete payload for the registration
-meta      | object  | Object contains information about the webhook.
+meta      | object  | Object contains information about the webhook
 
 ### Data Object
 
@@ -193,12 +193,12 @@ The publish event is fired whenever a successful form has been published on a fo
 
 Parameter | Default | Description
 --------- | ------- | ----------------------------------------------------------
-eventId   | Integer | Id of the publish webhook event.
+eventId   | Integer | Id of the publish webhook event
 eventType | string  | publish
 formId    | Integer | Id of the form
 accountId | Integer | Id of the account
 data      | object  | Object contains the complete payload for the publish event
-meta      | object  | Object contains information about the webhook.
+meta      | object  | Object contains information about the webhook
 
 ### Data Object
 
@@ -252,7 +252,7 @@ appKey    | string  | Self assigned application key (optional)
       },
       "check": {
         "accountType": "Bank Name",
-        "accountNumber": "<YOUR API KEY>4111",
+        "accountNumber": "4111",
         "routingNumber": "123456789"
       },
       "email": "help@webconnex.com",
@@ -296,17 +296,17 @@ The subscription / reoccurring event is fired whenever a successful subscription
 
 Parameter | Default | Description
 --------- | ------- | ---------------------------------------------------------------
-eventId   | Integer | Id of the subscription webhook event.
+eventId   | Integer | Id of the subscription webhook event
 eventType | string  | subscription
 formId    | Integer | Id of the form
 accountId | Integer | Id of the account
 data      | object  | Object contains the complete payload for the subscription event
-meta      | object  | Object contains information about the webhook.
+meta      | object  | Object contains information about the webhook
 
 ### Data Object
 
 Parameter            | Default | Description
--------------------- | ------- | ------------------------------------------------------------
+-------------------- | ------- | ------------------------------------------------
 id                   | string  | Internal id of the subscription
 lookupId             | string  | Id of the subscription
 customerId           | Integer | Id of the customer
@@ -384,7 +384,7 @@ meta      | object  | Object contains information about the webhook
 ### Data Object
 
 Parameter    | Default | Description
------------- | ------- | -----------------------------------------------------------------------------
+------------ | ------- | -------------------------------------------------------
 dateCreated  | date    | Date the inventory item was created
 dateUpdated  | date    | Date the inventory item was updated (optional)
 formLookupId | int     | Id of the form used for requesting when calling from the public api
