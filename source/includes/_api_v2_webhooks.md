@@ -1056,12 +1056,12 @@ View a specific webhook log
 `POST /v2/public/webhooks/{webhookid}/logs/{webhookLogid}`
 
 #### Request Object
-Attribute			|	Description
---------------|----------------------------------------------------------------------
+Attribute			                    |	Description
+----------------------------------|---------------------------------------------------
 **webhookid**<br>*integer* 				| Id of the parent webhook
-**webhookLogid**<br>*integer* 				| Id of the webhook log to resend
+**webhookLogid**<br>*integer* 		| Id of the webhook log to resend
 
-### Resend Webhook Request by Log id
+### Resend Webhook
 ```shell
 curl -X "POST" "https://api.webconnex.com/v2/public/webhooks/39/resend/3899" \
      -H "apiKey: <YOUR API KEY>"
