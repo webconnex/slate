@@ -1,8 +1,8 @@
-# Webhooks Events
+## Webhooks Events
 
 These are the system events that are available as webhook triggers.
 
-## Registration
+### Registration
 
 > Example Payload:
 
@@ -125,7 +125,7 @@ These are the system events that are available as webhook triggers.
 
 The registration event is fired whenever a successful registration has occurred on a form that you have set up a webhook for. The payload will resemble the fields in the form tied to the webhook event.
 
-### Payload
+#### Payload
 
 Parameter | Default | Description
 --------- | ------- | ---------------------------------------------------------
@@ -136,7 +136,7 @@ formId    | Integer | Id of the form
 data      | object  | Object contains the complete payload for the registration
 meta      | object  | Object contains information about the webhook
 
-### Data Object
+#### Data Object
 
 Parameter             | Default   | Description
 --------------------- | --------- | ---------------------------------------------------------------
@@ -153,14 +153,14 @@ orderStatus           | string    | Status of the order
 transactionReference  | string    | Transaction reference of the registration
 registrationTimestamp | timestamp | UTC date and time
 
-### Meta Object
+#### Meta Object
 
 Parameter | Default | Description
 --------- | ------- | ----------------------------------------
 name      | string  | The name of the webhook
 appKey    | string  | Self assigned application key (optional)
 
-## Form Publish
+### Form Publish
 
 > Example Payload:
 
@@ -189,7 +189,7 @@ appKey    | string  | Self assigned application key (optional)
 
 The publish event is fired whenever a successful form has been published on a form that you have set up a webhook for.
 
-### Payload
+#### Payload
 
 Parameter | Default | Description
 --------- | ------- | ----------------------------------------------------------
@@ -200,7 +200,7 @@ accountId | Integer | Id of the account
 data      | object  | Object contains the complete payload for the publish event
 meta      | object  | Object contains information about the webhook
 
-### Data Object
+#### Data Object
 
 Parameter         | Default | Description
 ----------------- | ------- | ----------------------------------------
@@ -219,14 +219,14 @@ publishedPath     | string  | Name of the form
 status            | string  | Status of the form
 timeZone          | string  | Timezone of the form
 
-### Meta Object
+#### Meta Object
 
 Parameter | Default | Description
 --------- | ------- | ----------------------------------------
 name      | string  | The name of the webhook
 appKey    | string  | Self assigned application key (optional)
 
-## Subscription
+### Subscription
 
 > Example Payload:
 
@@ -292,7 +292,7 @@ appKey    | string  | Self assigned application key (optional)
 
 The subscription / reoccurring event is fired whenever a successful subscription or deposit has been completed on a form that you have set up a webhook for.
 
-### Payload
+#### Payload
 
 Parameter | Default | Description
 --------- | ------- | ---------------------------------------------------------------
@@ -303,7 +303,7 @@ accountId | Integer | Id of the account
 data      | object  | Object contains the complete payload for the subscription event
 meta      | object  | Object contains information about the webhook
 
-### Data Object
+#### Data Object
 
 Parameter            | Default | Description
 -------------------- | ------- | ------------------------------------------------
@@ -317,7 +317,7 @@ subscription         | object  | Object contains the subscription information
 transactionReference | string  | The transaction reference of processed transaction
 total                | float   | The total value processed
 
-### Subscription Object
+#### Subscription Object
 
 Parameter      | Default | Description
 -------------- | ------- | --------------------------------------------
@@ -333,14 +333,14 @@ schedule       | string  | Cron formatted string detailing the schedule
 scheduleString | string  | Human readable schedule
 status         | string  | The current status of the subscription
 
-### Meta Object
+#### Meta Object
 
 Parameter | Default | Description
 --------- | ------- | ----------------------------------------
 name      | string  | The name of the webhook
 appKey    | string  | Self assigned application key (optional)
 
-## Inventory
+### Inventory
 
 > Example Payload:
 
@@ -381,7 +381,7 @@ accountId | Integer | Id of the account
 data      | object  | The object contains the complete payload for the inventory event
 meta      | object  | Object contains information about the webhook
 
-### Data Object
+#### Data Object
 
 Parameter    | Default | Description
 ------------ | ------- | -------------------------------------------------------
@@ -395,21 +395,21 @@ itemName     | string  | The name of the inventory item
 itemPath     | string  | The path of the inventory item
 lookupId     | Int     | Id of the inventory item used for requesting when calling from the public api
 
-### Inventory Object
+#### Inventory Object
 
 Parameter | Default | Description
 --------- | ------- | -------------------------
 quantity  | int     | The inventory limit
 sold      | int     | The amount inventory sold
 
-### Meta Object
+#### Meta Object
 
 Parameter | Default | Description
 --------- | ------- | ----------------------------------------
 name      | string  | The name of the webhook
 appKey    | string  | Self assigned application key (optional)
 
-## Coupons
+### Coupons
 
 > Example Payload:
 
@@ -454,7 +454,7 @@ appKey    | string  | Self assigned application key (optional)
 
 The coupon event is fired whenever coupon is created, updated or redeemed. Only global and forms that you have enabled will be delivered by the webhook.
 
-### Payload
+#### Payload
 
 Parameter | Default | Description
 --------- | ------- | -------------------------------------------------------------
@@ -464,7 +464,7 @@ accountId | Integer | Id of the account
 data      | object  | The object contains the complete payload for the coupon event
 meta      | object  | Object contains information about the webhook
 
-### Data Object
+#### Data Object
 
 Parameter   | Default | Description
 ----------- | ------- | ----------------------------------------------------------------
@@ -480,7 +480,7 @@ voucher     | bool    | Specifies if coupon is a voucher or not
 dateCreated | date    | Date the inventory item was created
 dateUpdated | date    | Date the inventory item was updated (optional)
 
-### Codes Object
+#### Codes Object
 
 Parameter | Default | Description
 --------- | ------- | -------------------------------
@@ -489,16 +489,16 @@ couponId  | int     | Id of the parent coupon
 code      | string  | Code used for coupon redemption
 redeemed  | int     | Number of redemptions
 
-### Discounts Object
+#### Discounts Object
 
 Parameter | Default   | Description
 --------- | --------- | -----------------------------------------------------------------------------
 paths     | [] string | An array of paths the coupon can be applied to
-perTicket | bool      | Specifies weather discount should apply to each ticket (ticketspice.com Only)
-valueType | string    | Specifies the discount type (Percent or Fixed)
+perTicket | bool      | Specifies weather discount should apply to each ticket (ticketspice.com only)
+valueType | string    | Specifies the discount type - `Percent` or `Fixed`
 value     | string    | Value amount to apply
 
-## Test
+### Test
 
 > Example Payload:
 
@@ -509,7 +509,7 @@ value     | string    | Value amount to apply
   "eventId": 1234,
   "accountId": 14,
   "data": {
-    "data": "Additional documentation available at http://docs.webconnex.io/divvy/",
+    "data": "Additional documentation available at http://docs.webconnex.io/api/v2",
     "eventId": 1234,
     "eventType": "test",
     "formId": 1234
@@ -519,7 +519,7 @@ value     | string    | Value amount to apply
 
 Used for testing
 
-### Payload
+#### Payload
 
 Parameter | Default | Description
 --------- | ------- | -------------------------------------------------------
@@ -529,7 +529,7 @@ formId    | Integer | Random number used as form id
 accountId | Integer | Id of the account
 data      | object  | Object contains the complete payload for the test event
 
-### Data Object
+#### Data Object
 
 Parameter | Default | Description
 --------- | ------- | ------------------------------------

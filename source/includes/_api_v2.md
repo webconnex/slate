@@ -1,16 +1,24 @@
 # API Reference
 
-## Structure
-
-### Overview
+## Overview
 
 The Webconnex API is build upon simple REST patterns. We use standard HTTP methods, resource-oriented URLs and HTTP error codes in our responses.
 
 URL: `https://api.webconnex.com/v2/public/`
 
-### Authentication
+
+## Authentication
+
+> Typical authenticated API request:
+
+```curl
+curl -X "GET" "http://api.webconnex.com/v2/public/ping" \
+	-H "apiKey: <YOUR API KEY>"
+```
 
 Authentication happens through the use of an API key issued from the Integrations pane under account settings. A valid API Key must be included in the request header for each request.
+
+## Structure
 
 ### Rate Limits
 
@@ -129,6 +137,7 @@ Parameter		     	              |	Description
 **sort**<br>*string* 		      	| Sets the returned order `asc` or `desc`
 **limit**<br>*string*<br>(optional, default is 50) 				  | A limit on the number of objects to be returned, between 1 and 150
 **startingAfter**<br>*integer*  | startingAfter is an object ID that defines your place in the list
+**pretty**<br>*boolean* 		    | If `True` JSON response is returned in Tab formatted response.
 
 ### Expand
 ```markdown

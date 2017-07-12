@@ -35,6 +35,3 @@ search: true
 
 # Introduction
 This service is currently under active development and some requests/responses could change.
-
-# Authentication
-Authentication happens through the use of an API key issued from the Integrations pane under account settings.
