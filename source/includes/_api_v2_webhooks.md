@@ -199,7 +199,7 @@ Attribute			                    |	Description
 **forms**<br>*array*              | Array of objects containing the form id's associated with the webhook. (Send [{"formid":-1}] to subscribe to all forms)
 **token**<br>*string*					    | Unique token for the webhook
 **events**<br>*array*					    | List of events assigned to the webhook
-**method**<br>*integer*					  | HTTP method used for the webhook delivery request
+**method**<br>*string*					  | HTTP method used for the webhook delivery request
 **url**<br>*string*					      | Endpoint URL used for the webhook delivery request
 **typeId**<br>*string*					  | Webhook Type id (see appendix for types)
 **status**<br>*string*					  | Status of the webhook (see appendix for statuses)
@@ -382,7 +382,7 @@ Attribute			|	Description
 **forms**<br>*array*				| Array of objects containing the form id's associated with the webhook. (send [{"formid":-1}] to subscribe to all forms)
 **token**<br>*string*				| Unique token for the webhook
 **events**<br>*array*				| List of events assigned to the webhook
-**method**<br>*integer*			| HTTP method used for the webhook delivery request
+**method**<br>*string*			| HTTP method used for the webhook delivery request
 **url**<br>*string*					| Endpoint URL used for the webhook delivery request
 **typeId**<br>*string*			| Webhook Type id (See appendix for types)
 **status**<br>*string*      | Status of the webhook (See appendix for statuses)
@@ -423,7 +423,7 @@ Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **forms**<br>*array*<br>required					| Array of objects containing the form id's associated with the webhook. (send [{"formid":-1}] to subscribe to all forms)
 **events**<br>*array*<br>required					| List of events assigned to the webhook
-**method**<br>*integer*					| HTTP method used for the webhook delivery request
+**method**<br>*string*					| HTTP method used for the webhook delivery request
 **url**<br>*string*					| Endpoint URL used for the webhook delivery request
 **typeId**<br>*string*					| Webhook Type id (1 for user created)
 **status**<br>*string*					| Status of the webhook (enabled/disabled)
@@ -437,7 +437,7 @@ Attribute			|	Description
 **forms**<br>*array*<br>required					| Array of objects containing the form id's associated with the webhook. (send [{"formid":-1}] to subscribe to all forms)
 **token**<br>*string*					| Unique token for the webhook
 **events**<br>*array*					| List of events assigned to the webhook
-**method**<br>*integer*					| HTTP method used for the webhook delivery request
+**method**<br>*string*					| HTTP method used for the webhook delivery request
 **url**<br>*string*					| Endpoint URL used for the webhook delivery request
 **typeId**<br>*string*					| Webhook Type id
 **status**<br>*string*					| Status of the webhook (enabled/disabled)
@@ -481,7 +481,7 @@ Attribute			|	Description
 **accountId**<br>*integer*					| Id of the associated account
 **forms**<br>*array*<br>required					| Array of objects containing the form id's associated with the webhook. (send [{"formid":-1}] to subscribe to all forms)
 **events**<br>*array*<br>required					| List of events assigned to the webhook
-**method**<br>*integer*					| HTTP method used for the webhook delivery request
+**method**<br>*string*					| HTTP method used for the webhook delivery request
 **url**<br>*string*					| Endpoint URL used for the webhook delivery request
 **typeId**<br>*string*					| Webhook Type id (1 for user created)
 **status**<br>*string*					| Status of the webhook (enabled/disabled)
@@ -495,7 +495,7 @@ Attribute			|	Description
 **forms**<br>*array*<br>required					| Array of objects containing the form id's associated with the webhook. (send [{"formid":-1}] to subscribe to all forms)
 **token**<br>*string*					| Unique token for the webhook
 **events**<br>*array*					| List of events assigned to the webhook
-**method**<br>*integer*					| HTTP method used for the webhook delivery request
+**method**<br>*string*					| HTTP method used for the webhook delivery request
 **url**<br>*string*					| Endpoint URL used for the webhook delivery request
 **typeId**<br>*string*					| Webhook Type id
 **status**<br>*string*					| Status of the webhook (enabled/disabled)
