@@ -112,7 +112,6 @@ def send_request():
     request.write("")
     request.end();
 
-
 })((error, statusCode, headers, body) => {
     console.log('ERROR:', error);
     console.log('STATUS:', statusCode);
@@ -206,22 +205,22 @@ func searchRequest() {
 #### Request Params
 Parameter			                                      |	Description
 ----------------------------------------------------|---------------------------
-**product**<br>*string*<br>required 		        	  | Name of the product you to search for orders on
-**formId**<br>*integer*<br>(optional) 			        | Id of the form you want to filter orders by
-**status**<br>*string*<br>(optional) 				        | Status string of the order you want to filter on
+**product**<br>*string*<br>required 		        	  | Product url to search
+**formId**<br>*integer*<br>(optional) 			        | Return results with matching registration form Id
+**status**<br>*string*<br>(optional) 				        | Return matching statuses
 **sort**<br>*string*<br>(optional) 			          	|
-**limit**<br>*string*<br>(optional) 				        | limits the number of results returned
-**greaterThanId**<br>*integer*<br>(optional) 		 		| filter orders to only show results greater than provided id
-**formId**<br>*integer*<br>(optional) 			       	| filter orders to only show results matching the form id
-**customerId**<br>*integer*<br>(optional) 			    | filter orders to only show results matching the customer id
-**orderEmail**<br>*string*<br>(optional) 			      | filter orders to only show results matching the email
-**orderNumber**<br>*string*<br>(optional) 		      | filter orders to only show results matching the order number
-**lessThanId**<br>*integer*<br>(optional) 		     	| filter orders to only show results less than provided id
-**startingAfter**<br>*integer*<br>(optional) 			  | filter orders to only show results with id's after value
-**dateCreatedBefore**<br>*timestamp*<br>(optional)  | filter orders to only show results created before date
-**dateCreatedAfter**<br>*timestamp*<br>(optional) 	| filter orders to only show results created before date
-**dateUpdatedBefore**<br>*timestamp*<br>(optional) 	| filter orders to only show results updated before date
-**dateUpdatedAfter**<br>*timestamp*<br>(optional) 	| filter orders to only show results updated after date
+**limit**<br>*string*<br>(optional) 				        | Limit number of results returned
+**greaterThanId**<br>*integer*<br>(optional) 		 		| Return results greater than provided id
+**formId**<br>*integer*<br>(optional) 			       	| Return results matching the form id
+**customerId**<br>*integer*<br>(optional) 			    | Return results matching the customer id
+**orderEmail**<br>*string*<br>(optional) 			      | Return results matching provided email
+**orderNumber**<br>*string*<br>(optional) 		      | Return results matching provided order number
+**lessThanId**<br>*integer*<br>(optional) 		     	| Return results less than provided id
+**startingAfter**<br>*integer*<br>(optional) 			  | Return results with id's after value
+**dateCreatedBefore**<br>*timestamp*<br>(optional)  | Return results created before date
+**dateCreatedAfter**<br>*timestamp*<br>(optional) 	| Return results created before date
+**dateUpdatedBefore**<br>*timestamp*<br>(optional) 	| Return results updated before date
+**dateUpdatedAfter**<br>*timestamp*<br>(optional) 	| Return results updated after date
 
 #### Response Object
 Attribute			                  |	Description
@@ -233,12 +232,13 @@ Attribute			                  |	Description
 **billing**<br>*object*					| Billing object containing name and address details associated with order
 **formId**<br>*integer*					| Id of the form that associated with the order
 **formName**<br>*string*				| Name of the form that created order
-**formAccRef**<br>*string*  		| Accounting reference string of the form that created order
+**formAccRef**<br>*string*  		| Accounting reference of the form that created order
 **status**<br>*string*					| Status of the order
 **orderNumber**<br>*string*     | Order number
-**total**<br>*float*				    | Total cost of the order
-**dateCreated**<br>*timestamp*  | Date and time of the creation of the order
-**dateUpdated**<br>*timestamp*  | Date and time the order was last updated (optional)
+**total**<br>*float*				    | Total amount of the order
+**currency**<br>*string*        | Currency of the order
+**dateCreated**<br>*timestamp*  | Timestamp of the creation of the order
+**dateUpdated**<br>*timestamp*  | Timestamp the order was last updated (optional)
 
 ### View Order by Id
 ```shell
@@ -311,7 +311,6 @@ def send_request():
         print('HTTP Request failed')
 ```
 ```javascript
-// request View
 (function(callback) {
     'use strict';
 
@@ -343,7 +342,6 @@ def send_request():
 
             callback(null, res.statusCode, res.headers, responseStr);
         });
-
     })
     .setTimeout(0)
     .on('error', (error) => {
@@ -351,7 +349,6 @@ def send_request():
     });
     request.write("")
     request.end();
-
 
 })((error, statusCode, headers, body) => {
     console.log('ERROR:', error);
@@ -429,8 +426,8 @@ func viewRequest() {
 Parameter		           	                |	Description
 ----------------------------------------|----------------------------------------
 **id**<br>*string*<br>required 			    | Id of the requested order
-**product**<br>*string*<br>required     | Product to search against
-**[]expand**<br>*string*<br>(optional)  | Return requested children (registrants | tickets | subscriptions)
+**product**<br>*string*<br>required     | Product url to search
+**[]expand**<br>*string*<br>(optional)  | Return additional children (registrants | tickets | subscriptions)
 
 #### Response Object
 Attribute			                  |	Description
@@ -445,6 +442,7 @@ Attribute			                  |	Description
 **formAccRef**<br>*string*			| Accounting reference string of the form that created order
 **status**<br>*string*					| Status of the order
 **orderNumber**<br>*string*     | Order number
-**total**<br>*float*            | Total cost of the order
-**dateCreated**<br>*timestamp*  | Date and time of the creation of the order
-**dateUpdated**<br>*timestamp*  | Date and time the order was last updated (optional)
+**total**<br>*float*            | Total amount of the order
+**currency**<br>*string*        | Currency of the order
+**dateCreated**<br>*timestamp*  | Timestamp of the creation of the order
+**dateUpdated**<br>*timestamp*  | Timestamp the order was last updated (optional)

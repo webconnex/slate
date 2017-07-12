@@ -90,12 +90,7 @@ func request() {
 
 ```swift
 func Request() {
-    /**
-     Ping
-     get https://api.webconnex.com/v2/public/ping
-     */
 
-    // Fetch Request
     Alamofire.request("https://api.webconnex.com/v2/public/ping", method: .get)
         .validate(statusCode: 200..<300)
         .responseJSON { response in
