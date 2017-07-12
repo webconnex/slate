@@ -106,7 +106,7 @@ Attribute			                  |	Description
 **code**<br>*integer*	          | Internal Webconnex error code
 **message**<br>*integer*        | A friendly error message
 
-#### HTTP Codes (HTTP Response Code)
+#### HTTP Response Code
 
 webconnex uses standard HTTP response codes to indicate the success or failure of an API request. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate a request error and codes in the 5xx range indicate an internal error.
 
@@ -135,9 +135,9 @@ Webconnex utilizes cursor-based pagination via the `startingAfter` and `limit` U
 Parameter		     	              |	Description
 --------------------------------|-----------------------------------------------
 **sort**<br>*string* 		      	| Sets the returned order `asc` or `desc`
-**limit**<br>*string*<br>(optional, default is 50) 				  | A limit on the number of objects to be returned, between 1 and 150
-**startingAfter**<br>*integer*  | startingAfter is an object ID that defines your place in the list
-**pretty**<br>*boolean* 		    | If `True` JSON response is returned in Tab formatted response.
+**limit**<br>*string*<br>(optional, default is 50) 				  | A limit on the number of objects to be returned, between 1 and 50
+**startingAfter**<br>*integer*  | startingAfter is an object id that defines your place in the list
+**pretty**<br>*boolean* 		    | If `True` JSON response is returned in Tab formatted style
 
 ### Expand
 ```markdown

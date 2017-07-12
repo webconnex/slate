@@ -1,6 +1,6 @@
 ## Form
 
-### List all Forms
+### List Forms
 ```shell
 curl -X "POST" "https://api.webconnex.com/v1/public/forms?pretty=true" \
      -H "apiKey: <YOUR API KEY>"
@@ -14,7 +14,7 @@ import (
 	"net/http"
 )
 
-func sendList() {
+func sendRequest() {
 
 	// Create client
 	client := &http.Client{}
@@ -59,7 +59,6 @@ def send_request():
             url="https://api.webconnex.com/v2/public/forms",
             params={
                 "product": "redpodium.com",
-                "pretty": "true",
             },
             headers={
                 "apiKey": "<YOUR API KEY>",
@@ -82,7 +81,7 @@ def send_request():
      const httpOptions = {
          hostname: 'api.webconnex.com',
          port: '443',
-         path: '/v2/public/forms?product=redpodium.com&pretty=true',
+         path: '/v2/public/forms?product=redpodium.com',
          method: 'GET',
          headers: {"apiKey":"<YOUR API KEY>"}
      };
@@ -105,7 +104,6 @@ def send_request():
 
              callback(null, res.statusCode, res.headers, responseStr);
          });
-
      })
      .setTimeout(0)
      .on('error', (error) => {
@@ -133,7 +131,6 @@ def send_request():
      // Add URL parameters
      let urlParams = [
          "product":"redpodium.com",
-         "pretty":"true",
      ]
 
      // Fetch Request
@@ -183,7 +180,7 @@ def send_request():
 Parameter			                        |	Description
 --------------------------------------|-----------------------------------------
 **product**<br>*string*<br>Optional   | Name of the product you want to list forms for
-**[]expand**<br>*string*<br>Optional  | pass `inventory` to see form inventory
+**[]expand**<br>*string*<br>Optional  | Note: pass `inventory` to see the form's inventory
 
 #### Response Object
 Attribute			                  |	Description
@@ -194,7 +191,7 @@ Attribute			                  |	Description
 **dateCreated**<br>*timestamp*  | Timestamp of the creation of the form
 **dateUpdated**<br>*timestamp*  | Timestamp the form was last updated (optional)
 
-### Get Form by Id
+### View Form
 ```shell
 curl -X "PUT" "https://api.webconnex.com/v2/public/forms/15689?pretty=true" \
      -H "apiKey: <YOUR API KEY>"
@@ -215,7 +212,7 @@ func view() {
 	client := &http.Client{}
 
 	// Create request
-	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/forms/?%5B%5Dexpand=inventory", nil)
+	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/forms/123123?%5B%5Dexpand=inventory", nil)
 
 	// Headers
 	req.Header.Add("apiKey", "<YOUR API KEY>")
@@ -252,7 +249,7 @@ import requests
 def send_request():
     try:
         response = requests.get(
-            url="https://api.webconnex.com/v2/public/forms/",
+            url="https://api.webconnex.com/v2/public/forms/123123",
             params={
                 "[]expand": "inventory",
             },
@@ -278,13 +275,11 @@ def send_request():
     const httpOptions = {
         hostname: 'api.webconnex.com',
         port: '443',
-        path: '/v2/public/forms/47520?%5B%5Dexpand=inventory',
+        path: '/v2/public/forms/123123?%5B%5Dexpand=inventory',
         method: 'GET',
         headers: {"apiKey":"<YOUR API KEY>"}
     };
     httpOptions.headers['User-Agent'] = 'node ' + process.version;
-
-
 
     const request = httpTransport.request(httpOptions, (res) => {
         let responseBufs = [];
@@ -303,7 +298,6 @@ def send_request():
 
             callback(null, res.statusCode, res.headers, responseStr);
         });
-
     })
     .setTimeout(0)
     .on('error', (error) => {
@@ -311,7 +305,6 @@ def send_request():
     });
     request.write("")
     request.end();
-
 
 })((error, statusCode, headers, body) => {
     console.log('ERROR:', error);
@@ -323,10 +316,6 @@ def send_request():
 
 ```swift
 func viewRequest() {
-    /**
-     View
-     get https://api.webconnex.com/v2/public/forms/
-     */
 
     // Add Headers
     let headers = [
@@ -340,7 +329,7 @@ func viewRequest() {
     ]
 
     // Fetch Request
-    Alamofire.request("https://api.webconnex.com/v2/public/forms/", method: .get, parameters: urlParams, headers: headers)
+    Alamofire.request("https://api.webconnex.com/v2/public/forms/123123", method: .get, parameters: urlParams, headers: headers)
         .validate(statusCode: 200..<300)
         .responseJSON { response in
             if (response.result.error == nil) {
@@ -456,7 +445,7 @@ func viewRequest() {
 #### Request Params
 Parameter			                    |	Description
 ----------------------------------|---------------------------------------------------
-**id**<br>*Integer*<br>Required   | Id of the form that is being requested
+**id**<br>*Integer*<br>(Required)   | Id of the form that is being requested
 
 #### Response Object
 Attribute												|	Description
@@ -476,7 +465,7 @@ Attribute											        	|	Description
 **type**<br>*string* 					          | The root of the fields is always set to type form
 **attributes**<br>*object*			        | Key/Value attributes related to the field set
 **triggers**<br>*object*				        | A collection of actions/conditions to provide logic to the form
-**header**<br>*object*<br>required			| Fields in set in the header. Always present on the form (Display only fields).
-**registrants**<br>*object*<br>required | Main data collection fields. Repeated for each registrant when using "multireg" forms. (registrants.attributes.multireg === true)
-**billing**<br>*object*<br>required			| Billing fields for the form. Not used if the billing is disabled on the form.
-**footer**<br>*object*<br>required      | Fields in set in the footer. Always present on the form (Display only fields).
+**header**<br>*object*<br>(Required)			| Fields in set in the header. Always present on the form (Display only fields).
+**registrants**<br>*object*<br>(Required) | Main data collection fields. Repeated for each registrant when using "multireg" forms. (registrants.attributes.multireg === true)
+**billing**<br>*object*<br>(Required)			| Billing fields for the form. Not used if the billing is disabled on the form.
+**footer**<br>*object*<br>(Required)      | Fields in set in the footer. Always present on the form (Display only fields).

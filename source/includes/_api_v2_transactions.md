@@ -1,6 +1,6 @@
 ## Transactions
 
-### Search transactions
+### Search Transactions
 ```shell
 curl "https://api.webconnex.com/v2/public/search/transactions?product=regfox.com&pretty=true" \
      -H "apiKey: <YOUR API KEY>"
