@@ -122,10 +122,6 @@ def send_request():
 
 ```swift
 func couponRequest() {
-    /**
-     List Global
-     get http://api.webconnex.com/v2/public/coupons/global
-     */
 
     // Add Headers
     let headers = [
@@ -138,7 +134,7 @@ func couponRequest() {
     ]
 
     // Fetch Request
-    Alamofire.request("http://api.webconnex.com/v2/public/coupons/global", method: .get, parameters: urlParams, headers: headers)
+    Alamofire.request("https://api.webconnex.com/v2/public/coupons/global", method: .get, parameters: urlParams, headers: headers)
         .validate(statusCode: 200..<300)
         .responseJSON { response in
             if (response.result.error == nil) {

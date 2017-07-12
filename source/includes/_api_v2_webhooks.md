@@ -1,6 +1,6 @@
 ## Webhooks
 
-### List Webhooks
+### List
 ```shell
 curl "https://api.webconnex.com/v2/public/webhooks?pretty=true" \
      -H "apiKey: <YOUR API KEY>"
@@ -207,7 +207,7 @@ Attribute			                    |	Description
 **dateCreated**<br>*timestamp*    | Timestamp of the creation of the webhook
 **dateUpdated**<br>*timestamp*    | Timestamp the webhook was last updated
 
-### View Webhook
+### View
 ```shell
 curl "https://api.webconnex.com/v2/public/webhooks/1623423?pretty=true" \
      -H "apiKey: <YOUR API KEY>"
@@ -390,7 +390,7 @@ Attribute			|	Description
 **dateCreated**<br>*timestamp* | Timestamp of the creation of the webhook
 **dateUpdated**<br>*timestamp* | Timestamp the webhook was last updated
 
-### Create Webhook
+### Create
 ```shell
 
 ```
@@ -445,7 +445,7 @@ Attribute			|	Description
 **dateCreated**<br>*timestamp* | Timestamp of the creation of the webhook
 **dateUpdated**<br>*timestamp* | Timestamp the webhook was last updated
 
-### Update Webhook
+### Update
 ```shell
 
 ```
@@ -503,7 +503,7 @@ Attribute			|	Description
 **dateCreated**<br>*timestamp* | Timestamp of the creation of the webhook
 **dateUpdated**<br>*timestamp* | Timestamp the webhook was last updated
 
-### Delete Webhook
+### Delete
 ```shell
 curl -X "DELETE" "https://api.webconnex.com/v2/public/webhooks/4" \
      -H "apiKey: <YOUR API KEY>"
@@ -649,7 +649,7 @@ Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Id of the webhook
 
-### List Logs for Webhook
+### List Logs
 ```shell
 curl "https://api.webconnex.com/v2/public/webhooks/1623423/logs?pretty=true" \
      -H "apiKey: <YOUR API KEY>"
@@ -859,7 +859,7 @@ Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Id of the parent webhook
 
-### View Log by Id for Webhook
+### View Webhook Log by Id
 ```shell
 curl "https://api.webconnex.com/v2/public/webhooks/1623423/logs?pretty=true" \
      -H "apiKey: <YOUR API KEY>"
@@ -953,7 +953,6 @@ def send_request():
 
             callback(null, res.statusCode, res.headers, responseStr);
         });
-
     })
     .setTimeout(0)
     .on('error', (error) => {
@@ -1076,7 +1075,7 @@ import (
 	"net/http"
 )
 
-func sendResendWebhook() {
+func sendRequest() {
 
 	// Create client
 	client := &http.Client{}
@@ -1156,7 +1155,6 @@ def send_request():
 
             callback(null, res.statusCode, res.headers, responseStr);
         });
-
     })
     .setTimeout(0)
     .on('error', (error) => {
@@ -1173,7 +1171,7 @@ def send_request():
 });
 ```
 ```swift
-func sendResendWebhookRequest() {
+func sendRequest() {
 
     // Add Headers
     let headers = [
@@ -1282,7 +1280,7 @@ Request that a particular webhook attempt be resent.
 `POST /v2/public/webhooks/{id}/resend/{logId}`
 
 #### Request Params
-Parameter			|	Description
---------------|----------------------------------------------------------------------
-**id**<br>*string*<br>required 				| Id of the webhook
-**logId**<br>*string*<br>required 				| Id of the webhook log entry to be resent
+Parameter			                      |	Description
+------------------------------------|-------------------------------------------
+**id**<br>*string*<br>required 			| Id of the webhook
+**logId**<br>*string*<br>required 	| Id of the webhook log entry to be resent

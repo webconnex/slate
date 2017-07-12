@@ -12,7 +12,7 @@ URL: `https://api.webconnex.com/v2/public/`
 > Typical authenticated API request:
 
 ```curl
-curl -X "GET" "http://api.webconnex.com/v2/public/ping" \
+curl -X "GET" "https://api.webconnex.com/v2/public/ping" \
 	-H "apiKey: <YOUR API KEY>"
 ```
 

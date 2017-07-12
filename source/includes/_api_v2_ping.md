@@ -1,6 +1,6 @@
 ## Ping/Healthcheck
 ```shell
-curl -X "GET" "http://api.webconnex.com/v2/public/ping?pretty=true" \
+curl -X "GET" "https://api.webconnex.com/v2/public/ping?pretty=true" \
 	-H "apiKey: <YOUR API KEY>"
 ```
 ```go
@@ -17,7 +17,7 @@ func request() {
 	client := &http.Client{}
 
 	// Create request
-	req, err := http.NewRequest("GET", "http://api.webconnex.com/v2/public/ping", nil)
+	req, err := http.NewRequest("GET", "https://api.webconnex.com/v2/public/ping", nil)
 
 	// Headers
 	req.Header.Add("apiKey", "<YOUR API KEY>")
@@ -113,7 +113,7 @@ import requests
 def send_request():
     try:
         response = requests.get(
-            url="http://api.webconnex.com/v2/public/ping",
+            url="https://api.webconnex.com/v2/public/ping",
             headers={
                 "apiKey": "<YOUR API KEY>",
             },
