@@ -372,7 +372,7 @@ func sendListRequest() {
 #### Request Params
 Parameter			                    |	Description
 ----------------------------------|---------------------------------------------------
-**id**<br>*string*<br>Required    | Id of the requested webhook
+**id**<br>*string*<br>(required)   | Id of the requested webhook
 
 #### Response Object
 Attribute			|	Description
@@ -472,7 +472,7 @@ Attribute			|	Description
 ```
 
 #### HTTP Request
-`POST /v2/public/webhooks/{id}`
+`PUT /v2/public/webhooks/{id}`
 
 #### Request Object
 Attribute			|	Description
@@ -517,7 +517,7 @@ import (
 	"net/http"
 )
 
-func sendDelete() {
+func delete() {
 
 	// Create client
 	client := &http.Client{}
@@ -642,12 +642,12 @@ func sendDeleteRequest() {
 }
 ```
 #### HTTP Request
-`POST /v2/public/webhooks/{id}`
+`DELETE /v2/public/webhooks/{id}`
 
 #### Request Object
-Attribute			|	Description
---------------|----------------------------------------------------------------------
-**id**<br>*integer* 				| Id of the webhook
+Attribute			      |	Description
+--------------------|-----------------------------------------------------------------
+**id**<br>*integer* | Id of the webhook
 
 ### List Logs
 ```shell
@@ -663,7 +663,7 @@ import (
 	"net/http"
 )
 
-func sendList() {
+func list() {
 
 	// Create client
 	client := &http.Client{}
@@ -852,7 +852,7 @@ func sendListRequest() {
 Get all logs for a given webhook
 
 #### HTTP Request
-`POST /v2/public/webhooks/{id}/logs`
+`GET /v2/public/webhooks/{id}/logs`
 
 #### Request Object
 Attribute			|	Description
@@ -1053,7 +1053,7 @@ func sendListRequest() {
 View a specific webhook log
 
 #### HTTP Request
-`POST /v2/public/webhooks/{webhookid}/logs/{webhookLogid}`
+`GET /v2/public/webhooks/{webhookid}/logs/{webhookLogid}`
 
 #### Request Object
 Attribute			                    |	Description
@@ -1282,5 +1282,5 @@ Request that a particular webhook attempt be resent.
 #### Request Params
 Parameter			                      |	Description
 ------------------------------------|-------------------------------------------
-**id**<br>*string*<br>Required 			| Id of the webhook
-**logId**<br>*string*<br>Required 	| Id of the webhook log entry to be resent
+**id**<br>*string*<br>(required)			| Id of the webhook
+**logId**<br>*string*<br>(required)	| Id of the webhook log entry to be resent

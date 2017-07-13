@@ -214,7 +214,7 @@ func searchRequest() {
 #### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
-**product**<br>*string*<br>Required               | Name of the product you to search for registrants against
+**product**<br>*string*<br>(required)              | Name of the product you to search for registrants against
 **formId**<br>*integer*<br>(optional) 		          | Id of the form you want to filter registrants by
 **status**<br>*string*<br>(optional) 				        | Status string of the order you want to filter on
 **sort**<br>*string*<br>(optional) 			            |
@@ -427,8 +427,8 @@ func viewRequest() {
 #### Request Params
 Parameter			                        |	Description
 --------------------------------------|------------------------------------------
-**id**<br>*string*<br>Required 				| Id of the requested order
-**product**<br>*string*<br>Required   | Product to search against
+**id**<br>*string*<br>(required)				| Id of the requested order
+**product**<br>*string*<br>(required)  | Product to search against
 **[]expand**<br>*string*<br>(optional)  | Return requested children (subscriptions)
 
 #### Response Object
@@ -622,8 +622,8 @@ func sendRequest() {
 #### Request Params
 Parameter			                          |	Description
 ----------------------------------------|----------------------------------------
-**id**<br>*string*<br>Required 				  | Id of the registrant
-**date**<br>*timestamp*<br>Required     | The timestamp to set as the checkin date
+**id**<br>*string*<br>(required)				  | Id of the registrant
+**date**<br>*timestamp*<br>(required)    | The timestamp to set as the checkin date
 
 #### Response Object
 Attribute			                  |	Description
@@ -805,8 +805,8 @@ func sendRequest() {
 #### Request Params
 Parameter			                          |	Description
 ----------------------------------------|----------------------------------------
-**displayId**<br>*string*<br>Required   | Display Id of the registrant
-**date**<br>*timestamp*<br>Required     | The timestamp to set as the checkin date
+**displayId**<br>*string*<br>(required)  | Display Id of the registrant
+**date**<br>*timestamp*<br>(required)    | The timestamp to set as the checkin date
 
 #### Response Object
 Attribute			                  |	Description
@@ -988,8 +988,8 @@ func sendRequest() {
 #### Request Params
 Parameter			                          |	Description
 ----------------------------------------|----------------------------------------
-**id**<br>*string*<br>Required 				  | Id of the registrant
-**date**<br>*timestamp*<br>Required     | The timestamp to set as the checkout date
+**id**<br>*string*<br>(required)				  | Id of the registrant
+**date**<br>*timestamp*<br>(required)    | The timestamp to set as the checkout date
 
 
 #### Response Object
@@ -1173,8 +1173,8 @@ func sendRequest() {
 #### Request Params
 Parameter			                          |	Description
 ----------------------------------------|----------------------------------------
-**displayId**<br>*string*<br>Required   | Display Id of the registrant
-**date**<br>*timestamp*<br>Required     | The timestamp to set as the check out date
+**displayId**<br>*string*<br>(required)  | Display Id of the registrant
+**date**<br>*timestamp*<br>(required)    | The timestamp to set as the check out date
 
 
 #### Response Object

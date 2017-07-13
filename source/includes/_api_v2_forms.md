@@ -2,7 +2,7 @@
 
 ### List Forms
 ```shell
-curl -X "POST" "https://api.webconnex.com/v1/public/forms?pretty=true" \
+curl -X "GET" "https://api.webconnex.com/v1/public/forms?pretty=true" \
      -H "apiKey: <YOUR API KEY>"
  ```
 ```go
@@ -121,7 +121,7 @@ def send_request():
  ```
 
  ```swift
- func sendListRequest() {
+ func list() {
 
      // Add Headers
      let headers = [
@@ -193,7 +193,7 @@ Attribute			                  |	Description
 
 ### View Form
 ```shell
-curl -X "PUT" "https://api.webconnex.com/v2/public/forms/15689?pretty=true" \
+curl -X "GET" "https://api.webconnex.com/v2/public/forms/15689?pretty=true" \
      -H "apiKey: <YOUR API KEY>"
 ```
 
@@ -445,7 +445,7 @@ func viewRequest() {
 #### Request Params
 Parameter			                    |	Description
 ----------------------------------|---------------------------------------------------
-**id**<br>*Integer*<br>Required   | Id of the form that is being requested
+**id**<br>*Integer*<br>(required)  | Id of the form that is being requested
 
 #### Response Object
 Attribute												|	Description
@@ -466,6 +466,6 @@ Attribute											        	|	Description
 **attributes**<br>*object*			        | Key/Value attributes related to the field set
 **triggers**<br>*object*				        | A collection of actions/conditions to provide logic to the form
 **header**<br>*object*<br>Required			| Fields in set in the header. Always present on the form (Display only fields).
-**registrants**<br>*object*<br>Required | Main data collection fields. Repeated for each registrant when using "multireg" forms. (registrants.attributes.multireg === true)
+**registrants**<br>*object*<br>(required)| Main data collection fields. Repeated for each registrant when using "multireg" forms. (registrants.attributes.multireg === true)
 **billing**<br>*object*<br>Required			| Billing fields for the form. Not used if the billing is disabled on the form.
-**footer**<br>*object*<br>Required      | Fields in set in the footer. Always present on the form (Display only fields).
+**footer**<br>*object*<br>(required)     | Fields in set in the footer. Always present on the form (Display only fields).

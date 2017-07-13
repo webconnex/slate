@@ -214,7 +214,7 @@ func searchRequest() {
 #### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
-**product**<br>*string*<br>Required 		| Name of the product you to search for tickets on
+**product**<br>*string*<br>(required)		| Name of the product you to search for tickets on
 **formId**<br>*integer*<br>(optional) 		| Id of the form you want to filter tickets by
 **status**<br>*string*<br>(optional) 				| Status string of the order you want to filter on
 **sort**<br>*string*<br>(optional) 			            	|
@@ -428,28 +428,28 @@ func viewRequest() {
 `GET /v2/public/search/tickets/{id}`
 
 #### Request Params
-Parameter			|	Description
---------------|----------------------------------------------------------------------
-**id**<br>*string*<br>Required 				| Id of the requested order
+Parameter			                    |	Description
+----------------------------------|---------------------------------------------------
+**id**<br>*string*<br>(required)  | Id of the requested order
 
 #### URI Params
-Parameter			|	Description
---------------|----------------------------------------------------------------------
-**product**<br>*string*<br>Required 				| Product to search against
+Parameter			                        |	Description
+--------------------------------------|-----------------------------------------------
+**product**<br>*string*<br>(required) | Product to search against
 
 #### Response Object
-Attribute			|	Description
---------------|----------------------------------------------------------------------
-**id**<br>*integer* 				| Unique id of the registrant
-**displayId**<br>*string*					| Unique hash used as civilian facing id
-**customerId**<br>*integer*					| Unique id of the associated customer
-**customerEmail**<br>*string*					| Email of the associated customer
+Attribute			                  |	Description
+--------------------------------|-----------------------------------------------------
+**id**<br>*integer* 				    | Unique id of the registrant
+**displayId**<br>*string*		   	| Unique hash used as civilian facing id
+**customerId**<br>*integer*			| Unique id of the associated customer
+**customerEmail**<br>*string*		| Email of the associated customer
 **billing**<br>*object*					| Billing object containing name and address details associated with order
 **formId**<br>*integer*					| Id of the form that associated with the order
-**formName**<br>*string*					| Name of the form that created order
-**formAccRef**<br>*string*					| Accounting reference string of the form that created order
+**formName**<br>*string*				| Name of the form that created order
+**formAccRef**<br>*string*			| Accounting reference string of the form that created order
 **status**<br>*string*					| Status of the registrant
-**orderNumber**<br>*string*					| Order number
-**total**<br>*float*					| Total cost of the order
-**dateCreated**<br>*timestamp* | Timestamp of the creation of the registrant
-**dateUpdated**<br>*timestamp* | Timestamp the registrant was last updated (optional)
+**orderNumber**<br>*string*			| Order number
+**total**<br>*float*				    | Total cost of the order
+**dateCreated**<br>*timestamp*  | Timestamp of the creation of the registrant
+**dateUpdated**<br>*timestamp*  | Timestamp the registrant was last updated (optional)

@@ -205,7 +205,7 @@ func searchRequest() {
 #### Request Params
 Parameter			                                      |	Description
 ----------------------------------------------------|---------------------------
-**product**<br>*string*<br>Required 		        	  | Product url to search
+**product**<br>*string*<br>(required)		        	  | Product url to search
 **formId**<br>*integer*<br>(optional) 			        | Return results with matching registration form Id
 **status**<br>*string*<br>(optional) 				        | Return matching statuses
 **sort**<br>*string*<br>(optional) 			          	|
@@ -425,8 +425,8 @@ func viewRequest() {
 #### Request Params
 Parameter		           	                |	Description
 ----------------------------------------|----------------------------------------
-**id**<br>*string*<br>Required 			    | Id of the requested order
-**product**<br>*string*<br>Required     | Product url to search
+**id**<br>*string*<br>(required)			    | Id of the requested order
+**product**<br>*string*<br>(required)    | Product url to search
 **[]expand**<br>*string*<br>(optional)  | Return additional children (registrants | tickets | subscriptions)
 
 #### Response Object

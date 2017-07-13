@@ -225,7 +225,7 @@ func searchRequest() {
 #### Request Params
 Parameter			                                |	Description
 ----------------------------------------------|---------------------------------------
-**product**<br>*string*<br>Required 	       	| Name of the product you to search for transactions against
+**product**<br>*string*<br>(required)	       	| Name of the product you to search for transactions against
 **formId**<br>*integer*<br>(optional) 	     	| Id of the form you want to filter transactions by
 **status**<br>*string*<br>(optional) 	  			| Status string of the transaction you want to filter on
 **sort**<br>*string*<br>(optional) 	         	|
@@ -450,12 +450,12 @@ func viewRequest() {
 #### Request Params
 Parameter			                  |	Description
 --------------------------------|-----------------------------------------------------
-**id**<br>*string*<br>Required  | Id of the requested transaction
+**id**<br>*string*<br>(required) | Id of the requested transaction
 
 #### URI Params
 Parameter			                      |	Description
 ------------------------------------|--------------------------------------------------
-**product**<br>*string*<br>Required | Product to search against
+**product**<br>*string*<br>(required)| Product to search against
 
 #### Response Object
 Attribute			|	Description

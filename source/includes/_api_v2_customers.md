@@ -208,7 +208,7 @@ func searchRequest() {
 #### Request Params
 Parameter		             	                          |	Description
 ----------------------------------------------------|---------------------------
-**product**<br>*string*<br>Required                 | Name of the product you to search for customers on
+**product**<br>*string*<br>(required)               | Name of the product you to search for customers on
 **email**<br>*string*<br>(optional)                 | Billing email you want to search on
 **sort**<br>*string*<br>(optional)                  |
 **limit**<br>*string*<br>(optional)                 | limits the number of results returned
@@ -230,7 +230,7 @@ Attribute			                 |	Description
 **dateCreated**<br>*timestamp* | Timestamp of the creation of the customer
 **dateUpdated**<br>*timestamp* | Timestamp the customer was last updated (optional)
 
-### View Customers by Id
+### View Customer by Id
 ```shell
 curl "https://api.webconnex.com/v2/public/search/customers/1155061?product=redpodium.com&pretty=true" \
      -H "apiKey: <YOUR API KEY>"
@@ -417,8 +417,8 @@ func viewRequest() {
 #### Request Params
 Parameter			                      |	Description
 ------------------------------------|-------------------------------------------
-**id**<br>*string*<br>Required      | Id of the requested customer
-**product**<br>*string*<br>Required | Product to search against
+**id**<br>*string*<br>(required)     | Id of the requested customer
+**product**<br>*string*<br>(required)| Product to search against
 
 #### Response Object
 Parameter		   	                |	Description

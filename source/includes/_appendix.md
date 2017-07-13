@@ -43,11 +43,9 @@ Below is additional information and resources
 
 | Available Statuses
 | ------------------
-| processing
 | pending offline
 | declined
 | canceled
-| authorized
 | completed
 | voided
 | canceled
