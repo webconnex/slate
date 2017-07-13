@@ -57,4 +57,4 @@ Content-Type          | application/json
 User-Agent            | Webconnex-Divvy
 X-Webconnex-Delivery  | Hash for the delivery
 X-Webconnex-Event     | Event types being sent
-X-Webconnex-Signature | HMAC for the webhook. Remains unchanged on resend events
+X-Webconnex-Signature | HMAC for the webhook. Note: Remains unchanged on resend events

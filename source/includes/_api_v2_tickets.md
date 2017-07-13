@@ -214,7 +214,7 @@ func searchRequest() {
 #### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
-**product**<br>*string*<br>required 		| Name of the product you to search for tickets on
+**product**<br>*string*<br>Required 		| Name of the product you to search for tickets on
 **formId**<br>*integer*<br>(optional) 		| Id of the form you want to filter tickets by
 **status**<br>*string*<br>(optional) 				| Status string of the order you want to filter on
 **sort**<br>*string*<br>(optional) 			            	|
@@ -430,12 +430,12 @@ func viewRequest() {
 #### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*string*<br>required 				| Id of the requested order
+**id**<br>*string*<br>Required 				| Id of the requested order
 
 #### URI Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
-**product**<br>*string*<br>required 				| Product to search against
+**product**<br>*string*<br>Required 				| Product to search against
 
 #### Response Object
 Attribute			|	Description

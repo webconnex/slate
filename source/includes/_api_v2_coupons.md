@@ -199,7 +199,7 @@ func couponRequest() {
 #### Request Params
 Parameter			                      |	Description
 ------------------------------------|----------------------------------
-**Product**<br>*string*<br>required | Name of the product you to search for coupons on
+**Product**<br>*string*<br>Required | Name of the product you to search for coupons on
 
 #### Response Object
 Attribute			|	Description
@@ -422,7 +422,7 @@ func sendListByFormRequest() {
 #### Request Params
 Parameter			                  |	Description
 --------------------------------|-----------------------------------------------
-**id**<br>*integer*<br>required | Form id to list coupons associated with
+**id**<br>*integer*<br>Required | Form id to list coupons associated with
 
 #### Response Object
 Attribute			                  |	Description
@@ -643,7 +643,7 @@ func viewSingleRequest() {
 #### Request Params
 Parameter			                  |	Description
 --------------------------------|-----------------------------------------------
-**id**<br>*integer*<br>required | Id of the requested coupon
+**id**<br>*integer*<br>Required | Id of the requested coupon
 
 #### Response Object
 Attribute			                  |	Description

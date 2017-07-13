@@ -165,7 +165,7 @@ func sendViewRequest() {
 #### Request Params
 Parameter			                          |	Description
 ----------------------------------------|----------------------------------------
-**formId**<br>*integer*<br>required   	| The id of the parent form
+**formId**<br>*integer*<br>Required   	| The id of the parent form
 
 #### Response Object
 Attribute			                  |	Description

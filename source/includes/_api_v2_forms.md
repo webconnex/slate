@@ -445,7 +445,7 @@ func viewRequest() {
 #### Request Params
 Parameter			                    |	Description
 ----------------------------------|---------------------------------------------------
-**id**<br>*Integer*<br>(Required)   | Id of the form that is being requested
+**id**<br>*Integer*<br>Required   | Id of the form that is being requested
 
 #### Response Object
 Attribute												|	Description
@@ -465,7 +465,7 @@ Attribute											        	|	Description
 **type**<br>*string* 					          | The root of the fields is always set to type form
 **attributes**<br>*object*			        | Key/Value attributes related to the field set
 **triggers**<br>*object*				        | A collection of actions/conditions to provide logic to the form
-**header**<br>*object*<br>(Required)			| Fields in set in the header. Always present on the form (Display only fields).
-**registrants**<br>*object*<br>(Required) | Main data collection fields. Repeated for each registrant when using "multireg" forms. (registrants.attributes.multireg === true)
-**billing**<br>*object*<br>(Required)			| Billing fields for the form. Not used if the billing is disabled on the form.
-**footer**<br>*object*<br>(Required)      | Fields in set in the footer. Always present on the form (Display only fields).
+**header**<br>*object*<br>Required			| Fields in set in the header. Always present on the form (Display only fields).
+**registrants**<br>*object*<br>Required | Main data collection fields. Repeated for each registrant when using "multireg" forms. (registrants.attributes.multireg === true)
+**billing**<br>*object*<br>Required			| Billing fields for the form. Not used if the billing is disabled on the form.
+**footer**<br>*object*<br>Required      | Fields in set in the footer. Always present on the form (Display only fields).

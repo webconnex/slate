@@ -54,6 +54,12 @@ Below is additional information and resources
 | gateway error
 | error
 
+| Types
+| ------------------
+| charge
+| refund
+| voucher
+
 ## Subscriptions
 
 Available Statuses | Description
@@ -70,6 +76,8 @@ completed          | Is completed and will no longer process future payments
 | active
 | inactive
 | expired
+| purchasing
+| abandoned
 
 ## Forms
 
@@ -88,7 +96,7 @@ completed          | Is completed and will no longer process future payments
 | enabled
 | disabled
 
-Id   | Available Type
+Id   | Available Types
 ---- | ------------------------------------------------
 1    | Standard webhook
 2-10 | Internal webhook types that should not be edited
