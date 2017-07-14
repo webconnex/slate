@@ -2,6 +2,15 @@
 
 Below is additional information and resources
 
+## Date Formats
+
+The following date formats can be used when querying with a timestamp URI parameter.
+
+- "2006-01-02 15:04"
+- "01-02-2006"
+- "2006-01-02"
+- "2006-01-02T15:04:05Z"
+
 ## Orders
 
 | Available Statuses
