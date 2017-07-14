@@ -2,7 +2,9 @@
 
 Below is additional information and resources
 
-## Date Formats
+## URI Parameters
+
+### Date Formats
 
 The following date formats can be used when querying with a timestamp URI parameter.
 
@@ -107,3 +109,17 @@ Id   | Available Types
 ---- | ------------------------------------------------
 1    | Standard webhook
 2-10 | Internal webhook types that should not be edited
+
+## Currency
+
+Note: additional new currencies can be added at any time.
+
+Code | Name                                    | Symbol
+---- | --------------------------------------- | ------
+USD  | United States dollar                    | $
+CAD  | Canadian dollar                         | $
+AUD  | Australian dollar                       | $
+NZD  | New Zealand dollar                      | $
+GBP  | British pound sterling                  | £
+MXN  | Mexican peso                            | $
+EUR  | Euro                                    | €
