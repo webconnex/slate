@@ -374,7 +374,6 @@ def send_request():
     request.write("")
     request.end();
 
-
 })((error, statusCode, headers, body) => {
     console.log('ERROR:', error);
     console.log('STATUS:', statusCode);

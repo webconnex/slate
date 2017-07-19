@@ -49,7 +49,7 @@ Connection: keep-alive
 ```
 
 Header | Description
----------------------- | --------------
+---------------------- | -------------------------------------------------------
 X-Daily-Limit | The number of allowed requests in the current period (daily)
 X-Daily-Remaining | The number of remaining requests in the current period (daily)
 X-Daily-Limit-Reset | The number of seconds left in the current period (daily)

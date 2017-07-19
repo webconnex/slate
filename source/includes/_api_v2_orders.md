@@ -425,9 +425,9 @@ func viewRequest() {
 #### Request Params
 Parameter		           	                |	Description
 ----------------------------------------|----------------------------------------
-**id**<br>*string*<br>(required)			    | Id of the requested order
-**product**<br>*string*<br>(required)    | Product url to search
-**[]expand**<br>*string*<br>(optional)  | Return additional children (registrants | tickets | subscriptions)
+**id**<br>*string*<br>(required)			  | Id of the requested order
+**product**<br>*string*<br>(required)   | Product url to search
+**[]expand**<br>*string*<br>(optional)  | Return additional children (registrants, tickets, subscriptions)
 
 #### Response Object
 Attribute			                  |	Description
