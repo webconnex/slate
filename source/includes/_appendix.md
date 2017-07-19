@@ -52,6 +52,8 @@ The following date formats can be used when querying with a timestamp URI parame
 
 ## Transactions
 
+### Statuses
+
 | Available Statuses
 | ------------------
 | pending offline
@@ -62,6 +64,8 @@ The following date formats can be used when querying with a timestamp URI parame
 | canceled
 | gateway error
 | error
+
+### Types
 
 | Types
 | ------------------
@@ -100,10 +104,14 @@ completed          | Is completed and will no longer process future payments
 
 ## Webhooks
 
+### Statuses
+
 | Available Statuses
 | ------------------
 | enabled
 | disabled
+
+### Types
 
 Id   | Available Types
 ---- | ------------------------------------------------

@@ -1,6 +1,6 @@
 ## Coupons
 
-### Global coupons
+### List Global coupons
 
 ```shell
 curl "https://api.webconnex.com/v2/public/coupons/global?pretty=true" \
@@ -80,7 +80,6 @@ func requescoupon() {
 
             callback(null, res.statusCode, res.headers, responseStr);
         });
-
     })
     .setTimeout(0)
     .on('error', (error) => {
@@ -88,7 +87,6 @@ func requescoupon() {
     });
     request.write("")
     request.end();
-
 
 })((error, statusCode, headers, body) => {
     console.log('ERROR:', error);
@@ -200,6 +198,17 @@ func couponRequest() {
 Parameter			                      |	Description
 ------------------------------------|----------------------------------
 **Product**<br>*string*<br>(required)| Name of the product you to search for coupons on
+**sort**<br>*string*<br>(optional)                  |
+**limit**<br>*string*<br>(optional)                 | limits the number of results returned
+**greaterThanId**<br>*integer*<br>(optional)          |
+**lessThanId**<br>*integer*<br>(optional)             |
+**dateExpiresBefore**<br>*timestamp*<br>(optional)    |
+**dateExpiresAfter**<br>*timestamp*<br>(optional)     |
+**redeemedGreaterThan**<br>*integer*<br>(optional)    |
+**lessThanRedeemed**<br>*integer*<br>(optional)       |
+**greaterThanAvailable**<br>*integer*<br>(optional)   |
+**lessThanAvailable**<br>*integer*<br>(optional)      |
+**code**<br>*string*<br>(optional)                    |
 
 #### Response Object
 Attribute			|	Description
@@ -214,7 +223,7 @@ Attribute			|	Description
 **dateCreated**<br>*timestamp*  | Timestamp of the creation of the order
 **dateUpdated**<br>*timestamp*  | Timestamp the order was last updated (optional)
 
-### View Coupon by form
+### List Coupons for form
 
 ```shell
 curl "https://api.webconnex.com/v2/public/coupons/forms/28609?pretty=true" \

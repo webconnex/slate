@@ -106,7 +106,6 @@ def send_request():
 
             callback(null, res.statusCode, res.headers, responseStr);
         });
-
     })
     .setTimeout(0)
     .on('error', (error) => {
@@ -208,7 +207,7 @@ func searchRequest() {
 #### Request Params
 Parameter		             	                          |	Description
 ----------------------------------------------------|---------------------------
-**product**<br>*string*<br>(required)               | Name of the product you to search for customers on
+**product**<br>*string*<br>(required)               | Name of the product you to search for customers against
 **email**<br>*string*<br>(optional)                 | Billing email you want to search on
 **sort**<br>*string*<br>(optional)                  |
 **limit**<br>*string*<br>(optional)                 | limits the number of results returned

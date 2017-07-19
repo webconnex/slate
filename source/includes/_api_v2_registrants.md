@@ -216,7 +216,7 @@ Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **product**<br>*string*<br>(required)              | Name of the product you to search for registrants against
 **formId**<br>*integer*<br>(optional) 		          | Id of the form you want to filter registrants by
-**status**<br>*string*<br>(optional) 				        | Status string of the order you want to filter on
+**status**<br>*string*<br>(optional) 				        | Status string of the registrant you want to filter on
 **sort**<br>*string*<br>(optional) 			            |
 **limit**<br>*string*<br>(optional) 				        | limits the number of results returned
 **orderId**<br>*integer*<br>(optional) 		   	     	| filter registrants to only show results matching a provided order id
@@ -622,8 +622,8 @@ func sendRequest() {
 #### Request Params
 Parameter			                          |	Description
 ----------------------------------------|----------------------------------------
-**id**<br>*string*<br>(required)				  | Id of the registrant
-**date**<br>*timestamp*<br>(required)    | The timestamp to set as the checkin date
+**id**<br>*string*<br>(required)				| Id of the registrant
+**date**<br>*timestamp*<br>(required)   | The timestamp to set as the checkin date
 
 #### Response Object
 Attribute			                  |	Description

@@ -212,9 +212,9 @@ func searchRequest() {
 #### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
-**product**<br>*string*<br>(required)		| Name of the product you to search for subscriptions on
+**product**<br>*string*<br>(required)		| Name of the product you to search for subscriptions against
 **formId**<br>*integer*<br>(optional) 		| Id of the form you want to filter subscriptions by
-**status**<br>*string*<br>(optional) 				| Status string of the order you want to filter on
+**status**<br>*string*<br>(optional) 				| Status string of the subscription you want to filter on
 **sort**<br>*string*<br>(optional) 			            	|
 **limit**<br>*string*<br>(optional) 				          | limits the number of results returned
 **orderId**<br>*integer*<br>(optional) 		   		| filter subscriptions to only show results matching a provided order id
@@ -242,9 +242,9 @@ Attribute			|	Description
 **customerEmail**<br>*string*					| Email of the associated customer
 **billing**<br>*object*					| Billing object containing name and address details associated with subscription
 **formId**<br>*integer*					| Id of the form that associated with the order
-**formName**<br>*string*					| Name of the form that created order
+**formName**<br>*string*					| Name of the form that created subscription
 **formAccRef**<br>*string*					| Accounting reference string of the form that created order
-**status**<br>*string*					| Status of the order
+**status**<br>*string*					| Status of the subscription
 **orderNumber**<br>*string*					| Order number
 **total**<br>*float*					| Total cost of the order
 **dateCreated**<br>*timestamp* | Timestamp of the creation of the subscription
@@ -434,10 +434,10 @@ func viewRequest() {
 `GET /v2/public/search/subscriptions/{id}?product=`
 
 #### Request Params
-Parameter			|	Description
---------------|----------------------------------------------------------------------
+Parameter			                          |	Description
+----------------------------------------|---------------------------------------------
 **id**<br>*string*<br>(required)				| Id of the requested order
-**product**<br>*string*<br>(required)				| Product to search against
+**product**<br>*string*<br>(required)		| Product to search against
 
 #### Response Object
 Attribute			|	Description
@@ -449,7 +449,7 @@ Attribute			|	Description
 **formId**<br>*integer*					| Id of the form that associated with the order
 **formName**<br>*string*					| Name of the form that created order
 **formAccRef**<br>*string*					| Accounting reference string of the form that created order
-**status**<br>*string*					| Status of the order
+**status**<br>*string*					| Status of the subscription
 **orderNumber**<br>*string*					| Order number
 **total**<br>*float*					| Total cost of the order
 **dateCreated**<br>*timestamp* | Timestamp of the creation of the subscription

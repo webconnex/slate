@@ -859,6 +859,17 @@ Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Id of the parent webhook
 
+#### Request Params
+Parameter		             	                          |	Description
+----------------------------------------------------|---------------------------
+**sort**<br>*string*<br>(optional)                  |
+**limit**<br>*string*<br>(optional)                 | limits the number of results returned
+**greaterThanId**<br>*integer*<br>(optional)        |
+**lessThanId**<br>*integer*<br>(optional)           |
+**status**<br>*string*<br>(optional)                |
+**dateSentBefore**<br>*timestamp*<br>(optional)     |
+**dateSentAfter**<br>*timestamp*<br>(optional)      |
+
 ### View Webhook Log by Id
 ```shell
 curl "https://api.webconnex.com/v2/public/webhooks/1623423/logs?pretty=true" \
@@ -1059,7 +1070,7 @@ View a specific webhook log
 Attribute			                    |	Description
 ----------------------------------|---------------------------------------------------
 **webhookid**<br>*integer* 				| Id of the parent webhook
-**webhookLogid**<br>*integer* 		| Id of the webhook log to resend
+**webhookLogid**<br>*integer* 		| Id of the webhook log
 
 ### Resend Webhook
 ```shell
@@ -1277,10 +1288,10 @@ func sendRequest() {
 Request that a particular webhook attempt be resent.
 
 #### HTTP Request
-`POST /v2/public/webhooks/{id}/resend/{logId}`
+`POST /v2/public/webhooks/{webhookid}/resend/{logId}`
 
 #### Request Params
 Parameter			                      |	Description
 ------------------------------------|-------------------------------------------
-**id**<br>*string*<br>(required)			| Id of the webhook
+**webhookid**<br>*string*<br>(required)			| Id of the webhook
 **logId**<br>*string*<br>(required)	| Id of the webhook log entry to be resent
