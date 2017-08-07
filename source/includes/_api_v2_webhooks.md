@@ -863,7 +863,7 @@ Attribute			|	Description
 Parameter		             	                          |	Description
 ----------------------------------------------------|---------------------------
 **sort**<br>*string*<br>(optional)                  |
-**limit**<br>*string*<br>(optional)                 | limits the number of results returned
+**limit**<br>*string*<br>(optional)                 | Limits the number of results returned
 **greaterThanId**<br>*integer*<br>(optional)        |
 **lessThanId**<br>*integer*<br>(optional)           |
 **status**<br>*string*<br>(optional)                |

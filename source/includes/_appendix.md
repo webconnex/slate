@@ -6,7 +6,7 @@ Below is additional information and resources
 
 ### Date Formats
 
-The following date formats can be used when querying with a timestamp URI parameter.
+The following datetime formats can be used when querying with a `timestamp` URI parameter.
 
 - "2006-01-02 15:04"
 - "01-02-2006"
@@ -25,6 +25,8 @@ The following date formats can be used when querying with a timestamp URI parame
 | pending final payment
 | waitlisted
 
+<!-- Click [HERE](http://help.regfox.com/#) to see a help article explaing these statuses. -->
+
 ## Registrants
 
 | Available Statuses
@@ -39,6 +41,8 @@ The following date formats can be used when querying with a timestamp URI parame
 | pending final payment
 | waitlisted
 
+<!-- Click [HERE](http://help.regfox.com/#) to see a help article explaing these statuses. -->
+
 ## Tickets
 
 | Available Statuses
@@ -49,6 +53,8 @@ The following date formats can be used when querying with a timestamp URI parame
 | canceled
 | pending offline payment
 | pending final payment
+
+<!-- Click [HERE](http://help.ticketspice.com/#) to see a help article explaing these statuses. -->
 
 ## Transactions
 
@@ -65,6 +71,8 @@ The following date formats can be used when querying with a timestamp URI parame
 | gateway error
 | error
 
+Click [HERE](http://help.regfox.com/article/972-transaction-statuses-explained) to see a help article explaing these statuses.
+
 ### Types
 
 | Types
@@ -72,6 +80,7 @@ The following date formats can be used when querying with a timestamp URI parame
 | charge
 | refund
 | voucher
+| cash
 
 ## Subscriptions
 
@@ -116,7 +125,7 @@ completed          | Is completed and will no longer process future payments
 Id   | Available Types
 ---- | ------------------------------------------------
 1    | Standard webhook
-2-10 | Internal webhook types that should not be edited
+2-20 | Internal webhook types that should not be edited
 
 ## Currency
 

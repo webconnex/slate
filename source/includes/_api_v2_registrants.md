@@ -154,7 +154,7 @@ func searchRequest() {
   "data": [
     {
       "id": 1,
-      "displayId": "1111111111111111111",
+      "displayId": "01BPYMJZHFJF34CZJJR",
       "customerId": 1,
       "customerEmail": "someone@test.com",
       "billing": {
@@ -180,7 +180,7 @@ func searchRequest() {
     },
 		{
       "id": 2,
-      "displayId": "1111111111111111112",
+      "displayId": "01BPYMMEE9NM4WJAJMG",
       "customerId": 1,
       "customerEmail": "someone@test.com",
       "billing": {
@@ -218,20 +218,20 @@ Parameter			|	Description
 **formId**<br>*integer*<br>(optional) 		          | Id of the form you want to filter registrants by
 **status**<br>*string*<br>(optional) 				        | Status string of the registrant you want to filter on
 **sort**<br>*string*<br>(optional) 			            |
-**limit**<br>*string*<br>(optional) 				        | limits the number of results returned
-**orderId**<br>*integer*<br>(optional) 		   	     	| filter registrants to only show results matching a provided order id
-**orderDisplayId**<br>*string*<br>(optional) 		    | filter registrants to only show results matching a provided order display id
-**greaterThanId**<br>*integer*<br>(optional) 		   	| filter registrants to only show results greater than provided id
-**formId**<br>*integer*<br>(optional) 			       	| filter registrants to only show results matching the form id
-**customerId**<br>*integer*<br>(optional) 				  | filter registrants to only show results matching the customer id
-**orderEmail**<br>*string*<br>(optional) 				    | filter registrants to only show results matching the email
-**orderNumber**<br>*string*<br>(optional) 				  | filter registrants to only show results matching the order number
-**lessThanId**<br>*integer*<br>(optional) 		     	| filter registrants to only show results less than provided id
-**startingAfter**<br>*integer*<br>(optional) 			  | filter registrants to only show results with id's after value
-**dateCreatedBefore**<br>*timestamp*<br>(optional)  | filter registrants to only show results created before date
-**dateCreatedAfter**<br>*timestamp*<br>(optional) 	| filter registrants to only show results created before date
-**dateUpdatedBefore**<br>*timestamp*<br>(optional) 	| filter registrants to only show results updated before date
-**dateUpdatedAfter**<br>*timestamp*<br>(optional) 	| filter registrants to only show results updated after date
+**limit**<br>*string*<br>(optional) 				        | Limits the number of results returned
+**orderId**<br>*integer*<br>(optional) 		   	     	| Filter registrants to only show results matching a provided order id
+**orderDisplayId**<br>*string*<br>(optional) 		    | Filter registrants to only show results matching a provided order display id
+**greaterThanId**<br>*integer*<br>(optional) 		   	| Filter registrants to only show results greater than provided id
+**formId**<br>*integer*<br>(optional) 			       	| Filter registrants to only show results matching the form id
+**customerId**<br>*integer*<br>(optional) 				  | Filter registrants to only show results matching the customer id
+**orderEmail**<br>*string*<br>(optional) 				    | Filter registrants to only show results matching the email
+**orderNumber**<br>*string*<br>(optional) 				  | Filter registrants to only show results matching the order number
+**lessThanId**<br>*integer*<br>(optional) 		     	| Filter registrants to only show results less than provided id
+**startingAfter**<br>*integer*<br>(optional) 			  | Filter registrants to only show results with id's after value
+**dateCreatedBefore**<br>*timestamp*<br>(optional)  | Filter registrants to only show results created before date
+**dateCreatedAfter**<br>*timestamp*<br>(optional) 	| Filter registrants to only show results created before date
+**dateUpdatedBefore**<br>*timestamp*<br>(optional) 	| Filter registrants to only show results updated before date
+**dateUpdatedAfter**<br>*timestamp*<br>(optional) 	| Filter registrants to only show results updated after date
 
 #### Response Object
 Attribute			                  |	Description
@@ -393,7 +393,7 @@ func viewRequest() {
   "data": [
     {
       "id": 1,
-      "displayId": "1111111111111111111",
+      "displayId": "01BPYMMEE9NM4WJAJMG",
       "customerId": 1,
       "customerEmail": "someone@test.com",
       "billing": {
@@ -636,7 +636,7 @@ Attribute			                  |	Description
 curl -X "POST" "https://api.webconnex.com/v2/public/registrant/check-in?pretty=true" \
      -H "apiKey: <YOUR API KEY>" \
      -d $'{
-            "displayId": 17492,
+            "displayId": "01BPYMMEE9NM4WJAJMG",
             "date": "2016-05-02T22:32:22Z"
           }'
 ```
@@ -652,7 +652,7 @@ import (
 
 func sendRequest() {
 	body := strings.NewReader(`{
-    "displayId": 17553,
+    "displayId": "01BPYMMEE9NM4WJAJMG",
     "date": "2016-05-02T22:32:22Z"
   }`)
 
@@ -697,7 +697,7 @@ def send_request():
                 "Content-Type": "text/plain; charset=utf-8",
             },
             data="{
-                    \"displayId\": 17553,
+                    \"displayId\": \"01BPYMMEE9NM4WJAJMG\",
                     \"date\": \"2016-05-02T22:32:22Z\"
                   }"
         )
@@ -745,7 +745,7 @@ def send_request():
     .on('error', (error) => {
         callback(error);
     });
-    request.write("{\n  \"displayId\": 17553,\n  \"date\": \"2016-05-02T22:32:22Z\"\n}")
+    request.write("{\n  \"displayId\": \"01BPYMMEE9NM4WJAJMG\",\n  \"date\": \"2016-05-02T22:32:22Z\"\n}")
     request.end();
 
 })((error, statusCode, headers, body) => {
@@ -768,7 +768,7 @@ func sendRequest() {
         public static var `default`: RawDataEncoding { return RawDataEncoding() }
         public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
             var request = try urlRequest.asURLRequest()
-            request.httpBody = "{\n  \"displayId\": 17553,\n  \"date\": \"2016-05-02T22:32:22Z\"\n}".data(using: String.Encoding.utf8, allowLossyConversion: false)
+            request.httpBody = "{\n  \"displayId\": \"01BPYMMEE9NM4WJAJMG\",\n  \"date\": \"2016-05-02T22:32:22Z\"\n}".data(using: String.Encoding.utf8, allowLossyConversion: false)
             return request
         }
     }
@@ -792,7 +792,7 @@ func sendRequest() {
 {
   "responseCode": 200,
   "data": {
-    "displayId": 1480289239129099078,
+    "displayId": "01BPYMMEE9NM4WJAJMG",
     "date": "2017-08-24T00:00:00Z"
   },
   "totalResults": 1
@@ -988,8 +988,8 @@ func sendRequest() {
 #### Request Params
 Parameter			                          |	Description
 ----------------------------------------|----------------------------------------
-**id**<br>*string*<br>(required)				  | Id of the registrant
-**date**<br>*timestamp*<br>(required)    | The timestamp to set as the checkout date
+**id**<br>*string*<br>(required)				| Id of the registrant
+**date**<br>*timestamp*<br>(required)   | The timestamp to set as the checkout date
 
 
 #### Response Object
@@ -1004,7 +1004,7 @@ Attribute			                  |	Description
 curl -X "POST" "https://api.webconnex.com/v2/public/registrant/check-out?pretty=true" \
      -H "apiKey: <YOUR API KEY>" \
      -d $'{
-            "displayId": 17492,
+            "displayId": "01BPYMMEE9NM4WJAJMG",
             "date": "2016-05-02T22:32:22Z"
           }'
 ```
@@ -1020,7 +1020,7 @@ import (
 
 func sendRequest() {
 	body := strings.NewReader(`{
-    "displayId": 17553,
+    "displayId": "01BPYMMEE9NM4WJAJMG",
     "date": "2016-05-02T22:32:22Z"
   }`)
 
@@ -1065,7 +1065,7 @@ def send_request():
                 "Content-Type": "text/plain; charset=utf-8",
             },
             data="{
-                    \"displayId\": 17553,
+                    \"displayId\": "01BPYMMEE9NM4WJAJMG",
                     \"date\": \"2016-05-02T22:32:22Z\"
                   }"
         )
@@ -1113,7 +1113,7 @@ def send_request():
     .on('error', (error) => {
         callback(error);
     });
-    request.write("{\n  \"displayId\": 17553,\n  \"date\": \"2016-05-02T22:32:22Z\"\n}")
+    request.write("{\n  \"displayId\": \"01BPYMMEE9NM4WJAJMG\",\n  \"date\": \"2016-05-02T22:32:22Z\"\n}")
     request.end();
 
 })((error, statusCode, headers, body) => {
@@ -1136,7 +1136,7 @@ func sendRequest() {
         public static var `default`: RawDataEncoding { return RawDataEncoding() }
         public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
             var request = try urlRequest.asURLRequest()
-            request.httpBody = "{\n  \"displayId\": 17553,\n  \"date\": \"2016-05-02T22:32:22Z\"\n}".data(using: String.Encoding.utf8, allowLossyConversion: false)
+            request.httpBody = "{\n  \"displayId\": \"01BPYMMEE9NM4WJAJMG\",\n  \"date\": \"2016-05-02T22:32:22Z\"\n}".data(using: String.Encoding.utf8, allowLossyConversion: false)
             return request
         }
     }
@@ -1160,7 +1160,7 @@ func sendRequest() {
 {
   "responseCode": 200,
   "data": {
-    "displayId": 1480289239129099078,
+    "displayId": "01BPYMMEE9NM4WJAJMG",
     "date": "2017-08-24T00:00:00Z"
   },
   "totalResults": 1
@@ -1173,8 +1173,8 @@ func sendRequest() {
 #### Request Params
 Parameter			                          |	Description
 ----------------------------------------|----------------------------------------
-**displayId**<br>*string*<br>(required)  | Display Id of the registrant
-**date**<br>*timestamp*<br>(required)    | The timestamp to set as the check out date
+**displayId**<br>*string*<br>(required) | Display Id of the registrant
+**date**<br>*timestamp*<br>(required)   | The timestamp to set as the check out date
 
 
 #### Response Object

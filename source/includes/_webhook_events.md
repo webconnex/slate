@@ -37,7 +37,7 @@ These are the system events that are available as webhook triggers.
       },
       "paymentMethod": "card"
     },
-    "id": "14508051894641200000",
+    "id": "01BPYMJZHFJF34CZJJR",
     "customerId": 8210,
     "orderNumber": "NWBGBY-<YOUR API KEY>",
     "orderStatus": "completed",
@@ -114,7 +114,7 @@ These are the system events that are available as webhook triggers.
             "value": "help@webconnex.com"
           }
         ],
-        "id": "145080518947020000"
+        "id": "01BPYMJZHFJF34CZJJR"
       }
     ],
     "registrationTimestamp": "2015-12-22T17:26:29Z",
@@ -194,7 +194,7 @@ The publish event is fired whenever a successful form has been published on a fo
 Parameter | Default | Description
 --------- | ------- | ----------------------------------------------------------
 eventId   | Integer | Id of the publish webhook event
-eventType | string  | publish
+eventType | string  | The event type - "publish"
 formId    | Integer | Id of the form
 accountId | Integer | Id of the account
 data      | object  | Object contains the complete payload for the publish event
@@ -208,11 +208,11 @@ id                | Integer | Id of the form
 lookupId          | Integer | Id of the form
 accRef            | string  | Form accounting reference
 currency          | string  | Currency of the campaign
-datePublished     | date    | Date form was last published
-eventStart        | date    | Event start date (optional)
-eventEnd          | date    | Event end date (optional)
-registrationStart | date    | Opening date for registration (optional)
-registrationEnd   | date    | Ending date for registration (optional)
+datePublished     | timestamp    | Date form was last published
+eventStart        | timestamp    | Event start date (optional)
+eventEnd          | timestamp    | Event end date (optional)
+registrationStart | timestamp    | Opening date for registration (optional)
+registrationEnd   | timestamp    | Ending date for registration (optional)
 name              | string  | Name of the form
 product           | string  | Product of the form
 publishedPath     | string  | Name of the form
@@ -263,7 +263,7 @@ appKey    | string  | Self assigned application key (optional)
       "paymentMethod": "card"
     },
     "customerId": 2,
-    "id": "1471026990929548076",
+    "id": "01BPYMJZHFJF34CZJJR",
     "orderNumber": "CNFRMTNPGF-AWE-2",
     "orderStatus": "completed",
     "subscription": {
@@ -297,7 +297,7 @@ The subscription / reoccurring event is fired whenever a successful subscription
 Parameter | Default | Description
 --------- | ------- | ---------------------------------------------------------------
 eventId   | Integer | Id of the subscription webhook event
-eventType | string  | subscription
+eventType | string  | The event type - "subscription"
 formId    | Integer | Id of the form
 accountId | Integer | Id of the account
 data      | object  | Object contains the complete payload for the subscription event
@@ -323,10 +323,10 @@ Parameter      | Default | Description
 -------------- | ------- | --------------------------------------------
 amount         | float   | The total value processed
 category       | string  | Designated fund
-dateCreated    | date    | Date of creation
-dateUpdated    | date    | Date last updated (optional)
-dateLast       | date    | Date of last processed
-dateNext       | date    | Date of next process attempt
+dateCreated    | timestamp    | Date of creation
+dateUpdated    | timestamp    | Date last updated (optional)
+dateLast       | timestamp    | Date of last processed
+dateNext       | timestamp    | Date of next process attempt
 email          | string  | Email address of the subscription
 id             | Integer | Internal id of the subscription
 schedule       | string  | Cron formatted string detailing the schedule
@@ -375,7 +375,7 @@ The inventory event is fired whenever an inventory item reaches 80%, 90% and 100
 
 Parameter | Default | Description
 --------- | ------- | ----------------------------------------------------------------
-eventType | string  | Inventory_80, inventory_90, inventory_100
+eventType | string  | The event type - "inventory_80", "inventory_90", "inventory_100"
 formId    | Integer | Id of the form
 accountId | Integer | Id of the account
 data      | object  | The object contains the complete payload for the inventory event
@@ -385,8 +385,8 @@ meta      | object  | Object contains information about the webhook
 
 Parameter    | Default | Description
 ------------ | ------- | -------------------------------------------------------
-dateCreated  | date    | Date the inventory item was created
-dateUpdated  | date    | Date the inventory item was updated (optional)
+dateCreated  | timestamp    | Date the inventory item was created
+dateUpdated  | timestamp    | Date the inventory item was updated (optional)
 formLookupId | int     | Id of the form used for requesting when calling from the public api
 formName     | string  | The name of the form campaign
 id           | string  | Id of the inventory item
@@ -458,7 +458,7 @@ The coupon event is fired whenever coupon is created, updated or redeemed. Only 
 
 Parameter | Default | Description
 --------- | ------- | -------------------------------------------------------------
-eventType | string  | coupon
+eventType | string  | The event type - "coupon"
 formId    | Integer | Id of the form
 accountId | Integer | Id of the account
 data      | object  | The object contains the complete payload for the coupon event
@@ -477,8 +477,8 @@ codes       | object  | The object container of all the coupon code objects
 name        | string  | The name of the coupon
 formId      | string  | Id of the associated form (optional) [null] if coupon is global)
 voucher     | bool    | Specifies if coupon is a voucher or not
-dateCreated | date    | Date the inventory item was created
-dateUpdated | date    | Date the inventory item was updated (optional)
+dateCreated | timestamp    | Date the inventory item was created
+dateUpdated | timestamp    | Date the inventory item was updated (optional)
 
 #### Codes Object
 
@@ -523,7 +523,7 @@ Used for testing
 
 Parameter | Default | Description
 --------- | ------- | -------------------------------------------------------
-eventType | string  | test
+eventType | string  | The event type - "test"
 eventId   | Integer | Random number used as event id
 formId    | Integer | Random number used as form id
 accountId | Integer | Id of the account
@@ -534,6 +534,6 @@ data      | object  | Object contains the complete payload for the test event
 Parameter | Default | Description
 --------- | ------- | ------------------------------------
 data      | string  | Random string to use as data payload
-eventType | string  | test
+eventType | string  | The event type - "test"
 eventId   | Integer | Random number used as event id
 formId    | Integer | Random number used as form id

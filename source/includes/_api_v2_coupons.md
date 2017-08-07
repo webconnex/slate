@@ -199,7 +199,7 @@ Parameter			                      |	Description
 ------------------------------------|----------------------------------
 **Product**<br>*string*<br>(required)| Name of the product you to search for coupons on
 **sort**<br>*string*<br>(optional)                  |
-**limit**<br>*string*<br>(optional)                 | limits the number of results returned
+**limit**<br>*string*<br>(optional)                 | Limits the number of results returned
 **greaterThanId**<br>*integer*<br>(optional)          |
 **lessThanId**<br>*integer*<br>(optional)             |
 **dateExpiresBefore**<br>*timestamp*<br>(optional)    |
@@ -223,7 +223,7 @@ Attribute			|	Description
 **dateCreated**<br>*timestamp*  | Timestamp of the creation of the order
 **dateUpdated**<br>*timestamp*  | Timestamp the order was last updated (optional)
 
-### List Form Coupons 
+### List Form Coupons
 
 ```shell
 curl "https://api.webconnex.com/v2/public/coupons/forms/28609?pretty=true" \
