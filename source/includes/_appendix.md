@@ -6,7 +6,7 @@ Below is additional information and resources
 
 ### Date Formats
 
-The following date formats can be used when querying with a timestamp URI parameter.
+The following datetime formats can be used when querying with a `timestamp` URI parameter.
 
 - "2006-01-02 15:04"
 - "01-02-2006"
