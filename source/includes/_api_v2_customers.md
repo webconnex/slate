@@ -210,14 +210,14 @@ Parameter		             	                          |	Description
 **product**<br>*string*<br>(required)               | Name of the product you to search for customers against
 **email**<br>*string*<br>(optional)                 | Billing email you want to search on
 **sort**<br>*string*<br>(optional)                  |
-**limit**<br>*string*<br>(optional)                 | limits the number of results returned
-**greaterThanId**<br>*integer*<br>(optional)        | filter customers to only show results greater than provided id
-**lessThanId**<br>*integer*<br>(optional)           | filter customers to only show results less than provided id
-**startingAfter**<br>*integer*<br>(optional)        | filter customers to only show results with id's after value
-**dateCreatedBefore**<br>*timestamp*<br>(optional)  | filter customers to only show results created before date
-**dateCreatedAfter**<br>*timestamp*<br>(optional)   | filter customers to only show results created before date
-**dateUpdatedBefore**<br>*timestamp*<br>(optional)  | filter customers to only show results updated before date
-**dateUpdatedAfter**<br>*timestamp*<br>(optional)   | filter customers to only show results updated after date
+**limit**<br>*string*<br>(optional)                 | Limits the number of results returned
+**greaterThanId**<br>*integer*<br>(optional)        | Filter customers to only show results greater than provided id
+**lessThanId**<br>*integer*<br>(optional)           | Filter customers to only show results less than provided id
+**startingAfter**<br>*integer*<br>(optional)        | Filter customers to only show results with id's after value
+**dateCreatedBefore**<br>*timestamp*<br>(optional)  | Filter customers to only show results created before date
+**dateCreatedAfter**<br>*timestamp*<br>(optional)   | Filter customers to only show results created before date
+**dateUpdatedBefore**<br>*timestamp*<br>(optional)  | Filter customers to only show results updated before date
+**dateUpdatedAfter**<br>*timestamp*<br>(optional)   | Filter customers to only show results updated after date
 
 #### Response Object
 Attribute			                 |	Description

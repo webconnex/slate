@@ -229,22 +229,22 @@ Parameter			                                |	Description
 **formId**<br>*integer*<br>(optional) 	     	| Id of the form you want to filter transactions by
 **status**<br>*string*<br>(optional) 	  			| Status string of the transaction you want to filter on
 **sort**<br>*string*<br>(optional) 	         	|
-**limit**<br>*string*<br>(optional) 				  | limits the number of results returned
-**orderId**<br>*integer*<br>(optional) 		   	| filter transactions to only show results matching a provided order id
-**type**<br>*string*<br>(optional) 		   		  | filter transactions to only show results matching a provided type (types include: charge, refund, voucher)
-**orderDisplayId**<br>*string*<br>(optional)  | filter transactions to only show results matching a provided order display id
-**greaterThanId**<br>*integer*<br>(optional)  | filter transactions to only show results greater than provided id
-**formId**<br>*integer*<br>(optional) 		   	| filter transactions to only show results matching the form id
-**customerId**<br>*integer*<br>(optional) 	  | filter transactions to only show results matching the customer id
-**orderEmail**<br>*string*<br>(optional) 			| filter transactions to only show results matching the email
-**orderNumber**<br>*string*<br>(optional) 		      | filter transactions to only show results matching the order number
-**txReference**<br>*string*<br>(optional) 			    | filter transactions to only show results matching the transaction reference
-**lessThanId**<br>*integer*<br>(optional) 		     	| filter transactions to only show results less than provided id
-**startingAfter**<br>*integer*<br>(optional) 			  | filter transactions to only show results with id's after value
-**dateCreatedBefore**<br>*timestamp*<br>(optional)  | filter transactions to only show results created before date
-**dateCreatedAfter**<br>*timestamp*<br>(optional) 	| filter transactions to only show results created before date
-**dateUpdatedBefore**<br>*timestamp*<br>(optional) 	| filter transactions to only show results updated before date
-**dateUpdatedAfter**<br>*timestamp*<br>(optional) 	| filter transactions to only show results updated after date
+**limit**<br>*string*<br>(optional) 				  | Limits the number of results returned
+**orderId**<br>*integer*<br>(optional) 		   	| Filter transactions to only show results matching a provided order id
+**type**<br>*string*<br>(optional) 		   		  | Filter transactions to only show results matching a provided type (types include: charge, refund, voucher)
+**orderDisplayId**<br>*string*<br>(optional)  | Filter transactions to only show results matching a provided order display id
+**greaterThanId**<br>*integer*<br>(optional)  | Filter transactions to only show results greater than provided id
+**formId**<br>*integer*<br>(optional) 		   	| Filter transactions to only show results matching the form id
+**customerId**<br>*integer*<br>(optional) 	  | Filter transactions to only show results matching the customer id
+**orderEmail**<br>*string*<br>(optional) 			| Filter transactions to only show results matching the email
+**orderNumber**<br>*string*<br>(optional) 		      | Filter transactions to only show results matching the order number
+**txReference**<br>*string*<br>(optional) 			    | Filter transactions to only show results matching the transaction reference
+**lessThanId**<br>*integer*<br>(optional) 		     	| Filter transactions to only show results less than provided id
+**startingAfter**<br>*integer*<br>(optional) 			  | Filter transactions to only show results with id's after value
+**dateCreatedBefore**<br>*timestamp*<br>(optional)  | Filter transactions to only show results created before date
+**dateCreatedAfter**<br>*timestamp*<br>(optional) 	| Filter transactions to only show results created before date
+**dateUpdatedBefore**<br>*timestamp*<br>(optional) 	| Filter transactions to only show results updated before date
+**dateUpdatedAfter**<br>*timestamp*<br>(optional) 	| Filter transactions to only show results updated after date
 
 #### Response Object
 Attribute			                 |	Description
