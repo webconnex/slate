@@ -223,7 +223,7 @@ Attribute			|	Description
 **dateCreated**<br>*timestamp*  | Timestamp of the creation of the order
 **dateUpdated**<br>*timestamp*  | Timestamp the order was last updated (optional)
 
-### List Coupons for form
+### List Form Coupons 
 
 ```shell
 curl "https://api.webconnex.com/v2/public/coupons/forms/28609?pretty=true" \

@@ -172,7 +172,7 @@ func searchRequest() {
       "status": "completed",
       "orderNumber": "TST12-001-4",
       "orderId": 11652,
-      "orderDisplayId": "1475254517975192216",
+      "orderDisplayId": "01BPYMJZHFJF34CZJJR",
       "total": "40.00",
       "currency": "USD",
       "transactionType": "charge",
@@ -204,7 +204,7 @@ func searchRequest() {
       "status": "completed",
       "orderNumber": "TST12-001-4",
       "orderId": 10602,
-      "orderDisplayId": "14752545172455192216",
+      "orderDisplayId": "01BPYMMEE9NM4WJAJMG",
       "total": "40.00",
       "currency": "USD",
       "transactionType": "charge",
@@ -416,7 +416,7 @@ func viewRequest() {
   "data": [
     {
       "id": 1,
-      "displayId": "1111111111111111111",
+      "displayId": "01BPYMMEE9NM4WJAJMG",
       "customerId": 1,
       "customerEmail": "someone@test.com",
       "billing": {
