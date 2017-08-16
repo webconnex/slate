@@ -25,7 +25,7 @@ The following datetime formats can be used when querying with a `timestamp` URI 
 | pending final payment
 | waitlisted
 
-<!-- Click [HERE](http://help.regfox.com/#) to see a help article explaing these statuses. -->
+Click [HERE](http://help.regfox.com/article/973-registration-statuses-explained) to see a help article explaing these statuses.
 
 ## Registrants
 
@@ -41,7 +41,7 @@ The following datetime formats can be used when querying with a `timestamp` URI 
 | pending final payment
 | waitlisted
 
-<!-- Click [HERE](http://help.regfox.com/#) to see a help article explaing these statuses. -->
+Click [HERE](http://help.regfox.com/article/973-registration-statuses-explained) to see a help article explaing these statuses.
 
 ## Tickets
 
@@ -54,7 +54,7 @@ The following datetime formats can be used when querying with a `timestamp` URI 
 | pending offline payment
 | pending final payment
 
-<!-- Click [HERE](http://help.ticketspice.com/#) to see a help article explaing these statuses. -->
+Click [HERE](http://help.ticketspice.com/article/501-order-statuses-explained) to see a help article explaing these statuses.
 
 ## Transactions
 
@@ -62,6 +62,7 @@ The following datetime formats can be used when querying with a `timestamp` URI 
 
 | Available Statuses
 | ------------------
+| prcoessing
 | pending offline
 | declined
 | canceled
@@ -82,7 +83,7 @@ Click [HERE](http://help.regfox.com/article/972-transaction-statuses-explained) 
 | voucher
 | cash
 
-## Subscriptions
+## Subscriptions / Reocurring Payments
 
 Available Statuses | Description
 ------------------ | -------------------------------------------------------
@@ -95,6 +96,7 @@ completed          | Is completed and will no longer process future payments
 
 | Available Statuses
 | ------------------
+| purchasing
 | active
 | inactive
 | expired
@@ -140,3 +142,6 @@ NZD  | New Zealand dollar                      | $
 GBP  | British pound sterling                  | £
 MXN  | Mexican peso                            | $
 EUR  | Euro                                    | €
+CHF  | Swiss Franc                             | FR
+CNY  | Chinese Yuan Renminbi                   | ¥
+JPY  | Yen  	                                 | ¥

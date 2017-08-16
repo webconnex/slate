@@ -123,7 +123,7 @@ Below are a summary of the HTTP response codes used by the webconnex API.
 | **405**<br>METHOD NOT ALLOWED	| You can't POST or PUT to the resource
 | **429**<br>TOO MANY REQUESTS  | Your application is sending too many requests
 | **500**<br>SERVER ERROR	| We couldn't create or update the resource. Please try again
-| **502**<br>SERVER ERROR	| We couldn't create or update the resource. Please try again
+| **502**<br>SERVER ERROR	| We couldn't create or update the resource. Please contact support.
 
 ### Paging
 ```markdown
