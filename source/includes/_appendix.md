@@ -25,7 +25,7 @@ The following datetime formats can be used when querying with a `timestamp` URI 
 | pending final payment
 | waitlisted
 
-Click [HERE](http://help.regfox.com/article/973-registration-statuses-explained) to see a help article explaing these statuses.
+Click [HERE](http://help.regfox.com/article/973-registration-statuses-explained) to see a help article explaining these statuses.
 
 ## Registrants
 
@@ -41,7 +41,7 @@ Click [HERE](http://help.regfox.com/article/973-registration-statuses-explained)
 | pending final payment
 | waitlisted
 
-Click [HERE](http://help.regfox.com/article/973-registration-statuses-explained) to see a help article explaing these statuses.
+Click [HERE](http://help.regfox.com/article/973-registration-statuses-explained) to see a help article explaining these statuses.
 
 ## Tickets
 
@@ -54,7 +54,7 @@ Click [HERE](http://help.regfox.com/article/973-registration-statuses-explained)
 | pending offline payment
 | pending final payment
 
-Click [HERE](http://help.ticketspice.com/article/501-order-statuses-explained) to see a help article explaing these statuses.
+Click [HERE](http://help.ticketspice.com/article/501-order-statuses-explained) to see a help article explaining these statuses.
 
 ## Transactions
 
@@ -72,7 +72,7 @@ Click [HERE](http://help.ticketspice.com/article/501-order-statuses-explained) t
 | gateway error
 | error
 
-Click [HERE](http://help.regfox.com/article/972-transaction-statuses-explained) to see a help article explaing these statuses.
+Click [HERE](http://help.regfox.com/article/972-transaction-statuses-explained) to see a help article explaining these statuses.
 
 ### Types
 
@@ -82,6 +82,7 @@ Click [HERE](http://help.regfox.com/article/972-transaction-statuses-explained) 
 | refund
 | voucher
 | cash
+| preauth
 
 ## Subscriptions / Reocurring Payments
 

@@ -22,7 +22,7 @@ Authentication happens through the use of an API key issued from the Integration
 
 ### Rate Limits
 
-We have a default daily limit of *15,000* requests per day with a burst limit of up to *900* requests per *15 minutes* block of time. If you needs these limits increased please reach out to help@webconnex.com.
+We have a default daily limit of *10,000* requests per day with a burst limit of up to *900* requests per *15 minutes* block of time. Daily limits are reset at 0:00 UTC each day. If you needs these limits increased please reach out to help@webconnex.com.
 
 ### Responses
 

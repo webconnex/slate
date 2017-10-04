@@ -6,6 +6,7 @@ We currently support the following events:
 
 - New Registrations/Orders
 - Subscription/Recurring Notification
+- Reoccurring SMS Donation Notification (Beta)
 - Form Published
 - Inventory Supply
 - Coupons
