@@ -408,7 +408,12 @@ appKey    | string  | Self assigned application key (optional)
 				"expMonth": 6,
 				"expYear": 2019
 			},
-			"check": {},
+      "check": {
+				"accountType": "checking",
+				"accountNumber": "XXXXX6789",
+				"routingNumber": "021000021",
+				"bankName": "Acme"
+			},
 			"email": "gracious+donnor@webconnex.com",
 			"phone": "19160000000",
 			"fullName": "Alex Sherry",
