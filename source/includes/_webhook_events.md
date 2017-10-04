@@ -370,7 +370,7 @@ name      | string  | The name of the webhook
 appKey    | string  | Self assigned application key (optional)
 
 
-### Reoccurring SMS Donation Notification
+### Reoccurring SMS Donation Notification (Beta)
 
 > Example Payload:
 
@@ -430,7 +430,7 @@ appKey    | string  | Self assigned application key (optional)
 }
 ```
 
-The sms event is fired whenever followup sms donation is created.
+The sms event is fired whenever followup sms donation is created. Please contact support if you are interested in joining the "Reoccurring SMS Donation Notification" Beta test program.
 
 Note: This only includes followup donations, the initial text 2 give donation is sent though the `New Registrations/Orders` webhook.
 
