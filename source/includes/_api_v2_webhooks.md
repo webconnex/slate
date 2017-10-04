@@ -196,7 +196,7 @@ Attribute			                    |	Description
 ----------------------------------|---------------------------------------------
 **id**<br>*integer* 				      | Unique id of the webhook
 **accountId**<br>*integer*				| Id of the associated account
-**forms**<br>*array*              | Array of objects containing the form id's associated with the webhook. (Send [{"formid":-1}] to subscribe to all forms)
+**forms**<br>*array*              | Array of objects containing the form id's associated with the webhook.
 **token**<br>*string*					    | Unique token for the webhook
 **events**<br>*array*					    | List of events assigned to the webhook
 **method**<br>*string*					  | HTTP method used for the webhook delivery request
@@ -379,7 +379,7 @@ Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique id of the webhook
 **accountId**<br>*integer*  | Id of the associated account
-**forms**<br>*array*				| Array of objects containing the form id's associated with the webhook. (send [{"formid":-1}] to subscribe to all forms)
+**forms**<br>*array*				| Array of objects containing the form id's associated with the webhook.
 **token**<br>*string*				| Unique token for the webhook
 **events**<br>*array*				| List of events assigned to the webhook
 **method**<br>*string*			| HTTP method used for the webhook delivery request
@@ -421,7 +421,7 @@ Attribute			|	Description
 #### Request Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**forms**<br>*array*<br>Required					| Array of objects containing the form id's associated with the webhook. (send [{"formid":-1}] to subscribe to all forms)
+**forms**<br>*array*<br>Required					| Array of objects containing the form id's associated with the webhook. (send `[{"formid":-1}]` to subscribe to all forms)
 **events**<br>*array*<br>Required					| List of events assigned to the webhook
 **method**<br>*string*					| HTTP method used for the webhook delivery request
 **url**<br>*string*					| Endpoint URL used for the webhook delivery request
@@ -434,7 +434,7 @@ Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique id of the webhook
 **accountId**<br>*integer*					| Id of the associated account
-**forms**<br>*array*<br>Required					| Array of objects containing the form id's associated with the webhook. (send [{"formid":-1}] to subscribe to all forms)
+**forms**<br>*array*<br>Required					| Array of objects containing the form id's associated with the webhook.
 **token**<br>*string*					| Unique token for the webhook
 **events**<br>*array*					| List of events assigned to the webhook
 **method**<br>*string*					| HTTP method used for the webhook delivery request
@@ -479,7 +479,7 @@ Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique id of the webhook
 **accountId**<br>*integer*					| Id of the associated account
-**forms**<br>*array*<br>Required					| Array of objects containing the form id's associated with the webhook. (send [{"formid":-1}] to subscribe to all forms)
+**forms**<br>*array*<br>Required					| Array of objects containing the form id's associated with the webhook. (send `[{"formid":-1}]` to subscribe to all forms)
 **events**<br>*array*<br>Required					| List of events assigned to the webhook
 **method**<br>*string*					| HTTP method used for the webhook delivery request
 **url**<br>*string*					| Endpoint URL used for the webhook delivery request
@@ -492,7 +492,7 @@ Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique id of the webhook
 **accountId**<br>*integer*					| Id of the associated account
-**forms**<br>*array*<br>Required					| Array of objects containing the form id's associated with the webhook. (send [{"formid":-1}] to subscribe to all forms)
+**forms**<br>*array*<br>Required					| Array of objects containing the form id's associated with the webhook.
 **token**<br>*string*					| Unique token for the webhook
 **events**<br>*array*					| List of events assigned to the webhook
 **method**<br>*string*					| HTTP method used for the webhook delivery request

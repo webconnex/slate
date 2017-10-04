@@ -139,15 +139,15 @@ The registration event is fired whenever a successful registration has occurred 
 
 #### Payload
 
-Parameter | Default | Description
---------- | ------- | ---------------------------------------------------------
-eventType | string  | registration
-accountId | Integer | Id of the account
-formId    | Integer | Id of the form
-customerId | Integer | Id of the customer
-eventId   | Integer | Id of the registration webhook event.
-data      | object  | Object contains the complete payload for the registration
-meta      | object  | Object contains information about the webhook
+Parameter  | Default | Description
+---------- | ------- | ---------------------------------------------------------
+eventType  | string  | registration
+accountId  | integer | Id of the account
+formId     | integer | Id of the form
+customerId | integer | Id of the customer
+eventId    | integer | Id of the registration webhook event.
+data       | object  | Object contains the complete payload for the registration
+meta       | object  | Object contains information about the webhook
 
 #### Data Object
 
@@ -214,29 +214,29 @@ The publish event is fired whenever a successful form has been published on a fo
 Parameter | Default | Description
 --------- | ------- | ----------------------------------------------------------
 eventType | string  | The event type - "publish"
-accountId | Integer | Id of the account
-formId    | Integer | Id of the form
-eventId   | Integer | Id of the publish webhook event
+accountId | integer | Id of the account
+formId    | integer | Id of the form
+eventId   | integer | Id of the publish webhook event
 data      | object  | Object contains the complete payload for the publish event
 meta      | object  | Object contains information about the webhook
 
 #### Data Object
 
-Parameter         | Default | Description
------------------ | ------- | ----------------------------------------
-accRef            | string  | Form accounting reference
-currency          | string  | Currency of the campaign
-datePublished     | timestamp    | Date form was last published
-eventEnd          | timestamp    | Event end date (optional)
-eventStart        | timestamp    | Event start date (optional)
-id                | Integer | Id of the form
-name              | string  | Name of the form
-product           | string  | Product of the form
-publishedPath     | string  | Name of the form
-registrationEnd   | timestamp    | Ending date for registration (optional)
-registrationStart | timestamp    | Opening date for registration (optional)
-status            | string  | Status of the form
-timeZone          | string  | Timezone of the form
+Parameter         | Default   | Description
+----------------- | --------- | ----------------------------------------
+accRef            | string    | Form accounting reference
+currency          | string    | Currency of the campaign
+datePublished     | timestamp | Date form was last published
+eventEnd          | timestamp | Event end date (optional)
+eventStart        | timestamp | Event start date (optional)
+id                | Integer   | Id of the form
+name              | string    | Name of the form
+product           | string    | Product of the form
+publishedPath     | string    | Name of the form
+registrationEnd   | timestamp | Ending date for registration (optional)
+registrationStart | timestamp | Opening date for registration (optional)
+status            | string    | Status of the form
+timeZone          | string    | Timezone of the form
 
 #### Meta Object
 
@@ -245,7 +245,8 @@ Parameter | Default | Description
 name      | string  | The name of the webhook
 appKey    | string  | Self assigned application key (optional)
 
-### Subscription
+
+### Subscription / Reoccurring Notification
 
 > Example Payload:
 
@@ -301,6 +302,8 @@ appKey    | string  | Self assigned application key (optional)
       "scheduleString": "12th of every month",
       "status": "active",
     },
+    "currency": "USD",
+    "deductibleTotal": 100,
     "total": 100,
     "transactionId": 2423,
     "transactionReference": "TESTERCHARGE"
@@ -316,46 +319,48 @@ The subscription / reoccurring event is fired whenever a successful subscription
 
 #### Payload
 
-Parameter | Default | Description
---------- | ------- | ---------------------------------------------------------------
-eventType | string  | The event type - "subscription"
-accountId | Integer | Id of the account
-formId    | Integer | Id of the form
-customerId    | Integer | Id of the purchasing customer
-eventId   | Integer | Id of the subscription webhook event
-data      | object  | Object contains the complete payload for the subscription event
-meta      | object  | Object contains information about the webhook
+Parameter  | Default | Description
+---------- | ------- | ---------------------------------------------------------------
+eventType  | string  | The event type - "subscription"
+accountId  | integer | Id of the account
+formId     | integer | Id of the form
+customerId | integer | Id of the purchasing customer
+eventId    | integer | Id of the subscription webhook event
+data       | object  | Object contains the complete payload for the subscription event
+meta       | object  | Object contains information about the webhook
 
 #### Data Object
 
 Parameter            | Default | Description
 -------------------- | ------- | ------------------------------------------------
-id                   | string  | Internal id of the subscription
+id                   | string  | Internal Id of the subscription
 lookupId             | string  | Id of the subscription
-customerId           | Integer | Id of the customer
+customerId           | integer | Id of the customer
 billing              | object  | Object contains the billing information
 orderNumber          | string  | Unique order number built from the form accounting reference
 orderStatus          | string  | Status of the order
+currency             | string  | The currency of campaign
+deductibleTotal      | float   | The total deductible amount of the order
 subscription         | object  | Object contains the subscription/reoccurring information
 transactionReference | string  | The transaction reference of processed transaction
-transactionId        | Integer | Transaction Id of the registration
+transactionId        | integer | Transaction Id of the subscription
 total                | float   | The total value processed
 
 #### Subscription Object
 
-Parameter      | Default | Description
--------------- | ------- | --------------------------------------------
-amount         | float   | The amount value of the subscription/reoccurring payment
-category       | string  | Designated fund
-dateCreated    | timestamp    | Date of creation
-dateUpdated    | timestamp    | Date last updated (optional)
-dateLast       | timestamp    | Date of last processed
-dateNext       | timestamp    | Date of next process attempt
-email          | string  | Email address of the subscription/reoccurring payment
-id             | Integer | Internal id of the subscription/reoccurring payment
-schedule       | string  | Cron formatted string detailing the schedule
-scheduleString | string  | Human readable schedule
-status         | string  | The current status of the subscription/reoccurring payment
+Parameter      | Default   | Description
+-------------- | --------- | ----------------------------------------------------------
+amount         | float     | The amount value of the subscription/reoccurring payment
+category       | string    | Designated fund
+dateCreated    | timestamp | Date of creation
+dateUpdated    | timestamp | Date last updated (optional)
+dateLast       | timestamp | Date of last processed
+dateNext       | timestamp | Date of next process attempt
+email          | string    | Email address of the subscription/reoccurring payment
+id             | Integer   | Internal id of the subscription/reoccurring payment
+schedule       | string    | Cron formatted string detailing the schedule
+scheduleString | string    | Human readable schedule
+status         | string    | The current status of the subscription/reoccurring payment
 
 #### Meta Object
 
@@ -363,6 +368,100 @@ Parameter | Default | Description
 --------- | ------- | ----------------------------------------
 name      | string  | The name of the webhook
 appKey    | string  | Self assigned application key (optional)
+
+
+### Reoccurring SMS Donation Notification
+
+> Example Payload:
+
+```json
+{
+	"eventType": "sms",
+	"accountId": 14,
+	"formId": 40556,
+	"customerId": 15,
+	"eventId": 15722,
+	"data": {
+		"id": "01BV2JNE10AGKDQSQF1",
+		"lookupId": 13457,
+		"customerId": 15,
+		"transactionReference": "TESTERCHARGE",
+		"orderStatus": "completed",
+		"orderNumber": "TXTMTSD-AWE000K",
+		"total": 25,
+		"currency": "USD",
+		"deductibleTotal": 25,
+		"email": "gracious+donnor@webconnex.com",
+		"category": "New Campus",
+		"donorNumber": "+19160000000",
+		"text2GiveNumber": "+19164356496",
+		"billing": {
+			"address": {
+				"city": "Sacramento",
+				"country": "US",
+				"postalCode": "95814",
+				"state": "CA",
+				"street1": "455 Capitol Mall - Sixth Floor"
+			},
+			"card": {
+				"cardNumber": "VISA-1111",
+				"expMonth": 6,
+				"expYear": 2019
+			},
+			"check": {},
+			"email": "gracious+donnor@webconnex.com",
+			"phone": "19160000000",
+			"fullName": "Alex Sherry",
+			"name": {
+				"first": "Alex",
+				"last": "Sherry"
+			},
+			"paymentMethod": "card"
+		}
+	},
+	"meta": {
+		"name": "SMS"
+	}
+}
+```
+
+The sms event is fired whenever followup sms donation is created.
+
+Note: This only includes followup donations, the initial text 2 give donation is sent though the `New Registrations/Orders` webhook.
+
+#### Payload
+
+Parameter  | Default | Description
+---------- | ------- | ---------------------------------------------------------------
+eventType  | string  | The event type - "sms"
+accountId  | integer | Id of the account
+formId     | integer | Id of the form
+customerId | integer | Id of the purchasing customer
+eventId    | integer | Id of the subscription webhook event
+data       | object  | Object contains the complete payload for the subscription event
+meta       | object  | Object contains information about the webhook
+
+#### Data Object
+
+Parameter            | Default | Description
+-------------------- | ------- | ------------------------------------------------------------
+id                   | string  | Id of the Order
+lookupId             | string  | Internal Id of the Order
+customerId           | integer | Id of the customer
+transactionId        | integer | Id of the transaction
+transactionReference | string  | The transaction reference of processed transaction
+transactionStatus    | string  | The result of the transaction (See appendix for details)
+orderStatus          | string  | Status of the order (See appendix for details)
+orderNumber          | string  | Unique order number built from the form accounting reference
+total                | float   | The total value processed
+currency             | string  | The currency of campaign
+deductibleTotal      | float   | The total deductible amount of the order
+email                | string  | Email address of tied to the Order
+category             | string  | Designated fund
+donorNumber          | string  | The personal number of the donor used to text in
+text2GiveNumber      | string  | The donation level tied to the campaign
+billing              | object  | Object contains the billing information
+
 
 ### Inventory
 
@@ -397,30 +496,30 @@ appKey    | string  | Self assigned application key (optional)
 
 The inventory event is fired whenever an inventory item reaches 80%, 90% and 100% sold capacity on a form that you have set up a webhook for.
 
-### Payload
+#### Payload
 
 Parameter | Default | Description
 --------- | ------- | ----------------------------------------------------------------
 eventType | string  | The event type - "inventory_80", "inventory_90", "inventory_100"
-formId    | Integer | Id of the form
-accountId | Integer | Id of the account
-eventId   | Integer | Id of the inventroy webhook event
+formId    | integer | Id of the form
+accountId | integer | Id of the account
+eventId   | integer | Id of the inventory webhook event
 data      | object  | The object contains the complete payload for the inventory event
 meta      | object  | Object contains information about the webhook
 
 #### Data Object
 
-Parameter    | Default | Description
------------- | ------- | -------------------------------------------------------
-dateCreated  | timestamp    | Date the inventory item was created
-dateUpdated  | timestamp    | Date the inventory item was updated (optional)
-formLookupId | int     | Id of the form used for requesting when calling from the public api
-formName     | string  | The name of the form campaign
-id           | string  | Id of the inventory item
-inventory    | object  | An object containing the inventory supply data
-itemName     | string  | The name of the inventory item
-itemPath     | string  | The path of the inventory item
-lookupId     | Int     | Id of the inventory item used for requesting when calling from the public api
+Parameter    | Default   | Description
+------------ | --------- | -----------------------------------------------------------------------------
+dateCreated  | timestamp | Date the inventory item was created
+dateUpdated  | timestamp | Date the inventory item was updated (optional)
+formLookupId | int       | Id of the form used for requesting when calling from the public api
+formName     | string    | The name of the form campaign
+id           | string    | Id of the inventory item
+inventory    | object    | An object containing the inventory supply data
+itemName     | string    | The name of the inventory item
+itemPath     | string    | The path of the inventory item
+lookupId     | Int       | Id of the inventory item used for requesting when calling from the public api
 
 #### Inventory Object
 
@@ -435,6 +534,7 @@ Parameter | Default | Description
 --------- | ------- | ----------------------------------------
 name      | string  | The name of the webhook
 appKey    | string  | Self assigned application key (optional)
+
 
 ### Coupons
 
@@ -489,27 +589,27 @@ The coupon event is fired whenever coupon is created, updated or redeemed. Only 
 Parameter | Default | Description
 --------- | ------- | -------------------------------------------------------------
 eventType | string  | The event type - "coupon"
-accountId | Integer | Id of the account
-formId    | Integer | Id of the form
-eventId   | Integer | Id of the coupon webhook event
+accountId | integer | Id of the account
+formId    | integer | Id of the form
+eventId   | integer | Id of the coupon webhook event
 data      | object  | The object contains the complete payload for the coupon event
 meta      | object  | Object contains information about the webhook
 
 #### Data Object
 
-Parameter   | Default | Description
------------ | ------- | ----------------------------------------------------------------
-couponId    | int     | Id of the coupon
-available   | int     | Number of available redemptions ([-1] means unlimited)
-redeemed    | int     | Number of redemptions
-codes       | object  | The object container of all the coupon code objects
-currency    | string  | The currency of coupon
-codes       | object  | The object container of all the coupon code objects
-name        | string  | The name of the coupon
-formId      | string  | Id of the associated form (optional) [null] if coupon is global)
-voucher     | bool    | Specifies if coupon is a voucher or not
-dateCreated | timestamp    | Date the inventory item was created
-dateUpdated | timestamp    | Date the inventory item was updated (optional)
+Parameter   | Default   | Description
+----------- | --------- | ----------------------------------------------------------------
+couponId    | int       | Id of the coupon
+available   | int       | Number of available redemptions ([-1] means unlimited)
+redeemed    | int       | Number of redemptions
+codes       | object    | The object container of all the coupon code objects
+currency    | string    | The currency of coupon
+codes       | object    | The object container of all the coupon code objects
+name        | string    | The name of the coupon
+formId      | string    | Id of the associated form (optional) [null] if coupon is global)
+voucher     | bool      | Specifies if coupon is a voucher or not
+dateCreated | timestamp | Date the inventory item was created
+dateUpdated | timestamp | Date the inventory item was updated (optional)
 
 #### Codes Object
 
@@ -528,6 +628,7 @@ paths     | [] string | An array of paths the coupon can be applied to
 perTicket | bool      | Specifies weather discount should apply to each ticket (ticketspice.com only)
 valueType | string    | Specifies the discount type - `Percent` or `Fixed`
 value     | string    | Value amount to apply
+
 
 ### Test
 
@@ -555,9 +656,9 @@ Used for testing
 Parameter | Default | Description
 --------- | ------- | -------------------------------------------------------
 eventType | string  | The event type - "test"
-eventId   | Integer | Random number used as event id
-formId    | Integer | Random number used as form id
-accountId | Integer | Id of the account
+eventId   | integer | Random number used as event id
+formId    | integer | Random number used as form id
+accountId | integer | Id of the account
 data      | object  | Object contains the complete payload for the test event
 
 #### Data Object
@@ -566,5 +667,5 @@ Parameter | Default | Description
 --------- | ------- | ------------------------------------
 data      | string  | Random string to use as data payload
 eventType | string  | The event type - "test"
-eventId   | Integer | Random number used as event id
-formId    | Integer | Random number used as form id
+eventId   | integer | Random number used as event id
+formId    | integer | Random number used as form id
