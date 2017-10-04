@@ -196,7 +196,7 @@ Attribute			                    |	Description
 ----------------------------------|---------------------------------------------
 **id**<br>*integer* 				      | Unique id of the webhook
 **accountId**<br>*integer*				| Id of the associated account
-**forms**<br>*array*              | Array of objects containing the form id's associated with the webhook. (Send [{"formid":-1}] to subscribe to all forms)
+**forms**<br>*array*              | Array of objects containing the form id's associated with the webhook.
 **token**<br>*string*					    | Unique token for the webhook
 **events**<br>*array*					    | List of events assigned to the webhook
 **method**<br>*string*					  | HTTP method used for the webhook delivery request
@@ -379,7 +379,7 @@ Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique id of the webhook
 **accountId**<br>*integer*  | Id of the associated account
-**forms**<br>*array*				| Array of objects containing the form id's associated with the webhook. (send [{"formid":-1}] to subscribe to all forms)
+**forms**<br>*array*				| Array of objects containing the form id's associated with the webhook.
 **token**<br>*string*				| Unique token for the webhook
 **events**<br>*array*				| List of events assigned to the webhook
 **method**<br>*string*			| HTTP method used for the webhook delivery request
@@ -421,7 +421,7 @@ Attribute			|	Description
 #### Request Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**forms**<br>*array*<br>Required					| Array of objects containing the form id's associated with the webhook. (send [{"formid":-1}] to subscribe to all forms)
+**forms**<br>*array*<br>Required					| Array of objects containing the form id's associated with the webhook. (send `[{"formid":-1}]` to subscribe to all forms)
 **events**<br>*array*<br>Required					| List of events assigned to the webhook
 **method**<br>*string*					| HTTP method used for the webhook delivery request
 **url**<br>*string*					| Endpoint URL used for the webhook delivery request
@@ -434,7 +434,7 @@ Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique id of the webhook
 **accountId**<br>*integer*					| Id of the associated account
-**forms**<br>*array*<br>Required					| Array of objects containing the form id's associated with the webhook. (send [{"formid":-1}] to subscribe to all forms)
+**forms**<br>*array*<br>Required					| Array of objects containing the form id's associated with the webhook.
 **token**<br>*string*					| Unique token for the webhook
 **events**<br>*array*					| List of events assigned to the webhook
 **method**<br>*string*					| HTTP method used for the webhook delivery request
@@ -479,7 +479,7 @@ Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique id of the webhook
 **accountId**<br>*integer*					| Id of the associated account
-**forms**<br>*array*<br>Required					| Array of objects containing the form id's associated with the webhook. (send [{"formid":-1}] to subscribe to all forms)
+**forms**<br>*array*<br>Required					| Array of objects containing the form id's associated with the webhook. (send `[{"formid":-1}]` to subscribe to all forms)
 **events**<br>*array*<br>Required					| List of events assigned to the webhook
 **method**<br>*string*					| HTTP method used for the webhook delivery request
 **url**<br>*string*					| Endpoint URL used for the webhook delivery request
@@ -492,7 +492,7 @@ Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique id of the webhook
 **accountId**<br>*integer*					| Id of the associated account
-**forms**<br>*array*<br>Required					| Array of objects containing the form id's associated with the webhook. (send [{"formid":-1}] to subscribe to all forms)
+**forms**<br>*array*<br>Required					| Array of objects containing the form id's associated with the webhook.
 **token**<br>*string*					| Unique token for the webhook
 **events**<br>*array*					| List of events assigned to the webhook
 **method**<br>*string*					| HTTP method used for the webhook delivery request
@@ -1216,7 +1216,7 @@ func sendRequest() {
 		"webhookToken": "6aeeff5d8ad94c71b3b716fcfe0aa9ad",
 		"eventType": "subscription",
 		"eventId": 15128,
-		"url": "https://70429444.ngrok.io/donate",
+		"url": "https://myawesome.api/v2",
 		"typeId": 6,
 		"method": "POST",
 		"hash": "8de2ee5d255149c6af2ed5ffbf24dd7f",
@@ -1226,31 +1226,35 @@ func sendRequest() {
 			"formId": 403,
 			"eventId": 15128,
 			"data": {
-				"billing": {
-					"address": {
-						"city": "Beaverton",
-						"country": "US",
-						"postalCode": "97008",
-						"state": "OR",
-						"street1": "14250 SW Redhaven Dr."
-					},
-					"card": {
-						"cardNumber": "VISA-1111",
-						"expMonth": 3,
-						"expYear": 2021
-					},
-					"check": {},
-					"email": "nathanael@wearebunker.com",
-					"name": {
-						"first": "Nathanael",
-						"last": "Merrill"
-					},
-					"paymentMethod": "card"
-				},
+        "billing": {
+          "address": {
+            "city": "Sacramento",
+            "country": "US",
+            "postalCode": "95814",
+            "state": "CA",
+            "street1": "455 Capital Mall"
+          },
+          "card": {
+            "cardNumber": "VISA-1111",
+            "expMonth": 9,
+            "expYear": 2022
+          },
+          "check": {
+            "accountType": "Bank Name",
+            "accountNumber": "4111",
+            "routingNumber": "123456789"
+          },
+          "email": "help@webconnex.com",
+          "name": {
+            "first": "John",
+            "last": "Doe"
+          },
+          "paymentMethod": "card"
+        },
 				"currency": "USD",
 				"customerId": 1179,
 				"deductibleTotal": 20.6,
-				"id": "1489698307898227987",
+				"id": "01BPYMJZHFJF34CZJJR",
 				"lookupId": 12949,
 				"orderNumber": "SDD2-001000T",
 				"orderStatus": "completed",
@@ -1274,9 +1278,7 @@ func sendRequest() {
 			},
 			"meta": {
 				"appKey": "webconnex",
-				"appToken": "webconnex",
-				"appUrl": "https://localhost/api",
-				"name": "Church Builder"
+				"appToken": "webconnex"
 			}
 		},
 		"Attempt": 2
