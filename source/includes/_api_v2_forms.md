@@ -1,6 +1,6 @@
-## Forms
+### Forms
 
-### List Forms
+#### List Forms
 ```shell
 curl -X "GET" "https://api.webconnex.com/v1/public/forms?pretty=true" \
      -H "apiKey: <YOUR API KEY>"
@@ -173,16 +173,16 @@ def send_request():
 }
 ```
 
-#### HTTP Request
+##### HTTP Request
 `GET /v2/public/forms`
 
-#### Request Params
+##### Request Params
 Parameter			                        |	Description
 --------------------------------------|-----------------------------------------
 **product**<br>*string*<br>Optional   | Name of the product you want to list forms for
 **[]expand**<br>*string*<br>Optional  | Note: pass `inventory` to see the form's inventory
 
-#### Response Object
+##### Response Object
 Attribute			                  |	Description
 --------------------------------|-----------------------------------------------
 **id**<br>*integer* 			   	  | Unique id of the form
@@ -191,7 +191,7 @@ Attribute			                  |	Description
 **dateCreated**<br>*timestamp*  | Timestamp of the creation of the form
 **dateUpdated**<br>*timestamp*  | Timestamp the form was last updated (optional)
 
-### View Form
+#### View Form
 ```shell
 curl -X "GET" "https://api.webconnex.com/v2/public/forms/15689?pretty=true" \
      -H "apiKey: <YOUR API KEY>"
@@ -439,15 +439,15 @@ func viewRequest() {
 }
 ```
 
-#### HTTP Request
+##### HTTP Request
 `GET /v2/public/forms/{id}`
 
-#### Request Params
+##### Request Params
 Parameter			                    |	Description
 ----------------------------------|---------------------------------------------------
 **id**<br>*Integer*<br>(required)  | Id of the form that is being requested
 
-#### Response Object
+##### Response Object
 Attribute												|	Description
 --------------------------------|----------------------------------------------------
 **id**<br>*Integer* 						| Unique id of the
@@ -459,7 +459,7 @@ Attribute												|	Description
 **dateCreated**<br>*timestamp*  | Timestamp of the creation of the form
 **dateUpdated**<br>*timestamp*  | Timestamp the form was last updated (optional)
 
-#### Fields Object
+##### Fields Object
 Attribute											        	|	Description
 ----------------------------------------|--------------------------------------------
 **type**<br>*string* 					          | The root of the fields is always set to type form

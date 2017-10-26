@@ -1,6 +1,6 @@
-## Coupons
+### Coupons
 
-### List Global coupons
+#### List Global coupons
 
 ```shell
 curl "https://api.webconnex.com/v2/public/coupons/global?pretty=true" \
@@ -191,10 +191,10 @@ func couponRequest() {
 }
 ```
 
-#### HTTP Request
+##### HTTP Request
 `GET /v2/public/coupons/global`
 
-#### Request Params
+##### Request Params
 Parameter			                      |	Description
 ------------------------------------|----------------------------------
 **Product**<br>*string*<br>(required)| Name of the product you to search for coupons on
@@ -210,7 +210,7 @@ Parameter			                      |	Description
 **lessThanAvailable**<br>*integer*<br>(optional)      |
 **code**<br>*string*<br>(optional)                    |
 
-#### Response Object
+##### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				    | Unique id of the coupon
@@ -223,7 +223,7 @@ Attribute			|	Description
 **dateCreated**<br>*timestamp*  | Timestamp of the creation of the order
 **dateUpdated**<br>*timestamp*  | Timestamp the order was last updated (optional)
 
-### List Form Coupons
+#### List Form Coupons
 
 ```shell
 curl "https://api.webconnex.com/v2/public/coupons/forms/28609?pretty=true" \
@@ -424,16 +424,16 @@ func sendListByFormRequest() {
 }
 ```
 
-#### HTTP Request
+##### HTTP Request
 
 `GET /v2/public/coupons/forms/{formId}`
 
-#### Request Params
+##### Request Params
 Parameter			                  |	Description
 --------------------------------|-----------------------------------------------
 **id**<br>*integer*<br>(required)| Form id to list coupons associated with
 
-#### Response Object
+##### Response Object
 Attribute			                  |	Description
 --------------------------------|-----------------------------------------------
 **id**<br>*integer* 				    | Unique id of the coupon
@@ -446,10 +446,10 @@ Attribute			                  |	Description
 **dateCreated**<br>*timestamp*  | Timestamp of the creation of the order
 **dateUpdated**<br>*timestamp*  | Timestamp the order was last updated (optional)
 
-### View Coupon by Id
+#### View Coupon by Id
 
 ```shell
-## View Single
+### View Single
 curl "https://api.webconnex.com/v2/public/coupons/1250?pretty=true" \
      -H "apiKey: <YOUR API KEY>"
 ```
@@ -646,15 +646,15 @@ func viewSingleRequest() {
 }
 ```
 
-#### HTTP Request
+##### HTTP Request
 `GET /v2/public/coupons/{id}`
 
-#### Request Params
+##### Request Params
 Parameter			                  |	Description
 --------------------------------|-----------------------------------------------
 **id**<br>*integer*<br>(required)| Id of the requested coupon
 
-#### Response Object
+##### Response Object
 Attribute			                  |	Description
 --------------------------------|-----------------------------------------------
 **id**<br>*integer* 				    | Unique id of the coupon

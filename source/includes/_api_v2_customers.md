@@ -1,6 +1,6 @@
-## Customers
+### Customers
 
-### Search Customers
+#### Search Customers
 ```shell
 curl "https://api.webconnex.com/v2/public/search/customers?product=redpodium.com&pretty=true" \
      -H "apiKey: <YOUR API KEY>"
@@ -201,10 +201,10 @@ func searchRequest() {
 }
 ```
 
-#### HTTP Request
+##### HTTP Request
 `GET /v2/public/search/customers?product=`
 
-#### Request Params
+##### Request Params
 Parameter		             	                          |	Description
 ----------------------------------------------------|---------------------------
 **product**<br>*string*<br>(required)               | Name of the product you to search for customers against
@@ -219,7 +219,7 @@ Parameter		             	                          |	Description
 **dateUpdatedBefore**<br>*timestamp*<br>(optional)  | Filter customers to only show results updated before date
 **dateUpdatedAfter**<br>*timestamp*<br>(optional)   | Filter customers to only show results updated after date
 
-#### Response Object
+##### Response Object
 Attribute			                 |	Description
 -------------------------------|-----------------------------------------------------
 **id**<br>*integer* 			     | Unique id of the customer
@@ -229,7 +229,7 @@ Attribute			                 |	Description
 **dateCreated**<br>*timestamp* | Timestamp of the creation of the customer
 **dateUpdated**<br>*timestamp* | Timestamp the customer was last updated (optional)
 
-### View Customer by Id
+#### View Customer by Id
 ```shell
 curl "https://api.webconnex.com/v2/public/search/customers/1155061?product=redpodium.com&pretty=true" \
      -H "apiKey: <YOUR API KEY>"
@@ -410,16 +410,16 @@ func viewRequest() {
 }
 ```
 
-#### HTTP Request
+##### HTTP Request
 `GET /v2/public/search/customers/{id}?product=`
 
-#### Request Params
+##### Request Params
 Parameter			                      |	Description
 ------------------------------------|-------------------------------------------
 **id**<br>*string*<br>(required)     | Id of the requested customer
 **product**<br>*string*<br>(required)| Product to search against
 
-#### Response Object
+##### Response Object
 Parameter		   	                |	Description
 --------------------------------|-----------------------------------------------
 **id**<br>*integer*             | Unique id of the customer

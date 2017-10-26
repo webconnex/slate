@@ -1,4 +1,4 @@
-## Ping/Healthcheck
+### Ping/Healthcheck
 ```shell
 curl -X "GET" "https://api.webconnex.com/v2/public/ping?pretty=true" \
 	-H "apiKey: <YOUR API KEY>"
@@ -135,7 +135,7 @@ def send_request():
 ```
 Simple endpoint to provide a health check endpoint to make sure we are alive and kickin'.
 
-#### HTTP Request
+##### HTTP Request
 `GET /v2/public/ping`
 
 Attribute											|	Description

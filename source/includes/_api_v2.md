@@ -18,6 +18,7 @@ curl -X "GET" "https://api.webconnex.com/v2/public/ping" \
 
 Authentication happens through the use of an API key issued from the Integrations pane under account settings. A valid API Key must be included in the request header for each request.
 
+
 ## Structure
 
 ### Rate Limits
@@ -122,8 +123,9 @@ Below are a summary of the HTTP response codes used by the webconnex API.
 | **404**<br>NOT FOUND          | Resource was not found
 | **405**<br>METHOD NOT ALLOWED	| You can't POST or PUT to the resource
 | **429**<br>TOO MANY REQUESTS  | Your application is sending too many requests
-| **500**<br>SERVER ERROR	| We couldn't create or update the resource. Please try again
-| **502**<br>SERVER ERROR	| We couldn't create or update the resource. Please contact support.
+| **500**<br>SERVER ERROR	| We couldn't create or update the resource, please try again
+| **502**<br>SERVER ERROR	| We couldn't create or update the resource, please contact support
+
 
 ### Paging
 ```markdown
