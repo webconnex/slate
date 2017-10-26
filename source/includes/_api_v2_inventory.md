@@ -1,6 +1,6 @@
-## Inventory
+### Inventory
 
-### View for Form
+#### View for Form
 ```shell
 curl "https://api.webconnex.com/v2/public/forms/676/inventory?pretty=true" \
      -H "apiKey: <YOUR API KEY>"
@@ -159,15 +159,15 @@ func sendViewRequest() {
 }
 ```
 
-#### HTTP Request
+##### HTTP Request
 `GET /v2/public/forms/{formId}/inventory`
 
-#### Request Params
+##### Request Params
 Parameter			                          |	Description
 ----------------------------------------|----------------------------------------
 **formId**<br>*integer*<br>(required)  	| The id of the parent form
 
-#### Response Object
+##### Response Object
 Attribute			                  |	Description
 --------------------------------|-----------------------------------------------------
 **path**<br>*string* 				    | Unique path scoped to a form

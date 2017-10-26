@@ -1,6 +1,6 @@
-## Transactions
+### Transactions
 
-### Search Transactions
+#### Search Transactions
 ```shell
 curl "https://api.webconnex.com/v2/public/search/transactions?product=regfox.com&pretty=true" \
      -H "apiKey: <YOUR API KEY>"
@@ -219,10 +219,10 @@ func searchRequest() {
   "totalResults": 2
 }
 ```
-#### HTTP Request
+##### HTTP Request
 `GET /v2/public/search/transactions?product=`
 
-#### Request Params
+##### Request Params
 Parameter			                                |	Description
 ----------------------------------------------|---------------------------------------
 **product**<br>*string*<br>(required)	       	| Name of the product you to search for transactions against
@@ -246,7 +246,7 @@ Parameter			                                |	Description
 **dateUpdatedBefore**<br>*timestamp*<br>(optional) 	| Filter transactions to only show results updated before date
 **dateUpdatedAfter**<br>*timestamp*<br>(optional) 	| Filter transactions to only show results updated after date
 
-#### Response Object
+##### Response Object
 Attribute			                 |	Description
 -------------------------------|------------------------------------------------------
 **id**<br>*integer* 				   | Unique id of the transaction
@@ -263,7 +263,7 @@ Attribute			                 |	Description
 **dateCreated**<br>*timestamp* | Timestamp of the creation of the transaction
 **dateUpdated**<br>*timestamp* | Timestamp the transaction was last updated (optional)
 
-### View Transaction by Id
+#### View Transaction by Id
 ```shell
 curl "https://api.webconnex.com/v2/public/search/transactions/14291?pretty=true&product=regfox.com" \
      -H "apiKey: <YOUR API KEY>"
@@ -443,20 +443,20 @@ func viewRequest() {
   ]
 }
 ```
-#### HTTP Request
+##### HTTP Request
 `GET /v2/public/search/transactions/{id}?product=`
 
-#### Request Params
+##### Request Params
 Parameter			                  |	Description
 --------------------------------|-----------------------------------------------------
 **id**<br>*string*<br>(required) | Id of the requested transaction
 
-#### URI Params
+##### URI Params
 Parameter			                      |	Description
 ------------------------------------|--------------------------------------------------
 **product**<br>*string*<br>(required)| Product to search against
 
-#### Response Object
+##### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique id of the transaction

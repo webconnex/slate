@@ -27,7 +27,7 @@ includes:
   - api_v2_inventory
   - api_v2_webhooks
   - webhooks
-  - webhook_events
+  - webhooks_events
   - appendix
 
 search: true

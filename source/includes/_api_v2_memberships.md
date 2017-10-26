@@ -1,9 +1,9 @@
-## Memberships
+### Memberships
 
-### Search Memberships
+#### Search Memberships
 
 <aside class="notice">Coming soon</aside>
 
-### View Membership by Id
+#### View Membership by Id
 
 <aside class="notice">Coming soon</aside>

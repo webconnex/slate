@@ -1,6 +1,6 @@
-## Subscriptions
+### Subscriptions
 
-### Search Subscriptions
+#### Search Subscriptions
 ```shell
 curl "https://api.webconnex.com/v2/public/search/subscriptions?product=givingfuel.com&pretty=true" \
      -H "apiKey: <YOUR API KEY>"
@@ -206,10 +206,10 @@ func searchRequest() {
   "totalResults": 2
 }
 ```
-#### HTTP Request
+##### HTTP Request
 `GET /v2/public/search/subscriptions?product=`
 
-#### Request Params
+##### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **product**<br>*string*<br>(required)		| Name of the product you to search for subscriptions against
@@ -233,7 +233,7 @@ Parameter			|	Description
 **dateNextAfter**<br>*timestamp*<br>(optional) 		| Filter subscriptions to only show results scheduled to run after date
 **dateLastAfter**<br>*timestamp*<br>(optional) 		| Filter subscriptions to only show results processed after date
 
-#### Response Object
+##### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique id of the subscription
@@ -250,7 +250,7 @@ Attribute			|	Description
 **dateCreated**<br>*timestamp* | Timestamp of the creation of the subscription
 **dateUpdated**<br>*timestamp* | Timestamp the subscription was last updated (optional)
 
-### View Subscription by Id
+#### View Subscription by Id
 ```shell
 curl "https://api.webconnex.com/v2/public/search/subscriptions/49675?pretty=true&product=givingfuel.com" \
      -H "apiKey: <YOUR API KEY>"
@@ -430,16 +430,16 @@ func viewRequest() {
 }
 ```
 
-#### HTTP Request
+##### HTTP Request
 `GET /v2/public/search/subscriptions/{id}?product=`
 
-#### Request Params
+##### Request Params
 Parameter			                          |	Description
 ----------------------------------------|---------------------------------------------
 **id**<br>*string*<br>(required)				| Id of the requested order
 **product**<br>*string*<br>(required)		| Product to search against
 
-#### Response Object
+##### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique id of the subscription

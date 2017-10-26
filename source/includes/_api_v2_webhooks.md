@@ -1,6 +1,6 @@
-## Webhooks
+### Webhooks
 
-### List
+#### List
 ```shell
 curl "https://api.webconnex.com/v2/public/webhooks?pretty=true" \
      -H "apiKey: <YOUR API KEY>"
@@ -185,13 +185,13 @@ func sendListRequest() {
   "totalResults": 2
 }
 ```
-#### HTTP Request
+##### HTTP Request
 `GET /v2/public/webhooks`
 
-#### Request Params
+##### Request Params
 No filtering implemented on this HTTP resource.
 
-#### Response Object
+##### Response Object
 Attribute			                    |	Description
 ----------------------------------|---------------------------------------------
 **id**<br>*integer* 				      | Unique id of the webhook
@@ -207,7 +207,7 @@ Attribute			                    |	Description
 **dateCreated**<br>*timestamp*    | Timestamp of the creation of the webhook
 **dateUpdated**<br>*timestamp*    | Timestamp the webhook was last updated
 
-### View
+#### View
 ```shell
 curl "https://api.webconnex.com/v2/public/webhooks/1623423?pretty=true" \
      -H "apiKey: <YOUR API KEY>"
@@ -366,15 +366,15 @@ func sendListRequest() {
   "totalResults": 1
 }
 ```
-#### HTTP Request
+##### HTTP Request
 `GET /v2/public/webhooks/{id}`
 
-#### Request Params
+##### Request Params
 Parameter			                    |	Description
 ----------------------------------|---------------------------------------------------
 **id**<br>*string*<br>(required)   | Id of the requested webhook
 
-#### Response Object
+##### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique id of the webhook
@@ -390,7 +390,7 @@ Attribute			|	Description
 **dateCreated**<br>*timestamp* | Timestamp of the creation of the webhook
 **dateUpdated**<br>*timestamp* | Timestamp the webhook was last updated
 
-### Create
+#### Create
 ```shell
 
 ```
@@ -415,10 +415,10 @@ Attribute			|	Description
 	"totalResults": 1
 }
 ```
-#### HTTP Request
+##### HTTP Request
 `POST /v2/public/webhooks`
 
-#### Request Object
+##### Request Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **forms**<br>*array*<br>Required					| Array of objects containing the form id's associated with the webhook. (send `[{"formid":-1}]` to subscribe to all forms)
@@ -429,7 +429,7 @@ Attribute			|	Description
 **status**<br>*string*					| Status of the webhook (See appendix for statuses)
 **meta**<br>*object*					| Contains webhook name and app key if required by the endpoint
 
-#### Response Object
+##### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique id of the webhook
@@ -445,7 +445,7 @@ Attribute			|	Description
 **dateCreated**<br>*timestamp* | Timestamp of the creation of the webhook
 **dateUpdated**<br>*timestamp* | Timestamp the webhook was last updated
 
-### Update
+#### Update
 ```shell
 
 ```
@@ -471,10 +471,10 @@ Attribute			|	Description
 }
 ```
 
-#### HTTP Request
+##### HTTP Request
 `PUT /v2/public/webhooks/{id}`
 
-#### Request Object
+##### Request Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique id of the webhook
@@ -487,7 +487,7 @@ Attribute			|	Description
 **status**<br>*string*					| Status of the webhook (See appendix for statuses)
 **meta**<br>*object*					| Contains webhook name and app key if required by the endpoint
 
-#### Response Object
+##### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Unique id of the webhook
@@ -503,7 +503,7 @@ Attribute			|	Description
 **dateCreated**<br>*timestamp* | Timestamp of the creation of the webhook
 **dateUpdated**<br>*timestamp* | Timestamp the webhook was last updated
 
-### Delete
+#### Delete
 ```shell
 curl -X "DELETE" "https://api.webconnex.com/v2/public/webhooks/4" \
      -H "apiKey: <YOUR API KEY>"
@@ -641,15 +641,15 @@ func sendDeleteRequest() {
 	"totalResults": 1
 }
 ```
-#### HTTP Request
+##### HTTP Request
 `DELETE /v2/public/webhooks/{id}`
 
-#### Request Object
+##### Request Object
 Attribute			      |	Description
 --------------------|-----------------------------------------------------------------
 **id**<br>*integer* | Id of the webhook
 
-### List Logs
+#### List Logs
 ```shell
 curl "https://api.webconnex.com/v2/public/webhooks/1623423/logs?pretty=true" \
      -H "apiKey: <YOUR API KEY>"
@@ -851,15 +851,15 @@ func sendListRequest() {
 
 Get all logs for a given webhook
 
-#### HTTP Request
+##### HTTP Request
 `GET /v2/public/webhooks/{id}/logs`
 
-#### Request Object
+##### Request Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
 **id**<br>*integer* 				| Id of the parent webhook
 
-#### Request Params
+##### Request Params
 Parameter		             	                          |	Description
 ----------------------------------------------------|---------------------------
 **sort**<br>*string*<br>(optional)                  |
@@ -870,7 +870,7 @@ Parameter		             	                          |	Description
 **dateSentBefore**<br>*timestamp*<br>(optional)     |
 **dateSentAfter**<br>*timestamp*<br>(optional)      |
 
-### View Webhook Log by Id
+#### View Webhook Log by Id
 ```shell
 curl "https://api.webconnex.com/v2/public/webhooks/1623423/logs?pretty=true" \
      -H "apiKey: <YOUR API KEY>"
@@ -1063,16 +1063,16 @@ func sendListRequest() {
 
 View a specific webhook log
 
-#### HTTP Request
+##### HTTP Request
 `GET /v2/public/webhooks/{webhookid}/logs/{webhookLogid}`
 
-#### Request Object
+##### Request Object
 Attribute			                    |	Description
 ----------------------------------|---------------------------------------------------
 **webhookid**<br>*integer* 				| Id of the parent webhook
 **webhookLogid**<br>*integer* 		| Id of the webhook log
 
-### Resend Webhook
+#### Resend Webhook
 ```shell
 curl -X "POST" "https://api.webconnex.com/v2/public/webhooks/39/resend/3899" \
      -H "apiKey: <YOUR API KEY>"
@@ -1289,10 +1289,10 @@ func sendRequest() {
 
 Request that a particular webhook attempt be resent.
 
-#### HTTP Request
+##### HTTP Request
 `POST /v2/public/webhooks/{webhookid}/resend/{logId}`
 
-#### Request Params
+##### Request Params
 Parameter			                      |	Description
 ------------------------------------|-------------------------------------------
 **webhookid**<br>*string*<br>(required)			| Id of the webhook
