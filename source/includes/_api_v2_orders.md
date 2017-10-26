@@ -1,6 +1,6 @@
-## Orders
+### Orders
 
-### Search Orders
+#### Search Orders
 ```shell
 curl "https://api.webconnex.com/v2/public/search/orders?product=redpodium.com&pretty=true" \
      -H "apiKey: <YOUR API KEY>"
@@ -199,10 +199,10 @@ func searchRequest() {
 }
 ```
 
-#### HTTP Request
+##### HTTP Request
 `GET /v2/public/search/orders`
 
-#### Request Params
+##### Request Params
 Parameter			                                      |	Description
 ----------------------------------------------------|---------------------------
 **product**<br>*string*<br>(required)		        	  | Product url to search
@@ -222,7 +222,7 @@ Parameter			                                      |	Description
 **dateUpdatedBefore**<br>*timestamp*<br>(optional) 	| Return results updated before date
 **dateUpdatedAfter**<br>*timestamp*<br>(optional) 	| Return results updated after date
 
-#### Response Object
+##### Response Object
 Attribute			                  |	Description
 --------------------------------|-----------------------------------------------------
 **id**<br>*integer* 				    | Unique id of the order
@@ -240,7 +240,7 @@ Attribute			                  |	Description
 **dateCreated**<br>*timestamp*  | Timestamp of the creation of the order
 **dateUpdated**<br>*timestamp*  | Timestamp the order was last updated (optional)
 
-### View Order by Id
+#### View Order by Id
 ```shell
 curl "https://api.webconnex.com/v2/public/search/orders/11623?pretty=true&product=redpodium.com" \
      -H "apiKey: <YOUR API KEY>"
@@ -419,17 +419,17 @@ func viewRequest() {
 }
 ```
 
-#### HTTP Request
+##### HTTP Request
 `GET /v2/public/search/orders/{id}?product=`
 
-#### Request Params
+##### Request Params
 Parameter		           	                |	Description
 ----------------------------------------|----------------------------------------
 **id**<br>*string*<br>(required)			  | Id of the requested order
 **product**<br>*string*<br>(required)   | Product url to search
 **[]expand**<br>*string*<br>(optional)  | Return additional children (registrants, tickets, subscriptions)
 
-#### Response Object
+##### Response Object
 Attribute			                  |	Description
 --------------------------------|-----------------------------------------------
 **id**<br>*integer* 				    | Unique id of the order

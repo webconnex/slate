@@ -2,6 +2,10 @@
 
 Below is additional information and resources
 
+## Maintenance Window
+
+Webconnex regularly performs system maintenance Tuesday's between 9:00 am UTC (2am Pacific Daylight Time, 1am Pacific Standard Time) and 10:00 am UTC (3am Pacific Daylight Time, 2am Pacific Standard Time). During this maintenance window various endpoints may be unavailable as well as Webhook Events may be queued and not be delivered till after the maintenance window completes. We recommend scheduling your applications around this time window.
+
 ## URI Parameters
 
 ### Date Formats

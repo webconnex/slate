@@ -1,6 +1,6 @@
-## Registrants
+### Registrants
 
-### Search Registrants
+#### Search Registrants
 ```shell
 curl "https://api.webconnex.com/v2/public/search/registrants?product=redpodium.com2&pretty=true" \
      -H "apiKey: <YOUR API KEY>"
@@ -208,10 +208,10 @@ func searchRequest() {
   "totalResults": 2
 }
 ```
-#### HTTP Request
+##### HTTP Request
 `GET /v2/public/search/registrants?product=`
 
-#### Request Params
+##### Request Params
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **product**<br>*string*<br>(required)              | Name of the product you to search for registrants against
@@ -233,7 +233,7 @@ Parameter			|	Description
 **dateUpdatedBefore**<br>*timestamp*<br>(optional) 	| Filter registrants to only show results updated before date
 **dateUpdatedAfter**<br>*timestamp*<br>(optional) 	| Filter registrants to only show results updated after date
 
-#### Response Object
+##### Response Object
 Attribute			                  |	Description
 --------------------------------|-----------------------------------------------------
 **id**<br>*integer* 				    | Unique id of the registrant
@@ -250,7 +250,7 @@ Attribute			                  |	Description
 **dateCreated**<br>*timestamp*  | Timestamp of the creation of the registrant
 **dateUpdated**<br>*timestamp*  | Timestamp the registrant was last updated (optional)
 
-### View Registrant by Id
+#### View Registrant by Id
 ```shell
 curl "https://api.webconnex.com/v2/public/search/registrants/2233110?pretty=true&product=redpodium.com" \
      -H "apiKey: <YOUR API KEY>"
@@ -421,17 +421,17 @@ func viewRequest() {
 }
 ```
 
-#### HTTP Request
+##### HTTP Request
 `GET /v2/public/search/registrants/{id}?product=`
 
-#### Request Params
+##### Request Params
 Parameter			                        |	Description
 --------------------------------------|------------------------------------------
 **id**<br>*string*<br>(required)				| Id of the requested order
 **product**<br>*string*<br>(required)  | Product to search against
 **[]expand**<br>*string*<br>(optional)  | Return requested children (subscriptions)
 
-#### Response Object
+##### Response Object
 Attribute			                  |	Description
 --------------------------------|-----------------------------------------------
 **id**<br>*integer* 				    | Unique id of the registrant
@@ -448,7 +448,7 @@ Attribute			                  |	Description
 **dateCreated**<br>*timestamp*  | Timestamp of the creation of the registrant
 **dateUpdated**<br>*timestamp*  | Timestamp the registrant was last updated (optional)
 
-### Check In by Id
+#### Check In by Id
 ```shell
 curl -X "POST" "https://api.webconnex.com/v2/public/registrant/check-in?pretty=true" \
      -H "apiKey: <YOUR API KEY>" \
@@ -616,22 +616,22 @@ func sendRequest() {
 }
 ```
 
-#### HTTP Request
+##### HTTP Request
 `GET /v2/public/registrant/check-in`
 
-#### Request Params
+##### Request Params
 Parameter			                          |	Description
 ----------------------------------------|----------------------------------------
 **id**<br>*string*<br>(required)				| Id of the registrant
 **date**<br>*timestamp*<br>(required)   | The timestamp to set as the checkin date
 
-#### Response Object
+##### Response Object
 Attribute			                  |	Description
 --------------------------------|-----------------------------------------------
 **id**<br>*integer* 				    | Unique id of the registrant checked in
 **date**<br>*timestamp*			    | The timestamp set for checkin
 
-### Check In by Display Id
+#### Check In by Display Id
 ```shell
 curl -X "POST" "https://api.webconnex.com/v2/public/registrant/check-in?pretty=true" \
      -H "apiKey: <YOUR API KEY>" \
@@ -799,22 +799,22 @@ func sendRequest() {
 }
 ```
 
-#### HTTP Request
+##### HTTP Request
 `GET /v2/public/registrant/check-in`
 
-#### Request Params
+##### Request Params
 Parameter			                          |	Description
 ----------------------------------------|----------------------------------------
 **displayId**<br>*string*<br>(required)  | Display Id of the registrant
 **date**<br>*timestamp*<br>(required)    | The timestamp to set as the checkin date
 
-#### Response Object
+##### Response Object
 Attribute			                  |	Description
 --------------------------------|-----------------------------------------------
 **displayId**<br>*string*				| Display Id of the registrant checked in
 **date**<br>*timestamp*			    | The timestamp set for checkin
 
-### Check Out by Id
+#### Check Out by Id
 ```shell
 curl -X "POST" "https://api.webconnex.com/v2/public/registrant/check-out?pretty=true" \
      -H "apiKey: <YOUR API KEY>" \
@@ -982,24 +982,24 @@ func sendRequest() {
 }
 ```
 
-#### HTTP Request
+##### HTTP Request
 `GET /v2/public/registrant/check-out`
 
-#### Request Params
+##### Request Params
 Parameter			                          |	Description
 ----------------------------------------|----------------------------------------
 **id**<br>*string*<br>(required)				| Id of the registrant
 **date**<br>*timestamp*<br>(required)   | The timestamp to set as the checkout date
 
 
-#### Response Object
+##### Response Object
 Attribute			                  |	Description
 --------------------------------|-----------------------------------------------
 **id**<br>*integer* 				    | Unique id of the registrant checked out
 **date**<br>*timestamp*			    | The timestamp set for checkout
 
 
-### Check Out by Display Id
+#### Check Out by Display Id
 ```shell
 curl -X "POST" "https://api.webconnex.com/v2/public/registrant/check-out?pretty=true" \
      -H "apiKey: <YOUR API KEY>" \
@@ -1167,17 +1167,17 @@ func sendRequest() {
 }
 ```
 
-#### HTTP Request
+##### HTTP Request
 `GET /v2/public/registrant/check-out`
 
-#### Request Params
+##### Request Params
 Parameter			                          |	Description
 ----------------------------------------|----------------------------------------
 **displayId**<br>*string*<br>(required) | Display Id of the registrant
 **date**<br>*timestamp*<br>(required)   | The timestamp to set as the check out date
 
 
-#### Response Object
+##### Response Object
 Attribute			                  |	Description
 --------------------------------|-----------------------------------------------
 **displayId**<br>*string*				| Display Id of the registrant checked out
