@@ -156,7 +156,6 @@ func searchRequest() {
       "id": 1,
       "displayId": "01BPYMMEE9NM4WJAJMG",
       "customerId": 1,
-      "customerEmail": "someone@test.com",
       "billing": {
         "firstName": "John",
         "lastName": "Doe",
@@ -171,10 +170,29 @@ func searchRequest() {
       "formId": 1,
       "formName": "test",
       "formAccRef": "TST12",
+      "fieldData": [
+        {
+          "amount": "5",
+          "label": "Fee",
+          "path": "fee"
+        },
+        {
+          "amount": "0",
+          "path": "fee.lineItemFee"
+        }
+      ],
       "status": "3",
       "orderNumber": "TST12-001-4",
+      "orderId": 13378,
+      "orderDisplayId": "01BR7TCB1HM7HE1WBW0",
+      "orderEmail": "support@webconnex.com",
+      "levelLabel": "Ticket Level One",
+      "levelKey": "adult",
+      "amount": "35",
+      "fee": "5",
       "total": "40.00",
       "currency": "USD",
+      "eventDate": "2017-08-23T07:00:00Z",
       "dateCreated": "2016-01-28T00:11:10Z",
       "dateUpdated": "2016-05-02T22:32:22Z"
     },
@@ -182,7 +200,6 @@ func searchRequest() {
       "id": 2,
       "displayId": "01BPYMJZHFJF34CZJJR",
       "customerId": 1,
-      "customerEmail": "someone@test.com",
       "billing": {
         "firstName": "John",
         "lastName": "Doe",
@@ -197,8 +214,21 @@ func searchRequest() {
       "formId": 1,
       "formName": "test",
       "formAccRef": "TST12",
+      "fieldData": [
+        {
+          "label": "Checkbox",
+          "path": "checkbox"
+        }
+      ],
       "status": "3",
       "orderNumber": "TST12-001-4",
+      "orderId": 13378,
+      "orderDisplayId": "01BR7TCB1HM7HE1WBW0",
+      "orderEmail": "john.doe@webconnex.com",
+      "levelLabel": "Ticket Level One",
+      "levelKey": "adult",
+      "amount": "35",
+      "fee": "5",
       "total": "40.00",
       "currency": "USD",
       "dateCreated": "2016-01-28T00:11:10Z",
@@ -236,19 +266,27 @@ Parameter			                                      |	Description
 ##### Response Object
 Attribute			                 |	Description
 -------------------------------|------------------------------------------------------
-**id**<br>*integer* 				   | Unique id of the ticket
-**displayId**<br>*string*			 | Unique hash used as civilian facing id
-**customerId**<br>*integer*		 | Unique id of the associated customer
-**customerEmail**<br>*string*  | Email of the associated customer
-**billing**<br>*object*				 | Billing object containing name and address details associated with order
-**formId**<br>*integer*			   | Id of the form that associated with the order
-**formName**<br>*string*		 	 | Name of the form that created order
-**formAccRef**<br>*string*		 | Accounting reference string of the form that created order
-**status**<br>*string*				 | Status of the ticket
-**orderNumber**<br>*string*		 | Order number
-**total**<br>*float*					 | Total cost of the ticket
-**dateCreated**<br>*timestamp* | Timestamp of the creation of the ticket
-**dateUpdated**<br>*timestamp* | Timestamp the ticket was last updated (optional)
+**id**<br>*integer* 				    | Unique id of the ticket
+**displayId**<br>*string*		   	| Unique hash used as civilian facing id
+**customerId**<br>*integer*			| Unique id of the associated customer
+**billing**<br>*object*					| Billing object containing name and address details associated with order
+**formId**<br>*integer*					| Id of the form that associated with the order
+**formName**<br>*string*				| Name of the form that created ticket
+**formAccRef**<br>*string*			| Accounting reference string of the form that created ticket
+**fieldData**<br>*object*	  		| 
+**status**<br>*string*					| Status of the ticket
+**orderId**<br>*integer*				| Unique id of the order
+**orderDisplayId**<br>*string*	| Unique hash used as civilian facing id
+**orderNumber**<br>*string*			| Order number
+**orderEmail**<br>*string*			| Email of the associated order
+**total**<br>*float*				    | Total cost of the ticket
+**fee**<br>*float*				      | Ticket Fee
+**amount**<br>*float*				    | Ticket Amount
+**levelLabel**<br>*string*			|
+**levelKey**<br>*string*			  |
+**eventDate**<br>*timestamp*    |
+**dateCreated**<br>*timestamp*  | Timestamp of the creation of the ticket
+**dateUpdated**<br>*timestamp*  | Timestamp the ticket was last updated (optional)
 
 #### View Ticket by Id
 ```shell
@@ -396,9 +434,8 @@ func viewRequest() {
   "data": [
     {
       "id": 1,
-      "displayId": "01BPYMJZHFJF34CZJJR",
+      "displayId": "01BPYMMEE9NM4WJAJMG",
       "customerId": 1,
-      "customerEmail": "someone@test.com",
       "billing": {
         "firstName": "John",
         "lastName": "Doe",
@@ -414,9 +451,28 @@ func viewRequest() {
       "formName": "test",
       "formAccRef": "TST12",
       "status": "3",
+      "fieldData": [
+        {
+          "amount": "5",
+          "label": "Fee",
+          "path": "fee"
+        },
+        {
+          "amount": "0",
+          "path": "fee.lineItemFee"
+        }
+      ],
       "orderNumber": "TST12-001-4",
+      "orderId": 13378,
+      "orderDisplayId": "01BR7TCB1HM7HE1WBW0",
+      "orderEmail": "support@webconnex.com",
+      "levelLabel": "Ticket Level One",
+      "levelKey": "adult",
+      "amount": "35",
+      "fee": "5",
       "total": "40.00",
       "currency": "USD",
+      "eventDate": "2017-08-23T07:00:00Z",
       "dateCreated": "2016-01-28T00:11:10Z",
       "dateUpdated": "2016-05-02T22:32:22Z"
     }
@@ -443,13 +499,21 @@ Attribute			                  |	Description
 **id**<br>*integer* 				    | Unique id of the ticket
 **displayId**<br>*string*		   	| Unique hash used as civilian facing id
 **customerId**<br>*integer*			| Unique id of the associated customer
-**customerEmail**<br>*string*		| Email of the associated customer
 **billing**<br>*object*					| Billing object containing name and address details associated with order
 **formId**<br>*integer*					| Id of the form that associated with the order
-**formName**<br>*string*				| Name of the form that created order
-**formAccRef**<br>*string*			| Accounting reference string of the form that created order
+**formName**<br>*string*				| Name of the form that created ticket
+**formAccRef**<br>*string*			| Accounting reference string of the form that created ticket
+**fieldData**<br>*object*	  		|
 **status**<br>*string*					| Status of the ticket
+**orderId**<br>*integer*				| Unique id of the order
+**orderDisplayId**<br>*string*	| Unique hash used as civilian facing id
 **orderNumber**<br>*string*			| Order number
-**total**<br>*float*				    | Total cost of the order
+**orderEmail**<br>*string*			| Email of the associated order
+**total**<br>*float*				    | Total cost of the ticket
+**fee**<br>*float*				      | Ticket Fee
+**amount**<br>*float*				    | Ticket Amount
+**levelLabel**<br>*string*			|
+**levelKey**<br>*string*			  |
+**eventDate**<br>*timestamp*    |
 **dateCreated**<br>*timestamp*  | Timestamp of the creation of the ticket
 **dateUpdated**<br>*timestamp*  | Timestamp the ticket was last updated (optional)

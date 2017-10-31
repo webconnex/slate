@@ -152,69 +152,72 @@ func searchRequest() {
   "responseCode": 200,
   "data": [
     {
-      "id": 1,
-      "customerId": 1,
-      "customerEmail": "someone@test.com",
+      "id": 15665,
+      "displayId": "15665",
+      "formId": 1440,
+      "formName": "test campaign",
+      "formAccRef": "DPSTTST",
+      "customerId": 8302,
+      "orderId": 13429,
+      "orderDisplayId": "01BTB7W4K8E9TZM6BFR",
+      "orderNumber": "DPSTTST-0010005",
+      "orderEmail": "Job.Bluth@webconnex.com",
       "billing": {
-        "firstName": "John",
-        "lastName": "Doe",
+        "firstName": "Job",
+        "lastName": "Bluth",
         "address": {
           "city": "Sacramento",
           "country": "US",
-          "postalCode": "111111",
+          "postalCode": "95814",
           "state": "CA",
-          "street1": "1233 SW Any St."
+          "street1": "455 Capitol Mall STE 604"
         }
       },
-      "formId": 1,
-      "formName": "test",
-      "formAccRef": "TST12",
-      "status": "completed",
-      "orderNumber": "TST12-001-4",
-      "orderId": 11652,
-      "orderDisplayId": "01BPYMJZHFJF34CZJJR",
-      "total": "40.00",
-      "currency": "USD",
       "transactionType": "charge",
+      "total": "50.00",
+      "deductible": "0.00",
       "currency": "USD",
       "paymentMethod": "card",
-      "paymentType": "VISA",
+      "paymentType": "MAST",
+      "paymentMask": "MAST-2424",
       "gatewayReference": "TESTERCHARGE",
-      "dateCreated": "2016-01-28T00:11:10Z",
-      "dateUpdated": "2016-05-02T22:32:22Z"
-    },
-		{
-      "id": 2,
-      "customerId": 1,
-      "customerEmail": "someone@test.com",
-      "billing": {
-        "firstName": "John",
-        "lastName": "Doe",
-        "address": {
-          "city": "Sacramento",
-          "country": "US",
-          "postalCode": "111111",
-          "state": "CA",
-          "street1": "1233 SW Any St."
-        }
-      },
-      "formId": 1,
-      "formName": "test",
-      "formAccRef": "TST12",
       "status": "completed",
-      "orderNumber": "TST12-001-4",
-      "orderId": 10602,
-      "orderDisplayId": "01BPYMMEE9NM4WJAJMG",
-      "total": "40.00",
-      "currency": "USD",
-      "transactionType": "charge",
-      "currency": "USD",
-      "paymentMethod": "card",
-      "paymentType": "VISA",
-      "gatewayReference": "TESTERCHARGE",
-      "dateCreated": "2016-01-28T00:11:10Z",
-      "dateUpdated": "2016-05-02T22:32:22Z"
-    }
+      "dateCreated": "2017-09-18T19:36:38Z",
+      "dateUpdated": "2017-09-18T19:36:39Z"
+    }, {
+     "id": 14854,
+     "displayId": "14854",
+     "formId": 1440,
+     "formName": "deposit test",
+     "formAccRef": "DPSTTST",
+     "customerId": 1179,
+     "orderId": 13112,
+     "orderDisplayId": "1494519032659439046",
+     "orderNumber": "DPSTTST-0010004",
+     "orderEmail": "george.Micheal@webconnex.com",
+     "billing": {
+       "firstName": "George",
+       "lastName": "Micheal",
+       "address": {
+         "city": "Sacramento",
+         "country": "US",
+         "postalCode": "95814",
+         "state": "CA",
+         "street1": "455 Capitol Mall"
+       }
+     },
+     "transactionType": "charge",
+     "total": "500.00",
+     "deductible": "0.00",
+     "currency": "USD",
+     "paymentMethod": "card",
+     "paymentType": "VISA",
+     "paymentMask": "VISA-3112",
+     "gatewayReference": "TESTERCHARGE",
+     "status": "completed",
+     "dateCreated": "2017-05-11T16:10:33Z",
+     "dateUpdated": "2017-05-11T16:10:33Z"
+   }
   ],
   "totalResults": 2
 }
@@ -249,17 +252,26 @@ Parameter			                                |	Description
 ##### Response Object
 Attribute			                 |	Description
 -------------------------------|------------------------------------------------------
-**id**<br>*integer* 				   | Unique id of the transaction
-**displayId**<br>*string*		   | Unique hash used as civilian facing id
-**customerId**<br>*integer*		 | Unique id of the associated customer
-**customerEmail**<br>*string*  | Email of the associated customer
-**billing**<br>*object*				 | Billing object containing name and address details associated with order
-**formId**<br>*integer*				 | Id of the form that associated with the transaction
-**formName**<br>*string*			 | Name of the form that created transaction
-**formAccRef**<br>*string* 		 | Accounting reference string of the form that created order
+**id**<br>*integer* 				    | Unique Id
+**displayId**<br>*string*				| Unique hash used as civilian facing id
+**formId**<br>*integer*					| Id of the form that created transaction
+**formName**<br>*string*				| Name of the form that created transaction
+**formAccRef**<br>*string*			| Accounting reference string of the form that created transaction
+**customerId**<br>*integer*			| Unique id of the associated customer
+**orderId**<br>*integer*				| Unique id of the order
+**orderDisplayId**<br>*string*	| Unique hash used as civilian facing id
+**orderNumber**<br>*string*			| Order number
+**orderEmail**<br>*string*			| Email of the associated order
+**billing**<br>*object*					| Billing object containing name and address details associated with transaction
+**transactionType**<br>*string*	| Type of transaction
+**total**<br>*float*					  | Total cost of the transaction
+**deductible**<br>*float*			  | Total tax deductible amount
+**currency**<br>*string*        | Currency code
+**paymentMethod**<br>*string*   | Payment method used
+**paymentType**<br>*string*     | Payment type used
+**paymentMask**<br>*string*     | Payment Mask
+**gatewayReference**<br>*string*  | transaction Reference provided by gateway
 **status**<br>*string*				 | Status of the transaction
-**orderNumber**<br>*string*	 	 | Order number
-**total**<br>*float*					 | Transaction total
 **dateCreated**<br>*timestamp* | Timestamp of the creation of the transaction
 **dateUpdated**<br>*timestamp* | Timestamp the transaction was last updated (optional)
 
@@ -415,31 +427,39 @@ func viewRequest() {
   "responseCode": 200,
   "data": [
     {
-      "id": 1,
-      "displayId": "01BPYMMEE9NM4WJAJMG",
-      "customerId": 1,
-      "customerEmail": "someone@test.com",
-      "billing": {
-        "firstName": "John",
-        "lastName": "Doe",
-        "address": {
-          "city": "Sacramento",
-          "country": "US",
-          "postalCode": "111111",
-          "state": "CA",
-          "street1": "1233 SW Any St."
-        }
-      },
-      "formId": 1,
-      "formName": "test",
-      "formAccRef": "TST12",
-      "status": "completed",
-      "orderNumber": "TST12-001-4",
-      "total": "40.00",
-      "currency": "USD",
-      "dateCreated": "2016-01-28T00:11:10Z",
-      "dateUpdated": "2016-05-02T22:32:22Z"
-    }
+     "id": 14854,
+     "displayId": "14854",
+     "formId": 1440,
+     "formName": "deposit test",
+     "formAccRef": "DPSTTST",
+     "customerId": 1179,
+     "orderId": 13112,
+     "orderDisplayId": "1494519032659439046",
+     "orderNumber": "DPSTTST-0010004",
+     "orderEmail": "george.Micheal@webconnex.com",
+     "billing": {
+       "firstName": "George",
+       "lastName": "Micheal",
+       "address": {
+         "city": "Sacramento",
+         "country": "US",
+         "postalCode": "95814",
+         "state": "CA",
+         "street1": "455 Capitol Mall"
+       }
+     },
+     "transactionType": "charge",
+     "total": "500.00",
+     "deductible": "0.00",
+     "currency": "USD",
+     "paymentMethod": "card",
+     "paymentType": "VISA",
+     "paymentMask": "VISA-3112",
+     "gatewayReference": "TESTERCHARGE",
+     "status": "completed",
+     "dateCreated": "2017-05-11T16:10:33Z",
+     "dateUpdated": "2017-05-11T16:10:33Z"
+   }
   ]
 }
 ```
@@ -459,16 +479,25 @@ Parameter			                      |	Description
 ##### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*integer* 				| Unique id of the transaction
-**displayId**<br>*string*					| Unique hash used as civilian facing id
-**customerId**<br>*integer*					| Unique id of the associated customer
-**customerEmail**<br>*string*					| Email of the associated customer
+**id**<br>*integer* 				    | Unique Id
+**displayId**<br>*string*				| Unique hash used as civilian facing id
+**formId**<br>*integer*					| Id of the form that created transaction
+**formName**<br>*string*				| Name of the form that created transaction
+**formAccRef**<br>*string*			| Accounting reference string of the form that created transaction
+**customerId**<br>*integer*			| Unique id of the associated customer
+**orderId**<br>*integer*				| Unique id of the order
+**orderDisplayId**<br>*string*	| Unique hash used as civilian facing id
+**orderNumber**<br>*string*			| Order number
+**orderEmail**<br>*string*			| Email of the associated order
 **billing**<br>*object*					| Billing object containing name and address details associated with transaction
-**formId**<br>*integer*					| Id of the form that associated with the transaction
-**formName**<br>*string*					| Name of the form that created transaction
-**formAccRef**<br>*string*					| Accounting reference string of the form that created transaction
-**status**<br>*string*					| Status of the transaction
-**orderNumber**<br>*string*					| Order number
-**total**<br>*float*					| Total cost of the transaction
+**transactionType**<br>*string*	| Type of transaction
+**total**<br>*float*					  | Total cost of the transaction
+**deductible**<br>*float*			  | Total tax deductible amount
+**currency**<br>*string*        | Currency code
+**paymentMethod**<br>*string*   | Payment method used
+**paymentType**<br>*string*     | Payment type used
+**paymentMask**<br>*string*     | Payment Mask
+**gatewayReference**<br>*string*  | transaction Reference provided by gateway
+**status**<br>*string*				 | Status of the transaction
 **dateCreated**<br>*timestamp* | Timestamp of the creation of the transaction
 **dateUpdated**<br>*timestamp* | Timestamp the transaction was last updated (optional)
