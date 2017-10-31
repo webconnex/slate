@@ -155,7 +155,6 @@ func searchRequest() {
     "id": 11465,
     "displayId": "01BPYMMEE9NM4WJAJMG",
     "customerId": 22,
-    "customerEmail": "help@webconnex.com",
     "registrants": [
       {
         "id": 16163,
@@ -228,7 +227,6 @@ Attribute			                  |	Description
 **id**<br>*integer* 				    | Unique id of the order
 **displayId**<br>*string*				| Unique hash used as civilian facing id
 **customerId**<br>*integer*			| Unique id of the associated customer
-**customerEmail**<br>*string*		| Email of the associated customer
 **billing**<br>*object*					| Billing object containing name and address details associated with order
 **formId**<br>*integer*					| Id of the form that associated with the order
 **formName**<br>*string*				| Name of the form that created order
@@ -393,7 +391,6 @@ func viewRequest() {
     "id": 11465,
     "displayId": "01BPYMJZHFJF34CZJJR",
     "customerId": 22,
-    "customerEmail": "help@webconnex.com",
     "billing": {
       "firstName": "John",
       "lastName": "Doe",
@@ -435,7 +432,6 @@ Attribute			                  |	Description
 **id**<br>*integer* 				    | Unique id of the order
 **displayId**<br>*string*				| Unique hash used as civilian facing id
 **customerId**<br>*integer*		  | Unique id of the associated customer
-**customerEmail**<br>*string*		| Email of the associated customer
 **billing**<br>*object*					| Billing object containing name and address details associated with order
 **formId**<br>*integer*					| Id of the form that associated with the order
 **formName**<br>*string*				| Name of the form that created order

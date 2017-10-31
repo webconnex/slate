@@ -151,60 +151,70 @@ func searchRequest() {
 ```json
 {
   "responseCode": 200,
-  "data": [
-    {
-      "id": 1,
-      "displayId": "01BPYMJZHFJF34CZJJR",
-      "customerId": 1,
-      "customerEmail": "someone@test.com",
-      "billing": {
-        "firstName": "John",
-        "lastName": "Doe",
-        "address": {
-          "city": "Sacramento",
-          "country": "US",
-          "postalCode": "111111",
-          "state": "CA",
-          "street1": "1233 SW Any St."
-        }
+  "data": [{
+    "id": 18450,
+    "displayId": "01BTB7W4KPJMTNFDP33",
+    "formId": 1440,
+    "formName": "deposit test",
+    "formAccRef": "DPSTTST",
+    "customerId": 8302,
+    "orderId": 13429,
+    "orderDisplayId": "01BTB7W4K8E9TZM6BFR",
+    "orderNumber": "DPSTTST-0010005",
+    "orderEmail": "tobias.funke@webconnex.com",
+    "status": "completed",
+    "total": "50.00",
+    "amount": "50.00",
+    "currency": "USD",
+    "fieldData": [
+      {
+        "label": "Registration Options",
+        "path": "registrationOptions",
+        "value": "option2"
       },
-      "formId": 1,
-      "formName": "test",
-      "formAccRef": "TST12",
-      "status": "3",
-      "orderNumber": "TST12-001-4",
-      "total": "40.00",
-      "currency": "USD",
-      "dateCreated": "2016-01-28T00:11:10Z",
-      "dateUpdated": "2016-05-02T22:32:22Z"
-    },
-		{
-      "id": 2,
-      "displayId": "01BPYMMEE9NM4WJAJMG",
-      "customerId": 1,
-      "customerEmail": "someone@test.com",
-      "billing": {
-        "firstName": "John",
-        "lastName": "Doe",
-        "address": {
-          "city": "Sacramento",
-          "country": "US",
-          "postalCode": "111111",
-          "state": "CA",
-          "street1": "1233 SW Any St."
-        }
+      {
+        "amount": "50",
+        "label": "Option 2",
+        "path": "registrationOptions.option2",
+        "value": "true"
+      }
+    ],
+    "checkedIn": true,
+    "dateCheckedIn": "2017-10-30T23:20:42Z",
+    "dateCreated": "2017-09-18T19:36:38Z",
+    "dateUpdated": "2017-10-30T23:20:42Z"
+  },
+  {
+    "id": 18389,
+    "displayId": "01BR83E95HK7VA0V27Z",
+    "formId": 40632,
+    "formName": "My Form",
+    "formAccRef": "MTTFRFRM",
+    "customerId": 8374,
+    "orderId": 13380,
+    "orderDisplayId": "01BR83E955WK32T88BP",
+    "orderNumber": "MTTFRFRM-0010003",
+    "orderEmail": "gob.bluth@webconnex.com",
+    "status": "completed",
+    "total": "0",
+    "amount": "0",
+    "currency": "GBP",
+    "fieldData": [
+      {
+        "label": "T-Shirt Size",
+        "path": "tshirt",
+        "value": "mensSmall"
       },
-      "formId": 1,
-      "formName": "test",
-      "formAccRef": "TST12",
-      "status": "3",
-      "orderNumber": "TST12-001-4",
-      "total": "40.00",
-      "currency": "USD",
-      "dateCreated": "2016-01-28T00:11:10Z",
-      "dateUpdated": "2016-05-02T22:32:22Z"
-    }
-  ],
+      {
+        "amount": "0",
+        "label": "Men's Small",
+        "path": "tshirt.mensSmall",
+        "value": "true"
+      }
+    ],
+    "dateCreated": "2017-08-23T17:50:02.964566996Z",
+    "dateUpdated": "2017-08-23T17:50:02.991678878Z"
+  }],
   "totalResults": 2
 }
 ```
@@ -238,15 +248,23 @@ Attribute			                  |	Description
 --------------------------------|-----------------------------------------------------
 **id**<br>*integer* 				    | Unique id of the registrant
 **displayId**<br>*string*				| Unique hash used as civilian facing id
-**customerId**<br>*integer*			| Unique id of the associated customer
-**customerEmail**<br>*string*		| Email of the associated customer
-**billing**<br>*object*					| Billing object containing name and address details associated with order
 **formId**<br>*integer*					| Id of the form that associated with the order
 **formName**<br>*string*				| Name of the form that created order
 **formAccRef**<br>*string*			| Accounting reference string of the form that created order
+**customerId**<br>*integer*			| Unique id of the associated customer
+**orderId**<br>*integer*				| Unique id of the order
+**orderDisplayId**<br>*string*	| Unique hash used as civilian facing id
+**orderNumber**<br>*string*			| Order number
+**orderEmail**<br>*string*			| Email of the associated order
+**amount**<br>*float*            | Total cost of the registrant
+**billing**<br>*object*					| Billing object containing name and address details associated with order
 **status**<br>*string*					| Status of the registrant
 **orderNumber**<br>*string* 		| Order number
 **total**<br>*float*            | Total cost of the registrant
+**fieldData**<br>*object*       |
+**currency**<br>*string*        | Currency code
+**checkedIn**<br>*bool*         |
+**dateCheckedIn**<br>*timestamp*  | Timestamp the registrant was checked in
 **dateCreated**<br>*timestamp*  | Timestamp of the creation of the registrant
 **dateUpdated**<br>*timestamp*  | Timestamp the registrant was last updated (optional)
 
@@ -395,7 +413,6 @@ func viewRequest() {
       "id": 1,
       "displayId": "01BPYMMEE9NM4WJAJMG",
       "customerId": 1,
-      "customerEmail": "someone@test.com",
       "billing": {
         "firstName": "John",
         "lastName": "Doe",
@@ -436,15 +453,23 @@ Attribute			                  |	Description
 --------------------------------|-----------------------------------------------
 **id**<br>*integer* 				    | Unique id of the registrant
 **displayId**<br>*string*				| Unique hash used as civilian facing id
-**customerId**<br>*integer*			| Unique id of the associated customer
-**customerEmail**<br>*string*		| Email of the associated customer
-**billing**<br>*object*					| Billing object containing name and address details associated with order
 **formId**<br>*integer*					| Id of the form that associated with the order
 **formName**<br>*string*				| Name of the form that created order
-**formAccRef**<br>*string*      | Accounting reference string of the form that created order
-**status**<br>*string*          | Status of the registrant
-**orderNumber**<br>*string*     | Order number
-**total**<br>*float*            | Total cost of the order
+**formAccRef**<br>*string*			| Accounting reference string of the form that created order
+**customerId**<br>*integer*			| Unique id of the associated customer
+**orderId**<br>*integer*				| Unique id of the order
+**orderDisplayId**<br>*string*	| Unique hash used as civilian facing id
+**orderNumber**<br>*string*			| Order number
+**orderEmail**<br>*string*			| Email of the associated order
+**amount**<br>*float*            | Total cost of the registrant
+**billing**<br>*object*					| Billing object containing name and address details associated with order
+**status**<br>*string*					| Status of the registrant
+**orderNumber**<br>*string* 		| Order number
+**total**<br>*float*            | Total cost of the registrant
+**fieldData**<br>*object*       |
+**currency**<br>*string*        | Currency code
+**checkedIn**<br>*bool*         |
+**dateCheckedIn**<br>*timestamp*  | Timestamp the registrant was checked in
 **dateCreated**<br>*timestamp*  | Timestamp of the creation of the registrant
 **dateUpdated**<br>*timestamp*  | Timestamp the registrant was last updated (optional)
 

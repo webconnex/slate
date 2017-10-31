@@ -154,53 +154,51 @@ func searchRequest() {
   "data": [
     {
       "id": 1,
-      "customerId": 1,
-      "customerEmail": "help@webconnex.com",
-      "billing": {
-        "firstName": "John",
-        "lastName": "Doe",
-        "address": {
-          "city": "Sacramento",
-          "country": "US",
-          "postalCode": "111111",
-          "state": "CA",
-          "street1": "1233 SW Any St."
-        }
-      },
-      "formId": 1,
-      "formName": "test",
-      "formAccRef": "TST12",
-      "status": "3",
-      "orderNumber": "TST12-001-4",
-      "total": "40.00",
+      "displayId": "1",
+      "formId": 213213,
+      "formName": "Wizard Form",
+      "formAccRef": "WZRDFRM",
+      "customerId": 4623,
+      "orderId": 212431,
+      "orderDisplayId": "01BXQDE87DF34643DS",
+      "orderNumber": "FRM-001040F",
+      "orderEmail": "help@webconnex.com",
+      "status": "active",
+      "amount": "10.00",
+      "deductible": "10.00",
+      "adjustment": "0.00",
       "currency": "USD",
-      "dateCreated": "2016-01-28T00:11:10Z",
-      "dateUpdated": "2016-05-02T22:32:22Z"
+      "category": " fund name",
+      "schedule": "16th of every month",
+      "dateLast": "2017-09-16T00:00:14.202655988Z",
+      "dateNext": "2017-10-16T10:00:00Z",
+      "paymentsRemaining": "unlimited",
+      "dateCreated": "2017-08-16T14:40:57Z",
+      "dateUpdated": "2017-09-16T00:00:14.292478947Z"
     },
 		{
       "id": 2,
-      "customerId": 1,
-      "customerEmail": "help@webconnex.com",
-      "billing": {
-        "firstName": "John",
-        "lastName": "Doe",
-        "address": {
-          "city": "Sacramento",
-          "country": "US",
-          "postalCode": "111111",
-          "state": "CA",
-          "street1": "1233 SW Any St."
-        }
-      },
-      "formId": 1,
-      "formName": "test",
-      "formAccRef": "TST12",
-      "status": "3",
-      "orderNumber": "TST12-001-4",
-      "total": "40.00",
+      "displayId": "2",
+      "formId": 243243,
+      "formName": "My Form",
+      "formAccRef": "FRMPRTII",
+      "customerId": 2234,
+      "orderId": 2234,
+      "orderDisplayId": "01BXQDEDKY1TFNQ40BZ",
+      "orderNumber": "FRMPRTII-001040F",
+      "orderEmail": "help@webconnex.com",
+      "status": "active",
+      "amount": "20.00",
+      "deductible": "20.00",
+      "adjustment": "0.00",
       "currency": "USD",
-      "dateCreated": "2016-01-28T00:11:10Z",
-      "dateUpdated": "2016-05-02T22:32:22Z"
+      "category": " fund name",
+      "schedule": "16th of every month",
+      "dateLast": "2017-09-16T00:00:14.202655988Z",
+      "dateNext": "2017-10-16T10:00:00Z",
+      "paymentsRemaining": "56",
+      "dateCreated": "2017-08-16T14:40:57Z",
+      "dateUpdated": "2017-09-16T00:00:14.292478947Z"
     }
   ],
   "totalResults": 2
@@ -213,42 +211,50 @@ func searchRequest() {
 Parameter			|	Description
 --------------|----------------------------------------------------------------------
 **product**<br>*string*<br>(required)		| Name of the product you to search for subscriptions against
-**formId**<br>*integer*<br>(optional) 		| Id of the form you want to filter subscriptions by
-**status**<br>*string*<br>(optional) 				| Status string of the subscription you want to filter on
-**sort**<br>*string*<br>(optional) 			            	|
-**limit**<br>*string*<br>(optional) 				          | Limits the number of results returned
-**orderId**<br>*integer*<br>(optional) 		   		| Filter subscriptions to only show results matching a provided order id
-**orderDisplayId**<br>*string*<br>(optional) 		   		| Filter subscriptions to only show results matching a provided order display id
-**greaterThanId**<br>*integer*<br>(optional) 		   		| Filter subscriptions to only show results greater than provided id
 **formId**<br>*integer*<br>(optional) 			         	| Filter subscriptions to only show results matching the form id
-**customerId**<br>*integer*<br>(optional) 				    | Filter subscriptions to only show results matching the customer id
-**orderEmail**<br>*string*<br>(optional) 				      | Filter subscriptions to only show results matching the email
-**orderNumber**<br>*string*<br>(optional) 				    | Filter subscriptions to only show results matching the order number
-**lessThanId**<br>*integer*<br>(optional) 		       	| Filter subscriptions to only show results less than provided id
-**startingAfter**<br>*integer*<br>(optional) 			    | Filter subscriptions to only show results with id's after value
-**dateCreatedBefore**<br>*timestamp*<br>(optional) 		| Filter subscriptions to only show results created before date
-**dateCreatedAfter**<br>*timestamp*<br>(optional) 		| Filter subscriptions to only show results created before date
-**dateUpdatedBefore**<br>*timestamp*<br>(optional) 		| Filter subscriptions to only show results updated before date
-**dateUpdatedAfter**<br>*timestamp*<br>(optional) 		| Filter subscriptions to only show results updated after date
+**status**<br>*string*<br>(optional) 				| Status string of the subscription you want to filter on
+**sort**<br>*string*<br>(optional) 			            |
+**limit**<br>*string*<br>(optional) 				        | Limits the number of results returned
+**orderId**<br>*integer*<br>(optional) 		   		    | Filter subscriptions to only show results matching a provided order id
+**orderDisplayId**<br>*string*<br>(optional) 		    | Filter subscriptions to only show results matching a provided order display id
+**orderEmail**<br>*string*<br>(optional) 				    | Filter subscriptions to only show results matching the email
+**orderNumber**<br>*string*<br>(optional) 				  | Filter subscriptions to only show results matching the order number
+**greaterThanId**<br>*integer*<br>(optional) 		    | Filter subscriptions to only show results greater than provided id
+**customerId**<br>*integer*<br>(optional) 				  | Filter subscriptions to only show results matching the customer id
+**lessThanId**<br>*integer*<br>(optional) 		      | Filter subscriptions to only show results less than provided id
+**startingAfter**<br>*integer*<br>(optional) 			  | Filter subscriptions to only show results with id's after value
+**dateCreatedBefore**<br>*timestamp*<br>(optional) 	| Filter subscriptions to only show results created before date
+**dateCreatedAfter**<br>*timestamp*<br>(optional) 	| Filter subscriptions to only show results created before date
+**dateUpdatedBefore**<br>*timestamp*<br>(optional) 	| Filter subscriptions to only show results updated before date
+**dateUpdatedAfter**<br>*timestamp*<br>(optional) 	| Filter subscriptions to only show results updated after date
 **dateNextAfter**<br>*timestamp*<br>(optional) 		| Filter subscriptions to only show results scheduled to run after date
 **dateLastAfter**<br>*timestamp*<br>(optional) 		| Filter subscriptions to only show results processed after date
 
 ##### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*integer* 				| Unique id of the subscription
+**id**<br>*integer* 				      | Unique id of the subscription
 **displayId**<br>*string*					| Unique hash used as civilian facing id
-**customerId**<br>*integer*					| Unique id of the associated customer
-**customerEmail**<br>*string*					| Email of the associated customer
-**billing**<br>*object*					| Billing object containing name and address details associated with subscription
-**formId**<br>*integer*					| Id of the form that associated with the order
+**customerId**<br>*integer*			| Unique id of the associated customer
+**orderId**<br>*integer*				| Unique id of the order
+**orderDisplayId**<br>*string*	| Unique hash used as civilian facing id
+**orderNumber**<br>*string*			| Order number
+**orderEmail**<br>*string*			| Email of the associated order
+**formId**<br>*integer*					  | Id of the form that associated with the order
 **formName**<br>*string*					| Name of the form that created subscription
-**formAccRef**<br>*string*					| Accounting reference string of the form that created order
-**status**<br>*string*					| Status of the subscription
-**orderNumber**<br>*string*					| Order number
-**total**<br>*float*					| Total cost of the order
-**dateCreated**<br>*timestamp* | Timestamp of the creation of the subscription
-**dateUpdated**<br>*timestamp* | Timestamp the subscription was last updated (optional)
+**formAccRef**<br>*string*				| Accounting reference string of the form that created order
+**status**<br>*string*					  | Status of the subscription
+**amount**<br>*float*					    | Total amount of the subscription
+**deductible**<br>*float*					| Deductible amount
+**adjustment**<br>*float*					| Adjustment to be applied to next payment
+**currency**<br>*string*          | Currency of the subscription
+**category**<br>*string*          | Fund designated
+**schedule**<br>*string*          | Human readable schedule
+**dateLast**<br>*timestamp*       | Timestamp of the last successful payment
+**dateNext**<br>*timestamp*       | Timestamp of the next schedule payment
+**paymentsRemaining**<br>*string* | String representation of the number of remaining payments
+**dateCreated**<br>*timestamp*    | Timestamp object was created
+**dateUpdated**<br>*timestamp*    | Timestamp object was last updated (optional)
 
 #### View Subscription by Id
 ```shell
@@ -402,29 +408,28 @@ func viewRequest() {
   "responseCode": 200,
   "data": [
     {
-      "id": 1,
-      "customerId": 1,
-      "customerEmail": "help@webconnex.com",
-      "billing": {
-        "firstName": "John",
-        "lastName": "Doe",
-        "address": {
-          "city": "Sacramento",
-          "country": "US",
-          "postalCode": "111111",
-          "state": "CA",
-          "street1": "1233 SW Any St."
-        }
-      },
-      "formId": 1,
-      "formName": "test",
-      "formAccRef": "TST12",
-      "status": "3",
-      "orderNumber": "TST12-001-4",
-      "total": "40.00",
+      "id": 23432,
+      "displayId": "23432",
+      "formId": 123,
+      "formName": "Wizard Form",
+      "formAccRef": "WZRDFRM",
+      "customerId": 123,
+      "orderId": 231,
+      "orderDisplayId": "234FDSDGDF234123",
+      "orderNumber": "FRM-001040F",
+      "orderEmail": "help@webconnex.com",
+      "status": "active",
+      "amount": "10.00",
+      "deductible": "10.00",
+      "adjustment": "0.00",
       "currency": "USD",
-      "dateCreated": "2016-01-28T00:11:10Z",
-      "dateUpdated": "2016-05-02T22:32:22Z"
+      "category": " fund name",
+      "schedule": "16th of every month",
+      "dateLast": "2017-09-16T00:00:14.202655988Z",
+      "dateNext": "2017-10-16T10:00:00Z",
+      "paymentsRemaining": "unlimited",
+      "dateCreated": "2017-08-16T14:40:57Z",
+      "dateUpdated": "2017-09-16T00:00:14.292478947Z"
     }
   ]
 }
@@ -442,15 +447,25 @@ Parameter			                          |	Description
 ##### Response Object
 Attribute			|	Description
 --------------|----------------------------------------------------------------------
-**id**<br>*integer* 				| Unique id of the subscription
-**customerId**<br>*integer*					| Unique id of the associated customer
-**customerEmail**<br>*string*					| Email of the associated customer
-**billing**<br>*object*					| Billing object containing name and address details associated with subscription
-**formId**<br>*integer*					| Id of the form that associated with the order
-**formName**<br>*string*					| Name of the form that created order
-**formAccRef**<br>*string*					| Accounting reference string of the form that created order
-**status**<br>*string*					| Status of the subscription
-**orderNumber**<br>*string*					| Order number
-**total**<br>*float*					| Total cost of the order
-**dateCreated**<br>*timestamp* | Timestamp of the creation of the subscription
-**dateUpdated**<br>*timestamp* | Timestamp the subscription was last updated (optional)
+**id**<br>*integer* 				      | Unique id of the subscription
+**displayId**<br>*string*					| Unique hash used as civilian facing id
+**customerId**<br>*integer*			| Unique id of the associated customer
+**orderId**<br>*integer*				| Unique id of the order
+**orderDisplayId**<br>*string*	| Unique hash used as civilian facing id
+**orderNumber**<br>*string*			| Order number
+**orderEmail**<br>*string*			| Email of the associated order
+**formId**<br>*integer*					  | Id of the form that associated with the order
+**formName**<br>*string*					| Name of the form that created subscription
+**formAccRef**<br>*string*				| Accounting reference string of the form that created order
+**status**<br>*string*					  | Status of the subscription
+**amount**<br>*float*					    | Total amount of the subscription
+**deductible**<br>*float*					| Deductible amount
+**adjustment**<br>*float*					| Adjustment to be applied to next payment
+**currency**<br>*string*          | Currency of the subscription
+**category**<br>*string*          | Fund designated
+**schedule**<br>*string*          | Human readable schedule
+**dateLast**<br>*timestamp*       | Timestamp of the last successful payment
+**dateNext**<br>*timestamp*       | Timestamp of the next schedule payment
+**paymentsRemaining**<br>*string* | String representation of the number of remaining payments
+**dateCreated**<br>*timestamp*    | Timestamp object was created
+**dateUpdated**<br>*timestamp*    | Timestamp object was last updated (optional)
