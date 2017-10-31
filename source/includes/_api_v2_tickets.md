@@ -195,8 +195,7 @@ func searchRequest() {
       "eventDate": "2017-08-23T07:00:00Z",
       "dateCreated": "2016-01-28T00:11:10Z",
       "dateUpdated": "2016-05-02T22:32:22Z"
-    },
-		{
+    }, {
       "id": 2,
       "displayId": "01BPYMJZHFJF34CZJJR",
       "customerId": 1,
@@ -273,7 +272,7 @@ Attribute			                 |	Description
 **formId**<br>*integer*					| Id of the form that associated with the order
 **formName**<br>*string*				| Name of the form that created ticket
 **formAccRef**<br>*string*			| Accounting reference string of the form that created ticket
-**fieldData**<br>*object*	  		| 
+**fieldData**<br>*object*	  		|
 **status**<br>*string*					| Status of the ticket
 **orderId**<br>*integer*				| Unique id of the order
 **orderDisplayId**<br>*string*	| Unique hash used as civilian facing id

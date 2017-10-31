@@ -183,8 +183,7 @@ func searchRequest() {
     "dateCheckedIn": "2017-10-30T23:20:42Z",
     "dateCreated": "2017-09-18T19:36:38Z",
     "dateUpdated": "2017-10-30T23:20:42Z"
-  },
-  {
+  }, {
     "id": 18389,
     "displayId": "01BR83E95HK7VA0V27Z",
     "formId": 40632,
@@ -431,6 +430,7 @@ func viewRequest() {
       "orderNumber": "TST12-001-4",
       "total": "40.00",
       "currency": "USD",
+      "checkedIn": false,
       "dateCreated": "2016-01-28T00:11:10Z",
       "dateUpdated": "2016-05-02T22:32:22Z"
     }
