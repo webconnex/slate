@@ -175,8 +175,7 @@ func searchRequest() {
       "paymentsRemaining": "unlimited",
       "dateCreated": "2017-08-16T14:40:57Z",
       "dateUpdated": "2017-09-16T00:00:14.292478947Z"
-    },
-		{
+    }, {
       "id": 2,
       "displayId": "2",
       "formId": 243243,
