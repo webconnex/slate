@@ -1,5 +1,7 @@
 ### Customers
 
+Important Note: While a customer Id is assigned as time of registration; new customer records can take up to 5 minutes to be created and available in the Public API.
+
 #### Search Customers
 ```shell
 curl "https://api.webconnex.com/v2/public/search/customers?product=redpodium.com&pretty=true" \

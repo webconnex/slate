@@ -211,6 +211,7 @@ func searchRequest() {
         "value": "true"
       }
     ],
+    "checkedIn": false,
     "dateCreated": "2017-08-23T17:50:02.964566996Z",
     "dateUpdated": "2017-08-23T17:50:02.991678878Z"
   }],
