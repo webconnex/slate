@@ -66,7 +66,7 @@ Click [HERE](http://help.ticketspice.com/article/501-order-statuses-explained) t
 
 | Available Statuses
 | ------------------
-| prcoessing
+| processing
 | pending offline
 | declined
 | canceled
@@ -80,15 +80,16 @@ Click [HERE](http://help.regfox.com/article/972-transaction-statuses-explained) 
 
 ### Types
 
-| Types
-| ------------------
-| charge
-| refund
-| voucher
-| cash
-| preauth
+| Types | Description
+| -------------	| -------------------------------------------------------
+| charge				|
+| refund				|
+| voucher				|
+| cash					|
+| preauth				| A zero dollar transaction used for validating a future payment method
+| chargeback		| Transaction used to report when a credit card holder contacts his bank or credit card company to dispute a charge on his account
 
-## Subscriptions / Reocurring Payments
+## Subscriptions / Reoccurring Payments
 
 Available Statuses | Description
 ------------------ | -------------------------------------------------------
