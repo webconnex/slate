@@ -185,11 +185,11 @@ Parameter			                        |	Description
 ##### Response Object
 Attribute			                  |	Description
 --------------------------------|-----------------------------------------------
-**id**<br>*integer* 			   	  | Unique id of the form
-**name**<br>*string*					  | Name of the form
+**id**<br>*integer* 			   	  | Unique id
+**name**<br>*string*					  | Name
 **status**<br>*string*				  | Status of the form
-**dateCreated**<br>*timestamp*  | Timestamp of the creation of the form
-**dateUpdated**<br>*timestamp*  | Timestamp the form was last updated (optional)
+**dateCreated**<br>*timestamp*  | Timestamp creation
+**dateUpdated**<br>*timestamp*  | Timestamp last updated (optional)
 
 #### View Form
 ```shell
@@ -450,14 +450,14 @@ Parameter			                    |	Description
 ##### Response Object
 Attribute												|	Description
 --------------------------------|----------------------------------------------------
-**id**<br>*Integer* 						| Unique id of the
-**name**<br>*string*						| Name of the form
-**status**<br>*string*					| Status of the form
+**id**<br>*Integer* 						| Unique id
+**name**<br>*string*						| Name
+**status**<br>*string*					| Status
 **accRef**<br>*string*					| Accounting Reference
 **fields**<br>*object*		      | A collection of fields that make up the form
 **timeZone**<br>*string*			  | Timezone code for the form
-**dateCreated**<br>*timestamp*  | Timestamp of the creation of the form
-**dateUpdated**<br>*timestamp*  | Timestamp the form was last updated (optional)
+**dateCreated**<br>*timestamp*  | Timestamp of creation
+**dateUpdated**<br>*timestamp*  | Timestamp last updated (optional)
 
 ##### Fields Object
 Attribute											        	|	Description
