@@ -151,7 +151,7 @@ Multiple endpoints allow for a `[]expand=?` URI parameter to be passed to return
 
 Endpoints which support `[]expand` include:
 
-- [View Form](#get-form-by-id)
+- [View Form](#view-form)
 
 - [View Order](#view-order-by-id)
 
