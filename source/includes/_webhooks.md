@@ -14,11 +14,14 @@ We currently support the following events:
 
 ## Control Panel Interface
 
-Aside from using the public API, you can create webhooks in the [control-panel interface](https://manage.webconnex.com) under the account settings.
+Aside from using the public API, you can create webhooks in the [control-panel interface](https://manage.webconnex.com) under the Extra -> Integrations Tab.
 
-In the list of your webhooks you are able to disable them by toggling them on and off.
+The default screen lists all of your current integrations.
+![Integration Listings](/images/integration-listings.png)
 
-![Recent Webhooks](/images/webhook-activate.png)
+Clicking on an integration will navigate to the details page where you can configure various options.
+
+![Webhook Settings](/images/webhook-settings.png)
 
 The control panel will show you a log of all the requests made for a given webhook and allow you to view your servers response to the sent webhook to help you troubleshoot any potential problems.
 
