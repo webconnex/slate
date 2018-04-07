@@ -9,7 +9,7 @@ language_tabs:
   - python: Python
 
 toc_footers:
-  - ©2017 Webconnex
+  - ©2018 Webconnex
 
 includes:
   - oath
