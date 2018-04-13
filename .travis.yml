@@ -6,7 +6,7 @@ cache: bundler
 script: bundle exec middleman build
 deploy:
   on:
-    tags: true
+    branch: apiv2-docs
   provider: s3
   access_key_id: "AKIAIT3SX5MACHZVKUMQ"
   bucket: "S3 Bucket"
