@@ -9,7 +9,7 @@ deploy:
     branch: apiv2-docs
   provider: s3
   access_key_id: "AKIAIT3SX5MACHZVKUMQ"
-  bucket: "S3 Bucket"
+  bucket: "docs.webconnex.io/api/v2"
   skip_cleanup: true
   local_dir: build
   region: "us-west-2"
