@@ -1,10 +1,17 @@
 sudo: false
-
 language: ruby
-
 rvm:
-  - 2.0.0
-  - 2.1.0
-
+- 2.4.0
 cache: bundler
 script: bundle exec middleman build
+deploy:
+  on:
+    tags: true
+  provider: s3
+  access_key_id: "AKIAIT3SX5MACHZVKUMQ"
+  bucket: "S3 Bucket"
+  skip_cleanup: true
+  local_dir: build
+  region: "us-west-2"
+  secret_access_key:
+    secure: soTeSIO6tTW/p5Hs2Br48RjWM8kOH7CGZ4PQqt60hhShNHoPPyYmMysXc4pyD+ACd7XKl4EW/fK9WomBRlIXyYjG/jeWXB6FEyr5k4zbxaE818CakyUUXxWwl3LgKbY8XZJ6C8Z/6XpCEx0eY6wI1s//J6sYnvHaVJjPvi8nTRTyCkEtbRu9fvHoVuXp40M/+k19u4oNhAiDFGgZZZY2a2A1ZiLcUFYFd81ZlJUdIXegc8XH9YygGv8WVdXc+ChLVbyC3NJYsXKtdG1dpCTeDZxc4Af6r8qxKZQjnVtu2g+zF0/BmZPheaBMkiT0r5Czj3wUfhbWE+0ildPmdiOzECiUWP6KwhRLOHDelOirmNPFRIP9RCzGvDkNXAMtpFoVlGSIH+a2nR5daG/aY9w8V9MroTUfxrDBN66EeLoAvqBSUcSKWfKGYsphXHM13WvBOzhktDHePyK5hBMwBkjyPPsz8wynrNSm3vOvqEW/cQAnhuHqIiHbiLa6u2Zpm52mgC2aITp5eltKR5zSeKkH8akIk8xgn3HjyyisSXCq4wrp4NbWA0SVibCHhqNi0SMjzS17VMkIDlHp+wMeCG2iirorGplHqjHIQ0ywGWJNi7y1WN+u9kTdbvXn3w+wHOUwODC3WV9Yq9SkFzcM01lxF4fUYk/yLIsoJMm/E0fhIqs=
