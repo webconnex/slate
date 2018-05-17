@@ -17,7 +17,7 @@ The following datetime formats can be used when querying with a `timestamp` URI 
 - "2006-01-02"
 - "2006-01-02T15:04:05Z"
 
-## Orders
+## Orders Details
 
 | Available Statuses
 | -----------------------
@@ -31,7 +31,7 @@ The following datetime formats can be used when querying with a `timestamp` URI 
 
 Click [HERE](http://help.regfox.com/article/973-registration-statuses-explained) to see a help article explaining these statuses.
 
-## Registrants
+## Registrants Details
 
 | Available Statuses
 | -----------------------
@@ -47,7 +47,7 @@ Click [HERE](http://help.regfox.com/article/973-registration-statuses-explained)
 
 Click [HERE](http://help.regfox.com/article/973-registration-statuses-explained) to see a help article explaining these statuses.
 
-## Tickets
+## Tickets Details
 
 | Available Statuses
 | -----------------------
@@ -60,7 +60,7 @@ Click [HERE](http://help.regfox.com/article/973-registration-statuses-explained)
 
 Click [HERE](http://help.ticketspice.com/article/501-order-statuses-explained) to see a help article explaining these statuses.
 
-## Transactions
+## Transactions Details
 
 ### Statuses
 
@@ -89,7 +89,7 @@ Click [HERE](http://help.regfox.com/article/972-transaction-statuses-explained) 
 | preauth				| A zero dollar transaction used for validating a future payment method
 | chargeback		| Transaction used to report when a credit card holder contacts his bank or credit card company to dispute a charge on his account
 
-## Subscriptions / Reoccurring Payments
+## Subscriptions / Reoccurring Payments Details
 
 Available Statuses | Description
 ------------------ | -------------------------------------------------------
@@ -98,7 +98,7 @@ inactive           | Is inactive and will not process future payments
 canceled           | Is canceled and will no longer process future payments
 completed          | Is completed and will no longer process future payments
 
-## Memberships
+## Memberships Details
 
 | Available Statuses
 | ------------------
@@ -109,7 +109,7 @@ completed          | Is completed and will no longer process future payments
 | purchasing
 | abandoned
 
-## Forms
+## Forms Details
 
 | Available Statuses
 | ------------------
@@ -119,7 +119,7 @@ completed          | Is completed and will no longer process future payments
 | archived
 | deleted
 
-## Webhooks
+## Webhooks Details
 
 ### Statuses
 
@@ -135,7 +135,7 @@ Id   | Available Types
 1    | Standard webhook
 2-20 | Internal webhook types that should not be edited
 
-## Currency
+## Currency Details
 
 Note: additional new currencies can be added at any time.
 

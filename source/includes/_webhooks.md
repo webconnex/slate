@@ -1,16 +1,16 @@
-# Webhooks
+# Webhook
 
 Our webhook system allows you to receive data when certain events happen on your account.
 
 We currently support the following events:
 
-- New Registrations/Orders
+- New Registrations/Orders Notification
 - Subscription/Recurring Notification
 - Reoccurring SMS Donation Notification (Beta)
-- Form Published
-- Inventory Supply
-- Coupons
-- Test
+- Form Published Notification
+- Inventory Supply Notification
+- Coupons Notification
+- Test Notification
 
 ## Control Panel Interface
 
