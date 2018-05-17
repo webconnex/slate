@@ -12,7 +12,6 @@ toc_footers:
   - ©2018 Webconnex
 
 includes:
-  - oauth
   - api_v2
   - api_v2_endpoints
   - api_v2_ping

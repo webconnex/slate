@@ -1,8 +1,8 @@
-## Webhooks Events
+## Webhook Events
 
 These are the system events that are available as webhook triggers.
 
-### Registration
+### Registration Notification
 
 > Example Payload:
 
@@ -175,7 +175,7 @@ Parameter | Default | Description
 name      | string  | The name of the webhook
 appKey    | string  | Self assigned application key (optional)
 
-### Form Publish
+### Form Publish Event
 
 > Example Payload:
 
@@ -468,7 +468,7 @@ text2GiveNumber      | string  | The donation level tied to the campaign
 billing              | object  | Object contains the billing information
 
 
-### Inventory
+### Inventory Notification
 
 > Example Payload:
 
@@ -541,7 +541,7 @@ name      | string  | The name of the webhook
 appKey    | string  | Self assigned application key (optional)
 
 
-### Coupons
+### Coupons Notification
 
 > Example Payload:
 
@@ -635,7 +635,7 @@ valueType | string    | Specifies the discount type - `Percent` or `Fixed`
 value     | string    | Value amount to apply
 
 
-### Test
+### Test Notification
 
 > Example Payload:
 
