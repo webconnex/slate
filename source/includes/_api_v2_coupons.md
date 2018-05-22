@@ -205,9 +205,9 @@ Parameter			                      |	Description
 **dateExpiresBefore**<br>*timestamp*<br>(optional)    |
 **dateExpiresAfter**<br>*timestamp*<br>(optional)     |
 **redeemedGreaterThan**<br>*integer*<br>(optional)    |
-**lessThanRedeemed**<br>*integer*<br>(optional)       |
-**greaterThanAvailable**<br>*integer*<br>(optional)   |
-**lessThanAvailable**<br>*integer*<br>(optional)      |
+**redeemedLessThan**<br>*integer*<br>(optional)       |
+**availableGreaterThan**<br>*integer*<br>(optional)   |
+**availableLessThan**<br>*integer*<br>(optional)      |
 **code**<br>*string*<br>(optional)                    |
 
 ##### Response Object
