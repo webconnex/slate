@@ -29,7 +29,7 @@ The following datetime formats can be used when querying with a `timestamp` URI 
 | pending final payment
 | waitlisted
 
-Click [HERE](http://help.regfox.com/article/973-registration-statuses-explained) to see a help article explaining these statuses.
+Click [HERE](https://help.regfox.com/reporting-exporting-and-analytics/reporting/registration-statuses-explained) to see a help article explaining these statuses.
 
 ## Registrants Details
 
@@ -45,7 +45,7 @@ Click [HERE](http://help.regfox.com/article/973-registration-statuses-explained)
 | pending final payment
 | waitlisted
 
-Click [HERE](http://help.regfox.com/article/973-registration-statuses-explained) to see a help article explaining these statuses.
+Click [HERE](https://help.regfox.com/reporting-exporting-and-analytics/reporting/registration-statuses-explained) to see a help article explaining these statuses.
 
 ## Tickets Details
 
@@ -58,7 +58,7 @@ Click [HERE](http://help.regfox.com/article/973-registration-statuses-explained)
 | pending offline payment
 | pending final payment
 
-Click [HERE](http://help.ticketspice.com/article/501-order-statuses-explained) to see a help article explaining these statuses.
+Click [HERE](https://help.ticketspice.com/reporting-exporting-and-analytics/reporting/order-statuses-explained) to see a help article explaining these statuses.
 
 ## Transactions Details
 
@@ -76,7 +76,7 @@ Click [HERE](http://help.ticketspice.com/article/501-order-statuses-explained) t
 | gateway error
 | error
 
-Click [HERE](http://help.regfox.com/article/972-transaction-statuses-explained) to see a help article explaining these statuses.
+Click [HERE](https://help.regfox.com/reporting-exporting-and-analytics/reporting/transaction-statuses-explained) to see a help article explaining these statuses.
 
 ### Types
 
@@ -91,12 +91,12 @@ Click [HERE](http://help.regfox.com/article/972-transaction-statuses-explained) 
 
 ## Subscriptions / Reoccurring Payments Details
 
-Available Statuses | Description
------------------- | -------------------------------------------------------
-active             | Is active and will continue to process future payments
-inactive           | Is inactive and will not process future payments
-canceled           | Is canceled and will no longer process future payments
-completed          | Is completed and will no longer process future payments
+| Available Statuses | Description                                             |
+| ------------------ | ------------------------------------------------------- |
+| active             | Is active and will continue to process future payments  |
+| inactive           | Is inactive and will not process future payments        |
+| canceled           | Is canceled and will no longer process future payments  |
+| completed          | Is completed and will no longer process future payments |
 
 ## Memberships Details
 
@@ -130,24 +130,24 @@ completed          | Is completed and will no longer process future payments
 
 ### Types
 
-Id   | Available Types
----- | ------------------------------------------------
-1    | Standard webhook
-2-20 | Internal webhook types that should not be edited
+| Id   | Available Types                                  |
+| ---- | ------------------------------------------------ |
+| 1    | Standard webhook                                 |
+| 2-20 | Internal webhook types that should not be edited |
 
 ## Currency Details
 
 Note: additional new currencies can be added at any time.
 
-Code | Name                                    | Symbol
----- | --------------------------------------- | ------
-USD  | United States dollar                    | $
-CAD  | Canadian dollar                         | $
-AUD  | Australian dollar                       | $
-NZD  | New Zealand dollar                      | $
-GBP  | British pound sterling                  | £
-MXN  | Mexican peso                            | $
-EUR  | Euro                                    | €
-CHF  | Swiss Franc                             | FR
-CNY  | Chinese Yuan Renminbi                   | ¥
-JPY  | Yen  	                                 | ¥
+| Code | Name                   | Symbol |
+| ---- | ---------------------- | ------ |
+| USD  | United States dollar   | $      |
+| CAD  | Canadian dollar        | $      |
+| AUD  | Australian dollar      | $      |
+| NZD  | New Zealand dollar     | $      |
+| GBP  | British pound sterling | £      |
+| MXN  | Mexican peso           | $      |
+| EUR  | Euro                   | €      |
+| CHF  | Swiss Franc            | FR     |
+| CNY  | Chinese Yuan Renminbi  | ¥      |
+| JPY  | Yen                    | ¥      |
