@@ -62,3 +62,23 @@ User-Agent            | Webconnex-Divvy
 X-Webconnex-Delivery  | Hash for the delivery
 X-Webconnex-Event     | Event types being sent
 X-Webconnex-Signature | HMAC for the webhook. Note: Remains unchanged on resend events
+
+## Verifying signatures
+
+> Generating expected signature in Ruby:
+
+```ruby
+key = 'cdcf15c7c0184636a0fd7af7dbd42929' # Found in Webhook Settings Page
+data = response.body
+digest = OpenSSL::Digest.new('sha256')
+signature = OpenSSL::HMAC.hexdigest(digest, key, data)
+```
+
+It is highly recommended that you verify all webhook requests to ensure the events were sent by Webconnex and not by a third-party.  Verification can be performed by following the steps outlined below:
+
+1. **Extract the signature**
+   * Extract the signature from `X-Webconnex-Signature` header.
+2. **Determine the expected signature**
+   * Generate an HMAC with the SHA256 hash function using the webhook's `Signing Secret` as the key and the response body as the message.
+3. **Compare signatures**
+   * Compare the signature found in the `X-Webconnex-Signature` header to the generated expected signature in Step 2. It is a valid request if the signatures match.
