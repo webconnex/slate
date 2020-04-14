@@ -181,6 +181,7 @@ func searchRequest() {
       "paymentType": "MAST",
       "paymentMask": "MAST-2424",
       "gatewayReference": "TESTERCHARGE",
+      "gatewayMessage": "Approved",
       "status": "completed",
       "dateCreated": "2017-09-18T19:36:38Z",
       "dateUpdated": "2017-09-18T19:36:39Z"
@@ -214,6 +215,7 @@ func searchRequest() {
      "paymentType": "VISA",
      "paymentMask": "VISA-3112",
      "gatewayReference": "TESTERCHARGE",
+     "gatewayMessage": "Approved",
      "status": "completed",
      "dateCreated": "2017-05-11T16:10:33Z",
      "dateUpdated": "2017-05-11T16:10:33Z"
@@ -270,7 +272,9 @@ Attribute			                 |	Description
 **paymentMethod**<br>*string*   | Payment method used
 **paymentType**<br>*string*     | Payment type used
 **paymentMask**<br>*string*     | Payment Mask
-**gatewayReference**<br>*string*  | transaction Reference provided by gateway
+**gatewayReference**<br>*string*  | Transaction Reference provided by gateway
+**gatewayMessage**<br>*string*  | Message returned by the the gateway
+**parentTransactionId**<br>*string*  | Transaction to which a refund was applied (optional)
 **status**<br>*string*				 | Status of the transaction
 **dateCreated**<br>*timestamp* | Timestamp of the creation of the transaction
 **dateUpdated**<br>*timestamp* | Timestamp the transaction was last updated (optional)
